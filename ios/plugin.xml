@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.ashera.viewpager.ios"
+        version="1.0">
+
+  <name>CordovaViewPagerPlugin</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+  
+  <platform name="ios">
+    <config-file target="config.xml" parent="/widget">
+      <feature name="com.ashera.viewpager.ios">
+        	<param name="ios-package" value="CordovaViewPagerPlugin" />
+         	<param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+   	 <!-- start ios -->
+     <header-file src="ios/src/CordovaViewPagerPlugin.h" target-dir="ViewPager/ios/src"/>
+     <source-file src="ios/src/CordovaViewPagerPlugin.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/PagerAdapter.h" target-dir="ViewPager/ios/src"/>
+     <source-file src="ios/src/PagerAdapter.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/PagerTabStrip.h" target-dir="ViewPager/ios/src"/>
+     <source-file src="ios/src/PagerTabStrip.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/PagerTabStripImpl.h" target-dir="ViewPager/ios/src"/>
+     <source-file src="ios/src/PagerTabStripImpl.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/PagerTitleStrip.h" target-dir="ViewPager/ios/src"/>
+     <source-file src="ios/src/PagerTitleStrip.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/PagerTitleStripImpl.h" target-dir="ViewPager/ios/src"/>
+     <source-file src="ios/src/PagerTitleStripImpl.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/ViewPager.h" target-dir="ViewPager/ios/src"/>
+     <source-file src="ios/src/ViewPager.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/ViewPagerImpl.h" target-dir="ViewPager/ios/src"/>
+     <source-file src="ios/src/ViewPagerImpl.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/ViewPagerPlugin.h" target-dir="ViewPager/ios/src"/>
+     <source-file src="ios/src/ViewPagerPlugin.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <!-- ios end -->
+     <!-- start tsc -->
+     <source-file src="tsc/src/ios/widget/PagerTabStripImpl.ts" target-dir="tsc/src/ios/widget"/>
+     <source-file src="tsc/src/ios/widget/PagerTitleStripImpl.ts" target-dir="tsc/src/ios/widget"/>
+     <source-file src="tsc/src/ios/widget/ViewPagerImpl.ts" target-dir="tsc/src/ios/widget"/>
+     <!-- tsc end -->
+  </platform>
+
+</plugin>

@@ -1,0 +1,212 @@
+// start - imports
+
+	
+import CommandAttr from '../../widget/CommandAttr';
+import IWidget from '../../widget/IWidget';
+import ILayoutParam from '../../widget/ILayoutParam';
+import {plainToClass, Type, Exclude, Expose, Transform} from "class-transformer";
+import 'babel-polyfill';
+import {Gravity} from '../../widget/TypeConstants';
+import {ITranform, TransformerFactory} from '../../widget/TransformerFactory';
+import {Event} from '../../app/Event';
+import {MotionEvent} from '../../app/MotionEvent';
+import {DragEvent} from '../../app/DragEvent';
+import {KeyEvent} from '../../app/KeyEvent';
+import { ScopedObject } from '../../app/ScopedObject';
+
+
+
+
+
+
+
+
+
+
+
+// end - imports
+import {ViewImpl} from './ViewImpl';
+export abstract class PagerTabStripImpl<T> extends ViewImpl<T>{
+	//start - body
+	static initialize() {
+    }	
+	@Type(() => CommandAttr)
+	@Expose({ name: "tabIndicatorColor" })
+	tabIndicatorColor!:CommandAttr<string>| undefined;
+	@Type(() => CommandAttr)
+	@Expose({ name: "textSpacing" })
+	textSpacing!:CommandAttr<string>| undefined;
+	@Type(() => CommandAttr)
+	@Expose({ name: "drawFullUnderline" })
+	drawFullUnderline!:CommandAttr<boolean>| undefined;
+	@Type(() => CommandAttr)
+	@Expose({ name: "nonPrimaryAlpha" })
+	nonPrimaryAlpha!:CommandAttr<number>| undefined;
+	@Type(() => CommandAttr)
+	@Expose({ name: "textColor" })
+	textColor!:CommandAttr<string>| undefined;
+	@Type(() => CommandAttr)
+	@Expose({ name: "gravity" })
+	gravity!:CommandAttr<Gravity[]>| undefined;
+	@Type(() => CommandAttr)
+	@Expose({ name: "textSize" })
+	textSize!:CommandAttr<string>| undefined;
+	@Type(() => CommandAttr)
+	@Expose({ name: "textAppearance" })
+	textAppearance!:CommandAttr<string>| undefined;
+
+	@Exclude()
+	protected thisPointer: T;	
+	protected abstract getThisPointer(): T;
+	reset() : T {	
+		super.reset();
+		this.tabIndicatorColor = undefined;
+		this.textSpacing = undefined;
+		this.drawFullUnderline = undefined;
+		this.nonPrimaryAlpha = undefined;
+		this.textColor = undefined;
+		this.gravity = undefined;
+		this.textSize = undefined;
+		this.textAppearance = undefined;
+		return this.thisPointer;
+	}
+	constructor(id: string, path: string[], event:  string) {
+		super(id, path, event);
+		this.thisPointer = this.getThisPointer();
+	}
+	
+
+	public setTabIndicatorColor(value : string) : T {
+		this.resetIfRequired();
+		if (this.tabIndicatorColor == null || this.tabIndicatorColor == undefined) {
+			this.tabIndicatorColor = new CommandAttr<string>();
+		}
+		
+		this.tabIndicatorColor.setSetter(true);
+		this.tabIndicatorColor.setValue(value);
+		this.orderSet++;
+		this.tabIndicatorColor.setOrderSet(this.orderSet);
+		return this.thisPointer;
+	}
+		
+
+	public setTextSpacing(value : string) : T {
+		this.resetIfRequired();
+		if (this.textSpacing == null || this.textSpacing == undefined) {
+			this.textSpacing = new CommandAttr<string>();
+		}
+		
+		this.textSpacing.setSetter(true);
+		this.textSpacing.setValue(value);
+		this.orderSet++;
+		this.textSpacing.setOrderSet(this.orderSet);
+		return this.thisPointer;
+	}
+		
+
+	public setDrawFullUnderline(value : boolean) : T {
+		this.resetIfRequired();
+		if (this.drawFullUnderline == null || this.drawFullUnderline == undefined) {
+			this.drawFullUnderline = new CommandAttr<boolean>();
+		}
+		
+		this.drawFullUnderline.setSetter(true);
+		this.drawFullUnderline.setValue(value);
+		this.orderSet++;
+		this.drawFullUnderline.setOrderSet(this.orderSet);
+		return this.thisPointer;
+	}
+		
+
+	public setNonPrimaryAlpha(value : number) : T {
+		this.resetIfRequired();
+		if (this.nonPrimaryAlpha == null || this.nonPrimaryAlpha == undefined) {
+			this.nonPrimaryAlpha = new CommandAttr<number>();
+		}
+		
+		this.nonPrimaryAlpha.setSetter(true);
+		this.nonPrimaryAlpha.setValue(value);
+		this.orderSet++;
+		this.nonPrimaryAlpha.setOrderSet(this.orderSet);
+		return this.thisPointer;
+	}
+		
+
+	public setTextColor(value : string) : T {
+		this.resetIfRequired();
+		if (this.textColor == null || this.textColor == undefined) {
+			this.textColor = new CommandAttr<string>();
+		}
+		
+		this.textColor.setSetter(true);
+		this.textColor.setValue(value);
+		this.orderSet++;
+		this.textColor.setOrderSet(this.orderSet);
+		return this.thisPointer;
+	}
+		
+
+	public setGravity(...value : Gravity[]) : T {
+		this.resetIfRequired();
+		if (this.gravity == null || this.gravity == undefined) {
+			this.gravity = new CommandAttr<Gravity[]>();
+		}
+		
+		this.gravity.setSetter(true);
+		this.gravity.setValue(value);
+		this.orderSet++;
+		this.gravity.setOrderSet(this.orderSet);
+this.gravity.setTransformer('gravity');		return this.thisPointer;
+	}
+		
+
+	public setTextSize(value : string) : T {
+		this.resetIfRequired();
+		if (this.textSize == null || this.textSize == undefined) {
+			this.textSize = new CommandAttr<string>();
+		}
+		
+		this.textSize.setSetter(true);
+		this.textSize.setValue(value);
+		this.orderSet++;
+		this.textSize.setOrderSet(this.orderSet);
+		return this.thisPointer;
+	}
+		
+
+	public setTextAppearance(value : string) : T {
+		this.resetIfRequired();
+		if (this.textAppearance == null || this.textAppearance == undefined) {
+			this.textAppearance = new CommandAttr<string>();
+		}
+		
+		this.textAppearance.setSetter(true);
+		this.textAppearance.setValue(value);
+		this.orderSet++;
+		this.textAppearance.setOrderSet(this.orderSet);
+		return this.thisPointer;
+	}
+		
+	//end - body
+
+}
+	
+//start - staticinit
+
+export class PagerTabStrip extends PagerTabStripImpl<PagerTabStrip> implements IWidget{
+    getThisPointer(): PagerTabStrip {
+        return this;
+    }
+    
+   	public getClass() {
+		return PagerTabStrip;
+	}
+	
+   	constructor(id: string, path: string[], event: string) {
+		super(id, path, event);	
+	}
+}
+
+PagerTabStripImpl.initialize();
+
+//end - staticinit
