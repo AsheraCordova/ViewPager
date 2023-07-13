@@ -1,5 +1,5 @@
 {
-  "name": "${androidpackagename}",
+  "name": "com.ashera.viewpager",
   "version": "1.0.0",
   "description": "ViewPager Plugin",
   "author": "Ashera",
