@@ -15,8 +15,8 @@
         <param name="android-package" value="com.ashera.viewpager.CordovaViewPagerPlugin"/>
         <param name="onload" value="true" />
       </feature>
-      <framework src="core.gradle" custom="true" type="gradleReference" />
     </config-file>
+    <framework src="core.gradle" custom="true" type="gradleReference" />
 
    	 <!-- start src -->
      <!-- src end -->
