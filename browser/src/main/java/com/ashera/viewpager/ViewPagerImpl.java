@@ -385,6 +385,31 @@ public class ViewPagerImpl extends BaseHasWidgets {
         protected void scrollTo(int x, int y) {
         	ViewPagerImpl.this.scrollTo(x, y);
         }
+        
+        	public void state0() {
+        		ViewImpl.state(ViewPagerImpl.this, 0);
+        	}
+        	public void state1() {
+        		ViewImpl.state(ViewPagerImpl.this, 1);
+        	}
+        	public void state2() {
+        		ViewImpl.state(ViewPagerImpl.this, 2);
+        	}
+        	public void state3() {
+        		ViewImpl.state(ViewPagerImpl.this, 3);
+        	}
+        	public void state4() {
+        		ViewImpl.state(ViewPagerImpl.this, 4);
+        	}
+                        
+        public void stateYes() {
+        	ViewImpl.stateYes(ViewPagerImpl.this);
+        	
+        }
+        
+        public void stateNo() {
+        	ViewImpl.stateNo(ViewPagerImpl.this);
+        }
 	}
 	@Override
 	public Class getViewClass() {
@@ -806,14 +831,10 @@ public void onPageScrolled(int position,float positionOffset,int positionOffsetP
 	    String commandType = (String)obj.get(EventExpressionParser.KEY_COMMAND_TYPE);
 		switch (commandType) {
 		case "+":
-		case ":":
 		    if (EventCommandFactory.hasCommand(commandName)) {
 		    	 EventCommandFactory.getCommand(commandName).executeCommand(w, obj, position,positionOffset,positionOffsetPixels);
 		    }
-		    if (commandType.equals(":")) {
-		    	return;
-		    }
-			
+
 			break;
 		default:
 			break;
@@ -826,7 +847,7 @@ public void onPageScrolled(int position,float positionOffset,int positionOffsetP
 		if (w.getModelUiToPojoEventIds() != null) {
 			com.ashera.layout.ViewImpl.refreshUiFromModel(w, w.getModelUiToPojoEventIds(), true);
 		}
-		if (strValue != null && !strValue.isEmpty()) {
+		if (strValue != null && !strValue.isEmpty() && !strValue.trim().startsWith("+")) {
 		    com.ashera.core.IActivity activity = (com.ashera.core.IActivity)w.getFragment().getRootActivity();
 		    activity.sendEventMessage(obj);
 		}
@@ -869,14 +890,10 @@ public java.util.Map<String, Object> getOnPageScrolledEventObj(int position,floa
 	    String commandType = (String)obj.get(EventExpressionParser.KEY_COMMAND_TYPE);
 		switch (commandType) {
 		case "+":
-		case ":":
 		    if (EventCommandFactory.hasCommand(commandName)) {
 		    	 EventCommandFactory.getCommand(commandName).executeCommand(w, obj, position);
 		    }
-		    if (commandType.equals(":")) {
-		    	return;
-		    }
-			
+
 			break;
 		default:
 			break;
@@ -889,7 +906,7 @@ public java.util.Map<String, Object> getOnPageScrolledEventObj(int position,floa
 		if (w.getModelUiToPojoEventIds() != null) {
 			com.ashera.layout.ViewImpl.refreshUiFromModel(w, w.getModelUiToPojoEventIds(), true);
 		}
-		if (strValue != null && !strValue.isEmpty()) {
+		if (strValue != null && !strValue.isEmpty() && !strValue.trim().startsWith("+")) {
 		    com.ashera.core.IActivity activity = (com.ashera.core.IActivity)w.getFragment().getRootActivity();
 		    activity.sendEventMessage(obj);
 		}
@@ -930,14 +947,10 @@ public java.util.Map<String, Object> getOnPageSelectedEventObj(int position) {
 	    String commandType = (String)obj.get(EventExpressionParser.KEY_COMMAND_TYPE);
 		switch (commandType) {
 		case "+":
-		case ":":
 		    if (EventCommandFactory.hasCommand(commandName)) {
 		    	 EventCommandFactory.getCommand(commandName).executeCommand(w, obj, state);
 		    }
-		    if (commandType.equals(":")) {
-		    	return;
-		    }
-			
+
 			break;
 		default:
 			break;
@@ -950,7 +963,7 @@ public java.util.Map<String, Object> getOnPageSelectedEventObj(int position) {
 		if (w.getModelUiToPojoEventIds() != null) {
 			com.ashera.layout.ViewImpl.refreshUiFromModel(w, w.getModelUiToPojoEventIds(), true);
 		}
-		if (strValue != null && !strValue.isEmpty()) {
+		if (strValue != null && !strValue.isEmpty() && !strValue.trim().startsWith("+")) {
 		    com.ashera.core.IActivity activity = (com.ashera.core.IActivity)w.getFragment().getRootActivity();
 		    activity.sendEventMessage(obj);
 		}
@@ -987,7 +1000,7 @@ public java.util.Map<String, Object> getOnPageScrollStateChangedEventObj(int sta
 	public void setId(String id){
 		if (id != null && !id.equals("")){
 			super.setId(id);
-			viewPager.setId(IdGenerator.getId(id));
+			viewPager.setId((int) quickConvert(id, "id"));
 		}
 	}
 	

@@ -357,6 +357,31 @@ public class PagerTabStripImpl extends BaseHasWidgets {
             ViewImpl.nativeSetVisibility(asNativeWidget(), visibility != View.VISIBLE);
             
         }
+        
+        	public void state0() {
+        		ViewImpl.state(PagerTabStripImpl.this, 0);
+        	}
+        	public void state1() {
+        		ViewImpl.state(PagerTabStripImpl.this, 1);
+        	}
+        	public void state2() {
+        		ViewImpl.state(PagerTabStripImpl.this, 2);
+        	}
+        	public void state3() {
+        		ViewImpl.state(PagerTabStripImpl.this, 3);
+        	}
+        	public void state4() {
+        		ViewImpl.state(PagerTabStripImpl.this, 4);
+        	}
+                        
+        public void stateYes() {
+        	ViewImpl.stateYes(PagerTabStripImpl.this);
+        	
+        }
+        
+        public void stateNo() {
+        	ViewImpl.stateNo(PagerTabStripImpl.this);
+        }
 	}
 	@Override
 	public Class getViewClass() {
@@ -505,7 +530,7 @@ public class PagerTabStripImpl extends BaseHasWidgets {
 	public void setId(String id){
 		if (id != null && !id.equals("")){
 			super.setId(id);
-			pagerTabStrip.setId(IdGenerator.getId(id));
+			pagerTabStrip.setId((int) quickConvert(id, "id"));
 		}
 	}
 	

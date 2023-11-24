@@ -346,6 +346,31 @@ public class PagerTitleStripImpl extends BaseHasWidgets {
             ((HTMLElement)asNativeWidget()).getStyle().setProperty("display", visibility != View.VISIBLE ? "none" : "block");
             
         }
+        
+        	public void state0() {
+        		ViewImpl.state(PagerTitleStripImpl.this, 0);
+        	}
+        	public void state1() {
+        		ViewImpl.state(PagerTitleStripImpl.this, 1);
+        	}
+        	public void state2() {
+        		ViewImpl.state(PagerTitleStripImpl.this, 2);
+        	}
+        	public void state3() {
+        		ViewImpl.state(PagerTitleStripImpl.this, 3);
+        	}
+        	public void state4() {
+        		ViewImpl.state(PagerTitleStripImpl.this, 4);
+        	}
+                        
+        public void stateYes() {
+        	ViewImpl.stateYes(PagerTitleStripImpl.this);
+        	
+        }
+        
+        public void stateNo() {
+        	ViewImpl.stateNo(PagerTitleStripImpl.this);
+        }
 	}
 	@Override
 	public Class getViewClass() {
@@ -473,7 +498,7 @@ public class PagerTitleStripImpl extends BaseHasWidgets {
 	public void setId(String id){
 		if (id != null && !id.equals("")){
 			super.setId(id);
-			pagerTitleStrip.setId(IdGenerator.getId(id));
+			pagerTitleStrip.setId((int) quickConvert(id, "id"));
 		}
 	}
 	
