@@ -1142,7 +1142,7 @@ return this;}
 		getFragment().remeasure();
 		ViewImpl.updateBoundsX(asNativeWidget(), currentX);
 		this.currentX = -1;
-		ViewImpl.translateWithAnimation(asNativeWidget(), -x, y, animationDurationInMs, (tX, tY) -> {
+		ViewImpl.translateWithAnimation(asNativeWidget(), -x, ViewImpl.getY(asNativeWidget()), animationDurationInMs, (tX, tY) -> {
 			int mycurrentX = ViewImpl.getX(asNativeWidget());
 			viewPager.pageScrolled(-mycurrentX);
 			ViewImpl.updateBoundsX(asNativeWidget(), mycurrentX);

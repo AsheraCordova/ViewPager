@@ -1038,7 +1038,7 @@ void ASViewPagerImpl_smoothScrollToWithInt_withInt_withInt_(ASViewPagerImpl *sel
   [((id<ASIFragment>) nil_chk([self getFragment])) remeasure];
   ASViewImpl_updateBoundsXWithId_withInt_([self asNativeWidget], currentX);
   self->currentX_ = -1;
-  ASViewImpl_translateWithAnimationWithId_withInt_withInt_withInt_withASViewImpl_AnimationCallBack_([self asNativeWidget], -x, y, self->animationDurationInMs_, new_ASViewPagerImpl_$Lambda$1_initWithASViewPagerImpl_(self));
+  ASViewImpl_translateWithAnimationWithId_withInt_withInt_withInt_withASViewImpl_AnimationCallBack_([self asNativeWidget], -x, ASViewImpl_getYWithId_([self asNativeWidget]), self->animationDurationInMs_, new_ASViewPagerImpl_$Lambda$1_initWithASViewPagerImpl_(self));
 }
 
 void ASViewPagerImpl_scrollToWithInt_withInt_(ASViewPagerImpl *self, jint x, jint y) {
