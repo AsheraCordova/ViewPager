@@ -202,6 +202,9 @@ public class ViewPagerImpl extends BaseHasWidgets {
 	public class ViewPagerExt extends androidx.viewpager.widget.ViewPager implements ILifeCycleDecorator, com.ashera.widget.IMaxDimension{
 		private MeasureEvent measureFinished = new MeasureEvent();
 		private OnLayoutEvent onLayoutEvent = new OnLayoutEvent();
+		public IWidget getWidget() {
+			return ViewPagerImpl.this;
+		}
 		private int mMaxWidth = -1;
 		private int mMaxHeight = -1;
 		@Override

@@ -180,6 +180,9 @@ public class PagerTitleStripImpl extends BaseHasWidgets {
 	public class PagerTitleStripExt extends androidx.viewpager.widget.PagerTitleStrip implements ILifeCycleDecorator, com.ashera.widget.IMaxDimension{
 		private MeasureEvent measureFinished = new MeasureEvent();
 		private OnLayoutEvent onLayoutEvent = new OnLayoutEvent();
+		public IWidget getWidget() {
+			return PagerTitleStripImpl.this;
+		}
 		private int mMaxWidth = -1;
 		private int mMaxHeight = -1;
 		@Override

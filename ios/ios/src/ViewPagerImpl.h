@@ -193,6 +193,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 
 - (jint)getScrollX;
 
+- (id<ASIWidget>)getWidget;
+
 - (void)getWindowVisibleDisplayFrameWithADRect:(ADRect *)displayFrame;
 
 - (ADView *)inflateViewWithNSString:(NSString *)layout;
