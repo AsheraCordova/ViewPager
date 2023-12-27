@@ -217,6 +217,16 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl)
 - (void)setMyAttributeWithNSString:(NSString *)name
                             withId:(id)value;
 
+- (void)setState0WithId:(id)value;
+
+- (void)setState1WithId:(id)value;
+
+- (void)setState2WithId:(id)value;
+
+- (void)setState3WithId:(id)value;
+
+- (void)setState4WithId:(id)value;
+
 - (void)setVisibilityWithInt:(jint)visibility;
 
 - (void)state0;
@@ -284,6 +294,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)addModelWithId:(id)arg0;
 
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)animatorXmlWithNSString:(NSString *)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)endAnimator;
+
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)executeWithBoolean:(jboolean)setter;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)invalidate;
@@ -333,6 +347,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setDrawFullUnderlineWithBoolean:(jboolean)value;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setDuplicateParentStateWithBoolean:(jboolean)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setElevationWithNSString:(NSString *)arg0;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setEnabledWithBoolean:(jboolean)arg0;
 
@@ -456,6 +472,14 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setNonPrimaryAlphaWithFloat:(jfloat)value;
 
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setOnAnimationCancelWithNSString:(NSString *)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setOnAnimationEndWithNSString:(NSString *)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setOnAnimationRepeatWithNSString:(NSString *)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setOnAnimationStartWithNSString:(NSString *)arg0;
+
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setOnChildViewAddedWithNSString:(NSString *)arg0;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setOnChildViewRemovedWithNSString:(NSString *)arg0;
@@ -551,6 +575,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setVisibilityWithNSString:(NSString *)arg0;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setZIndexWithInt:(jint)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)startAnimator;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetAddStatesFromChildren;
 

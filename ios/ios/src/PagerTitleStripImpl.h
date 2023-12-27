@@ -217,6 +217,16 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl)
 - (void)setMyAttributeWithNSString:(NSString *)name
                             withId:(id)value;
 
+- (void)setState0WithId:(id)value;
+
+- (void)setState1WithId:(id)value;
+
+- (void)setState2WithId:(id)value;
+
+- (void)setState3WithId:(id)value;
+
+- (void)setState4WithId:(id)value;
+
 - (void)setVisibilityWithInt:(jint)visibility;
 
 - (void)state0;
@@ -284,6 +294,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)addModelWithId:(id)arg0;
 
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)animatorXmlWithNSString:(NSString *)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)endAnimator;
+
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)executeWithBoolean:(jboolean)setter;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)invalidate;
@@ -331,6 +345,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setCustomErrorMessageValuesWithNSString:(NSString *)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setDuplicateParentStateWithBoolean:(jboolean)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setElevationWithNSString:(NSString *)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setEnabledWithBoolean:(jboolean)arg0;
 
@@ -454,6 +470,14 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setNonPrimaryAlphaWithFloat:(jfloat)value;
 
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setOnAnimationCancelWithNSString:(NSString *)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setOnAnimationEndWithNSString:(NSString *)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setOnAnimationRepeatWithNSString:(NSString *)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setOnAnimationStartWithNSString:(NSString *)arg0;
+
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setOnChildViewAddedWithNSString:(NSString *)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setOnChildViewRemovedWithNSString:(NSString *)arg0;
@@ -547,6 +571,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setVisibilityWithNSString:(NSString *)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setZIndexWithInt:(jint)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)startAnimator;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetAddStatesFromChildren;
 

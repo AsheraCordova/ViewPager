@@ -225,6 +225,16 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 - (void)setMyAttributeWithNSString:(NSString *)name
                             withId:(id)value;
 
+- (void)setState0WithId:(id)value;
+
+- (void)setState1WithId:(id)value;
+
+- (void)setState2WithId:(id)value;
+
+- (void)setState3WithId:(id)value;
+
+- (void)setState4WithId:(id)value;
+
 - (void)setVisibilityWithInt:(jint)visibility;
 
 - (void)state0;
@@ -351,6 +361,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)addModelWithId:(id)arg0;
 
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)animatorXmlWithNSString:(NSString *)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)endAnimator;
+
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)executeWithBoolean:(jboolean)setter;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)invalidate;
@@ -400,6 +414,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setCustomErrorMessageValuesWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setDuplicateParentStateWithBoolean:(jboolean)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setElevationWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setEnabledWithBoolean:(jboolean)arg0;
 
@@ -521,6 +537,14 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setOffscreenPageLimitWithInt:(jint)value;
 
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setOnAnimationCancelWithNSString:(NSString *)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setOnAnimationEndWithNSString:(NSString *)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setOnAnimationRepeatWithNSString:(NSString *)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setOnAnimationStartWithNSString:(NSString *)arg0;
+
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setOnChildViewAddedWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setOnChildViewRemovedWithNSString:(NSString *)arg0;
@@ -620,6 +644,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setVisibilityWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setZIndexWithInt:(jint)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)startAnimator;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetAddStatesFromChildren;
 
