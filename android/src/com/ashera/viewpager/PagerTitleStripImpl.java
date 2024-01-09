@@ -343,6 +343,7 @@ public class PagerTitleStripImpl extends BaseWidget {
         public void stateNo() {
         	ViewImpl.stateNo(PagerTitleStripImpl.this);
         }
+     
 	}	@Override
 	public Class getViewClass() {
 		return PagerTitleStripExt.class;
@@ -489,7 +490,6 @@ Context context = (Context) fragment.getRootActivity();
 
     	}
     }
-    
 	
 private PagerTitleStripCommandBuilder builder;
 private PagerTitleStripBean bean;
@@ -602,7 +602,7 @@ public void setTextAppearance(String value) {
 }
 
 
-    
+	
 	//end - body
 
 	//start - pagetitle

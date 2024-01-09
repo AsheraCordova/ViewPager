@@ -345,6 +345,7 @@ public class PagerTabStripImpl extends BaseWidget {
         public void stateNo() {
         	ViewImpl.stateNo(PagerTabStripImpl.this);
         }
+     
 	}	@Override
 	public Class getViewClass() {
 		return PagerTabStripExt.class;
@@ -529,7 +530,6 @@ Context context = (Context) fragment.getRootActivity();
 
     	}
     }
-    
 	
 private PagerTabStripCommandBuilder builder;
 private PagerTabStripBean bean;
@@ -666,7 +666,7 @@ public void setTextAppearance(String value) {
 }
 
 
-    
+	
 	//end - body
 
 }

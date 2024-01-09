@@ -172,6 +172,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl)
 
 - (void)drawableStateChanged;
 
+- (void)endViewTransitionWithADView:(ADView *)view;
+
 - (void)executeWithNSString:(NSString *)method
           withNSObjectArray:(IOSObjectArray *)canvas;
 
