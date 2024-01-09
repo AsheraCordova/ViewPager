@@ -109,7 +109,7 @@ public class PagerTitleStripImpl extends BaseHasWidgets {
         }    
         return remove;
     }
-	
+
 	private void nativeRemoveView(IWidget widget) {
 		r.android.animation.LayoutTransition layoutTransition = pagerTitleStrip.getLayoutTransition();
 		if (layoutTransition != null && (

@@ -107,7 +107,7 @@ public class ViewPagerImpl extends BaseHasWidgets {
         }    
         return remove;
     }
-	
+
 	private void nativeRemoveView(IWidget widget) {
 		r.android.animation.LayoutTransition layoutTransition = viewPager.getLayoutTransition();
 		if (layoutTransition != null && (

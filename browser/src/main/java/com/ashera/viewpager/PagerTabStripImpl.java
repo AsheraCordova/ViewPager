@@ -101,7 +101,7 @@ public class PagerTabStripImpl extends BaseHasWidgets {
         }    
         return remove;
     }
-	
+
 	private void nativeRemoveView(IWidget widget) {
 		r.android.animation.LayoutTransition layoutTransition = pagerTabStrip.getLayoutTransition();
 		if (layoutTransition != null && (
