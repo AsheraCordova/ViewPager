@@ -387,6 +387,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setAlphaWithFloat:(jfloat)arg0;
 
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setAnimateLayoutChangesWithBoolean:(jboolean)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setAnimateParentHierarchyWithBoolean:(jboolean)arg0;
+
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setAsDragSourceWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setAttributeUnderTestWithNSString:(NSString *)arg0;
@@ -398,6 +402,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setBackgroundTintWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setBackgroundWithNSString:(NSString *)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setBottomWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setChildXmlWithNSString:(NSString *)arg0;
 
@@ -507,6 +513,12 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setLayoutModeWithNSString:(NSString *)arg0;
 
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setLayoutTransitionDurationWithInt:(jint)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setLayoutTransitionWithNSString:(NSString *)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setLeftWithNSString:(NSString *)arg0;
+
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setListitemWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setLongClickableWithBoolean:(jboolean)arg0;
@@ -597,6 +609,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setPageWidthWithFloat:(jfloat)value;
 
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setRightWithNSString:(NSString *)arg0;
+
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setRotationWithFloat:(jfloat)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setRotationXWithFloat:(jfloat)arg0;
@@ -614,6 +628,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setTextAlignmentWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setTextDirectionWithNSString:(NSString *)arg0;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)setTopWithNSString:(NSString *)arg0;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)setTransformPivotXWithNSString:(NSString *)arg0;
 
@@ -658,6 +674,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetBackgroundTint;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetBackgroundTintMode;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetBottom;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetClickable;
 
@@ -745,6 +763,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetLayoutMode;
 
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetLeft;
+
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetLongClickable;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetMaxHeight;
@@ -779,6 +799,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetPaddingTop;
 
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetRight;
+
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetRotation;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetRotationX;
@@ -794,6 +816,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetTextAlignment;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetTextDirection;
+
+- (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetTop;
 
 - (ASViewPagerImpl_ViewPagerCommandBuilder *)tryGetTransformPivotX;
 

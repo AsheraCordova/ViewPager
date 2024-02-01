@@ -320,6 +320,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setAlphaWithFloat:(jfloat)arg0;
 
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setAnimateLayoutChangesWithBoolean:(jboolean)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setAnimateParentHierarchyWithBoolean:(jboolean)arg0;
+
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setAsDragSourceWithNSString:(NSString *)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setAttributeUnderTestWithNSString:(NSString *)arg0;
@@ -331,6 +335,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setBackgroundTintWithNSString:(NSString *)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setBackgroundWithNSString:(NSString *)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setBottomWithNSString:(NSString *)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setChildXmlWithNSString:(NSString *)arg0;
 
@@ -440,6 +446,12 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setLayoutModeWithNSString:(NSString *)arg0;
 
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setLayoutTransitionDurationWithInt:(jint)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setLayoutTransitionWithNSString:(NSString *)arg0;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setLeftWithNSString:(NSString *)arg0;
+
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setListitemWithNSString:(NSString *)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setLongClickableWithBoolean:(jboolean)arg0;
@@ -516,6 +528,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setPaddingWithNSString:(NSString *)arg0;
 
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setRightWithNSString:(NSString *)arg0;
+
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setRotationWithFloat:(jfloat)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setRotationXWithFloat:(jfloat)arg0;
@@ -541,6 +555,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setTextSizeWithNSString:(NSString *)value;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setTextSpacingWithNSString:(NSString *)value;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setTopWithNSString:(NSString *)arg0;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setTransformPivotXWithNSString:(NSString *)arg0;
 
@@ -585,6 +601,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetBackgroundTint;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetBackgroundTintMode;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetBottom;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetClickable;
 
@@ -672,6 +690,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetLayoutMode;
 
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetLeft;
+
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetLongClickable;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetMaxHeight;
@@ -706,6 +726,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetPaddingTop;
 
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetRight;
+
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetRotation;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetRotationX;
@@ -721,6 +743,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl_PagerTitleStripExt)
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetTextAlignment;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetTextDirection;
+
+- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetTop;
 
 - (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)tryGetTransformPivotX;
 

@@ -322,7 +322,9 @@ public class PagerTabStripImpl extends BaseHasWidgets {
         
     	@Override
 		public void remeasure() {
-			getFragment().remeasure();
+    		if (getFragment() != null) {
+    			getFragment().remeasure();
+    		}
 		}
     	
         @Override

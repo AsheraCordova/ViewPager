@@ -23,6 +23,9 @@
      <!-- start res -->
      <!-- res end -->
      <!-- start tsc -->
+     <source-file src="tsc/src/web/widget/PagerTabStripImpl.ts" target-dir="tsc/src/web/widget"/>
+     <source-file src="tsc/src/web/widget/PagerTitleStripImpl.ts" target-dir="tsc/src/web/widget"/>
+     <source-file src="tsc/src/web/widget/ViewPagerImpl.ts" target-dir="tsc/src/web/widget"/>
      <!-- tsc end -->
   </platform>
 

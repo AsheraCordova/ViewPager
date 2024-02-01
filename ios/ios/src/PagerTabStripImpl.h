@@ -320,6 +320,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setAlphaWithFloat:(jfloat)arg0;
 
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setAnimateLayoutChangesWithBoolean:(jboolean)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setAnimateParentHierarchyWithBoolean:(jboolean)arg0;
+
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setAsDragSourceWithNSString:(NSString *)arg0;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setAttributeUnderTestWithNSString:(NSString *)arg0;
@@ -331,6 +335,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setBackgroundTintWithNSString:(NSString *)arg0;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setBackgroundWithNSString:(NSString *)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setBottomWithNSString:(NSString *)arg0;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setChildXmlWithNSString:(NSString *)arg0;
 
@@ -442,6 +448,12 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setLayoutModeWithNSString:(NSString *)arg0;
 
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setLayoutTransitionDurationWithInt:(jint)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setLayoutTransitionWithNSString:(NSString *)arg0;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setLeftWithNSString:(NSString *)arg0;
+
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setListitemWithNSString:(NSString *)arg0;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setLongClickableWithBoolean:(jboolean)arg0;
@@ -518,6 +530,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setPaddingWithNSString:(NSString *)arg0;
 
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setRightWithNSString:(NSString *)arg0;
+
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setRotationWithFloat:(jfloat)arg0;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setRotationXWithFloat:(jfloat)arg0;
@@ -545,6 +559,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setTextSizeWithNSString:(NSString *)value;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setTextSpacingWithNSString:(NSString *)value;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setTopWithNSString:(NSString *)arg0;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setTransformPivotXWithNSString:(NSString *)arg0;
 
@@ -589,6 +605,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetBackgroundTint;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetBackgroundTintMode;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetBottom;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetClickable;
 
@@ -676,6 +694,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetLayoutMode;
 
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetLeft;
+
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetLongClickable;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetMaxHeight;
@@ -710,6 +730,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetPaddingTop;
 
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetRight;
+
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetRotation;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetRotationX;
@@ -725,6 +747,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl_PagerTabStripExt)
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetTextAlignment;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetTextDirection;
+
+- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetTop;
 
 - (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)tryGetTransformPivotX;
 
