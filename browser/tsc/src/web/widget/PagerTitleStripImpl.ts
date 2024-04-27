@@ -13,6 +13,7 @@ import {MotionEvent} from '../../app/MotionEvent';
 import {DragEvent} from '../../app/DragEvent';
 import {KeyEvent} from '../../app/KeyEvent';
 import { ScopedObject } from '../../app/ScopedObject';
+import { Mixin, decorate } from 'ts-mixer';
 
 
 
@@ -28,26 +29,26 @@ export abstract class PagerTitleStripImpl<T> extends ViewGroupImpl<T>{
 	//start - body
 	static initialize() {
     }	
-	@Type(() => CommandAttr)
-	@Expose({ name: "textSpacing" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "textSpacing" }))
 	textSpacing!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "nonPrimaryAlpha" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "nonPrimaryAlpha" }))
 	nonPrimaryAlpha!:CommandAttr<number>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "textColor" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "textColor" }))
 	textColor!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "gravity" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "gravity" }))
 	gravity!:CommandAttr<Gravity[]>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "textSize" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "textSize" }))
 	textSize!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "textAppearance" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "textAppearance" }))
 	textAppearance!:CommandAttr<string>| undefined;
 
-	@Exclude()
+	@decorate(Exclude())
 	protected thisPointer: T;	
 	protected abstract getThisPointer(): T;
 	reset() : T {	

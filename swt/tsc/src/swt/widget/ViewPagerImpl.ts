@@ -13,6 +13,7 @@ import {MotionEvent} from '../../app/MotionEvent';
 import {DragEvent} from '../../app/DragEvent';
 import {KeyEvent} from '../../app/KeyEvent';
 import { ScopedObject } from '../../app/ScopedObject';
+import { Mixin, decorate } from 'ts-mixer';
 
 
 
@@ -33,35 +34,35 @@ export abstract class ViewPagerImpl<T> extends ViewGroupImpl<T>{
 	//start - body
 	static initialize() {
     }	
-	@Type(() => CommandAttr)
-	@Expose({ name: "currentItem" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "currentItem" }))
 	currentItem!:CommandAttr<number>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "offscreenPageLimit" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "offscreenPageLimit" }))
 	offscreenPageLimit!:CommandAttr<number>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "pageMargin" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "pageMargin" }))
 	pageMargin!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "pageMarginDrawable" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "pageMarginDrawable" }))
 	pageMarginDrawable!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "onPageScrolled" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "onPageScrolled" }))
 	onPageScrolled!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "onPageSelected" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "onPageSelected" }))
 	onPageSelected!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "onPageScrollStateChange" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "onPageScrollStateChange" }))
 	onPageScrollStateChange!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "pageWidth" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "pageWidth" }))
 	pageWidth!:CommandAttr<number>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "pageTitles" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "pageTitles" }))
 	pageTitles!:CommandAttr<string>| undefined;
 
-	@Exclude()
+	@decorate(Exclude())
 	protected thisPointer: T;	
 	protected abstract getThisPointer(): T;
 	reset() : T {	
@@ -214,13 +215,13 @@ export abstract class ViewPagerImpl<T> extends ViewGroupImpl<T>{
 	
 //start - staticinit
 export abstract class ViewPagerImpl_LayoutParams<T> extends ViewGroupImpl_LayoutParams<T> {
-	@Type(() => CommandAttr)
-	@Expose({ name: "layout_gravity" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "layout_gravity" }))
 	layout_gravity!:CommandAttr<Gravity[]>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "layout_isdecor" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "layout_isdecor" }))
 	layout_isdecor!:CommandAttr<boolean>| undefined;
-	@Exclude()
+	@decorate(Exclude())
 	protected thisPointer: T;	
 	protected abstract getThisPointer(): T;
 	reset() : T {	
