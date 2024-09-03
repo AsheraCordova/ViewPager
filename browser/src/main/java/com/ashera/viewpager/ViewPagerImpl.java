@@ -215,6 +215,7 @@ public class ViewPagerImpl extends BaseHasWidgets {
 	public class ViewPagerExt extends androidx.viewpager.widget.ViewPager implements ILifeCycleDecorator, com.ashera.widget.IMaxDimension{
 		private MeasureEvent measureFinished = new MeasureEvent();
 		private OnLayoutEvent onLayoutEvent = new OnLayoutEvent();
+		private List<IWidget> overlays;
 		public IWidget getWidget() {
 			return ViewPagerImpl.this;
 		}
@@ -266,11 +267,14 @@ public class ViewPagerImpl extends BaseHasWidgets {
 		protected void onLayout(boolean changed, int l, int t, int r, int b) {
 			super.onLayout(changed, l, t, r, b);
 			ViewImpl.setDrawableBounds(ViewPagerImpl.this, l, t, r, b);
+			if (!isOverlay()) {
 			ViewImpl.nativeMakeFrame(asNativeWidget(), l, t, getAdjustedRight(r, l), b);updateBounds(l, t, r, b);
+			}
 			replayBufferedEvents();
 			canvas.reset();
 			onDraw(canvas);
 	        ViewImpl.redrawDrawables(ViewPagerImpl.this);
+	        overlays = ViewImpl.drawOverlay(ViewPagerImpl.this, overlays);
 			
 			IWidgetLifeCycleListener listener = (IWidgetLifeCycleListener) getListener();
 			if (listener != null) {
@@ -400,7 +404,7 @@ public class ViewPagerImpl extends BaseHasWidgets {
 				setState4(value);
 				return;
 			}
-			ViewPagerImpl.this.setAttribute(name, value, true);
+			ViewPagerImpl.this.setAttribute(name, value, !(value instanceof String));
 		}
         @Override
         public void setVisibility(int visibility) {

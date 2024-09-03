@@ -197,6 +197,7 @@ __attribute__((unused)) static jint ASViewPagerImpl_getAbsXWithId_withInt_withIn
   __unsafe_unretained ASViewPagerImpl *this$0_;
   ASMeasureEvent *measureFinished_;
   ASOnLayoutEvent *onLayoutEvent_;
+  id<JavaUtilList> overlays_;
   jint mMaxWidth_;
   jint mMaxHeight_;
   id<JavaUtilMap> templates_;
@@ -206,6 +207,7 @@ __attribute__((unused)) static jint ASViewPagerImpl_getAbsXWithId_withInt_withIn
 
 J2OBJC_FIELD_SETTER(ASViewPagerImpl_ViewPagerExt, measureFinished_, ASMeasureEvent *)
 J2OBJC_FIELD_SETTER(ASViewPagerImpl_ViewPagerExt, onLayoutEvent_, ASOnLayoutEvent *)
+J2OBJC_FIELD_SETTER(ASViewPagerImpl_ViewPagerExt, overlays_, id<JavaUtilList>)
 J2OBJC_FIELD_SETTER(ASViewPagerImpl_ViewPagerExt, templates_, id<JavaUtilMap>)
 
 @interface ASViewPagerImpl_CustomPagerAdapter () {
@@ -1224,12 +1226,15 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
                     withInt:(jint)b {
   [super onLayoutWithBoolean:changed withInt:l withInt:t withInt:r withInt:b];
   ASViewImpl_setDrawableBoundsWithASIWidget_withInt_withInt_withInt_withInt_(this$0_, l, t, r, b);
-  ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_([this$0_ asNativeWidget], l, t, ASViewPagerImpl_getAdjustedRightWithInt_withInt_(this$0_, r, l), b);
-  ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(this$0_, l, t, r, b);
+  if (![self isOverlay]) {
+    ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_([this$0_ asNativeWidget], l, t, ASViewPagerImpl_getAdjustedRightWithInt_withInt_(this$0_, r, l), b);
+    ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(this$0_, l, t, r, b);
+  }
   [this$0_ replayBufferedEvents];
   [((id<ADCanvas>) nil_chk(this$0_->canvas_)) reset];
   [self onDrawWithADCanvas:this$0_->canvas_];
   ASViewImpl_redrawDrawablesWithASIWidget_(this$0_);
+  overlays_ = ASViewImpl_drawOverlayWithASIWidget_withJavaUtilList_(this$0_, overlays_);
   id<ASIWidgetLifeCycleListener> listener = [this$0_ getListener];
   if (listener != nil) {
     [((ASOnLayoutEvent *) nil_chk(onLayoutEvent_)) setBWithInt:b];
@@ -1347,7 +1352,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
     [self setState4WithId:value];
     return;
   }
-  [this$0_ setAttributeWithNSString:name withId:value withBoolean:true];
+  [this$0_ setAttributeWithNSString:name withId:value withBoolean:!([value isKindOfClass:[NSString class]])];
 }
 
 - (void)setVisibilityWithInt:(jint)visibility {
@@ -1521,12 +1526,13 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
     { "this$0_", "LASViewPagerImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
     { "measureFinished_", "LASMeasureEvent;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "onLayoutEvent_", "LASOnLayoutEvent;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
+    { "overlays_", "LJavaUtilList;", .constantValue.asLong = 0, 0x2, -1, -1, 40, -1 },
     { "mMaxWidth_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "mMaxHeight_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "templates_", "LJavaUtilMap;", .constantValue.asLong = 0, 0x2, -1, -1, 40, -1 },
+    { "templates_", "LJavaUtilMap;", .constantValue.asLong = 0, 0x2, -1, -1, 41, -1 },
   };
-  static const void *ptrTable[] = { "setMaxWidth", "I", "setMaxHeight", "LASViewPagerImpl;", "onMeasure", "II", "onLayout", "ZIIII", "execute", "LNSString;[LNSObject;", "updateMeasuredDimension", "newInstance", "LASIWidget;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;", "()Ljava/util/List<Ljava/lang/String;>;", "getAttribute", "LASWidgetAttribute;", "inflateView", "LNSString;", "getLocationOnScreen", "[I", "getWindowVisibleDisplayFrame", "LADRect;", "offsetTopAndBottom", "offsetLeftAndRight", "setMyAttribute", "LNSString;LNSObject;", "setVisibility", "smoothScrollTo", "III", "scrollTo", "setState0", "LNSObject;", "setState1", "setState2", "setState3", "setState4", "endViewTransition", "LADView;", "Ljava/util/Map<Ljava/lang/String;Lcom/ashera/widget/IWidget;>;" };
-  static const J2ObjcClassInfo _ASViewPagerImpl_ViewPagerExt = { "ViewPagerExt", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 41, 6, 3, -1, -1, -1, -1 };
+  static const void *ptrTable[] = { "setMaxWidth", "I", "setMaxHeight", "LASViewPagerImpl;", "onMeasure", "II", "onLayout", "ZIIII", "execute", "LNSString;[LNSObject;", "updateMeasuredDimension", "newInstance", "LASIWidget;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;", "()Ljava/util/List<Ljava/lang/String;>;", "getAttribute", "LASWidgetAttribute;", "inflateView", "LNSString;", "getLocationOnScreen", "[I", "getWindowVisibleDisplayFrame", "LADRect;", "offsetTopAndBottom", "offsetLeftAndRight", "setMyAttribute", "LNSString;LNSObject;", "setVisibility", "smoothScrollTo", "III", "scrollTo", "setState0", "LNSObject;", "setState1", "setState2", "setState3", "setState4", "endViewTransition", "LADView;", "Ljava/util/List<Lcom/ashera/widget/IWidget;>;", "Ljava/util/Map<Ljava/lang/String;Lcom/ashera/widget/IWidget;>;" };
+  static const J2ObjcClassInfo _ASViewPagerImpl_ViewPagerExt = { "ViewPagerExt", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 41, 7, 3, -1, -1, -1, -1 };
   return &_ASViewPagerImpl_ViewPagerExt;
 }
 
