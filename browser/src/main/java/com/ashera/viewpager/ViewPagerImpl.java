@@ -90,7 +90,7 @@ public class ViewPagerImpl extends BaseHasWidgets {
 	}
 
 	@Override
-	public boolean remove(IWidget w) {		
+	public boolean remove(IWidget w) {
 		boolean remove = super.remove(w);
 		viewPager.removeView((View) w.asWidget());
 		 nativeRemoveView(w);            
@@ -330,7 +330,9 @@ public class ViewPagerImpl extends BaseHasWidgets {
         @Override
         public void drawableStateChanged() {
         	super.drawableStateChanged();
-        	ViewImpl.drawableStateChanged(ViewPagerImpl.this);
+        	if (!isWidgetDisposed()) {
+        		ViewImpl.drawableStateChanged(ViewPagerImpl.this);
+        	}
         }
         private Map<String, IWidget> templates;
     	@Override
@@ -343,9 +345,10 @@ public class ViewPagerImpl extends BaseHasWidgets {
     			template = (IWidget) quickConvert(layout, "template");
     			templates.put(layout, template);
     		}
-    		IWidget widget = template.loadLazyWidgets(ViewPagerImpl.this.getParent());
-    		return (View) widget.asWidget();
-    	}        
+    		
+    		IWidget widget = template.loadLazyWidgets(ViewPagerImpl.this);
+			return (View) widget.asWidget();
+    	}   
         
     	@Override
 		public void remeasure() {
@@ -472,6 +475,7 @@ public class ViewPagerImpl extends BaseHasWidgets {
 			super.endViewTransition(view);
 			runBufferedRunnables();
 		}
+	
 	}
 	@Override
 	public Class getViewClass() {
@@ -822,8 +826,8 @@ public class ViewPagerImpl extends BaseHasWidgets {
 	
 
 
-	
 	private final static class CanvasImpl implements r.android.graphics.Canvas {
+		private boolean requiresAttrChangeListener = false;
 		private boolean canvasReset = false;
 		private List<HTMLElement> dividers = new java.util.ArrayList<>();
 		private IWidget widget;
@@ -842,6 +846,23 @@ public class ViewPagerImpl extends BaseHasWidgets {
 			ViewImpl.nativeMakeFrame(imageElement, mDivider.getLeft(), mDivider.getTop(), mDivider.getRight(),
 					mDivider.getBottom());
 			ViewGroupImpl.nativeAddView((HTMLElement) widget.asNativeWidget(), imageElement);
+			
+			if (requiresAttrChangeListener) {
+				mDivider.setAttributeChangeListener((name, value) -> {
+					switch (name) {
+					case "bounds":
+						r.android.graphics.Rect rect = (r.android.graphics.Rect) value;
+						ViewImpl.nativeMakeFrame(imageElement, rect.left, rect.top, rect.right, rect.bottom);
+						break;
+					case "alpha":
+						int alpha = (int) value;
+						imageElement.getStyle().setProperty("opacity", (alpha/255f) + "");
+						break;
+					default:
+						break;
+					}
+				});
+			}
 			Object drawable = mDivider.getDrawable();
 			if (drawable instanceof String) {
 				String drawableStr = (String) drawable;
@@ -852,6 +873,8 @@ public class ViewPagerImpl extends BaseHasWidgets {
 					imageElement.setAttribute("src", drawableStr);
 					imageElement.getStyle().removeProperty("background-color");
 				}
+			} else if (drawable instanceof Integer){
+				imageElement.getStyle().setProperty("background-color", (String) ViewImpl.getColor(drawable));
 			}
 		}
 

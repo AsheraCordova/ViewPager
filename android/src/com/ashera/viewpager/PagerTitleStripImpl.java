@@ -209,7 +209,9 @@ public class PagerTitleStripImpl extends BaseWidget {
         @Override
         public void drawableStateChanged() {
         	super.drawableStateChanged();
-        	ViewImpl.drawableStateChanged(PagerTitleStripImpl.this);
+        	if (!isWidgetDisposed()) {
+        		ViewImpl.drawableStateChanged(PagerTitleStripImpl.this);
+        	}
         }
         
     	public void setState0(float value) {
@@ -347,6 +349,7 @@ public class PagerTitleStripImpl extends BaseWidget {
         	ViewImpl.stateNo(PagerTitleStripImpl.this);
         }
      
+	
 	}	@Override
 	public Class getViewClass() {
 		return PagerTitleStripExt.class;

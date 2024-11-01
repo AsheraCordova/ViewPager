@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
 	def project_version = '1.0.0';
-	
+	implementation "com.ashera:AndroidXJViewPager:${project_version}"
 	implementation "com.ashera:SWTViewPagerPlugin:${project_version}"
     
 }

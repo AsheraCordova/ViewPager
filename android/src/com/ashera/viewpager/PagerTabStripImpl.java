@@ -211,7 +211,9 @@ public class PagerTabStripImpl extends BaseWidget {
         @Override
         public void drawableStateChanged() {
         	super.drawableStateChanged();
-        	ViewImpl.drawableStateChanged(PagerTabStripImpl.this);
+        	if (!isWidgetDisposed()) {
+        		ViewImpl.drawableStateChanged(PagerTabStripImpl.this);
+        	}
         }
         
     	public void setState0(float value) {
@@ -349,6 +351,7 @@ public class PagerTabStripImpl extends BaseWidget {
         	ViewImpl.stateNo(PagerTabStripImpl.this);
         }
      
+	
 	}	@Override
 	public Class getViewClass() {
 		return PagerTabStripExt.class;

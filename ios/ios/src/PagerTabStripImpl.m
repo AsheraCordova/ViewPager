@@ -49,7 +49,7 @@
 @interface ASPagerTabStripImpl () {
  @public
   id uiView_;
-  ASPagerTabStrip *pagerTabStrip_;
+  ADXPagerTabStrip *pagerTabStrip_;
   ASPagerTabStripImpl_PagerTabStripCommandBuilder *builder_;
   ASPagerTabStripImpl_PagerTabStripBean *bean_;
   ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder *paramsBuilder_;
@@ -73,7 +73,7 @@
 @end
 
 J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, uiView_, id)
-J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, pagerTabStrip_, ASPagerTabStrip *)
+J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, pagerTabStrip_, ADXPagerTabStrip *)
 J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, builder_, ASPagerTabStripImpl_PagerTabStripCommandBuilder *)
 J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, bean_, ASPagerTabStripImpl_PagerTabStripBean *)
 J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, paramsBuilder_, ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder *)
@@ -202,7 +202,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (jboolean)removeWithASIWidget:(id<ASIWidget>)w {
   jboolean remove = [super removeWithASIWidget:w];
-  [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) removeViewWithADView:(ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class])];
+  [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) removeViewWithADView:(ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class])];
   ASPagerTabStripImpl_nativeRemoveViewWithASIWidget_(self, w);
   return remove;
 }
@@ -210,8 +210,8 @@ J2OBJC_IGNORE_DESIGNATED_END
 - (jboolean)removeWithInt:(jint)index {
   id<ASIWidget> widget = [((id<JavaUtilList>) nil_chk(widgets_)) getWithInt:index];
   jboolean remove = [super removeWithInt:index];
-  if (index + 1 <= [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) getChildCount]) {
-    [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) removeViewAtWithInt:index];
+  if (index + 1 <= [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) getChildCount]) {
+    [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) removeViewAtWithInt:index];
     ASPagerTabStripImpl_nativeRemoveViewWithASIWidget_(self, widget);
   }
   return remove;
@@ -227,10 +227,10 @@ J2OBJC_IGNORE_DESIGNATED_END
     ADView *view = (ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class]);
     ASPagerTabStripImpl_createLayoutParamsWithADView_(self, view);
     if (index == -1) {
-      [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) addViewWithADView:view];
+      [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) addViewWithADView:view];
     }
     else {
-      [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) addViewWithADView:view withInt:index];
+      [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) addViewWithADView:view withInt:index];
     }
   }
   ASViewGroupImpl_nativeAddViewWithId_withId_([self asNativeWidget], [((id<ASIWidget>) nil_chk(w)) asNativeWidget]);
@@ -295,22 +295,22 @@ J2OBJC_IGNORE_DESIGNATED_END
   switch (JreIndexOfStr([((ASWidgetAttribute *) nil_chk(key)) getAttributeName], (id[]){ @"textSpacing", @"nonPrimaryAlpha", @"textColor", @"gravity", @"textSize", @"textAppearance", @"tabIndicatorColor", @"drawFullUnderline" }, 8)) {
     case 0:
     {
-      [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) setTextSpacingWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
+      [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) setTextSpacingWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
     }
     break;
     case 1:
     {
-      [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) setNonPrimaryAlphaWithFloat:[((JavaLangFloat *) nil_chk((JavaLangFloat *) cast_chk(objValue, [JavaLangFloat class]))) floatValue]];
+      [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) setNonPrimaryAlphaWithFloat:[((JavaLangFloat *) nil_chk((JavaLangFloat *) cast_chk(objValue, [JavaLangFloat class]))) floatValue]];
     }
     break;
     case 2:
     {
-      [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) setTextColorWithId:objValue];
+      [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) setTextColorWithId:objValue];
     }
     break;
     case 3:
     {
-      [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) setGravityWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
+      [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) setGravityWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
     }
     break;
     case 4:
@@ -325,12 +325,12 @@ J2OBJC_IGNORE_DESIGNATED_END
     break;
     case 6:
     {
-      [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) setTabIndicatorColorWithId:objValue];
+      [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) setTabIndicatorColorWithId:objValue];
     }
     break;
     case 7:
     {
-      [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) setDrawFullUnderlineWithBoolean:[((JavaLangBoolean *) nil_chk((JavaLangBoolean *) cast_chk(objValue, [JavaLangBoolean class]))) booleanValue]];
+      [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) setDrawFullUnderlineWithBoolean:[((JavaLangBoolean *) nil_chk((JavaLangBoolean *) cast_chk(objValue, [JavaLangBoolean class]))) booleanValue]];
     }
     break;
     default:
@@ -385,7 +385,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 - (void)setIdWithNSString:(NSString *)id_ {
   if (id_ != nil && ![id_ isEqual:@""]) {
     [super setIdWithNSString:id_];
-    [((ASPagerTabStrip *) nil_chk(pagerTabStrip_)) setIdWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk([self quickConvertWithId:id_ withNSString:@"id"], [JavaLangInteger class]))) intValue]];
+    [((ADXPagerTabStrip *) nil_chk(pagerTabStrip_)) setIdWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk([self quickConvertWithId:id_ withNSString:@"id"], [JavaLangInteger class]))) intValue]];
   }
 }
 
@@ -510,7 +510,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { "uiView_", "LNSObject;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 35, -1, -1 },
     { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 36, -1, -1 },
-    { "pagerTabStrip_", "LASPagerTabStrip;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
+    { "pagerTabStrip_", "LADXPagerTabStrip;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "builder_", "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "bean_", "LASPagerTabStripImpl_PagerTabStripBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "paramsBuilder_", "LASPagerTabStripImpl_PagerTabStripCommandParamsBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
@@ -564,7 +564,7 @@ void ASPagerTabStripImpl_setWidgetOnNativeClass(ASPagerTabStripImpl *self) {
 }
 
 void ASPagerTabStripImpl_nativeRemoveViewWithASIWidget_(ASPagerTabStripImpl *self, id<ASIWidget> widget) {
-  ADLayoutTransition *layoutTransition = [((ASPagerTabStrip *) nil_chk(self->pagerTabStrip_)) getLayoutTransition];
+  ADLayoutTransition *layoutTransition = [((ADXPagerTabStrip *) nil_chk(self->pagerTabStrip_)) getLayoutTransition];
   if (layoutTransition != nil && ([layoutTransition isTransitionTypeEnabledWithInt:ADLayoutTransition_CHANGE_DISAPPEARING] || [layoutTransition isTransitionTypeEnabledWithInt:ADLayoutTransition_DISAPPEARING])) {
     [self addToBufferedRunnablesWithJavaLangRunnable:new_ASPagerTabStripImpl_$Lambda$1_initWithASIWidget_(widget)];
   }
@@ -592,15 +592,15 @@ ADViewGroup_LayoutParams *ASPagerTabStripImpl_getLayoutParamsWithADView_(ASPager
 
 void ASPagerTabStripImpl_nativeCreateWithJavaUtilMap_(ASPagerTabStripImpl *self, id<JavaUtilMap> params) {
   [self createPaneWithJavaUtilMap:params];
-  [((ASPagerTabStrip *) nil_chk(self->pagerTabStrip_)) init__WithASHasWidgets:self];
+  [((ADXPagerTabStrip *) nil_chk(self->pagerTabStrip_)) init__WithASHasWidgets:self];
 }
 
 void ASPagerTabStripImpl_setTextSizeWithId_(ASPagerTabStripImpl *self, id objValue) {
-  [((ASPagerTabStrip *) nil_chk(self->pagerTabStrip_)) setTextSizeWithInt:0 withFloat:[((JavaLangFloat *) nil_chk((JavaLangFloat *) cast_chk(objValue, [JavaLangFloat class]))) floatValue]];
+  [((ADXPagerTabStrip *) nil_chk(self->pagerTabStrip_)) setTextSizeWithInt:0 withFloat:[((JavaLangFloat *) nil_chk((JavaLangFloat *) cast_chk(objValue, [JavaLangFloat class]))) floatValue]];
 }
 
 void ASPagerTabStripImpl_setTextAppearanceWithId_(ASPagerTabStripImpl *self, id objValue) {
-  [((ASPagerTabStrip *) nil_chk(self->pagerTabStrip_)) setTextAppearanceWithId:objValue];
+  [((ADXPagerTabStrip *) nil_chk(self->pagerTabStrip_)) setTextAppearanceWithId:objValue];
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTabStripImpl)
@@ -709,7 +709,9 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTabStripImpl)
 
 - (void)drawableStateChanged {
   [super drawableStateChanged];
-  ASViewImpl_drawableStateChangedWithASIWidget_(this$0_);
+  if (![this$0_ isWidgetDisposed]) {
+    ASViewImpl_drawableStateChangedWithASIWidget_(this$0_);
+  }
 }
 
 - (ADView *)inflateViewWithNSString:(NSString *)layout {
@@ -721,7 +723,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTabStripImpl)
     template_ = (id<ASIWidget>) cast_check([this$0_ quickConvertWithId:layout withNSString:@"template"], ASIWidget_class_());
     (void) [((id<JavaUtilMap>) nil_chk(templates_)) putWithId:layout withId:template_];
   }
-  id<ASIWidget> widget = [((id<ASIWidget>) nil_chk(template_)) loadLazyWidgetsWithASHasWidgets:[this$0_ getParent]];
+  id<ASIWidget> widget = [((id<ASIWidget>) nil_chk(template_)) loadLazyWidgetsWithASHasWidgets:this$0_];
   return (ADView *) cast_chk([((id<ASIWidget>) nil_chk(widget)) asWidget], [ADView class]);
 }
 
@@ -946,7 +948,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTabStripImpl)
 
 void ASPagerTabStripImpl_PagerTabStripExt_initWithASPagerTabStripImpl_(ASPagerTabStripImpl_PagerTabStripExt *self, ASPagerTabStripImpl *outer$) {
   self->this$0_ = outer$;
-  ASPagerTabStrip_initWithASHasWidgets_(self, outer$);
+  ADXPagerTabStrip_initWithASHasWidgets_(self, outer$);
   self->measureFinished_ = new_ASMeasureEvent_init();
   self->onLayoutEvent_ = new_ASOnLayoutEvent_init();
   self->mMaxWidth_ = -1;

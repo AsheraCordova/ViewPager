@@ -150,7 +150,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 #define ASViewPagerImpl_ViewPagerExt_
 
 #define RESTRICT_ViewPager 1
-#define INCLUDE_ASViewPager 1
+#define INCLUDE_ADXViewPager 1
 #include "ViewPager.h"
 
 #define RESTRICT_ILifeCycleDecorator 1
@@ -170,7 +170,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 @protocol ASIWidget;
 @protocol JavaUtilList;
 
-@interface ASViewPagerImpl_ViewPagerExt : ASViewPager < ASILifeCycleDecorator, ASIMaxDimension >
+@interface ASViewPagerImpl_ViewPagerExt : ADXViewPager < ASILifeCycleDecorator, ASIMaxDimension >
 
 #pragma mark Public
 
@@ -293,7 +293,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_ViewPagerExt)
 #define ASViewPagerImpl_CustomPagerAdapter_
 
 #define RESTRICT_PagerAdapter 1
-#define INCLUDE_ASPagerAdapter 1
+#define INCLUDE_ADXPagerAdapter 1
 #include "PagerAdapter.h"
 
 @class ADView;
@@ -301,7 +301,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_ViewPagerExt)
 @class ASViewPagerImpl;
 @protocol JavaLangCharSequence;
 
-@interface ASViewPagerImpl_CustomPagerAdapter : ASPagerAdapter
+@interface ASViewPagerImpl_CustomPagerAdapter : ADXPagerAdapter
 
 #pragma mark Public
 

@@ -65,7 +65,7 @@
  @public
   id uiView_;
   id<ADCanvas> canvas_;
-  ASViewPager *viewPager_;
+  ADXViewPager *viewPager_;
   jfloat pageWidth_;
   id<JavaUtilList> pageTitles_;
   jint animationDurationInMs_;
@@ -86,7 +86,7 @@
 
 - (void)createLayoutParamsWithADView:(ADView *)view;
 
-- (ASViewPager_LayoutParams *)getLayoutParamsWithADView:(ADView *)view;
+- (ADXViewPager_LayoutParams *)getLayoutParamsWithADView:(ADView *)view;
 
 - (void)setPageTitlesWithId:(id)objValue;
 
@@ -139,7 +139,7 @@
 
 J2OBJC_FIELD_SETTER(ASViewPagerImpl, uiView_, id)
 J2OBJC_FIELD_SETTER(ASViewPagerImpl, canvas_, id<ADCanvas>)
-J2OBJC_FIELD_SETTER(ASViewPagerImpl, viewPager_, ASViewPager *)
+J2OBJC_FIELD_SETTER(ASViewPagerImpl, viewPager_, ADXViewPager *)
 J2OBJC_FIELD_SETTER(ASViewPagerImpl, pageTitles_, id<JavaUtilList>)
 J2OBJC_FIELD_SETTER(ASViewPagerImpl, builder_, ASViewPagerImpl_ViewPagerCommandBuilder *)
 J2OBJC_FIELD_SETTER(ASViewPagerImpl, bean_, ASViewPagerImpl_ViewPagerBean *)
@@ -152,7 +152,7 @@ __attribute__((unused)) static void ASViewPagerImpl_nativeRemoveViewWithASIWidge
 
 __attribute__((unused)) static void ASViewPagerImpl_createLayoutParamsWithADView_(ASViewPagerImpl *self, ADView *view);
 
-__attribute__((unused)) static ASViewPager_LayoutParams *ASViewPagerImpl_getLayoutParamsWithADView_(ASViewPagerImpl *self, ADView *view);
+__attribute__((unused)) static ADXViewPager_LayoutParams *ASViewPagerImpl_getLayoutParamsWithADView_(ASViewPagerImpl *self, ADView *view);
 
 __attribute__((unused)) static void ASViewPagerImpl_setPageTitlesWithId_(ASViewPagerImpl *self, id objValue);
 
@@ -275,6 +275,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_ViewPagerPanListener)
 @interface ASViewPagerImpl_CanvasImpl : NSObject < ADCanvas > {
  @public
   jboolean canvasReset_;
+  jboolean requiresAttrChangeListener_;
   id<JavaUtilList> imageViews_;
   __unsafe_unretained id<ASIWidget> widget_;
 }
@@ -301,7 +302,25 @@ __attribute__((unused)) static ASViewPagerImpl_CanvasImpl *create_ASViewPagerImp
 
 J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CanvasImpl)
 
-@interface ASViewPagerImpl_OnPageChangeListener : NSObject < ASViewPager_OnPageChangeListener, ASIListener > {
+@interface ASViewPagerImpl_CanvasImpl_$Lambda$1 : NSObject < ADDrawable_AttributeChangeListener > {
+ @public
+  id val$imageView_;
+}
+
+- (void)onAttributeChangeWithNSString:(NSString *)name
+                               withId:(id)value;
+
+@end
+
+J2OBJC_EMPTY_STATIC_INIT(ASViewPagerImpl_CanvasImpl_$Lambda$1)
+
+__attribute__((unused)) static void ASViewPagerImpl_CanvasImpl_$Lambda$1_initWithId_(ASViewPagerImpl_CanvasImpl_$Lambda$1 *self, id capture$0);
+
+__attribute__((unused)) static ASViewPagerImpl_CanvasImpl_$Lambda$1 *new_ASViewPagerImpl_CanvasImpl_$Lambda$1_initWithId_(id capture$0) NS_RETURNS_RETAINED;
+
+__attribute__((unused)) static ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$1_initWithId_(id capture$0);
+
+@interface ASViewPagerImpl_OnPageChangeListener : NSObject < ADXViewPager_OnPageChangeListener, ASIListener > {
  @public
   id<ASIWidget> w_;
   ADView *view_;
@@ -495,7 +514,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (jboolean)removeWithASIWidget:(id<ASIWidget>)w {
   jboolean remove = [super removeWithASIWidget:w];
-  [((ASViewPager *) nil_chk(viewPager_)) removeViewWithADView:(ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class])];
+  [((ADXViewPager *) nil_chk(viewPager_)) removeViewWithADView:(ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class])];
   ASViewPagerImpl_nativeRemoveViewWithASIWidget_(self, w);
   return remove;
 }
@@ -503,8 +522,8 @@ J2OBJC_IGNORE_DESIGNATED_END
 - (jboolean)removeWithInt:(jint)index {
   id<ASIWidget> widget = [((id<JavaUtilList>) nil_chk(widgets_)) getWithInt:index];
   jboolean remove = [super removeWithInt:index];
-  if (index + 1 <= [((ASViewPager *) nil_chk(viewPager_)) getChildCount]) {
-    [((ASViewPager *) nil_chk(viewPager_)) removeViewAtWithInt:index];
+  if (index + 1 <= [((ADXViewPager *) nil_chk(viewPager_)) getChildCount]) {
+    [((ADXViewPager *) nil_chk(viewPager_)) removeViewAtWithInt:index];
     ASViewPagerImpl_nativeRemoveViewWithASIWidget_(self, widget);
   }
   return remove;
@@ -520,10 +539,10 @@ J2OBJC_IGNORE_DESIGNATED_END
     ADView *view = (ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class]);
     ASViewPagerImpl_createLayoutParamsWithADView_(self, view);
     if (index == -1) {
-      [((ASViewPager *) nil_chk(viewPager_)) addViewWithADView:view];
+      [((ADXViewPager *) nil_chk(viewPager_)) addViewWithADView:view];
     }
     else {
-      [((ASViewPager *) nil_chk(viewPager_)) addViewWithADView:view withInt:index];
+      [((ADXViewPager *) nil_chk(viewPager_)) addViewWithADView:view withInt:index];
     }
   }
   ASViewGroupImpl_nativeAddViewWithId_withId_([self asNativeWidget], [((id<ASIWidget>) nil_chk(w)) asNativeWidget]);
@@ -534,7 +553,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   ASViewPagerImpl_createLayoutParamsWithADView_(self, view);
 }
 
-- (ASViewPager_LayoutParams *)getLayoutParamsWithADView:(ADView *)view {
+- (ADXViewPager_LayoutParams *)getLayoutParamsWithADView:(ADView *)view {
   return ASViewPagerImpl_getLayoutParamsWithADView_(self, view);
 }
 
@@ -543,23 +562,23 @@ J2OBJC_IGNORE_DESIGNATED_END
                           withNSString:(NSString *)strValue
                                 withId:(id)objValue {
   ADView *view = (ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class]);
-  ASViewPager_LayoutParams *layoutParams = ASViewPagerImpl_getLayoutParamsWithADView_(self, view);
+  ADXViewPager_LayoutParams *layoutParams = ASViewPagerImpl_getLayoutParamsWithADView_(self, view);
   ASViewGroupImpl_setChildAttributeWithASIWidget_withASWidgetAttribute_withId_withId_(w, key, objValue, layoutParams);
   switch (JreIndexOfStr([((ASWidgetAttribute *) nil_chk(key)) getAttributeName], (id[]){ @"layout_width", @"layout_height", @"layout_gravity", @"layout_isdecor" }, 4)) {
     case 0:
-    ((ASViewPager_LayoutParams *) nil_chk(layoutParams))->width_ = [((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue];
+    ((ADXViewPager_LayoutParams *) nil_chk(layoutParams))->width_ = [((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue];
     break;
     case 1:
-    ((ASViewPager_LayoutParams *) nil_chk(layoutParams))->height_ = [((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue];
+    ((ADXViewPager_LayoutParams *) nil_chk(layoutParams))->height_ = [((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue];
     break;
     case 2:
     {
-      ((ASViewPager_LayoutParams *) nil_chk(layoutParams))->gravity_ = [((JavaLangInteger *) nil_chk(((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class])))) intValue];
+      ((ADXViewPager_LayoutParams *) nil_chk(layoutParams))->gravity_ = [((JavaLangInteger *) nil_chk(((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class])))) intValue];
     }
     break;
     case 3:
     {
-      ((ASViewPager_LayoutParams *) nil_chk(layoutParams))->isDecor_ = [((JavaLangBoolean *) nil_chk(((JavaLangBoolean *) cast_chk(objValue, [JavaLangBoolean class])))) booleanValue];
+      ((ADXViewPager_LayoutParams *) nil_chk(layoutParams))->isDecor_ = [((JavaLangBoolean *) nil_chk(((JavaLangBoolean *) cast_chk(objValue, [JavaLangBoolean class])))) booleanValue];
     }
     break;
     default:
@@ -575,12 +594,12 @@ J2OBJC_IGNORE_DESIGNATED_END
     return attributeValue;
   }
   ADView *view = (ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class]);
-  ASViewPager_LayoutParams *layoutParams = ASViewPagerImpl_getLayoutParamsWithADView_(self, view);
+  ADXViewPager_LayoutParams *layoutParams = ASViewPagerImpl_getLayoutParamsWithADView_(self, view);
   switch (JreIndexOfStr([((ASWidgetAttribute *) nil_chk(key)) getAttributeName], (id[]){ @"layout_width", @"layout_height" }, 2)) {
     case 0:
-    return JavaLangInteger_valueOfWithInt_(((ASViewPager_LayoutParams *) nil_chk(layoutParams))->width_);
+    return JavaLangInteger_valueOfWithInt_(((ADXViewPager_LayoutParams *) nil_chk(layoutParams))->width_);
     case 1:
-    return JavaLangInteger_valueOfWithInt_(((ASViewPager_LayoutParams *) nil_chk(layoutParams))->height_);
+    return JavaLangInteger_valueOfWithInt_(((ADXViewPager_LayoutParams *) nil_chk(layoutParams))->height_);
   }
   return nil;
 }
@@ -603,46 +622,46 @@ J2OBJC_IGNORE_DESIGNATED_END
     break;
     case 1:
     {
-      [((ASViewPager *) nil_chk(viewPager_)) setOffscreenPageLimitWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
+      [((ADXViewPager *) nil_chk(viewPager_)) setOffscreenPageLimitWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
     }
     break;
     case 2:
     {
-      [((ASViewPager *) nil_chk(viewPager_)) setPageMarginWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
+      [((ADXViewPager *) nil_chk(viewPager_)) setPageMarginWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
     }
     break;
     case 3:
     {
-      [((ASViewPager *) nil_chk(viewPager_)) setPageMarginDrawableWithADDrawable:(ADDrawable *) cast_chk(objValue, [ADDrawable class])];
+      [((ADXViewPager *) nil_chk(viewPager_)) setPageMarginDrawableWithADDrawable:(ADDrawable *) cast_chk(objValue, [ADDrawable class])];
     }
     break;
     case 4:
     {
       if ([objValue isKindOfClass:[NSString class]]) {
-        [((ASViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithASViewPager_OnPageChangeListener:new_ASViewPagerImpl_OnPageChangeListener_initWithASIWidget_withNSString_withNSString_(self, strValue, @"onPageScrolled")];
+        [((ADXViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithADXViewPager_OnPageChangeListener:new_ASViewPagerImpl_OnPageChangeListener_initWithASIWidget_withNSString_withNSString_(self, strValue, @"onPageScrolled")];
       }
       else {
-        [((ASViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithASViewPager_OnPageChangeListener:(id<ASViewPager_OnPageChangeListener>) cast_check(objValue, ASViewPager_OnPageChangeListener_class_())];
+        [((ADXViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithADXViewPager_OnPageChangeListener:(id<ADXViewPager_OnPageChangeListener>) cast_check(objValue, ADXViewPager_OnPageChangeListener_class_())];
       }
     }
     break;
     case 5:
     {
       if ([objValue isKindOfClass:[NSString class]]) {
-        [((ASViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithASViewPager_OnPageChangeListener:new_ASViewPagerImpl_OnPageChangeListener_initWithASIWidget_withNSString_withNSString_(self, strValue, @"onPageSelected")];
+        [((ADXViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithADXViewPager_OnPageChangeListener:new_ASViewPagerImpl_OnPageChangeListener_initWithASIWidget_withNSString_withNSString_(self, strValue, @"onPageSelected")];
       }
       else {
-        [((ASViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithASViewPager_OnPageChangeListener:(id<ASViewPager_OnPageChangeListener>) cast_check(objValue, ASViewPager_OnPageChangeListener_class_())];
+        [((ADXViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithADXViewPager_OnPageChangeListener:(id<ADXViewPager_OnPageChangeListener>) cast_check(objValue, ADXViewPager_OnPageChangeListener_class_())];
       }
     }
     break;
     case 6:
     {
       if ([objValue isKindOfClass:[NSString class]]) {
-        [((ASViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithASViewPager_OnPageChangeListener:new_ASViewPagerImpl_OnPageChangeListener_initWithASIWidget_withNSString_withNSString_(self, strValue, @"onPageScrollStateChange")];
+        [((ADXViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithADXViewPager_OnPageChangeListener:new_ASViewPagerImpl_OnPageChangeListener_initWithASIWidget_withNSString_withNSString_(self, strValue, @"onPageScrollStateChange")];
       }
       else {
-        [((ASViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithASViewPager_OnPageChangeListener:(id<ASViewPager_OnPageChangeListener>) cast_check(objValue, ASViewPager_OnPageChangeListener_class_())];
+        [((ADXViewPager *) nil_chk(viewPager_)) setOnPageChangeListenerWithADXViewPager_OnPageChangeListener:(id<ADXViewPager_OnPageChangeListener>) cast_check(objValue, ADXViewPager_OnPageChangeListener_class_())];
       }
     }
     break;
@@ -695,7 +714,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (void)initialized {
   [super initialized];
-  [((ASPagerAdapter *) nil_chk([((ASViewPager *) nil_chk(viewPager_)) getAdapter])) notifyDataSetChanged];
+  [((ADXPagerAdapter *) nil_chk([((ADXViewPager *) nil_chk(viewPager_)) getAdapter])) notifyDataSetChanged];
 }
 
 - (void)addItemToParentWithInt:(jint)index
@@ -769,7 +788,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 - (void)setIdWithNSString:(NSString *)id_ {
   if (id_ != nil && ![id_ isEqual:@""]) {
     [super setIdWithNSString:id_];
-    [((ASViewPager *) nil_chk(viewPager_)) setIdWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk([self quickConvertWithId:id_ withNSString:@"id"], [JavaLangInteger class]))) intValue]];
+    [((ADXViewPager *) nil_chk(viewPager_)) setIdWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk([self quickConvertWithId:id_ withNSString:@"id"], [JavaLangInteger class]))) intValue]];
   }
 }
 
@@ -846,7 +865,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { NULL, "V", 0x2, 9, 7, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 10, 11, -1, -1, -1, -1 },
     { NULL, "V", 0x2, 12, 13, -1, -1, -1, -1 },
-    { NULL, "LASViewPager_LayoutParams;", 0x2, 14, 13, -1, -1, -1, -1 },
+    { NULL, "LADXViewPager_LayoutParams;", 0x2, 14, 13, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 15, 16, -1, -1, -1, -1 },
     { NULL, "LNSObject;", 0x1, 17, 18, -1, -1, -1, -1 },
     { NULL, "LIOSClass;", 0x1, -1, -1, -1, -1, -1, -1 },
@@ -945,7 +964,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { "canvas_", "LADCanvas;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 53, -1, -1 },
     { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 54, -1, -1 },
-    { "viewPager_", "LASViewPager;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
+    { "viewPager_", "LADXViewPager;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "pageWidth_", "F", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "pageTitles_", "LJavaUtilList;", .constantValue.asLong = 0, 0x2, -1, -1, 55, -1 },
     { "animationDurationInMs_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
@@ -1025,7 +1044,7 @@ void ASViewPagerImpl_setWidgetOnNativeClass(ASViewPagerImpl *self) {
 }
 
 void ASViewPagerImpl_nativeRemoveViewWithASIWidget_(ASViewPagerImpl *self, id<ASIWidget> widget) {
-  ADLayoutTransition *layoutTransition = [((ASViewPager *) nil_chk(self->viewPager_)) getLayoutTransition];
+  ADLayoutTransition *layoutTransition = [((ADXViewPager *) nil_chk(self->viewPager_)) getLayoutTransition];
   if (layoutTransition != nil && ([layoutTransition isTransitionTypeEnabledWithInt:ADLayoutTransition_CHANGE_DISAPPEARING] || [layoutTransition isTransitionTypeEnabledWithInt:ADLayoutTransition_DISAPPEARING])) {
     [self addToBufferedRunnablesWithJavaLangRunnable:new_ASViewPagerImpl_$Lambda$1_initWithASIWidget_(widget)];
   }
@@ -1035,10 +1054,10 @@ void ASViewPagerImpl_nativeRemoveViewWithASIWidget_(ASViewPagerImpl *self, id<AS
 }
 
 void ASViewPagerImpl_createLayoutParamsWithADView_(ASViewPagerImpl *self, ADView *view) {
-  ASViewPager_LayoutParams *layoutParams = (ASViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(view)) getLayoutParams], [ASViewPager_LayoutParams class]);
-  layoutParams = (ASViewPager_LayoutParams *) cast_chk([view getLayoutParams], [ASViewPager_LayoutParams class]);
+  ADXViewPager_LayoutParams *layoutParams = (ADXViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(view)) getLayoutParams], [ADXViewPager_LayoutParams class]);
+  layoutParams = (ADXViewPager_LayoutParams *) cast_chk([view getLayoutParams], [ADXViewPager_LayoutParams class]);
   if (layoutParams == nil) {
-    layoutParams = new_ASViewPager_LayoutParams_init();
+    layoutParams = new_ADXViewPager_LayoutParams_init();
     [view setLayoutParamsWithADViewGroup_LayoutParams:layoutParams];
   }
   else {
@@ -1047,8 +1066,8 @@ void ASViewPagerImpl_createLayoutParamsWithADView_(ASViewPagerImpl *self, ADView
   }
 }
 
-ASViewPager_LayoutParams *ASViewPagerImpl_getLayoutParamsWithADView_(ASViewPagerImpl *self, ADView *view) {
-  return (ASViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(view)) getLayoutParams], [ASViewPager_LayoutParams class]);
+ADXViewPager_LayoutParams *ASViewPagerImpl_getLayoutParamsWithADView_(ASViewPagerImpl *self, ADView *view) {
+  return (ADXViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(view)) getLayoutParams], [ADXViewPager_LayoutParams class]);
 }
 
 void ASViewPagerImpl_setPageTitlesWithId_(ASViewPagerImpl *self, id objValue) {
@@ -1096,31 +1115,31 @@ jint ASViewPagerImpl_getScrollX(ASViewPagerImpl *self) {
 void ASViewPagerImpl_handlePanStartWithInt_(ASViewPagerImpl *self, jint eventX) {
   self->lastValue_ = eventX;
   self->startX_ = eventX;
-  if (![((ASViewPager *) nil_chk(self->viewPager_)) isEmpty]) {
-    [((ASViewPager *) nil_chk(self->viewPager_)) beginFakeDrag];
+  if (![((ADXViewPager *) nil_chk(self->viewPager_)) isEmpty]) {
+    [((ADXViewPager *) nil_chk(self->viewPager_)) beginFakeDrag];
   }
 }
 
 void ASViewPagerImpl_handlePanEndWithInt_(ASViewPagerImpl *self, jint eventX) {
   self->startX_ = -1;
-  if (![((ASViewPager *) nil_chk(self->viewPager_)) isEmpty]) {
-    [((ASViewPager *) nil_chk(self->viewPager_)) endFakeDrag];
+  if (![((ADXViewPager *) nil_chk(self->viewPager_)) isEmpty]) {
+    [((ADXViewPager *) nil_chk(self->viewPager_)) endFakeDrag];
   }
 }
 
 void ASViewPagerImpl_handlePanDragWithInt_(ASViewPagerImpl *self, jint eventX) {
   if (self->startX_ != -1) {
     jint delta = eventX - self->lastValue_;
-    if (![((ASViewPager *) nil_chk(self->viewPager_)) isEmpty]) {
-      [((ASViewPager *) nil_chk(self->viewPager_)) fakeDragByWithFloat:delta];
+    if (![((ADXViewPager *) nil_chk(self->viewPager_)) isEmpty]) {
+      [((ADXViewPager *) nil_chk(self->viewPager_)) fakeDragByWithFloat:delta];
     }
     self->lastValue_ = eventX;
   }
 }
 
 void ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(ASViewPagerImpl *self, jint l, jint t, jint r, jint b) {
-  if ([((ASViewPager *) nil_chk(self->viewPager_)) getCurrentItem] != 0 && self->currentX_ == -1) {
-    [((ASViewPager *) nil_chk(self->viewPager_)) scrollToItemWithInt:[self->viewPager_ getCurrentItem] withBoolean:false withInt:0 withBoolean:false];
+  if ([((ADXViewPager *) nil_chk(self->viewPager_)) getCurrentItem] != 0 && self->currentX_ == -1) {
+    [((ADXViewPager *) nil_chk(self->viewPager_)) scrollToItemWithInt:[self->viewPager_ getCurrentItem] withBoolean:false withInt:0 withBoolean:false];
   }
   if ([self isInitialised] && ((self->prevWidth_ != -1 && self->prevWidth_ != (r - l)) || (self->prevHeight_ != -1 && self->prevHeight_ != (b - t)))) {
     ((ASViewPagerImpl_CanvasImpl *) nil_chk(((ASViewPagerImpl_CanvasImpl *) cast_chk(self->canvas_, [ASViewPagerImpl_CanvasImpl class]))))->canvasReset_ = true;
@@ -1133,16 +1152,16 @@ void ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(ASViewPagerImp
 
 void ASViewPagerImpl_setCurrentItemWithInt_(ASViewPagerImpl *self, jint currentItem) {
   if ([self isInitialised]) {
-    [((ASViewPager *) nil_chk(self->viewPager_)) setCurrentItemWithInt:currentItem];
+    [((ADXViewPager *) nil_chk(self->viewPager_)) setCurrentItemWithInt:currentItem];
   }
   else {
-    [((ASViewPager *) nil_chk(self->viewPager_)) setVisibilityWithInt:ADView_INVISIBLE];
-    [((ASViewPager *) nil_chk(self->viewPager_)) postWithJavaLangRunnable:new_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(self, currentItem)];
+    [((ADXViewPager *) nil_chk(self->viewPager_)) setVisibilityWithInt:ADView_INVISIBLE];
+    [((ADXViewPager *) nil_chk(self->viewPager_)) postWithJavaLangRunnable:new_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(self, currentItem)];
   }
 }
 
 jint ASViewPagerImpl_getAdjustedRightWithInt_withInt_(ASViewPagerImpl *self, jint r, jint l) {
-  return ([((id<JavaUtilList>) nil_chk(self->dataList_)) size] * (r - l)) + ([((ASViewPager *) nil_chk(self->viewPager_)) getPageMargin] * 2 * [((ASViewPager *) nil_chk(self->viewPager_)) getChildCount]);
+  return ([((id<JavaUtilList>) nil_chk(self->dataList_)) size] * (r - l)) + ([((ADXViewPager *) nil_chk(self->viewPager_)) getPageMargin] * 2 * [((ADXViewPager *) nil_chk(self->viewPager_)) getChildCount]);
 }
 
 void ASViewPagerImpl_createCanvas(ASViewPagerImpl *self) {
@@ -1150,7 +1169,7 @@ void ASViewPagerImpl_createCanvas(ASViewPagerImpl *self) {
 }
 
 void ASViewPagerImpl_nativeCreateWithJavaUtilMap_(ASViewPagerImpl *self, id<JavaUtilMap> params) {
-  [((ASViewPager *) nil_chk(self->viewPager_)) setAdapterWithASPagerAdapter:new_ASViewPagerImpl_CustomPagerAdapter_initWithASViewPagerImpl_(self)];
+  [((ADXViewPager *) nil_chk(self->viewPager_)) setAdapterWithADXPagerAdapter:new_ASViewPagerImpl_CustomPagerAdapter_initWithASViewPagerImpl_(self)];
   self->uiView_ = ASViewPagerImpl_createViewWithJavaUtilMap_(self, params);
   ASViewPagerImpl_addListeners(self);
 }
@@ -1282,7 +1301,9 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
 
 - (void)drawableStateChanged {
   [super drawableStateChanged];
-  ASViewImpl_drawableStateChangedWithASIWidget_(this$0_);
+  if (![this$0_ isWidgetDisposed]) {
+    ASViewImpl_drawableStateChangedWithASIWidget_(this$0_);
+  }
 }
 
 - (ADView *)inflateViewWithNSString:(NSString *)layout {
@@ -1294,7 +1315,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
     template_ = (id<ASIWidget>) cast_check([this$0_ quickConvertWithId:layout withNSString:@"template"], ASIWidget_class_());
     (void) [((id<JavaUtilMap>) nil_chk(templates_)) putWithId:layout withId:template_];
   }
-  id<ASIWidget> widget = [((id<ASIWidget>) nil_chk(template_)) loadLazyWidgetsWithASHasWidgets:[this$0_ getParent]];
+  id<ASIWidget> widget = [((id<ASIWidget>) nil_chk(template_)) loadLazyWidgetsWithASHasWidgets:this$0_];
   return (ADView *) cast_chk([((id<ASIWidget>) nil_chk(widget)) asWidget], [ADView class]);
 }
 
@@ -1540,7 +1561,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
 
 void ASViewPagerImpl_ViewPagerExt_initWithASViewPagerImpl_(ASViewPagerImpl_ViewPagerExt *self, ASViewPagerImpl *outer$) {
   self->this$0_ = outer$;
-  ASViewPager_init(self);
+  ADXViewPager_init(self);
   self->measureFinished_ = new_ASMeasureEvent_init();
   self->onLayoutEvent_ = new_ASOnLayoutEvent_init();
   self->mMaxWidth_ = -1;
@@ -1584,7 +1605,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerExt)
       break;
     }
   }
-  [((ASViewPager *) nil_chk(this$0_->viewPager_)) removeViewWithADView:(ADView *) cast_chk(view, [ADView class])];
+  [((ADXViewPager *) nil_chk(this$0_->viewPager_)) removeViewWithADView:(ADView *) cast_chk(view, [ADView class])];
 }
 
 - (jint)getCount {
@@ -1640,7 +1661,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerExt)
 
 void ASViewPagerImpl_CustomPagerAdapter_initWithASViewPagerImpl_(ASViewPagerImpl_CustomPagerAdapter *self, ASViewPagerImpl *outer$) {
   self->this$0_ = outer$;
-  ASPagerAdapter_init(self);
+  ADXPagerAdapter_init(self);
 }
 
 ASViewPagerImpl_CustomPagerAdapter *new_ASViewPagerImpl_CustomPagerAdapter_initWithASViewPagerImpl_(ASViewPagerImpl *outer$) {
@@ -1664,10 +1685,10 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_CustomPagerAdapter)
                     withInt:(jint)keyCode
              withADKeyEvent:(ADKeyEvent *)event {
   if (ASViewPagerImpl_isLeftPressedWithInt_(this$0_, keyCode)) {
-    [((ASViewPager *) nil_chk(this$0_->viewPager_)) arrowScrollWithInt:ADView_FOCUS_LEFT];
+    [((ADXViewPager *) nil_chk(this$0_->viewPager_)) arrowScrollWithInt:ADView_FOCUS_LEFT];
   }
   if (ASViewPagerImpl_isRightPressedWithInt_(this$0_, keyCode)) {
-    [((ASViewPager *) nil_chk(this$0_->viewPager_)) arrowScrollWithInt:ADView_FOCUS_RIGHT];
+    [((ADXViewPager *) nil_chk(this$0_->viewPager_)) arrowScrollWithInt:ADView_FOCUS_RIGHT];
   }
   return false;
 }
@@ -1790,8 +1811,15 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerPanListener)
       return;
     }
   }
-  if ([((ADDrawable *) nil_chk(mDivider)) getDrawable] != nil) {
-    id imageView = [self nativeCreateImageViewWithId:[mDivider getDrawable]];
+  id image = [((ADDrawable *) nil_chk(mDivider)) getDrawable];
+  if (image != nil) {
+    if ([image isKindOfClass:[JavaLangInteger class]]) {
+      image = ASViewImpl_getColorWithId_(image);
+    }
+    id imageView = [self nativeCreateImageViewWithId:image];
+    if (requiresAttrChangeListener_) {
+      [mDivider setAttributeChangeListenerWithADDrawable_AttributeChangeListener:new_ASViewPagerImpl_CanvasImpl_$Lambda$1_initWithId_(imageView)];
+    }
     ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_(imageView, [mDivider getLeft], [mDivider getTop], [mDivider getRight], [mDivider getBottom]);
     [((id<JavaUtilList>) nil_chk(imageViews_)) addWithId:imageView];
     ASViewGroupImpl_nativeAddViewWithId_withId_([((id<ASIWidget>) nil_chk(widget_)) asNativeWidget], imageView);
@@ -1846,11 +1874,12 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerPanListener)
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "canvasReset_", "Z", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
+    { "requiresAttrChangeListener_", "Z", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "imageViews_", "LJavaUtilList;", .constantValue.asLong = 0, 0x2, -1, -1, 5, -1 },
     { "widget_", "LASIWidget;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
   static const void *ptrTable[] = { "LASIWidget;", "draw", "LADDrawable;", "nativeCreateImageView", "LNSObject;", "Ljava/util/List<Ljava/lang/Object;>;", "LASViewPagerImpl;" };
-  static const J2ObjcClassInfo _ASViewPagerImpl_CanvasImpl = { "CanvasImpl", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1a, 4, 3, 6, -1, -1, -1, -1 };
+  static const J2ObjcClassInfo _ASViewPagerImpl_CanvasImpl = { "CanvasImpl", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1a, 4, 4, 6, -1, -1, -1, -1 };
   return &_ASViewPagerImpl_CanvasImpl;
 }
 
@@ -1859,6 +1888,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerPanListener)
 void ASViewPagerImpl_CanvasImpl_initWithASIWidget_(ASViewPagerImpl_CanvasImpl *self, id<ASIWidget> widget) {
   NSObject_init(self);
   self->canvasReset_ = false;
+  self->requiresAttrChangeListener_ = false;
   self->imageViews_ = new_JavaUtilArrayList_init();
   self->widget_ = widget;
 }
@@ -1872,6 +1902,43 @@ ASViewPagerImpl_CanvasImpl *create_ASViewPagerImpl_CanvasImpl_initWithASIWidget_
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_CanvasImpl)
+
+@implementation ASViewPagerImpl_CanvasImpl_$Lambda$1
+
+- (void)onAttributeChangeWithNSString:(NSString *)name
+                               withId:(id)value {
+  {
+    ADRect *rect;
+    jint alpha;
+    switch (JreIndexOfStr(name, (id[]){ @"bounds", @"alpha" }, 2)) {
+      case 0:
+      rect = (ADRect *) cast_chk(value, [ADRect class]);
+      ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_(val$imageView_, ((ADRect *) nil_chk(rect))->left_, rect->top_, rect->right_, rect->bottom_);
+      break;
+      case 1:
+      alpha = [((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(value, [JavaLangInteger class]))) intValue];
+      ASViewImpl_setAlphaWithId_withId_(val$imageView_, JavaLangFloat_valueOfWithFloat_(alpha / 255.0f));
+      break;
+      default:
+      break;
+    }
+  }
+}
+
+@end
+
+void ASViewPagerImpl_CanvasImpl_$Lambda$1_initWithId_(ASViewPagerImpl_CanvasImpl_$Lambda$1 *self, id capture$0) {
+  self->val$imageView_ = capture$0;
+  NSObject_init(self);
+}
+
+ASViewPagerImpl_CanvasImpl_$Lambda$1 *new_ASViewPagerImpl_CanvasImpl_$Lambda$1_initWithId_(id capture$0) {
+  J2OBJC_NEW_IMPL(ASViewPagerImpl_CanvasImpl_$Lambda$1, initWithId_, capture$0)
+}
+
+ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$1_initWithId_(id capture$0) {
+  J2OBJC_CREATE_IMPL(ASViewPagerImpl_CanvasImpl_$Lambda$1, initWithId_, capture$0)
+}
 
 @implementation ASViewPagerImpl_OnPageChangeListener
 
@@ -2497,7 +2564,7 @@ ASViewPagerImpl_$Lambda$1 *create_ASViewPagerImpl_$Lambda$1_initWithASIWidget_(i
 - (void)animatingWithInt:(jint)tX
                  withInt:(jint)tY {
   jint mycurrentX = ASViewImpl_getXWithId_([this$0_ asNativeWidget]);
-  [((ASViewPager *) nil_chk(this$0_->viewPager_)) pageScrolledWithInt:-mycurrentX];
+  [((ADXViewPager *) nil_chk(this$0_->viewPager_)) pageScrolledWithInt:-mycurrentX];
   ASViewImpl_updateBoundsXWithId_withInt_([this$0_ asNativeWidget], mycurrentX);
 }
 
@@ -2519,10 +2586,10 @@ ASViewPagerImpl_$Lambda$2 *create_ASViewPagerImpl_$Lambda$2_initWithASViewPagerI
 @implementation ASViewPagerImpl_$Lambda$3
 
 - (void)run {
-  [((ASViewPager *) nil_chk(this$0_->viewPager_)) setCurrentItemWithInt:val$currentItem_ withBoolean:false];
-  [((ASViewPager *) nil_chk(this$0_->viewPager_)) setVisibilityWithInt:ADView_VISIBLE];
-  [((ASViewPager *) nil_chk(this$0_->viewPager_)) requestLayout];
-  [((ASViewPager *) nil_chk(this$0_->viewPager_)) remeasure];
+  [((ADXViewPager *) nil_chk(this$0_->viewPager_)) setCurrentItemWithInt:val$currentItem_ withBoolean:false];
+  [((ADXViewPager *) nil_chk(this$0_->viewPager_)) setVisibilityWithInt:ADView_VISIBLE];
+  [((ADXViewPager *) nil_chk(this$0_->viewPager_)) requestLayout];
+  [((ADXViewPager *) nil_chk(this$0_->viewPager_)) remeasure];
 }
 
 @end

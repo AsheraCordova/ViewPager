@@ -143,7 +143,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl)
 #define ASPagerTabStripImpl_PagerTabStripExt_
 
 #define RESTRICT_PagerTabStrip 1
-#define INCLUDE_ASPagerTabStrip 1
+#define INCLUDE_ADXPagerTabStrip 1
 #include "PagerTabStrip.h"
 
 #define RESTRICT_ILifeCycleDecorator 1
@@ -164,7 +164,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTabStripImpl)
 @protocol ASIWidget;
 @protocol JavaUtilList;
 
-@interface ASPagerTabStripImpl_PagerTabStripExt : ASPagerTabStrip < ASILifeCycleDecorator, ASIMaxDimension >
+@interface ASPagerTabStripImpl_PagerTabStripExt : ADXPagerTabStrip < ASILifeCycleDecorator, ASIMaxDimension >
 
 #pragma mark Public
 

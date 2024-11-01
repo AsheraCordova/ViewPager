@@ -143,7 +143,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl)
 #define ASPagerTitleStripImpl_PagerTitleStripExt_
 
 #define RESTRICT_PagerTitleStrip 1
-#define INCLUDE_ASPagerTitleStrip 1
+#define INCLUDE_ADXPagerTitleStrip 1
 #include "PagerTitleStrip.h"
 
 #define RESTRICT_ILifeCycleDecorator 1
@@ -164,7 +164,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASPagerTitleStripImpl)
 @protocol ASIWidget;
 @protocol JavaUtilList;
 
-@interface ASPagerTitleStripImpl_PagerTitleStripExt : ASPagerTitleStrip < ASILifeCycleDecorator, ASIMaxDimension >
+@interface ASPagerTitleStripImpl_PagerTitleStripExt : ADXPagerTitleStrip < ASILifeCycleDecorator, ASIMaxDimension >
 
 #pragma mark Public
 

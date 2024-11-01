@@ -92,7 +92,7 @@ Context context = (Context) fragment.getRootActivity();
 	}
 
 	@Override
-	public boolean remove(IWidget w) {		
+	public boolean remove(IWidget w) {
 		boolean remove = super.remove(w);
 		viewPager.removeView((View) w.asWidget());
 		return remove;
@@ -340,7 +340,9 @@ Context context = (Context) fragment.getRootActivity();
         @Override
         public void drawableStateChanged() {
         	super.drawableStateChanged();
-        	ViewImpl.drawableStateChanged(ViewPagerImpl.this);
+        	if (!isWidgetDisposed()) {
+        		ViewImpl.drawableStateChanged(ViewPagerImpl.this);
+        	}
         }
         
     	public void setState0(float value) {
@@ -478,6 +480,7 @@ Context context = (Context) fragment.getRootActivity();
         	ViewImpl.stateNo(ViewPagerImpl.this);
         }
      
+	
 	}
 	@Override
 	public Class getViewClass() {

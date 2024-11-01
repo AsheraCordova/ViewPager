@@ -20,18 +20,10 @@
    	 <!-- start ios -->
      <header-file src="ios/src/CordovaViewPagerPlugin.h" target-dir="ViewPager/ios/src"/>
      <source-file src="ios/src/CordovaViewPagerPlugin.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
-     <header-file src="ios/src/PagerAdapter.h" target-dir="ViewPager/ios/src"/>
-     <source-file src="ios/src/PagerAdapter.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
-     <header-file src="ios/src/PagerTabStrip.h" target-dir="ViewPager/ios/src"/>
-     <source-file src="ios/src/PagerTabStrip.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
      <header-file src="ios/src/PagerTabStripImpl.h" target-dir="ViewPager/ios/src"/>
      <source-file src="ios/src/PagerTabStripImpl.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
-     <header-file src="ios/src/PagerTitleStrip.h" target-dir="ViewPager/ios/src"/>
-     <source-file src="ios/src/PagerTitleStrip.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
      <header-file src="ios/src/PagerTitleStripImpl.h" target-dir="ViewPager/ios/src"/>
      <source-file src="ios/src/PagerTitleStripImpl.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
-     <header-file src="ios/src/ViewPager.h" target-dir="ViewPager/ios/src"/>
-     <source-file src="ios/src/ViewPager.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
      <header-file src="ios/src/ViewPagerImpl.h" target-dir="ViewPager/ios/src"/>
      <source-file src="ios/src/ViewPagerImpl.m" target-dir="ViewPager/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
      <header-file src="ios/src/ViewPagerPlugin.h" target-dir="ViewPager/ios/src"/>
@@ -42,6 +34,16 @@
      <source-file src="tsc/src/ios/widget/PagerTitleStripImpl.ts" target-dir="tsc/src/ios/widget"/>
      <source-file src="tsc/src/ios/widget/ViewPagerImpl.ts" target-dir="tsc/src/ios/widget"/>
      <!-- tsc end -->
+     <!-- start AndroidXJViewPager -->
+     <header-file src="library/AndroidXJViewPager/src/PagerAdapter.h" target-dir="ViewPager/AndroidXJViewPager/src"/>
+     <source-file src="library/AndroidXJViewPager/src/PagerAdapter.m" target-dir="ViewPager/AndroidXJViewPager/src" compiler-flags="-fno-objc-arc"/>
+     <header-file src="library/AndroidXJViewPager/src/PagerTabStrip.h" target-dir="ViewPager/AndroidXJViewPager/src"/>
+     <source-file src="library/AndroidXJViewPager/src/PagerTabStrip.m" target-dir="ViewPager/AndroidXJViewPager/src" compiler-flags="-fno-objc-arc"/>
+     <header-file src="library/AndroidXJViewPager/src/PagerTitleStrip.h" target-dir="ViewPager/AndroidXJViewPager/src"/>
+     <source-file src="library/AndroidXJViewPager/src/PagerTitleStrip.m" target-dir="ViewPager/AndroidXJViewPager/src" compiler-flags="-fno-objc-arc"/>
+     <header-file src="library/AndroidXJViewPager/src/ViewPager.h" target-dir="ViewPager/AndroidXJViewPager/src"/>
+     <source-file src="library/AndroidXJViewPager/src/ViewPager.m" target-dir="ViewPager/AndroidXJViewPager/src" compiler-flags="-fno-objc-arc"/>
+     <!-- AndroidXJViewPager end -->
   </platform>
 
 </plugin>

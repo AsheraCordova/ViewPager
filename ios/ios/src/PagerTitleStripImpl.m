@@ -49,7 +49,7 @@
 @interface ASPagerTitleStripImpl () {
  @public
   id uiView_;
-  ASPagerTitleStrip *pagerTitleStrip_;
+  ADXPagerTitleStrip *pagerTitleStrip_;
   ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *builder_;
   ASPagerTitleStripImpl_PagerTitleStripBean *bean_;
   ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder *paramsBuilder_;
@@ -73,7 +73,7 @@
 @end
 
 J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, uiView_, id)
-J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, pagerTitleStrip_, ASPagerTitleStrip *)
+J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, pagerTitleStrip_, ADXPagerTitleStrip *)
 J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, builder_, ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)
 J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, bean_, ASPagerTitleStripImpl_PagerTitleStripBean *)
 J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, paramsBuilder_, ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder *)
@@ -200,7 +200,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (jboolean)removeWithASIWidget:(id<ASIWidget>)w {
   jboolean remove = [super removeWithASIWidget:w];
-  [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) removeViewWithADView:(ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class])];
+  [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) removeViewWithADView:(ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class])];
   ASPagerTitleStripImpl_nativeRemoveViewWithASIWidget_(self, w);
   return remove;
 }
@@ -208,8 +208,8 @@ J2OBJC_IGNORE_DESIGNATED_END
 - (jboolean)removeWithInt:(jint)index {
   id<ASIWidget> widget = [((id<JavaUtilList>) nil_chk(widgets_)) getWithInt:index];
   jboolean remove = [super removeWithInt:index];
-  if (index + 1 <= [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) getChildCount]) {
-    [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) removeViewAtWithInt:index];
+  if (index + 1 <= [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) getChildCount]) {
+    [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) removeViewAtWithInt:index];
     ASPagerTitleStripImpl_nativeRemoveViewWithASIWidget_(self, widget);
   }
   return remove;
@@ -225,10 +225,10 @@ J2OBJC_IGNORE_DESIGNATED_END
     ADView *view = (ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class]);
     ASPagerTitleStripImpl_createLayoutParamsWithADView_(self, view);
     if (index == -1) {
-      [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) addViewWithADView:view];
+      [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) addViewWithADView:view];
     }
     else {
-      [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) addViewWithADView:view withInt:index];
+      [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) addViewWithADView:view withInt:index];
     }
   }
   ASViewGroupImpl_nativeAddViewWithId_withId_([self asNativeWidget], [((id<ASIWidget>) nil_chk(w)) asNativeWidget]);
@@ -293,22 +293,22 @@ J2OBJC_IGNORE_DESIGNATED_END
   switch (JreIndexOfStr([((ASWidgetAttribute *) nil_chk(key)) getAttributeName], (id[]){ @"textSpacing", @"nonPrimaryAlpha", @"textColor", @"gravity", @"textSize", @"textAppearance" }, 6)) {
     case 0:
     {
-      [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setTextSpacingWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
+      [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setTextSpacingWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
     }
     break;
     case 1:
     {
-      [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setNonPrimaryAlphaWithFloat:[((JavaLangFloat *) nil_chk((JavaLangFloat *) cast_chk(objValue, [JavaLangFloat class]))) floatValue]];
+      [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setNonPrimaryAlphaWithFloat:[((JavaLangFloat *) nil_chk((JavaLangFloat *) cast_chk(objValue, [JavaLangFloat class]))) floatValue]];
     }
     break;
     case 2:
     {
-      [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setTextColorWithId:objValue];
+      [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setTextColorWithId:objValue];
     }
     break;
     case 3:
     {
-      [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setGravityWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
+      [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setGravityWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk(objValue, [JavaLangInteger class]))) intValue]];
     }
     break;
     case 4:
@@ -373,7 +373,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 - (void)setIdWithNSString:(NSString *)id_ {
   if (id_ != nil && ![id_ isEqual:@""]) {
     [super setIdWithNSString:id_];
-    [((ASPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setIdWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk([self quickConvertWithId:id_ withNSString:@"id"], [JavaLangInteger class]))) intValue]];
+    [((ADXPagerTitleStrip *) nil_chk(pagerTitleStrip_)) setIdWithInt:[((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk([self quickConvertWithId:id_ withNSString:@"id"], [JavaLangInteger class]))) intValue]];
   }
 }
 
@@ -498,7 +498,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { "uiView_", "LNSObject;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 35, -1, -1 },
     { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 36, -1, -1 },
-    { "pagerTitleStrip_", "LASPagerTitleStrip;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
+    { "pagerTitleStrip_", "LADXPagerTitleStrip;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "builder_", "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "bean_", "LASPagerTitleStripImpl_PagerTitleStripBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "paramsBuilder_", "LASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
@@ -552,7 +552,7 @@ void ASPagerTitleStripImpl_setWidgetOnNativeClass(ASPagerTitleStripImpl *self) {
 }
 
 void ASPagerTitleStripImpl_nativeRemoveViewWithASIWidget_(ASPagerTitleStripImpl *self, id<ASIWidget> widget) {
-  ADLayoutTransition *layoutTransition = [((ASPagerTitleStrip *) nil_chk(self->pagerTitleStrip_)) getLayoutTransition];
+  ADLayoutTransition *layoutTransition = [((ADXPagerTitleStrip *) nil_chk(self->pagerTitleStrip_)) getLayoutTransition];
   if (layoutTransition != nil && ([layoutTransition isTransitionTypeEnabledWithInt:ADLayoutTransition_CHANGE_DISAPPEARING] || [layoutTransition isTransitionTypeEnabledWithInt:ADLayoutTransition_DISAPPEARING])) {
     [self addToBufferedRunnablesWithJavaLangRunnable:new_ASPagerTitleStripImpl_$Lambda$1_initWithASIWidget_(widget)];
   }
@@ -580,15 +580,15 @@ ADViewGroup_LayoutParams *ASPagerTitleStripImpl_getLayoutParamsWithADView_(ASPag
 
 void ASPagerTitleStripImpl_nativeCreateWithJavaUtilMap_(ASPagerTitleStripImpl *self, id<JavaUtilMap> params) {
   [self createPaneWithJavaUtilMap:params];
-  [((ASPagerTitleStrip *) nil_chk(self->pagerTitleStrip_)) init__WithASHasWidgets:self];
+  [((ADXPagerTitleStrip *) nil_chk(self->pagerTitleStrip_)) init__WithASHasWidgets:self];
 }
 
 void ASPagerTitleStripImpl_setTextSizeWithId_(ASPagerTitleStripImpl *self, id objValue) {
-  [((ASPagerTitleStrip *) nil_chk(self->pagerTitleStrip_)) setTextSizeWithInt:0 withFloat:[((JavaLangFloat *) nil_chk((JavaLangFloat *) cast_chk(objValue, [JavaLangFloat class]))) floatValue]];
+  [((ADXPagerTitleStrip *) nil_chk(self->pagerTitleStrip_)) setTextSizeWithInt:0 withFloat:[((JavaLangFloat *) nil_chk((JavaLangFloat *) cast_chk(objValue, [JavaLangFloat class]))) floatValue]];
 }
 
 void ASPagerTitleStripImpl_setTextAppearanceWithId_(ASPagerTitleStripImpl *self, id objValue) {
-  [((ASPagerTitleStrip *) nil_chk(self->pagerTitleStrip_)) setTextAppearanceWithId:objValue];
+  [((ADXPagerTitleStrip *) nil_chk(self->pagerTitleStrip_)) setTextAppearanceWithId:objValue];
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTitleStripImpl)
@@ -697,7 +697,9 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTitleStripImpl)
 
 - (void)drawableStateChanged {
   [super drawableStateChanged];
-  ASViewImpl_drawableStateChangedWithASIWidget_(this$0_);
+  if (![this$0_ isWidgetDisposed]) {
+    ASViewImpl_drawableStateChangedWithASIWidget_(this$0_);
+  }
 }
 
 - (ADView *)inflateViewWithNSString:(NSString *)layout {
@@ -709,7 +711,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTitleStripImpl)
     template_ = (id<ASIWidget>) cast_check([this$0_ quickConvertWithId:layout withNSString:@"template"], ASIWidget_class_());
     (void) [((id<JavaUtilMap>) nil_chk(templates_)) putWithId:layout withId:template_];
   }
-  id<ASIWidget> widget = [((id<ASIWidget>) nil_chk(template_)) loadLazyWidgetsWithASHasWidgets:[this$0_ getParent]];
+  id<ASIWidget> widget = [((id<ASIWidget>) nil_chk(template_)) loadLazyWidgetsWithASHasWidgets:this$0_];
   return (ADView *) cast_chk([((id<ASIWidget>) nil_chk(widget)) asWidget], [ADView class]);
 }
 
@@ -934,7 +936,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTitleStripImpl)
 
 void ASPagerTitleStripImpl_PagerTitleStripExt_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl_PagerTitleStripExt *self, ASPagerTitleStripImpl *outer$) {
   self->this$0_ = outer$;
-  ASPagerTitleStrip_initWithASHasWidgets_(self, outer$);
+  ADXPagerTitleStrip_initWithASHasWidgets_(self, outer$);
   self->measureFinished_ = new_ASMeasureEvent_init();
   self->onLayoutEvent_ = new_ASOnLayoutEvent_init();
   self->mMaxWidth_ = -1;

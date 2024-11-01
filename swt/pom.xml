@@ -30,5 +30,10 @@
 			<groupId>com.ashera</groupId>
 			<artifactId>SWTLayouts</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.ashera</groupId>
+			<artifactId>AndroidXJViewPager</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 </project>
