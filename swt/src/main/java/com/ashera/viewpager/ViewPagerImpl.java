@@ -81,6 +81,7 @@ public class ViewPagerImpl extends BaseHasWidgets {
 		
 		
 		ViewGroupImpl.registerCommandConveter(this);
+
 	}
 
 	@Override
@@ -488,7 +489,7 @@ public class ViewPagerImpl extends BaseHasWidgets {
 	@SuppressLint("NewApi")
 	@Override
 	public void setAttribute(WidgetAttribute key, String strValue, Object objValue, ILifeCycleDecorator decorator) {
-				ViewGroupImpl.setAttribute(this, key, strValue, objValue, decorator);
+				ViewGroupImpl.setAttribute(this,  key, strValue, objValue, decorator);
 		Object nativeWidget = asNativeWidget();
 		switch (key.getAttributeName()) {
 			case "currentItem": {
@@ -997,213 +998,7 @@ public java.util.Map<String, Object> getOnPageScrollStateChangedEventObj(int sta
 		return getStyle("swtStyle", initStyle, params, fragment);
 	}
 
-	
-private ViewPagerCommandBuilder builder;
-private ViewPagerBean bean;
-public Object getPlugin(String plugin) {
-	return WidgetFactory.getAttributable(plugin).newInstance(this);
-}
-public ViewPagerBean getBean() {
-	if (bean == null) {
-		bean = new ViewPagerBean();
-	}
-	return bean;
-}
-public ViewPagerCommandBuilder getBuilder() {
-	if (builder == null) {
-		builder = new ViewPagerCommandBuilder();
-	}
-	return builder;
-}
-
-
-public  class ViewPagerCommandBuilder extends com.ashera.layout.ViewGroupImpl.ViewGroupCommandBuilder <ViewPagerCommandBuilder> {
-    public ViewPagerCommandBuilder() {
-	}
-	
-	public ViewPagerCommandBuilder execute(boolean setter) {
-		if (setter) {
-			executeCommand(command, null, IWidget.COMMAND_EXEC_SETTER_METHOD);
-			getFragment().remeasure();
-		}
-		executeCommand(command, null, IWidget.COMMAND_EXEC_GETTER_METHOD);
-return this;	}
-
-public ViewPagerCommandBuilder setCurrentItem(int value) {
-	Map<String, Object> attrs = initCommand("currentItem");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public ViewPagerCommandBuilder setOffscreenPageLimit(int value) {
-	Map<String, Object> attrs = initCommand("offscreenPageLimit");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public ViewPagerCommandBuilder setPageMargin(String value) {
-	Map<String, Object> attrs = initCommand("pageMargin");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public ViewPagerCommandBuilder setPageMarginDrawable(String value) {
-	Map<String, Object> attrs = initCommand("pageMarginDrawable");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public ViewPagerCommandBuilder setOnPageScrolled(String value) {
-	Map<String, Object> attrs = initCommand("onPageScrolled");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public ViewPagerCommandBuilder setOnPageSelected(String value) {
-	Map<String, Object> attrs = initCommand("onPageSelected");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public ViewPagerCommandBuilder setOnPageScrollStateChange(String value) {
-	Map<String, Object> attrs = initCommand("onPageScrollStateChange");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public ViewPagerCommandBuilder setPageWidth(float value) {
-	Map<String, Object> attrs = initCommand("pageWidth");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public ViewPagerCommandBuilder setPageTitles(String value) {
-	Map<String, Object> attrs = initCommand("pageTitles");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-}
-public class ViewPagerBean extends com.ashera.layout.ViewGroupImpl.ViewGroupBean{
-		public ViewPagerBean() {
-			super(ViewPagerImpl.this);
-		}
-public void setCurrentItem(int value) {
-	getBuilder().reset().setCurrentItem(value).execute(true);
-}
-
-public void setOffscreenPageLimit(int value) {
-	getBuilder().reset().setOffscreenPageLimit(value).execute(true);
-}
-
-public void setPageMargin(String value) {
-	getBuilder().reset().setPageMargin(value).execute(true);
-}
-
-public void setPageMarginDrawable(String value) {
-	getBuilder().reset().setPageMarginDrawable(value).execute(true);
-}
-
-public void setOnPageScrolled(String value) {
-	getBuilder().reset().setOnPageScrolled(value).execute(true);
-}
-
-public void setOnPageSelected(String value) {
-	getBuilder().reset().setOnPageSelected(value).execute(true);
-}
-
-public void setOnPageScrollStateChange(String value) {
-	getBuilder().reset().setOnPageScrollStateChange(value).execute(true);
-}
-
-public void setPageWidth(float value) {
-	getBuilder().reset().setPageWidth(value).execute(true);
-}
-
-public void setPageTitles(String value) {
-	getBuilder().reset().setPageTitles(value).execute(true);
-}
-
-}
-
-
-private ViewPagerCommandParamsBuilder paramsBuilder;
-private ViewPagerParamsBean paramsBean;
-
-public ViewPagerParamsBean getParamsBean() {
-	if (paramsBean == null) {
-		paramsBean = new ViewPagerParamsBean();
-	}
-	return paramsBean;
-}
-public ViewPagerCommandParamsBuilder getParamsBuilder() {
-	if (paramsBuilder == null) {
-		paramsBuilder = new ViewPagerCommandParamsBuilder();
-	}
-	return paramsBuilder;
-}
-
-
-
-public class ViewPagerParamsBean extends com.ashera.layout.ViewGroupImpl.ViewGroupParamsBean{
-public void setLayoutGravity(IWidget w, String value) {
-	java.util.Map<String, Object> layoutParams = new java.util.HashMap<String, Object>();
-	layoutParams.put("layoutParams", getParamsBuilder().reset().setLayoutGravity(value).getCommand());
-	w.executeCommand(layoutParams, null, COMMAND_EXEC_SETTER_METHOD);
-	w.getFragment().remeasure();
-}
-
-public void setLayoutIsdecor(IWidget w, boolean value) {
-	java.util.Map<String, Object> layoutParams = new java.util.HashMap<String, Object>();
-	layoutParams.put("layoutParams", getParamsBuilder().reset().setLayoutIsdecor(value).getCommand());
-	w.executeCommand(layoutParams, null, COMMAND_EXEC_SETTER_METHOD);
-	w.getFragment().remeasure();
-}
-
-}
-
-
-
-
-
-public class ViewPagerCommandParamsBuilder extends com.ashera.layout.ViewGroupImpl.ViewGroupCommandParamsBuilder<ViewPagerCommandParamsBuilder>{
-public ViewPagerCommandParamsBuilder setLayoutGravity(String value) {
-	Map<String, Object> attrs = initCommand("layout_gravity");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public ViewPagerCommandParamsBuilder setLayoutIsdecor(boolean value) {
-	Map<String, Object> attrs = initCommand("layout_isdecor");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-}
-
-	//end - body
+		//end - body
 	private void nativeCreate(Map<String, Object> params) {
 		viewPager.setAdapter(new CustomPagerAdapter());
 		pane = new org.eclipse.swt.widgets.Composite((org.eclipse.swt.widgets.Composite)ViewImpl.getParent(this), getStyle(params, fragment));

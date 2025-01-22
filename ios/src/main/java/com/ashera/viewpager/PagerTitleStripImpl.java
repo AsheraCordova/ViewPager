@@ -80,6 +80,7 @@ public class PagerTitleStripImpl extends BaseHasWidgets {
 		
 		ViewGroupImpl.registerCommandConveter(this);
 		setWidgetOnNativeClass();
+		
 	}
 	private native void setWidgetOnNativeClass() /*-[
 		((ASUIView*) [self asNativeWidget]).widget = self;
@@ -455,7 +456,7 @@ public class PagerTitleStripImpl extends BaseHasWidgets {
 	@SuppressLint("NewApi")
 	@Override
 	public void setAttribute(WidgetAttribute key, String strValue, Object objValue, ILifeCycleDecorator decorator) {
-				ViewGroupImpl.setAttribute(this, key, strValue, objValue, decorator);
+				ViewGroupImpl.setAttribute(this,  key, strValue, objValue, decorator);
 		Object nativeWidget = asNativeWidget();
 		switch (key.getAttributeName()) {
 			case "textSpacing": {
@@ -586,147 +587,7 @@ public class PagerTitleStripImpl extends BaseHasWidgets {
         ((View)asWidget()).setVisibility(b ? View.VISIBLE : View.GONE);
     }
 
-	
-private PagerTitleStripCommandBuilder builder;
-private PagerTitleStripBean bean;
-public Object getPlugin(String plugin) {
-	return WidgetFactory.getAttributable(plugin).newInstance(this);
-}
-public PagerTitleStripBean getBean() {
-	if (bean == null) {
-		bean = new PagerTitleStripBean();
-	}
-	return bean;
-}
-public PagerTitleStripCommandBuilder getBuilder() {
-	if (builder == null) {
-		builder = new PagerTitleStripCommandBuilder();
-	}
-	return builder;
-}
-
-
-public  class PagerTitleStripCommandBuilder extends com.ashera.layout.ViewGroupImpl.ViewGroupCommandBuilder <PagerTitleStripCommandBuilder> {
-    public PagerTitleStripCommandBuilder() {
-	}
-	
-	public PagerTitleStripCommandBuilder execute(boolean setter) {
-		if (setter) {
-			executeCommand(command, null, IWidget.COMMAND_EXEC_SETTER_METHOD);
-			getFragment().remeasure();
-		}
-		executeCommand(command, null, IWidget.COMMAND_EXEC_GETTER_METHOD);
-return this;	}
-
-public PagerTitleStripCommandBuilder setTextSpacing(String value) {
-	Map<String, Object> attrs = initCommand("textSpacing");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTitleStripCommandBuilder setNonPrimaryAlpha(float value) {
-	Map<String, Object> attrs = initCommand("nonPrimaryAlpha");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTitleStripCommandBuilder setTextColor(String value) {
-	Map<String, Object> attrs = initCommand("textColor");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTitleStripCommandBuilder setGravity(String value) {
-	Map<String, Object> attrs = initCommand("gravity");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTitleStripCommandBuilder setTextSize(String value) {
-	Map<String, Object> attrs = initCommand("textSize");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTitleStripCommandBuilder setTextAppearance(String value) {
-	Map<String, Object> attrs = initCommand("textAppearance");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-}
-public class PagerTitleStripBean extends com.ashera.layout.ViewGroupImpl.ViewGroupBean{
-		public PagerTitleStripBean() {
-			super(PagerTitleStripImpl.this);
-		}
-public void setTextSpacing(String value) {
-	getBuilder().reset().setTextSpacing(value).execute(true);
-}
-
-public void setNonPrimaryAlpha(float value) {
-	getBuilder().reset().setNonPrimaryAlpha(value).execute(true);
-}
-
-public void setTextColor(String value) {
-	getBuilder().reset().setTextColor(value).execute(true);
-}
-
-public void setGravity(String value) {
-	getBuilder().reset().setGravity(value).execute(true);
-}
-
-public void setTextSize(String value) {
-	getBuilder().reset().setTextSize(value).execute(true);
-}
-
-public void setTextAppearance(String value) {
-	getBuilder().reset().setTextAppearance(value).execute(true);
-}
-
-}
-
-
-private PagerTitleStripCommandParamsBuilder paramsBuilder;
-private PagerTitleStripParamsBean paramsBean;
-
-public PagerTitleStripParamsBean getParamsBean() {
-	if (paramsBean == null) {
-		paramsBean = new PagerTitleStripParamsBean();
-	}
-	return paramsBean;
-}
-public PagerTitleStripCommandParamsBuilder getParamsBuilder() {
-	if (paramsBuilder == null) {
-		paramsBuilder = new PagerTitleStripCommandParamsBuilder();
-	}
-	return paramsBuilder;
-}
-
-
-
-public class PagerTitleStripParamsBean extends com.ashera.layout.ViewGroupImpl.ViewGroupParamsBean{
-}
-
-
-
-
-
-public class PagerTitleStripCommandParamsBuilder extends com.ashera.layout.ViewGroupImpl.ViewGroupCommandParamsBuilder<PagerTitleStripCommandParamsBuilder>{
-}
-
-	//end - body
+		//end - body
 	public native void createPane(Map<String, Object> params)/*-[
 		ASUIView* uiView = [ASUIView new];
 		uiView.backgroundColor = [UIColor clearColor];

@@ -5,7 +5,6 @@
 
 #include "BaseHasWidgets.h"
 #include "HasWidgets.h"
-#include "IAttributable.h"
 #include "IFragment.h"
 #include "ILifeCycleDecorator.h"
 #include "IOSClass.h"
@@ -26,7 +25,6 @@
 #include "ViewImpl.h"
 #include "WidgetAttribute.h"
 #include "WidgetFactory.h"
-#include "java/lang/Boolean.h"
 #include "java/lang/Float.h"
 #include "java/lang/Integer.h"
 #include "java/lang/Runnable.h"
@@ -44,16 +42,11 @@
 
 
 #pragma clang diagnostic ignored "-Wprotocol"
-#pragma clang diagnostic ignored "-Wincomplete-implementation"
 
 @interface ASPagerTitleStripImpl () {
  @public
   id uiView_;
   ADXPagerTitleStrip *pagerTitleStrip_;
-  ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *builder_;
-  ASPagerTitleStripImpl_PagerTitleStripBean *bean_;
-  ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder *paramsBuilder_;
-  ASPagerTitleStripImpl_PagerTitleStripParamsBean *paramsBean_;
 }
 
 - (void)setWidgetOnNativeClass;
@@ -74,10 +67,6 @@
 
 J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, uiView_, id)
 J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, pagerTitleStrip_, ADXPagerTitleStrip *)
-J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, builder_, ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)
-J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, bean_, ASPagerTitleStripImpl_PagerTitleStripBean *)
-J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, paramsBuilder_, ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder *)
-J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl, paramsBean_, ASPagerTitleStripImpl_PagerTitleStripParamsBean *)
 
 __attribute__((unused)) static void ASPagerTitleStripImpl_setWidgetOnNativeClass(ASPagerTitleStripImpl *self);
 
@@ -110,20 +99,6 @@ J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl_PagerTitleStripExt, measureFinished_, 
 J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl_PagerTitleStripExt, onLayoutEvent_, ASOnLayoutEvent *)
 J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl_PagerTitleStripExt, overlays_, id<JavaUtilList>)
 J2OBJC_FIELD_SETTER(ASPagerTitleStripImpl_PagerTitleStripExt, templates_, id<JavaUtilMap>)
-
-@interface ASPagerTitleStripImpl_PagerTitleStripCommandBuilder () {
- @public
-  ASPagerTitleStripImpl *this$0_;
-}
-
-@end
-
-@interface ASPagerTitleStripImpl_PagerTitleStripBean () {
- @public
-  ASPagerTitleStripImpl *this$0_;
-}
-
-@end
 
 @interface ASPagerTitleStripImpl_$Lambda$1 : NSObject < JavaLangRunnable > {
  @public
@@ -381,38 +356,6 @@ J2OBJC_IGNORE_DESIGNATED_END
   [((ADView *) nil_chk(((ADView *) cast_chk([self asWidget], [ADView class])))) setVisibilityWithInt:b ? ADView_VISIBLE : ADView_GONE];
 }
 
-- (id)getPluginWithNSString:(NSString *)plugin {
-  return [((id<ASIAttributable>) nil_chk(ASWidgetFactory_getAttributableWithNSString_(plugin))) newInstanceWithASIWidget:self];
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripBean *)getBean {
-  if (bean_ == nil) {
-    bean_ = new_ASPagerTitleStripImpl_PagerTitleStripBean_initWithASPagerTitleStripImpl_(self);
-  }
-  return bean_;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)getBuilder {
-  if (builder_ == nil) {
-    builder_ = new_ASPagerTitleStripImpl_PagerTitleStripCommandBuilder_initWithASPagerTitleStripImpl_(self);
-  }
-  return builder_;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripParamsBean *)getParamsBean {
-  if (paramsBean_ == nil) {
-    paramsBean_ = new_ASPagerTitleStripImpl_PagerTitleStripParamsBean_initWithASPagerTitleStripImpl_(self);
-  }
-  return paramsBean_;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder *)getParamsBuilder {
-  if (paramsBuilder_ == nil) {
-    paramsBuilder_ = new_ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder_initWithASPagerTitleStripImpl_(self);
-  }
-  return paramsBuilder_;
-}
-
 - (void)createPaneWithJavaUtilMap:(id<JavaUtilMap>)params {
   ASUIView* uiView = [ASUIView new];
   uiView.backgroundColor = [UIColor clearColor];
@@ -449,12 +392,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { NULL, "V", 0x2, 29, 28, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 30, 1, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 31, 32, -1, -1, -1, -1 },
-    { NULL, "LNSObject;", 0x1, 33, 1, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripParamsBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "V", 0x101, 34, 25, -1, 26, -1, -1 },
+    { NULL, "V", 0x101, 33, 25, -1, 26, -1, -1 },
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
@@ -487,25 +425,16 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[25].selector = @selector(setTextAppearanceWithId:);
   methods[26].selector = @selector(setIdWithNSString:);
   methods[27].selector = @selector(setVisibleWithBoolean:);
-  methods[28].selector = @selector(getPluginWithNSString:);
-  methods[29].selector = @selector(getBean);
-  methods[30].selector = @selector(getBuilder);
-  methods[31].selector = @selector(getParamsBean);
-  methods[32].selector = @selector(getParamsBuilder);
-  methods[33].selector = @selector(createPaneWithJavaUtilMap:);
+  methods[28].selector = @selector(createPaneWithJavaUtilMap:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "uiView_", "LNSObject;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 35, -1, -1 },
-    { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 36, -1, -1 },
+    { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 34, -1, -1 },
+    { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 35, -1, -1 },
     { "pagerTitleStrip_", "LADXPagerTitleStrip;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "builder_", "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "bean_", "LASPagerTitleStripImpl_PagerTitleStripBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "paramsBuilder_", "LASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "paramsBean_", "LASPagerTitleStripImpl_PagerTitleStripParamsBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "loadAttributes", "LNSString;", "LNSString;LNSString;", "create", "LASIFragment;LJavaUtilMap;", "(Lcom/ashera/core/IFragment;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "remove", "LASIWidget;", "I", "nativeRemoveView", "add", "LASIWidget;I", "createLayoutParams", "LADView;", "getLayoutParams", "setChildAttribute", "LASIWidget;LASWidgetAttribute;LNSString;LNSObject;", "getChildAttribute", "LASIWidget;LASWidgetAttribute;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "checkIosVersion", "nativeCreate", "LJavaUtilMap;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "setTextSize", "LNSObject;", "setTextAppearance", "setId", "setVisible", "Z", "getPlugin", "createPane", &ASPagerTitleStripImpl_LOCAL_NAME, &ASPagerTitleStripImpl_GROUP_NAME, "LASPagerTitleStripImpl_PagerTitleStripExt;LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;LASPagerTitleStripImpl_PagerTitleStripBean;LASPagerTitleStripImpl_PagerTitleStripParamsBean;LASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder;" };
-  static const J2ObjcClassInfo _ASPagerTitleStripImpl = { "PagerTitleStripImpl", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 34, 8, -1, 37, -1, -1, -1 };
+  static const void *ptrTable[] = { "loadAttributes", "LNSString;", "LNSString;LNSString;", "create", "LASIFragment;LJavaUtilMap;", "(Lcom/ashera/core/IFragment;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "remove", "LASIWidget;", "I", "nativeRemoveView", "add", "LASIWidget;I", "createLayoutParams", "LADView;", "getLayoutParams", "setChildAttribute", "LASIWidget;LASWidgetAttribute;LNSString;LNSObject;", "getChildAttribute", "LASIWidget;LASWidgetAttribute;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "checkIosVersion", "nativeCreate", "LJavaUtilMap;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "setTextSize", "LNSObject;", "setTextAppearance", "setId", "setVisible", "Z", "createPane", &ASPagerTitleStripImpl_LOCAL_NAME, &ASPagerTitleStripImpl_GROUP_NAME, "LASPagerTitleStripImpl_PagerTitleStripExt;" };
+  static const J2ObjcClassInfo _ASPagerTitleStripImpl = { "PagerTitleStripImpl", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 29, 4, -1, 36, -1, -1, -1 };
   return &_ASPagerTitleStripImpl;
 }
 
@@ -952,275 +881,6 @@ ASPagerTitleStripImpl_PagerTitleStripExt *create_ASPagerTitleStripImpl_PagerTitl
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTitleStripImpl_PagerTitleStripExt)
-
-@implementation ASPagerTitleStripImpl_PagerTitleStripCommandBuilder
-
-- (instancetype)initWithASPagerTitleStripImpl:(ASPagerTitleStripImpl *)outer$ {
-  ASPagerTitleStripImpl_PagerTitleStripCommandBuilder_initWithASPagerTitleStripImpl_(self, outer$);
-  return self;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)executeWithBoolean:(jboolean)setter {
-  if (setter) {
-    [this$0_ executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_SETTER_METHOD];
-    [((id<ASIFragment>) nil_chk([this$0_ getFragment])) remeasure];
-  }
-  [this$0_ executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_GETTER_METHOD];
-  return self;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setTextSpacingWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"textSpacing"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setNonPrimaryAlphaWithFloat:(jfloat)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"nonPrimaryAlpha"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:JavaLangFloat_valueOfWithFloat_(value)];
-  return self;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setTextColorWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"textColor"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setGravityWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"gravity"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setTextSizeWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"textSize"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *)setTextAppearanceWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"textAppearance"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", 0x1, 3, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", 0x1, 5, 6, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", 0x1, 7, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", 0x1, 8, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", 0x1, 9, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTitleStripImpl_PagerTitleStripCommandBuilder;", 0x1, 10, 4, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASPagerTitleStripImpl:);
-  methods[1].selector = @selector(executeWithBoolean:);
-  methods[2].selector = @selector(setTextSpacingWithNSString:);
-  methods[3].selector = @selector(setNonPrimaryAlphaWithFloat:);
-  methods[4].selector = @selector(setTextColorWithNSString:);
-  methods[5].selector = @selector(setGravityWithNSString:);
-  methods[6].selector = @selector(setTextSizeWithNSString:);
-  methods[7].selector = @selector(setTextAppearanceWithNSString:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASPagerTitleStripImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASPagerTitleStripImpl;", "execute", "Z", "setTextSpacing", "LNSString;", "setNonPrimaryAlpha", "F", "setTextColor", "setGravity", "setTextSize", "setTextAppearance", "Lcom/ashera/layout/ViewGroupImpl$ViewGroupCommandBuilder<Lcom/ashera/viewpager/PagerTitleStripImpl$PagerTitleStripCommandBuilder;>;" };
-  static const J2ObjcClassInfo _ASPagerTitleStripImpl_PagerTitleStripCommandBuilder = { "PagerTitleStripCommandBuilder", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 8, 1, 0, -1, -1, 11, -1 };
-  return &_ASPagerTitleStripImpl_PagerTitleStripCommandBuilder;
-}
-
-@end
-
-void ASPagerTitleStripImpl_PagerTitleStripCommandBuilder_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *self, ASPagerTitleStripImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupCommandBuilder_init(self);
-}
-
-ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *new_ASPagerTitleStripImpl_PagerTitleStripCommandBuilder_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASPagerTitleStripImpl_PagerTitleStripCommandBuilder, initWithASPagerTitleStripImpl_, outer$)
-}
-
-ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *create_ASPagerTitleStripImpl_PagerTitleStripCommandBuilder_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASPagerTitleStripImpl_PagerTitleStripCommandBuilder, initWithASPagerTitleStripImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTitleStripImpl_PagerTitleStripCommandBuilder)
-
-@implementation ASPagerTitleStripImpl_PagerTitleStripBean
-
-- (instancetype)initWithASPagerTitleStripImpl:(ASPagerTitleStripImpl *)outer$ {
-  ASPagerTitleStripImpl_PagerTitleStripBean_initWithASPagerTitleStripImpl_(self, outer$);
-  return self;
-}
-
-- (void)setTextSpacingWithNSString:(NSString *)value {
-  (void) [((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setTextSpacingWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setNonPrimaryAlphaWithFloat:(jfloat)value {
-  (void) [((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setNonPrimaryAlphaWithFloat:value])) executeWithBoolean:true];
-}
-
-- (void)setTextColorWithNSString:(NSString *)value {
-  (void) [((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setTextColorWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setGravityWithNSString:(NSString *)value {
-  (void) [((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setGravityWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setTextSizeWithNSString:(NSString *)value {
-  (void) [((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setTextSizeWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setTextAppearanceWithNSString:(NSString *)value {
-  (void) [((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([((ASPagerTitleStripImpl_PagerTitleStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setTextAppearanceWithNSString:value])) executeWithBoolean:true];
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 3, 4, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 5, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 6, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 7, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 8, 2, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASPagerTitleStripImpl:);
-  methods[1].selector = @selector(setTextSpacingWithNSString:);
-  methods[2].selector = @selector(setNonPrimaryAlphaWithFloat:);
-  methods[3].selector = @selector(setTextColorWithNSString:);
-  methods[4].selector = @selector(setGravityWithNSString:);
-  methods[5].selector = @selector(setTextSizeWithNSString:);
-  methods[6].selector = @selector(setTextAppearanceWithNSString:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASPagerTitleStripImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASPagerTitleStripImpl;", "setTextSpacing", "LNSString;", "setNonPrimaryAlpha", "F", "setTextColor", "setGravity", "setTextSize", "setTextAppearance" };
-  static const J2ObjcClassInfo _ASPagerTitleStripImpl_PagerTitleStripBean = { "PagerTitleStripBean", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 7, 1, 0, -1, -1, -1, -1 };
-  return &_ASPagerTitleStripImpl_PagerTitleStripBean;
-}
-
-@end
-
-void ASPagerTitleStripImpl_PagerTitleStripBean_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl_PagerTitleStripBean *self, ASPagerTitleStripImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupBean_initWithASIWidget_(self, outer$);
-}
-
-ASPagerTitleStripImpl_PagerTitleStripBean *new_ASPagerTitleStripImpl_PagerTitleStripBean_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASPagerTitleStripImpl_PagerTitleStripBean, initWithASPagerTitleStripImpl_, outer$)
-}
-
-ASPagerTitleStripImpl_PagerTitleStripBean *create_ASPagerTitleStripImpl_PagerTitleStripBean_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASPagerTitleStripImpl_PagerTitleStripBean, initWithASPagerTitleStripImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTitleStripImpl_PagerTitleStripBean)
-
-@implementation ASPagerTitleStripImpl_PagerTitleStripParamsBean
-
-- (instancetype)initWithASPagerTitleStripImpl:(ASPagerTitleStripImpl *)outer$ {
-  ASPagerTitleStripImpl_PagerTitleStripParamsBean_initWithASPagerTitleStripImpl_(self, outer$);
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASPagerTitleStripImpl:);
-  #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "LASPagerTitleStripImpl;" };
-  static const J2ObjcClassInfo _ASPagerTitleStripImpl_PagerTitleStripParamsBean = { "PagerTitleStripParamsBean", "com.ashera.viewpager", ptrTable, methods, NULL, 7, 0x1, 1, 0, 0, -1, -1, -1, -1 };
-  return &_ASPagerTitleStripImpl_PagerTitleStripParamsBean;
-}
-
-@end
-
-void ASPagerTitleStripImpl_PagerTitleStripParamsBean_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl_PagerTitleStripParamsBean *self, ASPagerTitleStripImpl *outer$) {
-  ASViewGroupImpl_ViewGroupParamsBean_init(self);
-}
-
-ASPagerTitleStripImpl_PagerTitleStripParamsBean *new_ASPagerTitleStripImpl_PagerTitleStripParamsBean_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASPagerTitleStripImpl_PagerTitleStripParamsBean, initWithASPagerTitleStripImpl_, outer$)
-}
-
-ASPagerTitleStripImpl_PagerTitleStripParamsBean *create_ASPagerTitleStripImpl_PagerTitleStripParamsBean_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASPagerTitleStripImpl_PagerTitleStripParamsBean, initWithASPagerTitleStripImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTitleStripImpl_PagerTitleStripParamsBean)
-
-@implementation ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder
-
-- (instancetype)initWithASPagerTitleStripImpl:(ASPagerTitleStripImpl *)outer$ {
-  ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder_initWithASPagerTitleStripImpl_(self, outer$);
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASPagerTitleStripImpl:);
-  #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "LASPagerTitleStripImpl;", "Lcom/ashera/layout/ViewGroupImpl$ViewGroupCommandParamsBuilder<Lcom/ashera/viewpager/PagerTitleStripImpl$PagerTitleStripCommandParamsBuilder;>;" };
-  static const J2ObjcClassInfo _ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder = { "PagerTitleStripCommandParamsBuilder", "com.ashera.viewpager", ptrTable, methods, NULL, 7, 0x1, 1, 0, 0, -1, -1, 1, -1 };
-  return &_ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder;
-}
-
-@end
-
-void ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder *self, ASPagerTitleStripImpl *outer$) {
-  ASViewGroupImpl_ViewGroupCommandParamsBuilder_init(self);
-}
-
-ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder *new_ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder, initWithASPagerTitleStripImpl_, outer$)
-}
-
-ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder *create_ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder_initWithASPagerTitleStripImpl_(ASPagerTitleStripImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder, initWithASPagerTitleStripImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTitleStripImpl_PagerTitleStripCommandParamsBuilder)
 
 @implementation ASPagerTitleStripImpl_$Lambda$1
 

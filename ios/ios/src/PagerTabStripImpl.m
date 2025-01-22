@@ -5,7 +5,6 @@
 
 #include "BaseHasWidgets.h"
 #include "HasWidgets.h"
-#include "IAttributable.h"
 #include "IFragment.h"
 #include "ILifeCycleDecorator.h"
 #include "IOSClass.h"
@@ -44,16 +43,11 @@
 
 
 #pragma clang diagnostic ignored "-Wprotocol"
-#pragma clang diagnostic ignored "-Wincomplete-implementation"
 
 @interface ASPagerTabStripImpl () {
  @public
   id uiView_;
   ADXPagerTabStrip *pagerTabStrip_;
-  ASPagerTabStripImpl_PagerTabStripCommandBuilder *builder_;
-  ASPagerTabStripImpl_PagerTabStripBean *bean_;
-  ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder *paramsBuilder_;
-  ASPagerTabStripImpl_PagerTabStripParamsBean *paramsBean_;
 }
 
 - (void)setWidgetOnNativeClass;
@@ -74,10 +68,6 @@
 
 J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, uiView_, id)
 J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, pagerTabStrip_, ADXPagerTabStrip *)
-J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, builder_, ASPagerTabStripImpl_PagerTabStripCommandBuilder *)
-J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, bean_, ASPagerTabStripImpl_PagerTabStripBean *)
-J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, paramsBuilder_, ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder *)
-J2OBJC_FIELD_SETTER(ASPagerTabStripImpl, paramsBean_, ASPagerTabStripImpl_PagerTabStripParamsBean *)
 
 __attribute__((unused)) static void ASPagerTabStripImpl_setWidgetOnNativeClass(ASPagerTabStripImpl *self);
 
@@ -110,20 +100,6 @@ J2OBJC_FIELD_SETTER(ASPagerTabStripImpl_PagerTabStripExt, measureFinished_, ASMe
 J2OBJC_FIELD_SETTER(ASPagerTabStripImpl_PagerTabStripExt, onLayoutEvent_, ASOnLayoutEvent *)
 J2OBJC_FIELD_SETTER(ASPagerTabStripImpl_PagerTabStripExt, overlays_, id<JavaUtilList>)
 J2OBJC_FIELD_SETTER(ASPagerTabStripImpl_PagerTabStripExt, templates_, id<JavaUtilMap>)
-
-@interface ASPagerTabStripImpl_PagerTabStripCommandBuilder () {
- @public
-  ASPagerTabStripImpl *this$0_;
-}
-
-@end
-
-@interface ASPagerTabStripImpl_PagerTabStripBean () {
- @public
-  ASPagerTabStripImpl *this$0_;
-}
-
-@end
 
 @interface ASPagerTabStripImpl_$Lambda$1 : NSObject < JavaLangRunnable > {
  @public
@@ -393,38 +369,6 @@ J2OBJC_IGNORE_DESIGNATED_END
   [((ADView *) nil_chk(((ADView *) cast_chk([self asWidget], [ADView class])))) setVisibilityWithInt:b ? ADView_VISIBLE : ADView_GONE];
 }
 
-- (id)getPluginWithNSString:(NSString *)plugin {
-  return [((id<ASIAttributable>) nil_chk(ASWidgetFactory_getAttributableWithNSString_(plugin))) newInstanceWithASIWidget:self];
-}
-
-- (ASPagerTabStripImpl_PagerTabStripBean *)getBean {
-  if (bean_ == nil) {
-    bean_ = new_ASPagerTabStripImpl_PagerTabStripBean_initWithASPagerTabStripImpl_(self);
-  }
-  return bean_;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)getBuilder {
-  if (builder_ == nil) {
-    builder_ = new_ASPagerTabStripImpl_PagerTabStripCommandBuilder_initWithASPagerTabStripImpl_(self);
-  }
-  return builder_;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripParamsBean *)getParamsBean {
-  if (paramsBean_ == nil) {
-    paramsBean_ = new_ASPagerTabStripImpl_PagerTabStripParamsBean_initWithASPagerTabStripImpl_(self);
-  }
-  return paramsBean_;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder *)getParamsBuilder {
-  if (paramsBuilder_ == nil) {
-    paramsBuilder_ = new_ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder_initWithASPagerTabStripImpl_(self);
-  }
-  return paramsBuilder_;
-}
-
 - (void)createPaneWithJavaUtilMap:(id<JavaUtilMap>)params {
   ASUIView* uiView = [ASUIView new];
   uiView.backgroundColor = [UIColor clearColor];
@@ -461,12 +405,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { NULL, "V", 0x2, 29, 28, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 30, 1, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 31, 32, -1, -1, -1, -1 },
-    { NULL, "LNSObject;", 0x1, 33, 1, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripParamsBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandParamsBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "V", 0x101, 34, 25, -1, 26, -1, -1 },
+    { NULL, "V", 0x101, 33, 25, -1, 26, -1, -1 },
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
@@ -499,25 +438,16 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[25].selector = @selector(setTextAppearanceWithId:);
   methods[26].selector = @selector(setIdWithNSString:);
   methods[27].selector = @selector(setVisibleWithBoolean:);
-  methods[28].selector = @selector(getPluginWithNSString:);
-  methods[29].selector = @selector(getBean);
-  methods[30].selector = @selector(getBuilder);
-  methods[31].selector = @selector(getParamsBean);
-  methods[32].selector = @selector(getParamsBuilder);
-  methods[33].selector = @selector(createPaneWithJavaUtilMap:);
+  methods[28].selector = @selector(createPaneWithJavaUtilMap:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "uiView_", "LNSObject;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 35, -1, -1 },
-    { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 36, -1, -1 },
+    { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 34, -1, -1 },
+    { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 35, -1, -1 },
     { "pagerTabStrip_", "LADXPagerTabStrip;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "builder_", "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "bean_", "LASPagerTabStripImpl_PagerTabStripBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "paramsBuilder_", "LASPagerTabStripImpl_PagerTabStripCommandParamsBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "paramsBean_", "LASPagerTabStripImpl_PagerTabStripParamsBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "loadAttributes", "LNSString;", "LNSString;LNSString;", "create", "LASIFragment;LJavaUtilMap;", "(Lcom/ashera/core/IFragment;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "remove", "LASIWidget;", "I", "nativeRemoveView", "add", "LASIWidget;I", "createLayoutParams", "LADView;", "getLayoutParams", "setChildAttribute", "LASIWidget;LASWidgetAttribute;LNSString;LNSObject;", "getChildAttribute", "LASIWidget;LASWidgetAttribute;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "checkIosVersion", "nativeCreate", "LJavaUtilMap;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "setTextSize", "LNSObject;", "setTextAppearance", "setId", "setVisible", "Z", "getPlugin", "createPane", &ASPagerTabStripImpl_LOCAL_NAME, &ASPagerTabStripImpl_GROUP_NAME, "LASPagerTabStripImpl_PagerTabStripExt;LASPagerTabStripImpl_PagerTabStripCommandBuilder;LASPagerTabStripImpl_PagerTabStripBean;LASPagerTabStripImpl_PagerTabStripParamsBean;LASPagerTabStripImpl_PagerTabStripCommandParamsBuilder;" };
-  static const J2ObjcClassInfo _ASPagerTabStripImpl = { "PagerTabStripImpl", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 34, 8, -1, 37, -1, -1, -1 };
+  static const void *ptrTable[] = { "loadAttributes", "LNSString;", "LNSString;LNSString;", "create", "LASIFragment;LJavaUtilMap;", "(Lcom/ashera/core/IFragment;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "remove", "LASIWidget;", "I", "nativeRemoveView", "add", "LASIWidget;I", "createLayoutParams", "LADView;", "getLayoutParams", "setChildAttribute", "LASIWidget;LASWidgetAttribute;LNSString;LNSObject;", "getChildAttribute", "LASIWidget;LASWidgetAttribute;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "checkIosVersion", "nativeCreate", "LJavaUtilMap;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "setTextSize", "LNSObject;", "setTextAppearance", "setId", "setVisible", "Z", "createPane", &ASPagerTabStripImpl_LOCAL_NAME, &ASPagerTabStripImpl_GROUP_NAME, "LASPagerTabStripImpl_PagerTabStripExt;" };
+  static const J2ObjcClassInfo _ASPagerTabStripImpl = { "PagerTabStripImpl", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 29, 4, -1, 36, -1, -1, -1 };
   return &_ASPagerTabStripImpl;
 }
 
@@ -964,309 +894,6 @@ ASPagerTabStripImpl_PagerTabStripExt *create_ASPagerTabStripImpl_PagerTabStripEx
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTabStripImpl_PagerTabStripExt)
-
-@implementation ASPagerTabStripImpl_PagerTabStripCommandBuilder
-
-- (instancetype)initWithASPagerTabStripImpl:(ASPagerTabStripImpl *)outer$ {
-  ASPagerTabStripImpl_PagerTabStripCommandBuilder_initWithASPagerTabStripImpl_(self, outer$);
-  return self;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)executeWithBoolean:(jboolean)setter {
-  if (setter) {
-    [this$0_ executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_SETTER_METHOD];
-    [((id<ASIFragment>) nil_chk([this$0_ getFragment])) remeasure];
-  }
-  [this$0_ executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_GETTER_METHOD];
-  return self;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setTextSpacingWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"textSpacing"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setNonPrimaryAlphaWithFloat:(jfloat)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"nonPrimaryAlpha"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:JavaLangFloat_valueOfWithFloat_(value)];
-  return self;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setTextColorWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"textColor"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setGravityWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"gravity"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setTextSizeWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"textSize"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setTextAppearanceWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"textAppearance"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setTabIndicatorColorWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"tabIndicatorColor"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASPagerTabStripImpl_PagerTabStripCommandBuilder *)setDrawFullUnderlineWithBoolean:(jboolean)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"drawFullUnderline"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:JavaLangBoolean_valueOfWithBoolean_(value)];
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, 3, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, 5, 6, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, 7, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, 8, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, 9, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, 10, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, 11, 4, -1, -1, -1, -1 },
-    { NULL, "LASPagerTabStripImpl_PagerTabStripCommandBuilder;", 0x1, 12, 2, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASPagerTabStripImpl:);
-  methods[1].selector = @selector(executeWithBoolean:);
-  methods[2].selector = @selector(setTextSpacingWithNSString:);
-  methods[3].selector = @selector(setNonPrimaryAlphaWithFloat:);
-  methods[4].selector = @selector(setTextColorWithNSString:);
-  methods[5].selector = @selector(setGravityWithNSString:);
-  methods[6].selector = @selector(setTextSizeWithNSString:);
-  methods[7].selector = @selector(setTextAppearanceWithNSString:);
-  methods[8].selector = @selector(setTabIndicatorColorWithNSString:);
-  methods[9].selector = @selector(setDrawFullUnderlineWithBoolean:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASPagerTabStripImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASPagerTabStripImpl;", "execute", "Z", "setTextSpacing", "LNSString;", "setNonPrimaryAlpha", "F", "setTextColor", "setGravity", "setTextSize", "setTextAppearance", "setTabIndicatorColor", "setDrawFullUnderline", "Lcom/ashera/layout/ViewGroupImpl$ViewGroupCommandBuilder<Lcom/ashera/viewpager/PagerTabStripImpl$PagerTabStripCommandBuilder;>;" };
-  static const J2ObjcClassInfo _ASPagerTabStripImpl_PagerTabStripCommandBuilder = { "PagerTabStripCommandBuilder", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 10, 1, 0, -1, -1, 13, -1 };
-  return &_ASPagerTabStripImpl_PagerTabStripCommandBuilder;
-}
-
-@end
-
-void ASPagerTabStripImpl_PagerTabStripCommandBuilder_initWithASPagerTabStripImpl_(ASPagerTabStripImpl_PagerTabStripCommandBuilder *self, ASPagerTabStripImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupCommandBuilder_init(self);
-}
-
-ASPagerTabStripImpl_PagerTabStripCommandBuilder *new_ASPagerTabStripImpl_PagerTabStripCommandBuilder_initWithASPagerTabStripImpl_(ASPagerTabStripImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASPagerTabStripImpl_PagerTabStripCommandBuilder, initWithASPagerTabStripImpl_, outer$)
-}
-
-ASPagerTabStripImpl_PagerTabStripCommandBuilder *create_ASPagerTabStripImpl_PagerTabStripCommandBuilder_initWithASPagerTabStripImpl_(ASPagerTabStripImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASPagerTabStripImpl_PagerTabStripCommandBuilder, initWithASPagerTabStripImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTabStripImpl_PagerTabStripCommandBuilder)
-
-@implementation ASPagerTabStripImpl_PagerTabStripBean
-
-- (instancetype)initWithASPagerTabStripImpl:(ASPagerTabStripImpl *)outer$ {
-  ASPagerTabStripImpl_PagerTabStripBean_initWithASPagerTabStripImpl_(self, outer$);
-  return self;
-}
-
-- (void)setTextSpacingWithNSString:(NSString *)value {
-  (void) [((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setTextSpacingWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setNonPrimaryAlphaWithFloat:(jfloat)value {
-  (void) [((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setNonPrimaryAlphaWithFloat:value])) executeWithBoolean:true];
-}
-
-- (void)setTextColorWithNSString:(NSString *)value {
-  (void) [((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setTextColorWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setGravityWithNSString:(NSString *)value {
-  (void) [((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setGravityWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setTextSizeWithNSString:(NSString *)value {
-  (void) [((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setTextSizeWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setTextAppearanceWithNSString:(NSString *)value {
-  (void) [((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setTextAppearanceWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setTabIndicatorColorWithNSString:(NSString *)value {
-  (void) [((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setTabIndicatorColorWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setDrawFullUnderlineWithBoolean:(jboolean)value {
-  (void) [((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([((ASPagerTabStripImpl_PagerTabStripCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setDrawFullUnderlineWithBoolean:value])) executeWithBoolean:true];
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 3, 4, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 5, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 6, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 7, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 8, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 9, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 10, 11, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASPagerTabStripImpl:);
-  methods[1].selector = @selector(setTextSpacingWithNSString:);
-  methods[2].selector = @selector(setNonPrimaryAlphaWithFloat:);
-  methods[3].selector = @selector(setTextColorWithNSString:);
-  methods[4].selector = @selector(setGravityWithNSString:);
-  methods[5].selector = @selector(setTextSizeWithNSString:);
-  methods[6].selector = @selector(setTextAppearanceWithNSString:);
-  methods[7].selector = @selector(setTabIndicatorColorWithNSString:);
-  methods[8].selector = @selector(setDrawFullUnderlineWithBoolean:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASPagerTabStripImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASPagerTabStripImpl;", "setTextSpacing", "LNSString;", "setNonPrimaryAlpha", "F", "setTextColor", "setGravity", "setTextSize", "setTextAppearance", "setTabIndicatorColor", "setDrawFullUnderline", "Z" };
-  static const J2ObjcClassInfo _ASPagerTabStripImpl_PagerTabStripBean = { "PagerTabStripBean", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 9, 1, 0, -1, -1, -1, -1 };
-  return &_ASPagerTabStripImpl_PagerTabStripBean;
-}
-
-@end
-
-void ASPagerTabStripImpl_PagerTabStripBean_initWithASPagerTabStripImpl_(ASPagerTabStripImpl_PagerTabStripBean *self, ASPagerTabStripImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupBean_initWithASIWidget_(self, outer$);
-}
-
-ASPagerTabStripImpl_PagerTabStripBean *new_ASPagerTabStripImpl_PagerTabStripBean_initWithASPagerTabStripImpl_(ASPagerTabStripImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASPagerTabStripImpl_PagerTabStripBean, initWithASPagerTabStripImpl_, outer$)
-}
-
-ASPagerTabStripImpl_PagerTabStripBean *create_ASPagerTabStripImpl_PagerTabStripBean_initWithASPagerTabStripImpl_(ASPagerTabStripImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASPagerTabStripImpl_PagerTabStripBean, initWithASPagerTabStripImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTabStripImpl_PagerTabStripBean)
-
-@implementation ASPagerTabStripImpl_PagerTabStripParamsBean
-
-- (instancetype)initWithASPagerTabStripImpl:(ASPagerTabStripImpl *)outer$ {
-  ASPagerTabStripImpl_PagerTabStripParamsBean_initWithASPagerTabStripImpl_(self, outer$);
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASPagerTabStripImpl:);
-  #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "LASPagerTabStripImpl;" };
-  static const J2ObjcClassInfo _ASPagerTabStripImpl_PagerTabStripParamsBean = { "PagerTabStripParamsBean", "com.ashera.viewpager", ptrTable, methods, NULL, 7, 0x1, 1, 0, 0, -1, -1, -1, -1 };
-  return &_ASPagerTabStripImpl_PagerTabStripParamsBean;
-}
-
-@end
-
-void ASPagerTabStripImpl_PagerTabStripParamsBean_initWithASPagerTabStripImpl_(ASPagerTabStripImpl_PagerTabStripParamsBean *self, ASPagerTabStripImpl *outer$) {
-  ASViewGroupImpl_ViewGroupParamsBean_init(self);
-}
-
-ASPagerTabStripImpl_PagerTabStripParamsBean *new_ASPagerTabStripImpl_PagerTabStripParamsBean_initWithASPagerTabStripImpl_(ASPagerTabStripImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASPagerTabStripImpl_PagerTabStripParamsBean, initWithASPagerTabStripImpl_, outer$)
-}
-
-ASPagerTabStripImpl_PagerTabStripParamsBean *create_ASPagerTabStripImpl_PagerTabStripParamsBean_initWithASPagerTabStripImpl_(ASPagerTabStripImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASPagerTabStripImpl_PagerTabStripParamsBean, initWithASPagerTabStripImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTabStripImpl_PagerTabStripParamsBean)
-
-@implementation ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder
-
-- (instancetype)initWithASPagerTabStripImpl:(ASPagerTabStripImpl *)outer$ {
-  ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder_initWithASPagerTabStripImpl_(self, outer$);
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASPagerTabStripImpl:);
-  #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "LASPagerTabStripImpl;", "Lcom/ashera/layout/ViewGroupImpl$ViewGroupCommandParamsBuilder<Lcom/ashera/viewpager/PagerTabStripImpl$PagerTabStripCommandParamsBuilder;>;" };
-  static const J2ObjcClassInfo _ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder = { "PagerTabStripCommandParamsBuilder", "com.ashera.viewpager", ptrTable, methods, NULL, 7, 0x1, 1, 0, 0, -1, -1, 1, -1 };
-  return &_ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder;
-}
-
-@end
-
-void ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder_initWithASPagerTabStripImpl_(ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder *self, ASPagerTabStripImpl *outer$) {
-  ASViewGroupImpl_ViewGroupCommandParamsBuilder_init(self);
-}
-
-ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder *new_ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder_initWithASPagerTabStripImpl_(ASPagerTabStripImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder, initWithASPagerTabStripImpl_, outer$)
-}
-
-ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder *create_ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder_initWithASPagerTabStripImpl_(ASPagerTabStripImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder, initWithASPagerTabStripImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASPagerTabStripImpl_PagerTabStripCommandParamsBuilder)
 
 @implementation ASPagerTabStripImpl_$Lambda$1
 

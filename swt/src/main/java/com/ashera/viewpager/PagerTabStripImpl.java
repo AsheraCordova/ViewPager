@@ -75,6 +75,7 @@ public class PagerTabStripImpl extends BaseHasWidgets {
 		
 		
 		ViewGroupImpl.registerCommandConveter(this);
+
 	}
 
 	@Override
@@ -452,7 +453,7 @@ public class PagerTabStripImpl extends BaseHasWidgets {
 	@SuppressLint("NewApi")
 	@Override
 	public void setAttribute(WidgetAttribute key, String strValue, Object objValue, ILifeCycleDecorator decorator) {
-				ViewGroupImpl.setAttribute(this, key, strValue, objValue, decorator);
+				ViewGroupImpl.setAttribute(this,  key, strValue, objValue, decorator);
 		Object nativeWidget = asNativeWidget();
 		switch (key.getAttributeName()) {
 			case "textSpacing": {
@@ -620,171 +621,7 @@ public class PagerTabStripImpl extends BaseHasWidgets {
 		return getStyle("swtStyle", initStyle, params, fragment);
 	}
 
-	
-private PagerTabStripCommandBuilder builder;
-private PagerTabStripBean bean;
-public Object getPlugin(String plugin) {
-	return WidgetFactory.getAttributable(plugin).newInstance(this);
-}
-public PagerTabStripBean getBean() {
-	if (bean == null) {
-		bean = new PagerTabStripBean();
-	}
-	return bean;
-}
-public PagerTabStripCommandBuilder getBuilder() {
-	if (builder == null) {
-		builder = new PagerTabStripCommandBuilder();
-	}
-	return builder;
-}
-
-
-public  class PagerTabStripCommandBuilder extends com.ashera.layout.ViewGroupImpl.ViewGroupCommandBuilder <PagerTabStripCommandBuilder> {
-    public PagerTabStripCommandBuilder() {
-	}
-	
-	public PagerTabStripCommandBuilder execute(boolean setter) {
-		if (setter) {
-			executeCommand(command, null, IWidget.COMMAND_EXEC_SETTER_METHOD);
-			getFragment().remeasure();
-		}
-		executeCommand(command, null, IWidget.COMMAND_EXEC_GETTER_METHOD);
-return this;	}
-
-public PagerTabStripCommandBuilder setTextSpacing(String value) {
-	Map<String, Object> attrs = initCommand("textSpacing");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTabStripCommandBuilder setNonPrimaryAlpha(float value) {
-	Map<String, Object> attrs = initCommand("nonPrimaryAlpha");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTabStripCommandBuilder setTextColor(String value) {
-	Map<String, Object> attrs = initCommand("textColor");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTabStripCommandBuilder setGravity(String value) {
-	Map<String, Object> attrs = initCommand("gravity");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTabStripCommandBuilder setTextSize(String value) {
-	Map<String, Object> attrs = initCommand("textSize");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTabStripCommandBuilder setTextAppearance(String value) {
-	Map<String, Object> attrs = initCommand("textAppearance");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTabStripCommandBuilder setTabIndicatorColor(String value) {
-	Map<String, Object> attrs = initCommand("tabIndicatorColor");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-public PagerTabStripCommandBuilder setDrawFullUnderline(boolean value) {
-	Map<String, Object> attrs = initCommand("drawFullUnderline");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-}
-public class PagerTabStripBean extends com.ashera.layout.ViewGroupImpl.ViewGroupBean{
-		public PagerTabStripBean() {
-			super(PagerTabStripImpl.this);
-		}
-public void setTextSpacing(String value) {
-	getBuilder().reset().setTextSpacing(value).execute(true);
-}
-
-public void setNonPrimaryAlpha(float value) {
-	getBuilder().reset().setNonPrimaryAlpha(value).execute(true);
-}
-
-public void setTextColor(String value) {
-	getBuilder().reset().setTextColor(value).execute(true);
-}
-
-public void setGravity(String value) {
-	getBuilder().reset().setGravity(value).execute(true);
-}
-
-public void setTextSize(String value) {
-	getBuilder().reset().setTextSize(value).execute(true);
-}
-
-public void setTextAppearance(String value) {
-	getBuilder().reset().setTextAppearance(value).execute(true);
-}
-
-public void setTabIndicatorColor(String value) {
-	getBuilder().reset().setTabIndicatorColor(value).execute(true);
-}
-
-public void setDrawFullUnderline(boolean value) {
-	getBuilder().reset().setDrawFullUnderline(value).execute(true);
-}
-
-}
-
-
-private PagerTabStripCommandParamsBuilder paramsBuilder;
-private PagerTabStripParamsBean paramsBean;
-
-public PagerTabStripParamsBean getParamsBean() {
-	if (paramsBean == null) {
-		paramsBean = new PagerTabStripParamsBean();
-	}
-	return paramsBean;
-}
-public PagerTabStripCommandParamsBuilder getParamsBuilder() {
-	if (paramsBuilder == null) {
-		paramsBuilder = new PagerTabStripCommandParamsBuilder();
-	}
-	return paramsBuilder;
-}
-
-
-
-public class PagerTabStripParamsBean extends com.ashera.layout.ViewGroupImpl.ViewGroupParamsBean{
-}
-
-
-
-
-
-public class PagerTabStripCommandParamsBuilder extends com.ashera.layout.ViewGroupImpl.ViewGroupCommandParamsBuilder<PagerTabStripCommandParamsBuilder>{
-}
-
-	//end - body
+		//end - body
 
 	private void createPane(Map<String, Object> params) {
 		pane = new org.eclipse.swt.widgets.Composite((org.eclipse.swt.widgets.Composite)ViewImpl.getParent(this), getStyle(params, fragment));

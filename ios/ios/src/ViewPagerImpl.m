@@ -11,7 +11,6 @@
 #include "EventExpressionParser.h"
 #include "HasWidgets.h"
 #include "IActivity.h"
-#include "IAttributable.h"
 #include "IFragment.h"
 #include "ILifeCycleDecorator.h"
 #include "IListener.h"
@@ -59,7 +58,6 @@
 
 
 #pragma clang diagnostic ignored "-Wprotocol"
-#pragma clang diagnostic ignored "-Wincomplete-implementation"
 
 @interface ASViewPagerImpl () {
  @public
@@ -74,10 +72,6 @@
   jint startX_;
   jint prevWidth_;
   jint prevHeight_;
-  ASViewPagerImpl_ViewPagerCommandBuilder *builder_;
-  ASViewPagerImpl_ViewPagerBean *bean_;
-  ASViewPagerImpl_ViewPagerCommandParamsBuilder *paramsBuilder_;
-  ASViewPagerImpl_ViewPagerParamsBean *paramsBean_;
 }
 
 - (void)setWidgetOnNativeClass;
@@ -141,10 +135,6 @@ J2OBJC_FIELD_SETTER(ASViewPagerImpl, uiView_, id)
 J2OBJC_FIELD_SETTER(ASViewPagerImpl, canvas_, id<ADCanvas>)
 J2OBJC_FIELD_SETTER(ASViewPagerImpl, viewPager_, ADXViewPager *)
 J2OBJC_FIELD_SETTER(ASViewPagerImpl, pageTitles_, id<JavaUtilList>)
-J2OBJC_FIELD_SETTER(ASViewPagerImpl, builder_, ASViewPagerImpl_ViewPagerCommandBuilder *)
-J2OBJC_FIELD_SETTER(ASViewPagerImpl, bean_, ASViewPagerImpl_ViewPagerBean *)
-J2OBJC_FIELD_SETTER(ASViewPagerImpl, paramsBuilder_, ASViewPagerImpl_ViewPagerCommandParamsBuilder *)
-J2OBJC_FIELD_SETTER(ASViewPagerImpl, paramsBean_, ASViewPagerImpl_ViewPagerParamsBean *)
 
 __attribute__((unused)) static void ASViewPagerImpl_setWidgetOnNativeClass(ASViewPagerImpl *self);
 
@@ -375,27 +365,6 @@ __attribute__((unused)) static ASViewPagerImpl_OnPageChangeListener *new_ASViewP
 __attribute__((unused)) static ASViewPagerImpl_OnPageChangeListener *create_ASViewPagerImpl_OnPageChangeListener_initWithASIWidget_withNSString_withNSString_(id<ASIWidget> w, NSString *strValue, NSString *action);
 
 J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_OnPageChangeListener)
-
-@interface ASViewPagerImpl_ViewPagerCommandBuilder () {
- @public
-  ASViewPagerImpl *this$0_;
-}
-
-@end
-
-@interface ASViewPagerImpl_ViewPagerBean () {
- @public
-  ASViewPagerImpl *this$0_;
-}
-
-@end
-
-@interface ASViewPagerImpl_ViewPagerParamsBean () {
- @public
-  ASViewPagerImpl *this$0_;
-}
-
-@end
 
 @interface ASViewPagerImpl_$Lambda$1 : NSObject < JavaLangRunnable > {
  @public
@@ -796,38 +765,6 @@ J2OBJC_IGNORE_DESIGNATED_END
   [((ADView *) nil_chk(((ADView *) cast_chk([self asWidget], [ADView class])))) setVisibilityWithInt:b ? ADView_VISIBLE : ADView_GONE];
 }
 
-- (id)getPluginWithNSString:(NSString *)plugin {
-  return [((id<ASIAttributable>) nil_chk(ASWidgetFactory_getAttributableWithNSString_(plugin))) newInstanceWithASIWidget:self];
-}
-
-- (ASViewPagerImpl_ViewPagerBean *)getBean {
-  if (bean_ == nil) {
-    bean_ = new_ASViewPagerImpl_ViewPagerBean_initWithASViewPagerImpl_(self);
-  }
-  return bean_;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)getBuilder {
-  if (builder_ == nil) {
-    builder_ = new_ASViewPagerImpl_ViewPagerCommandBuilder_initWithASViewPagerImpl_(self);
-  }
-  return builder_;
-}
-
-- (ASViewPagerImpl_ViewPagerParamsBean *)getParamsBean {
-  if (paramsBean_ == nil) {
-    paramsBean_ = new_ASViewPagerImpl_ViewPagerParamsBean_initWithASViewPagerImpl_(self);
-  }
-  return paramsBean_;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandParamsBuilder *)getParamsBuilder {
-  if (paramsBuilder_ == nil) {
-    paramsBuilder_ = new_ASViewPagerImpl_ViewPagerCommandParamsBuilder_initWithASViewPagerImpl_(self);
-  }
-  return paramsBuilder_;
-}
-
 - (void)nativeCreateWithJavaUtilMap:(id<JavaUtilMap>)params {
   ASViewPagerImpl_nativeCreateWithJavaUtilMap_(self, params);
 }
@@ -893,16 +830,11 @@ J2OBJC_IGNORE_DESIGNATED_END
     { NULL, "V", 0x2, -1, -1, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 40, 1, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 41, 42, -1, -1, -1, -1 },
-    { NULL, "LNSObject;", 0x1, 43, 1, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerParamsBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandParamsBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "V", 0x2, 44, 45, -1, 46, -1, -1 },
-    { NULL, "LNSObject;", 0x102, 47, 45, -1, 48, -1, -1 },
+    { NULL, "V", 0x2, 43, 44, -1, 45, -1, -1 },
+    { NULL, "LNSObject;", 0x102, 46, 44, -1, 47, -1, -1 },
+    { NULL, "Z", 0x2, 48, 8, -1, -1, -1, -1 },
     { NULL, "Z", 0x2, 49, 8, -1, -1, -1, -1 },
-    { NULL, "Z", 0x2, 50, 8, -1, -1, -1, -1 },
-    { NULL, "I", 0x102, 51, 52, -1, -1, -1, -1 },
+    { NULL, "I", 0x102, 50, 51, -1, -1, -1, -1 },
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
@@ -948,38 +880,29 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[38].selector = @selector(createCanvas);
   methods[39].selector = @selector(setIdWithNSString:);
   methods[40].selector = @selector(setVisibleWithBoolean:);
-  methods[41].selector = @selector(getPluginWithNSString:);
-  methods[42].selector = @selector(getBean);
-  methods[43].selector = @selector(getBuilder);
-  methods[44].selector = @selector(getParamsBean);
-  methods[45].selector = @selector(getParamsBuilder);
-  methods[46].selector = @selector(nativeCreateWithJavaUtilMap:);
-  methods[47].selector = @selector(createViewWithJavaUtilMap:);
-  methods[48].selector = @selector(isRightPressedWithInt:);
-  methods[49].selector = @selector(isLeftPressedWithInt:);
-  methods[50].selector = @selector(getAbsXWithId:withInt:withInt:);
+  methods[41].selector = @selector(nativeCreateWithJavaUtilMap:);
+  methods[42].selector = @selector(createViewWithJavaUtilMap:);
+  methods[43].selector = @selector(isRightPressedWithInt:);
+  methods[44].selector = @selector(isLeftPressedWithInt:);
+  methods[45].selector = @selector(getAbsXWithId:withInt:withInt:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "uiView_", "LNSObject;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "canvas_", "LADCanvas;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 53, -1, -1 },
-    { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 54, -1, -1 },
+    { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 52, -1, -1 },
+    { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 53, -1, -1 },
     { "viewPager_", "LADXViewPager;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "pageWidth_", "F", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "pageTitles_", "LJavaUtilList;", .constantValue.asLong = 0, 0x2, -1, -1, 55, -1 },
+    { "pageTitles_", "LJavaUtilList;", .constantValue.asLong = 0, 0x2, -1, -1, 54, -1 },
     { "animationDurationInMs_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "currentX_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "lastValue_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "startX_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "prevWidth_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "prevHeight_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "builder_", "LASViewPagerImpl_ViewPagerCommandBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "bean_", "LASViewPagerImpl_ViewPagerBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "paramsBuilder_", "LASViewPagerImpl_ViewPagerCommandParamsBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "paramsBean_", "LASViewPagerImpl_ViewPagerParamsBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "loadAttributes", "LNSString;", "LNSString;LNSString;", "create", "LASIFragment;LJavaUtilMap;", "(Lcom/ashera/core/IFragment;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "remove", "LASIWidget;", "I", "nativeRemoveView", "add", "LASIWidget;I", "createLayoutParams", "LADView;", "getLayoutParams", "setChildAttribute", "LASIWidget;LASWidgetAttribute;LNSString;LNSObject;", "getChildAttribute", "LASIWidget;LASWidgetAttribute;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "checkIosVersion", "addItemToParent", "ILNSString;LASLoopParam;", "setPageTitles", "LNSObject;", "setPageWidth", "smoothScrollTo", "III", "scrollTo", "II", "handlePanStart", "handlePanEnd", "handlePanDrag", "updateBounds", "IIII", "setCurrentItem", "getAdjustedRight", "setId", "setVisible", "Z", "getPlugin", "nativeCreate", "LJavaUtilMap;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "createView", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Ljava/lang/Object;", "isRightPressed", "isLeftPressed", "getAbsX", "LNSObject;II", &ASViewPagerImpl_LOCAL_NAME, &ASViewPagerImpl_GROUP_NAME, "Ljava/util/List<Ljava/lang/String;>;", "LASViewPagerImpl_ViewPagerExt;LASViewPagerImpl_CustomPagerAdapter;LASViewPagerImpl_ViewPagerPanListener;LASViewPagerImpl_CanvasImpl;LASViewPagerImpl_OnPageChangeListener;LASViewPagerImpl_ViewPagerCommandBuilder;LASViewPagerImpl_ViewPagerBean;LASViewPagerImpl_ViewPagerParamsBean;LASViewPagerImpl_ViewPagerCommandParamsBuilder;" };
-  static const J2ObjcClassInfo _ASViewPagerImpl = { "ViewPagerImpl", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 51, 17, -1, 56, -1, -1, -1 };
+  static const void *ptrTable[] = { "loadAttributes", "LNSString;", "LNSString;LNSString;", "create", "LASIFragment;LJavaUtilMap;", "(Lcom/ashera/core/IFragment;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "remove", "LASIWidget;", "I", "nativeRemoveView", "add", "LASIWidget;I", "createLayoutParams", "LADView;", "getLayoutParams", "setChildAttribute", "LASIWidget;LASWidgetAttribute;LNSString;LNSObject;", "getChildAttribute", "LASIWidget;LASWidgetAttribute;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "checkIosVersion", "addItemToParent", "ILNSString;LASLoopParam;", "setPageTitles", "LNSObject;", "setPageWidth", "smoothScrollTo", "III", "scrollTo", "II", "handlePanStart", "handlePanEnd", "handlePanDrag", "updateBounds", "IIII", "setCurrentItem", "getAdjustedRight", "setId", "setVisible", "Z", "nativeCreate", "LJavaUtilMap;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "createView", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Ljava/lang/Object;", "isRightPressed", "isLeftPressed", "getAbsX", "LNSObject;II", &ASViewPagerImpl_LOCAL_NAME, &ASViewPagerImpl_GROUP_NAME, "Ljava/util/List<Ljava/lang/String;>;", "LASViewPagerImpl_ViewPagerExt;LASViewPagerImpl_CustomPagerAdapter;LASViewPagerImpl_ViewPagerPanListener;LASViewPagerImpl_CanvasImpl;LASViewPagerImpl_OnPageChangeListener;" };
+  static const J2ObjcClassInfo _ASViewPagerImpl = { "ViewPagerImpl", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 46, 13, -1, 55, -1, -1, -1 };
   return &_ASViewPagerImpl;
 }
 
@@ -2177,372 +2100,6 @@ ASViewPagerImpl_OnPageChangeListener *create_ASViewPagerImpl_OnPageChangeListene
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_OnPageChangeListener)
-
-@implementation ASViewPagerImpl_ViewPagerCommandBuilder
-
-- (instancetype)initWithASViewPagerImpl:(ASViewPagerImpl *)outer$ {
-  ASViewPagerImpl_ViewPagerCommandBuilder_initWithASViewPagerImpl_(self, outer$);
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)executeWithBoolean:(jboolean)setter {
-  if (setter) {
-    [this$0_ executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_SETTER_METHOD];
-    [((id<ASIFragment>) nil_chk([this$0_ getFragment])) remeasure];
-  }
-  [this$0_ executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_GETTER_METHOD];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)setCurrentItemWithInt:(jint)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"currentItem"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:JavaLangInteger_valueOfWithInt_(value)];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)setOffscreenPageLimitWithInt:(jint)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"offscreenPageLimit"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:JavaLangInteger_valueOfWithInt_(value)];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)setPageMarginWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"pageMargin"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)setPageMarginDrawableWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"pageMarginDrawable"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)setOnPageScrolledWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"onPageScrolled"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)setOnPageSelectedWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"onPageSelected"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)setOnPageScrollStateChangeWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"onPageScrollStateChange"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)setPageWidthWithFloat:(jfloat)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"pageWidth"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:JavaLangFloat_valueOfWithFloat_(value)];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandBuilder *)setPageTitlesWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"pageTitles"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 3, 4, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 5, 4, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 6, 7, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 8, 7, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 9, 7, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 10, 7, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 11, 7, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 12, 13, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandBuilder;", 0x1, 14, 7, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASViewPagerImpl:);
-  methods[1].selector = @selector(executeWithBoolean:);
-  methods[2].selector = @selector(setCurrentItemWithInt:);
-  methods[3].selector = @selector(setOffscreenPageLimitWithInt:);
-  methods[4].selector = @selector(setPageMarginWithNSString:);
-  methods[5].selector = @selector(setPageMarginDrawableWithNSString:);
-  methods[6].selector = @selector(setOnPageScrolledWithNSString:);
-  methods[7].selector = @selector(setOnPageSelectedWithNSString:);
-  methods[8].selector = @selector(setOnPageScrollStateChangeWithNSString:);
-  methods[9].selector = @selector(setPageWidthWithFloat:);
-  methods[10].selector = @selector(setPageTitlesWithNSString:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASViewPagerImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASViewPagerImpl;", "execute", "Z", "setCurrentItem", "I", "setOffscreenPageLimit", "setPageMargin", "LNSString;", "setPageMarginDrawable", "setOnPageScrolled", "setOnPageSelected", "setOnPageScrollStateChange", "setPageWidth", "F", "setPageTitles", "Lcom/ashera/layout/ViewGroupImpl$ViewGroupCommandBuilder<Lcom/ashera/viewpager/ViewPagerImpl$ViewPagerCommandBuilder;>;" };
-  static const J2ObjcClassInfo _ASViewPagerImpl_ViewPagerCommandBuilder = { "ViewPagerCommandBuilder", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 11, 1, 0, -1, -1, 15, -1 };
-  return &_ASViewPagerImpl_ViewPagerCommandBuilder;
-}
-
-@end
-
-void ASViewPagerImpl_ViewPagerCommandBuilder_initWithASViewPagerImpl_(ASViewPagerImpl_ViewPagerCommandBuilder *self, ASViewPagerImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupCommandBuilder_init(self);
-}
-
-ASViewPagerImpl_ViewPagerCommandBuilder *new_ASViewPagerImpl_ViewPagerCommandBuilder_initWithASViewPagerImpl_(ASViewPagerImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASViewPagerImpl_ViewPagerCommandBuilder, initWithASViewPagerImpl_, outer$)
-}
-
-ASViewPagerImpl_ViewPagerCommandBuilder *create_ASViewPagerImpl_ViewPagerCommandBuilder_initWithASViewPagerImpl_(ASViewPagerImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASViewPagerImpl_ViewPagerCommandBuilder, initWithASViewPagerImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerCommandBuilder)
-
-@implementation ASViewPagerImpl_ViewPagerBean
-
-- (instancetype)initWithASViewPagerImpl:(ASViewPagerImpl *)outer$ {
-  ASViewPagerImpl_ViewPagerBean_initWithASViewPagerImpl_(self, outer$);
-  return self;
-}
-
-- (void)setCurrentItemWithInt:(jint)value {
-  (void) [((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setCurrentItemWithInt:value])) executeWithBoolean:true];
-}
-
-- (void)setOffscreenPageLimitWithInt:(jint)value {
-  (void) [((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setOffscreenPageLimitWithInt:value])) executeWithBoolean:true];
-}
-
-- (void)setPageMarginWithNSString:(NSString *)value {
-  (void) [((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setPageMarginWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setPageMarginDrawableWithNSString:(NSString *)value {
-  (void) [((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setPageMarginDrawableWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setOnPageScrolledWithNSString:(NSString *)value {
-  (void) [((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setOnPageScrolledWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setOnPageSelectedWithNSString:(NSString *)value {
-  (void) [((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setOnPageSelectedWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setOnPageScrollStateChangeWithNSString:(NSString *)value {
-  (void) [((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setOnPageScrollStateChangeWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setPageWidthWithFloat:(jfloat)value {
-  (void) [((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setPageWidthWithFloat:value])) executeWithBoolean:true];
-}
-
-- (void)setPageTitlesWithNSString:(NSString *)value {
-  (void) [((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setPageTitlesWithNSString:value])) executeWithBoolean:true];
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 3, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 4, 5, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 6, 5, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 7, 5, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 8, 5, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 9, 5, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 10, 11, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 12, 5, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASViewPagerImpl:);
-  methods[1].selector = @selector(setCurrentItemWithInt:);
-  methods[2].selector = @selector(setOffscreenPageLimitWithInt:);
-  methods[3].selector = @selector(setPageMarginWithNSString:);
-  methods[4].selector = @selector(setPageMarginDrawableWithNSString:);
-  methods[5].selector = @selector(setOnPageScrolledWithNSString:);
-  methods[6].selector = @selector(setOnPageSelectedWithNSString:);
-  methods[7].selector = @selector(setOnPageScrollStateChangeWithNSString:);
-  methods[8].selector = @selector(setPageWidthWithFloat:);
-  methods[9].selector = @selector(setPageTitlesWithNSString:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASViewPagerImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASViewPagerImpl;", "setCurrentItem", "I", "setOffscreenPageLimit", "setPageMargin", "LNSString;", "setPageMarginDrawable", "setOnPageScrolled", "setOnPageSelected", "setOnPageScrollStateChange", "setPageWidth", "F", "setPageTitles" };
-  static const J2ObjcClassInfo _ASViewPagerImpl_ViewPagerBean = { "ViewPagerBean", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 10, 1, 0, -1, -1, -1, -1 };
-  return &_ASViewPagerImpl_ViewPagerBean;
-}
-
-@end
-
-void ASViewPagerImpl_ViewPagerBean_initWithASViewPagerImpl_(ASViewPagerImpl_ViewPagerBean *self, ASViewPagerImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupBean_initWithASIWidget_(self, outer$);
-}
-
-ASViewPagerImpl_ViewPagerBean *new_ASViewPagerImpl_ViewPagerBean_initWithASViewPagerImpl_(ASViewPagerImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASViewPagerImpl_ViewPagerBean, initWithASViewPagerImpl_, outer$)
-}
-
-ASViewPagerImpl_ViewPagerBean *create_ASViewPagerImpl_ViewPagerBean_initWithASViewPagerImpl_(ASViewPagerImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASViewPagerImpl_ViewPagerBean, initWithASViewPagerImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerBean)
-
-@implementation ASViewPagerImpl_ViewPagerParamsBean
-
-- (instancetype)initWithASViewPagerImpl:(ASViewPagerImpl *)outer$ {
-  ASViewPagerImpl_ViewPagerParamsBean_initWithASViewPagerImpl_(self, outer$);
-  return self;
-}
-
-- (void)setLayoutGravityWithASIWidget:(id<ASIWidget>)w
-                         withNSString:(NSString *)value {
-  id<JavaUtilMap> layoutParams = new_JavaUtilHashMap_init();
-  (void) [layoutParams putWithId:@"layoutParams" withId:[((ASViewPagerImpl_ViewPagerCommandParamsBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandParamsBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandParamsBuilder *) nil_chk([this$0_ getParamsBuilder])) reset])) setLayoutGravityWithNSString:value])) getCommand]];
-  [((id<ASIWidget>) nil_chk(w)) executeCommandWithJavaUtilMap:layoutParams withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_SETTER_METHOD];
-  [((id<ASIFragment>) nil_chk([w getFragment])) remeasure];
-}
-
-- (void)setLayoutIsdecorWithASIWidget:(id<ASIWidget>)w
-                          withBoolean:(jboolean)value {
-  id<JavaUtilMap> layoutParams = new_JavaUtilHashMap_init();
-  (void) [layoutParams putWithId:@"layoutParams" withId:[((ASViewPagerImpl_ViewPagerCommandParamsBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandParamsBuilder *) nil_chk([((ASViewPagerImpl_ViewPagerCommandParamsBuilder *) nil_chk([this$0_ getParamsBuilder])) reset])) setLayoutIsdecorWithBoolean:value])) getCommand]];
-  [((id<ASIWidget>) nil_chk(w)) executeCommandWithJavaUtilMap:layoutParams withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_SETTER_METHOD];
-  [((id<ASIFragment>) nil_chk([w getFragment])) remeasure];
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 3, 4, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASViewPagerImpl:);
-  methods[1].selector = @selector(setLayoutGravityWithASIWidget:withNSString:);
-  methods[2].selector = @selector(setLayoutIsdecorWithASIWidget:withBoolean:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASViewPagerImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASViewPagerImpl;", "setLayoutGravity", "LASIWidget;LNSString;", "setLayoutIsdecor", "LASIWidget;Z" };
-  static const J2ObjcClassInfo _ASViewPagerImpl_ViewPagerParamsBean = { "ViewPagerParamsBean", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x1, 3, 1, 0, -1, -1, -1, -1 };
-  return &_ASViewPagerImpl_ViewPagerParamsBean;
-}
-
-@end
-
-void ASViewPagerImpl_ViewPagerParamsBean_initWithASViewPagerImpl_(ASViewPagerImpl_ViewPagerParamsBean *self, ASViewPagerImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupParamsBean_init(self);
-}
-
-ASViewPagerImpl_ViewPagerParamsBean *new_ASViewPagerImpl_ViewPagerParamsBean_initWithASViewPagerImpl_(ASViewPagerImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASViewPagerImpl_ViewPagerParamsBean, initWithASViewPagerImpl_, outer$)
-}
-
-ASViewPagerImpl_ViewPagerParamsBean *create_ASViewPagerImpl_ViewPagerParamsBean_initWithASViewPagerImpl_(ASViewPagerImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASViewPagerImpl_ViewPagerParamsBean, initWithASViewPagerImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerParamsBean)
-
-@implementation ASViewPagerImpl_ViewPagerCommandParamsBuilder
-
-- (instancetype)initWithASViewPagerImpl:(ASViewPagerImpl *)outer$ {
-  ASViewPagerImpl_ViewPagerCommandParamsBuilder_initWithASViewPagerImpl_(self, outer$);
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandParamsBuilder *)setLayoutGravityWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"layout_gravity"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASViewPagerImpl_ViewPagerCommandParamsBuilder *)setLayoutIsdecorWithBoolean:(jboolean)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"layout_isdecor"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:JavaLangBoolean_valueOfWithBoolean_(value)];
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandParamsBuilder;", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "LASViewPagerImpl_ViewPagerCommandParamsBuilder;", 0x1, 3, 4, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASViewPagerImpl:);
-  methods[1].selector = @selector(setLayoutGravityWithNSString:);
-  methods[2].selector = @selector(setLayoutIsdecorWithBoolean:);
-  #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "LASViewPagerImpl;", "setLayoutGravity", "LNSString;", "setLayoutIsdecor", "Z", "Lcom/ashera/layout/ViewGroupImpl$ViewGroupCommandParamsBuilder<Lcom/ashera/viewpager/ViewPagerImpl$ViewPagerCommandParamsBuilder;>;" };
-  static const J2ObjcClassInfo _ASViewPagerImpl_ViewPagerCommandParamsBuilder = { "ViewPagerCommandParamsBuilder", "com.ashera.viewpager", ptrTable, methods, NULL, 7, 0x1, 3, 0, 0, -1, -1, 5, -1 };
-  return &_ASViewPagerImpl_ViewPagerCommandParamsBuilder;
-}
-
-@end
-
-void ASViewPagerImpl_ViewPagerCommandParamsBuilder_initWithASViewPagerImpl_(ASViewPagerImpl_ViewPagerCommandParamsBuilder *self, ASViewPagerImpl *outer$) {
-  ASViewGroupImpl_ViewGroupCommandParamsBuilder_init(self);
-}
-
-ASViewPagerImpl_ViewPagerCommandParamsBuilder *new_ASViewPagerImpl_ViewPagerCommandParamsBuilder_initWithASViewPagerImpl_(ASViewPagerImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASViewPagerImpl_ViewPagerCommandParamsBuilder, initWithASViewPagerImpl_, outer$)
-}
-
-ASViewPagerImpl_ViewPagerCommandParamsBuilder *create_ASViewPagerImpl_ViewPagerCommandParamsBuilder_initWithASViewPagerImpl_(ASViewPagerImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASViewPagerImpl_ViewPagerCommandParamsBuilder, initWithASViewPagerImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerCommandParamsBuilder)
 
 @implementation ASViewPagerImpl_$Lambda$1
 
