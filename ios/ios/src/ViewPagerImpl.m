@@ -1924,6 +1924,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
   (void) [obj putWithId:@"eventType" withId:@"pagescrolled"];
   (void) [obj putWithId:@"fragmentId" withId:[((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getFragmentId]];
   (void) [obj putWithId:@"actionUrl" withId:[((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getActionUrl]];
+  (void) [obj putWithId:@"namespace" withId:[((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getNamespace]];
   if ([((id<ASIWidget>) nil_chk(w_)) getComponentId] != nil) {
     (void) [obj putWithId:@"componentId" withId:[((id<ASIWidget>) nil_chk(w_)) getComponentId]];
   }
@@ -1974,6 +1975,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
   (void) [obj putWithId:@"eventType" withId:@"pageselected"];
   (void) [obj putWithId:@"fragmentId" withId:[((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getFragmentId]];
   (void) [obj putWithId:@"actionUrl" withId:[((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getActionUrl]];
+  (void) [obj putWithId:@"namespace" withId:[((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getNamespace]];
   if ([((id<ASIWidget>) nil_chk(w_)) getComponentId] != nil) {
     (void) [obj putWithId:@"componentId" withId:[((id<ASIWidget>) nil_chk(w_)) getComponentId]];
   }
@@ -2022,6 +2024,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
   (void) [obj putWithId:@"eventType" withId:@"pagescrollstatechanged"];
   (void) [obj putWithId:@"fragmentId" withId:[((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getFragmentId]];
   (void) [obj putWithId:@"actionUrl" withId:[((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getActionUrl]];
+  (void) [obj putWithId:@"namespace" withId:[((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getNamespace]];
   if ([((id<ASIWidget>) nil_chk(w_)) getComponentId] != nil) {
     (void) [obj putWithId:@"componentId" withId:[((id<ASIWidget>) nil_chk(w_)) getComponentId]];
   }

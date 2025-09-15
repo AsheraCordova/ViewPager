@@ -669,6 +669,7 @@ public java.util.Map<String, Object> getOnPageScrolledEventObj(int position,floa
     obj.put("eventType", "pagescrolled");
     obj.put("fragmentId", w.getFragment().getFragmentId());
     obj.put("actionUrl", w.getFragment().getActionUrl());
+    obj.put("namespace", w.getFragment().getNamespace());
     
     if (w.getComponentId() != null) {
     	obj.put("componentId", w.getComponentId());
@@ -730,6 +731,7 @@ public java.util.Map<String, Object> getOnPageSelectedEventObj(int position) {
     obj.put("eventType", "pageselected");
     obj.put("fragmentId", w.getFragment().getFragmentId());
     obj.put("actionUrl", w.getFragment().getActionUrl());
+    obj.put("namespace", w.getFragment().getNamespace());
     
     if (w.getComponentId() != null) {
     	obj.put("componentId", w.getComponentId());
@@ -789,6 +791,7 @@ public java.util.Map<String, Object> getOnPageScrollStateChangedEventObj(int sta
     obj.put("eventType", "pagescrollstatechanged");
     obj.put("fragmentId", w.getFragment().getFragmentId());
     obj.put("actionUrl", w.getFragment().getActionUrl());
+    obj.put("namespace", w.getFragment().getNamespace());
     
     if (w.getComponentId() != null) {
     	obj.put("componentId", w.getComponentId());

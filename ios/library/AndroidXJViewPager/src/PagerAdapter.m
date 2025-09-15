@@ -5,8 +5,6 @@
 
 #include "DataSetObservable.h"
 #include "DataSetObserver.h"
-#include "IOSClass.h"
-#include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
 #include "PagerAdapter.h"
 #include "Parcelable.h"
@@ -14,9 +12,7 @@
 #include "ViewGroup.h"
 #include "java/lang/CharSequence.h"
 #include "java/lang/ClassLoader.h"
-#include "java/lang/Deprecated.h"
 #include "java/lang/UnsupportedOperationException.h"
-#include "java/lang/annotation/Annotation.h"
 
 
 @interface ADXPagerAdapter () {
@@ -29,16 +25,6 @@
 
 J2OBJC_FIELD_SETTER(ADXPagerAdapter, mObservable_, ADDataSetObservable *)
 J2OBJC_FIELD_SETTER(ADXPagerAdapter, mViewPagerObserver_, ADDataSetObserver *)
-
-__attribute__((unused)) static IOSObjectArray *ADXPagerAdapter__Annotations$0(void);
-
-__attribute__((unused)) static IOSObjectArray *ADXPagerAdapter__Annotations$1(void);
-
-__attribute__((unused)) static IOSObjectArray *ADXPagerAdapter__Annotations$2(void);
-
-__attribute__((unused)) static IOSObjectArray *ADXPagerAdapter__Annotations$3(void);
-
-__attribute__((unused)) static IOSObjectArray *ADXPagerAdapter__Annotations$4(void);
 
 @implementation ADXPagerAdapter
 
@@ -167,21 +153,21 @@ J2OBJC_IGNORE_DESIGNATED_END
     { NULL, "V", 0x1, 4, 5, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 6, 5, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 7, 1, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 0, 8, -1, -1, 9, -1 },
-    { NULL, "LNSObject;", 0x1, 2, 10, -1, -1, 11, -1 },
-    { NULL, "V", 0x1, 4, 12, -1, -1, 13, -1 },
-    { NULL, "V", 0x1, 6, 12, -1, -1, 14, -1 },
-    { NULL, "V", 0x1, 7, 8, -1, -1, 15, -1 },
-    { NULL, "Z", 0x401, 16, 17, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 0, 8, -1, -1, -1, -1 },
+    { NULL, "LNSObject;", 0x1, 2, 9, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 4, 10, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 6, 10, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 7, 8, -1, -1, -1, -1 },
+    { NULL, "Z", 0x401, 11, 12, -1, -1, -1, -1 },
     { NULL, "LADParcelable;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 18, 19, -1, -1, -1, -1 },
-    { NULL, "I", 0x1, 20, 21, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 13, 14, -1, -1, -1, -1 },
+    { NULL, "I", 0x1, 15, 16, -1, -1, -1, -1 },
     { NULL, "V", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 22, 23, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 24, 23, -1, -1, -1, -1 },
-    { NULL, "V", 0x0, 25, 23, -1, -1, -1, -1 },
-    { NULL, "LJavaLangCharSequence;", 0x1, 26, 27, -1, -1, -1, -1 },
-    { NULL, "F", 0x1, 28, 27, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 17, 18, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 19, 18, -1, -1, -1, -1 },
+    { NULL, "V", 0x0, 20, 18, -1, -1, -1, -1 },
+    { NULL, "LJavaLangCharSequence;", 0x1, 21, 22, -1, -1, -1, -1 },
+    { NULL, "F", 0x1, 23, 22, -1, -1, -1, -1 },
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
@@ -215,7 +201,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { "POSITION_UNCHANGED", "I", .constantValue.asInt = ADXPagerAdapter_POSITION_UNCHANGED, 0x19, -1, -1, -1, -1 },
     { "POSITION_NONE", "I", .constantValue.asInt = ADXPagerAdapter_POSITION_NONE, 0x19, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "startUpdate", "LADViewGroup;", "instantiateItem", "LADViewGroup;I", "destroyItem", "LADViewGroup;ILNSObject;", "setPrimaryItem", "finishUpdate", "LADView;", (void *)&ADXPagerAdapter__Annotations$0, "LADView;I", (void *)&ADXPagerAdapter__Annotations$1, "LADView;ILNSObject;", (void *)&ADXPagerAdapter__Annotations$2, (void *)&ADXPagerAdapter__Annotations$3, (void *)&ADXPagerAdapter__Annotations$4, "isViewFromObject", "LADView;LNSObject;", "restoreState", "LADParcelable;LJavaLangClassLoader;", "getItemPosition", "LNSObject;", "registerDataSetObserver", "LADDataSetObserver;", "unregisterDataSetObserver", "setViewPagerObserver", "getPageTitle", "I", "getPageWidth" };
+  static const void *ptrTable[] = { "startUpdate", "LADViewGroup;", "instantiateItem", "LADViewGroup;I", "destroyItem", "LADViewGroup;ILNSObject;", "setPrimaryItem", "finishUpdate", "LADView;", "LADView;I", "LADView;ILNSObject;", "isViewFromObject", "LADView;LNSObject;", "restoreState", "LADParcelable;LJavaLangClassLoader;", "getItemPosition", "LNSObject;", "registerDataSetObserver", "LADDataSetObserver;", "unregisterDataSetObserver", "setViewPagerObserver", "getPageTitle", "I", "getPageWidth" };
   static const J2ObjcClassInfo _ADXPagerAdapter = { "PagerAdapter", "androidx.viewpager.widget", ptrTable, methods, fields, 7, 0x401, 22, 4, -1, -1, -1, -1, -1 };
   return &_ADXPagerAdapter;
 }
@@ -225,26 +211,6 @@ J2OBJC_IGNORE_DESIGNATED_END
 void ADXPagerAdapter_init(ADXPagerAdapter *self) {
   NSObject_init(self);
   JreStrongAssignAndConsume(&self->mObservable_, new_ADDataSetObservable_init());
-}
-
-IOSObjectArray *ADXPagerAdapter__Annotations$0() {
-  return [IOSObjectArray arrayWithObjects:(id[]){ create_JavaLangDeprecated() } count:1 type:JavaLangAnnotationAnnotation_class_()];
-}
-
-IOSObjectArray *ADXPagerAdapter__Annotations$1() {
-  return [IOSObjectArray arrayWithObjects:(id[]){ create_JavaLangDeprecated() } count:1 type:JavaLangAnnotationAnnotation_class_()];
-}
-
-IOSObjectArray *ADXPagerAdapter__Annotations$2() {
-  return [IOSObjectArray arrayWithObjects:(id[]){ create_JavaLangDeprecated() } count:1 type:JavaLangAnnotationAnnotation_class_()];
-}
-
-IOSObjectArray *ADXPagerAdapter__Annotations$3() {
-  return [IOSObjectArray arrayWithObjects:(id[]){ create_JavaLangDeprecated() } count:1 type:JavaLangAnnotationAnnotation_class_()];
-}
-
-IOSObjectArray *ADXPagerAdapter__Annotations$4() {
-  return [IOSObjectArray arrayWithObjects:(id[]){ create_JavaLangDeprecated() } count:1 type:JavaLangAnnotationAnnotation_class_()];
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXPagerAdapter)
