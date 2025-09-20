@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSViewPagerPlugin\src\main\java\com\ashera\viewpager\ViewPagerPlugin.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_ViewPagerPlugin")
@@ -39,6 +40,7 @@ FOUNDATION_EXPORT void ASViewPagerPlugin_initPlugin(void);
 J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerPlugin)
 
 @compatibility_alias ComAsheraViewpagerViewPagerPlugin ASViewPagerPlugin;
+
 
 #endif
 

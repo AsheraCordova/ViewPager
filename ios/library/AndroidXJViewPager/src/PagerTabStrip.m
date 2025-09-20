@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJViewPager\src\main\java\androidx\viewpager\widget\PagerTabStrip.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "ConverterFactory.h"
 #include "HasWidgets.h"
 #include "IConverter.h"
@@ -14,59 +19,66 @@
 #include "View.h"
 #include "ViewPager.h"
 #include "java/lang/Boolean.h"
+#include "java/lang/Float.h"
 #include "java/lang/Integer.h"
 #include "java/lang/Math.h"
 
 
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
+
+
 @interface ADXPagerTabStrip () {
  @public
-  jint mIndicatorColor_;
-  jint mIndicatorHeight_;
-  jint mMinPaddingBottom_;
-  jint mMinTextSpacing_;
-  jint mMinStripHeight_;
-  jint mTabPadding_;
-  jint mTabAlpha_;
-  jboolean mDrawFullUnderline_;
-  jboolean mDrawFullUnderlineSet_;
-  jint mFullUnderlineHeight_;
-  jboolean mIgnoreTap_;
-  jfloat mInitialMotionX_;
-  jfloat mInitialMotionY_;
-  jint mTouchSlop_PagerTabStrip_;
+  int32_t mIndicatorColor_;
+  int32_t mIndicatorHeight_;
+  int32_t mMinPaddingBottom_;
+  int32_t mMinTextSpacing_;
+  int32_t mMinStripHeight_;
+  int32_t mTabPadding_;
+  int32_t mTabAlpha_;
+  bool mDrawFullUnderline_;
+  bool mDrawFullUnderlineSet_;
+  int32_t mFullUnderlineHeight_;
+  bool mIgnoreTap_;
+  float mInitialMotionX_;
+  float mInitialMotionY_;
+  int32_t mTouchSlop_PagerTabStrip_;
 }
 
 - (void)updateBorderBottomWidth;
 
 @end
 
-inline jint ADXPagerTabStrip_get_INDICATOR_HEIGHT(void);
+inline int32_t ADXPagerTabStrip_get_INDICATOR_HEIGHT(void);
 #define ADXPagerTabStrip_INDICATOR_HEIGHT 3
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, INDICATOR_HEIGHT, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, INDICATOR_HEIGHT, int32_t)
 
-inline jint ADXPagerTabStrip_get_MIN_PADDING_BOTTOM(void);
+inline int32_t ADXPagerTabStrip_get_MIN_PADDING_BOTTOM(void);
 #define ADXPagerTabStrip_MIN_PADDING_BOTTOM 6
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, MIN_PADDING_BOTTOM, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, MIN_PADDING_BOTTOM, int32_t)
 
-inline jint ADXPagerTabStrip_get_TAB_PADDING(void);
+inline int32_t ADXPagerTabStrip_get_TAB_PADDING(void);
 #define ADXPagerTabStrip_TAB_PADDING 16
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, TAB_PADDING, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, TAB_PADDING, int32_t)
 
-inline jint ADXPagerTabStrip_get_TAB_SPACING(void);
+inline int32_t ADXPagerTabStrip_get_TAB_SPACING(void);
 #define ADXPagerTabStrip_TAB_SPACING 32
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, TAB_SPACING, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, TAB_SPACING, int32_t)
 
-inline jint ADXPagerTabStrip_get_MIN_TEXT_SPACING(void);
+inline int32_t ADXPagerTabStrip_get_MIN_TEXT_SPACING(void);
 #define ADXPagerTabStrip_MIN_TEXT_SPACING 64
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, MIN_TEXT_SPACING, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, MIN_TEXT_SPACING, int32_t)
 
-inline jint ADXPagerTabStrip_get_FULL_UNDERLINE_HEIGHT(void);
+inline int32_t ADXPagerTabStrip_get_FULL_UNDERLINE_HEIGHT(void);
 #define ADXPagerTabStrip_FULL_UNDERLINE_HEIGHT 1
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, FULL_UNDERLINE_HEIGHT, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, FULL_UNDERLINE_HEIGHT, int32_t)
 
-inline jint ADXPagerTabStrip_get_MIN_STRIP_HEIGHT(void);
+inline int32_t ADXPagerTabStrip_get_MIN_STRIP_HEIGHT(void);
 #define ADXPagerTabStrip_MIN_STRIP_HEIGHT 32
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, MIN_STRIP_HEIGHT, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTabStrip, MIN_STRIP_HEIGHT, int32_t)
 
 __attribute__((unused)) static void ADXPagerTabStrip_updateBorderBottomWidth(ADXPagerTabStrip *self);
 
@@ -89,6 +101,7 @@ __attribute__((unused)) static ADXPagerTabStrip_1 *new_ADXPagerTabStrip_1_initWi
 
 __attribute__((unused)) static ADXPagerTabStrip_1 *create_ADXPagerTabStrip_1_initWithADXPagerTabStrip_(ADXPagerTabStrip *outer$);
 
+
 @interface ADXPagerTabStrip_2 : NSObject < ADView_OnClickListener > {
  @public
   ADXPagerTabStrip *this$0_;
@@ -108,41 +121,42 @@ __attribute__((unused)) static ADXPagerTabStrip_2 *new_ADXPagerTabStrip_2_initWi
 
 __attribute__((unused)) static ADXPagerTabStrip_2 *create_ADXPagerTabStrip_2_initWithADXPagerTabStrip_(ADXPagerTabStrip *outer$);
 
+
 @implementation ADXPagerTabStrip
 
-- (void)setPaddingWithInt:(jint)left
-                  withInt:(jint)top
-                  withInt:(jint)right
-                  withInt:(jint)bottom {
+- (void)setPaddingWithInt:(int32_t)left
+                  withInt:(int32_t)top
+                  withInt:(int32_t)right
+                  withInt:(int32_t)bottom {
   if (bottom < mMinPaddingBottom_) {
     bottom = mMinPaddingBottom_;
   }
   [super setPaddingWithInt:left withInt:top withInt:right withInt:bottom];
 }
 
-- (void)setTextSpacingWithInt:(jint)spacingPixels {
+- (void)setTextSpacingWithInt:(int32_t)spacingPixels {
   if (spacingPixels < mMinTextSpacing_) {
     spacingPixels = mMinTextSpacing_;
   }
   [super setTextSpacingWithInt:spacingPixels];
 }
 
-- (void)setDrawFullUnderlineWithBoolean:(jboolean)drawFull {
+- (void)setDrawFullUnderlineWithBoolean:(bool)drawFull {
   mDrawFullUnderline_ = drawFull;
   mDrawFullUnderlineSet_ = true;
   ADXPagerTabStrip_updateBorderBottomWidth(self);
   [self invalidate];
 }
 
-- (jint)getMinHeight {
+- (int32_t)getMinHeight {
   return JavaLangMath_maxWithInt_withInt_([super getMinHeight], mMinStripHeight_);
 }
 
-- (void)updateTextPositionsWithInt:(jint)position
-                         withFloat:(jfloat)positionOffset
-                       withBoolean:(jboolean)force {
+- (void)updateTextPositionsWithInt:(int32_t)position
+                         withFloat:(float)positionOffset
+                       withBoolean:(bool)force {
   [super updateTextPositionsWithInt:position withFloat:positionOffset withBoolean:force];
-  mTabAlpha_ = JreFpToInt((JavaLangMath_absWithFloat_(positionOffset - 0.5f) * 2 * (jint) 0xFF));
+  mTabAlpha_ = JreFpToInt((JavaLangMath_absWithFloat_(positionOffset - 0.5f) * 2 * (int32_t) 0xFF));
   [self invalidate];
 }
 
@@ -234,7 +248,7 @@ __attribute__((unused)) static ADXPagerTabStrip_2 *create_ADXPagerTabStrip_2_ini
 
 void ADXPagerTabStrip_initWithASHasWidgets_(ADXPagerTabStrip *self, id<ASHasWidgets> widget) {
   ADXPagerTitleStrip_initWithASHasWidgets_(self, widget);
-  self->mTabAlpha_ = (jint) 0xFF;
+  self->mTabAlpha_ = (int32_t) 0xFF;
   self->mDrawFullUnderline_ = false;
   self->mDrawFullUnderlineSet_ = false;
   self->mIndicatorHeight_ = [((JavaLangInteger *) nil_chk((JavaLangInteger *) cast_chk([((id<ASIConverter>) nil_chk(ASConverterFactory_getWithNSString_(@"dimension"))) convertFromWithId:JreStrcat("I$", ADXPagerTabStrip_INDICATOR_HEIGHT, @"dp") withJavaUtilMap:nil withASIFragment:[((id<ASHasWidgets>) nil_chk(widget)) getFragment]], [JavaLangInteger class]))) intValue];
@@ -265,6 +279,8 @@ void ADXPagerTabStrip_updateBorderBottomWidth(ADXPagerTabStrip *self) {
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXPagerTabStrip)
+
+J2OBJC_NAME_MAPPING(ADXPagerTabStrip, "androidx.viewpager.widget", "ADX")
 
 @implementation ADXPagerTabStrip_1
 
@@ -297,7 +313,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXPagerTabStrip)
     { "this$0_", "LADXPagerTabStrip;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
   };
   static const void *ptrTable[] = { "LADXPagerTabStrip;", "onClick", "LADView;", "init__WithASHasWidgets:" };
-  static const J2ObjcClassInfo _ADXPagerTabStrip_1 = { "", "androidx.viewpager.widget", ptrTable, methods, fields, 7, 0x8010, 2, 1, 0, -1, 3, -1, -1 };
+  static const J2ObjcClassInfo _ADXPagerTabStrip_1 = { "", "androidx.viewpager.widget", ptrTable, methods, fields, 7, 0x8000, 2, 1, 0, -1, 3, -1, -1 };
   return &_ADXPagerTabStrip_1;
 }
 
@@ -347,7 +363,7 @@ ADXPagerTabStrip_1 *create_ADXPagerTabStrip_1_initWithADXPagerTabStrip_(ADXPager
     { "this$0_", "LADXPagerTabStrip;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
   };
   static const void *ptrTable[] = { "LADXPagerTabStrip;", "onClick", "LADView;", "init__WithASHasWidgets:" };
-  static const J2ObjcClassInfo _ADXPagerTabStrip_2 = { "", "androidx.viewpager.widget", ptrTable, methods, fields, 7, 0x8010, 2, 1, 0, -1, 3, -1, -1 };
+  static const J2ObjcClassInfo _ADXPagerTabStrip_2 = { "", "androidx.viewpager.widget", ptrTable, methods, fields, 7, 0x8000, 2, 1, 0, -1, 3, -1, -1 };
   return &_ADXPagerTabStrip_2;
 }
 

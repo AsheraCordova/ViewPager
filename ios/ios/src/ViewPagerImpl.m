@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-ios-widgets\IOSViewPagerPlugin\src\main\java\com\ashera\viewpager\ViewPagerImpl.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "BaseHasWidgets.h"
 #include "Canvas.h"
 #include "Drawable.h"
@@ -53,8 +58,12 @@
 
 #include "ASUIImageView.h"
 
-@protocol JavaUtilList;
-@protocol JavaUtilMap;
+
+@class NSString;
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 #pragma clang diagnostic ignored "-Wprotocol"
@@ -64,14 +73,14 @@
   id uiView_;
   id<ADCanvas> canvas_;
   ADXViewPager *viewPager_;
-  jfloat pageWidth_;
+  float pageWidth_;
   id<JavaUtilList> pageTitles_;
-  jint animationDurationInMs_;
-  jint currentX_;
-  jint lastValue_;
-  jint startX_;
-  jint prevWidth_;
-  jint prevHeight_;
+  int32_t animationDurationInMs_;
+  int32_t currentX_;
+  int32_t lastValue_;
+  int32_t startX_;
+  int32_t prevWidth_;
+  int32_t prevHeight_;
 }
 
 - (void)setWidgetOnNativeClass;
@@ -90,30 +99,30 @@
 
 - (void)addOnKeyListener;
 
-- (void)smoothScrollToWithInt:(jint)x
-                      withInt:(jint)y
-                      withInt:(jint)velocity;
+- (void)smoothScrollToWithInt:(int32_t)x
+                      withInt:(int32_t)y
+                      withInt:(int32_t)velocity;
 
-- (void)scrollToWithInt:(jint)x
-                withInt:(jint)y;
+- (void)scrollToWithInt:(int32_t)x
+                withInt:(int32_t)y;
 
-- (jint)getScrollX;
+- (int32_t)getScrollX;
 
-- (void)handlePanStartWithInt:(jint)eventX;
+- (void)handlePanStartWithInt:(int32_t)eventX;
 
-- (void)handlePanEndWithInt:(jint)eventX;
+- (void)handlePanEndWithInt:(int32_t)eventX;
 
-- (void)handlePanDragWithInt:(jint)eventX;
+- (void)handlePanDragWithInt:(int32_t)eventX;
 
-- (void)updateBoundsWithInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b;
+- (void)updateBoundsWithInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b;
 
-- (void)setCurrentItemWithInt:(jint)currentItem;
+- (void)setCurrentItemWithInt:(int32_t)currentItem;
 
-- (jint)getAdjustedRightWithInt:(jint)r
-                        withInt:(jint)l;
+- (int32_t)getAdjustedRightWithInt:(int32_t)r
+                           withInt:(int32_t)l;
 
 - (void)createCanvas;
 
@@ -121,13 +130,13 @@
 
 - (id)createViewWithJavaUtilMap:(id<JavaUtilMap>)params;
 
-- (jboolean)isRightPressedWithInt:(jint)keyCode;
+- (bool)isRightPressedWithInt:(int32_t)keyCode;
 
-- (jboolean)isLeftPressedWithInt:(jint)keyCode;
+- (bool)isLeftPressedWithInt:(int32_t)keyCode;
 
-- (jint)getAbsXWithId:(id)eventWidget
-              withInt:(jint)x
-              withInt:(jint)y;
+- (int32_t)getAbsXWithId:(id)eventWidget
+                 withInt:(int32_t)x
+                 withInt:(int32_t)y;
 
 @end
 
@@ -152,23 +161,23 @@ __attribute__((unused)) static void ASViewPagerImpl_addListeners(ASViewPagerImpl
 
 __attribute__((unused)) static void ASViewPagerImpl_addOnKeyListener(ASViewPagerImpl *self);
 
-__attribute__((unused)) static void ASViewPagerImpl_smoothScrollToWithInt_withInt_withInt_(ASViewPagerImpl *self, jint x, jint y, jint velocity);
+__attribute__((unused)) static void ASViewPagerImpl_smoothScrollToWithInt_withInt_withInt_(ASViewPagerImpl *self, int32_t x, int32_t y, int32_t velocity);
 
-__attribute__((unused)) static void ASViewPagerImpl_scrollToWithInt_withInt_(ASViewPagerImpl *self, jint x, jint y);
+__attribute__((unused)) static void ASViewPagerImpl_scrollToWithInt_withInt_(ASViewPagerImpl *self, int32_t x, int32_t y);
 
-__attribute__((unused)) static jint ASViewPagerImpl_getScrollX(ASViewPagerImpl *self);
+__attribute__((unused)) static int32_t ASViewPagerImpl_getScrollX(ASViewPagerImpl *self);
 
-__attribute__((unused)) static void ASViewPagerImpl_handlePanStartWithInt_(ASViewPagerImpl *self, jint eventX);
+__attribute__((unused)) static void ASViewPagerImpl_handlePanStartWithInt_(ASViewPagerImpl *self, int32_t eventX);
 
-__attribute__((unused)) static void ASViewPagerImpl_handlePanEndWithInt_(ASViewPagerImpl *self, jint eventX);
+__attribute__((unused)) static void ASViewPagerImpl_handlePanEndWithInt_(ASViewPagerImpl *self, int32_t eventX);
 
-__attribute__((unused)) static void ASViewPagerImpl_handlePanDragWithInt_(ASViewPagerImpl *self, jint eventX);
+__attribute__((unused)) static void ASViewPagerImpl_handlePanDragWithInt_(ASViewPagerImpl *self, int32_t eventX);
 
-__attribute__((unused)) static void ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(ASViewPagerImpl *self, jint l, jint t, jint r, jint b);
+__attribute__((unused)) static void ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(ASViewPagerImpl *self, int32_t l, int32_t t, int32_t r, int32_t b);
 
-__attribute__((unused)) static void ASViewPagerImpl_setCurrentItemWithInt_(ASViewPagerImpl *self, jint currentItem);
+__attribute__((unused)) static void ASViewPagerImpl_setCurrentItemWithInt_(ASViewPagerImpl *self, int32_t currentItem);
 
-__attribute__((unused)) static jint ASViewPagerImpl_getAdjustedRightWithInt_withInt_(ASViewPagerImpl *self, jint r, jint l);
+__attribute__((unused)) static int32_t ASViewPagerImpl_getAdjustedRightWithInt_withInt_(ASViewPagerImpl *self, int32_t r, int32_t l);
 
 __attribute__((unused)) static void ASViewPagerImpl_createCanvas(ASViewPagerImpl *self);
 
@@ -176,20 +185,20 @@ __attribute__((unused)) static void ASViewPagerImpl_nativeCreateWithJavaUtilMap_
 
 __attribute__((unused)) static id ASViewPagerImpl_createViewWithJavaUtilMap_(ASViewPagerImpl *self, id<JavaUtilMap> params);
 
-__attribute__((unused)) static jboolean ASViewPagerImpl_isRightPressedWithInt_(ASViewPagerImpl *self, jint keyCode);
+__attribute__((unused)) static bool ASViewPagerImpl_isRightPressedWithInt_(ASViewPagerImpl *self, int32_t keyCode);
 
-__attribute__((unused)) static jboolean ASViewPagerImpl_isLeftPressedWithInt_(ASViewPagerImpl *self, jint keyCode);
+__attribute__((unused)) static bool ASViewPagerImpl_isLeftPressedWithInt_(ASViewPagerImpl *self, int32_t keyCode);
 
-__attribute__((unused)) static jint ASViewPagerImpl_getAbsXWithId_withInt_withInt_(ASViewPagerImpl *self, id eventWidget, jint x, jint y);
+__attribute__((unused)) static int32_t ASViewPagerImpl_getAbsXWithId_withInt_withInt_(ASViewPagerImpl *self, id eventWidget, int32_t x, int32_t y);
 
 @interface ASViewPagerImpl_ViewPagerExt () {
  @public
-  __unsafe_unretained ASViewPagerImpl *this$0_;
+  WEAK_ ASViewPagerImpl *this$0_;
   ASMeasureEvent *measureFinished_;
   ASOnLayoutEvent *onLayoutEvent_;
   id<JavaUtilList> overlays_;
-  jint mMaxWidth_;
-  jint mMaxHeight_;
+  int32_t mMaxWidth_;
+  int32_t mMaxHeight_;
   id<JavaUtilMap> templates_;
 }
 
@@ -214,9 +223,9 @@ J2OBJC_FIELD_SETTER(ASViewPagerImpl_ViewPagerExt, templates_, id<JavaUtilMap>)
 
 - (instancetype)initWithASViewPagerImpl:(ASViewPagerImpl *)outer$;
 
-- (jboolean)onKeyWithADView:(ADView *)v
-                    withInt:(jint)keyCode
-             withADKeyEvent:(ADKeyEvent *)event;
+- (bool)onKeyWithADView:(ADView *)v
+                withInt:(int32_t)keyCode
+         withADKeyEvent:(ADKeyEvent *)event;
 
 @end
 
@@ -228,6 +237,7 @@ __attribute__((unused)) static ASViewPagerImpl_1 *new_ASViewPagerImpl_1_initWith
 
 __attribute__((unused)) static ASViewPagerImpl_1 *create_ASViewPagerImpl_1_initWithASViewPagerImpl_(ASViewPagerImpl *outer$);
 
+
 @interface ASViewPagerImpl_ViewPagerPanListener : NSObject < ASViewImpl_PanCallBack > {
  @public
   ASViewPagerImpl *this$0_;
@@ -237,18 +247,18 @@ __attribute__((unused)) static ASViewPagerImpl_1 *create_ASViewPagerImpl_1_initW
 
 - (void)handlePanStartWithASIWidget:(id<ASIWidget>)widget
                              withId:(id)eventWidget
-                            withInt:(jint)x
-                            withInt:(jint)y;
+                            withInt:(int32_t)x
+                            withInt:(int32_t)y;
 
 - (void)handlePanDragWithASIWidget:(id<ASIWidget>)widget
                             withId:(id)eventWidget
-                           withInt:(jint)x
-                           withInt:(jint)y;
+                           withInt:(int32_t)x
+                           withInt:(int32_t)y;
 
 - (void)handlePanEndWithASIWidget:(id<ASIWidget>)widget
                            withId:(id)eventWidget
-                          withInt:(jint)x
-                          withInt:(jint)y;
+                          withInt:(int32_t)x
+                          withInt:(int32_t)y;
 
 @end
 
@@ -262,12 +272,13 @@ __attribute__((unused)) static ASViewPagerImpl_ViewPagerPanListener *create_ASVi
 
 J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_ViewPagerPanListener)
 
+
 @interface ASViewPagerImpl_CanvasImpl : NSObject < ADCanvas > {
  @public
-  jboolean canvasReset_;
-  jboolean requiresAttrChangeListener_;
+  bool canvasReset_;
+  bool requiresAttrChangeListener_;
   id<JavaUtilList> imageViews_;
-  __unsafe_unretained id<ASIWidget> widget_;
+  WEAK_ id<ASIWidget> widget_;
 }
 
 - (instancetype)initWithASIWidget:(id<ASIWidget>)widget;
@@ -292,6 +303,7 @@ __attribute__((unused)) static ASViewPagerImpl_CanvasImpl *create_ASViewPagerImp
 
 J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CanvasImpl)
 
+
 @interface ASViewPagerImpl_CanvasImpl_$Lambda$1 : NSObject < ADDrawable_AttributeChangeListener > {
  @public
   id val$imageView_;
@@ -310,6 +322,7 @@ __attribute__((unused)) static ASViewPagerImpl_CanvasImpl_$Lambda$1 *new_ASViewP
 
 __attribute__((unused)) static ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$1_initWithId_(id capture$0);
 
+
 @interface ASViewPagerImpl_OnPageChangeListener : NSObject < ADXViewPager_OnPageChangeListener, ASIListener > {
  @public
   id<ASIWidget> w_;
@@ -327,21 +340,21 @@ __attribute__((unused)) static ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASVi
                      withNSString:(NSString *)strValue
                      withNSString:(NSString *)action;
 
-- (void)onPageScrolledWithInt:(jint)position
-                    withFloat:(jfloat)positionOffset
-                      withInt:(jint)positionOffsetPixels;
+- (void)onPageScrolledWithInt:(int32_t)position
+                    withFloat:(float)positionOffset
+                      withInt:(int32_t)positionOffsetPixels;
 
-- (id<JavaUtilMap>)getOnPageScrolledEventObjWithInt:(jint)position
-                                          withFloat:(jfloat)positionOffset
-                                            withInt:(jint)positionOffsetPixels;
+- (id<JavaUtilMap>)getOnPageScrolledEventObjWithInt:(int32_t)position
+                                          withFloat:(float)positionOffset
+                                            withInt:(int32_t)positionOffsetPixels;
 
-- (void)onPageSelectedWithInt:(jint)position;
+- (void)onPageSelectedWithInt:(int32_t)position;
 
-- (id<JavaUtilMap>)getOnPageSelectedEventObjWithInt:(jint)position;
+- (id<JavaUtilMap>)getOnPageSelectedEventObjWithInt:(int32_t)position;
 
-- (void)onPageScrollStateChangedWithInt:(jint)state;
+- (void)onPageScrollStateChangedWithInt:(int32_t)state;
 
-- (id<JavaUtilMap>)getOnPageScrollStateChangedEventObjWithInt:(jint)state;
+- (id<JavaUtilMap>)getOnPageScrollStateChangedEventObjWithInt:(int32_t)state;
 
 @end
 
@@ -366,6 +379,7 @@ __attribute__((unused)) static ASViewPagerImpl_OnPageChangeListener *create_ASVi
 
 J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_OnPageChangeListener)
 
+
 @interface ASViewPagerImpl_$Lambda$1 : NSObject < JavaLangRunnable > {
  @public
   id<ASIWidget> val$widget_;
@@ -383,13 +397,14 @@ __attribute__((unused)) static ASViewPagerImpl_$Lambda$1 *new_ASViewPagerImpl_$L
 
 __attribute__((unused)) static ASViewPagerImpl_$Lambda$1 *create_ASViewPagerImpl_$Lambda$1_initWithASIWidget_(id<ASIWidget> capture$0);
 
+
 @interface ASViewPagerImpl_$Lambda$2 : NSObject < ASViewImpl_AnimationCallBack > {
  @public
   ASViewPagerImpl *this$0_;
 }
 
-- (void)animatingWithInt:(jint)tX
-                 withInt:(jint)tY;
+- (void)animatingWithInt:(int32_t)tX
+                 withInt:(int32_t)tY;
 
 @end
 
@@ -401,10 +416,11 @@ __attribute__((unused)) static ASViewPagerImpl_$Lambda$2 *new_ASViewPagerImpl_$L
 
 __attribute__((unused)) static ASViewPagerImpl_$Lambda$2 *create_ASViewPagerImpl_$Lambda$2_initWithASViewPagerImpl_(ASViewPagerImpl *outer$);
 
+
 @interface ASViewPagerImpl_$Lambda$3 : NSObject < JavaLangRunnable > {
  @public
   ASViewPagerImpl *this$0_;
-  jint val$currentItem_;
+  int32_t val$currentItem_;
 }
 
 - (void)run;
@@ -413,11 +429,12 @@ __attribute__((unused)) static ASViewPagerImpl_$Lambda$2 *create_ASViewPagerImpl
 
 J2OBJC_EMPTY_STATIC_INIT(ASViewPagerImpl_$Lambda$3)
 
-__attribute__((unused)) static void ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl_$Lambda$3 *self, ASViewPagerImpl *outer$, jint capture$0);
+__attribute__((unused)) static void ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl_$Lambda$3 *self, ASViewPagerImpl *outer$, int32_t capture$0);
 
-__attribute__((unused)) static ASViewPagerImpl_$Lambda$3 *new_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl *outer$, jint capture$0) NS_RETURNS_RETAINED;
+__attribute__((unused)) static ASViewPagerImpl_$Lambda$3 *new_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl *outer$, int32_t capture$0) NS_RETURNS_RETAINED;
 
-__attribute__((unused)) static ASViewPagerImpl_$Lambda$3 *create_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl *outer$, jint capture$0);
+__attribute__((unused)) static ASViewPagerImpl_$Lambda$3 *create_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl *outer$, int32_t capture$0);
+
 
 NSString *ASViewPagerImpl_LOCAL_NAME = @"androidx.viewpager.widget.ViewPager";
 NSString *ASViewPagerImpl_GROUP_NAME = @"androidx.viewpager.widget.ViewPager";
@@ -481,16 +498,16 @@ J2OBJC_IGNORE_DESIGNATED_END
   return viewPager_;
 }
 
-- (jboolean)removeWithASIWidget:(id<ASIWidget>)w {
-  jboolean remove = [super removeWithASIWidget:w];
+- (bool)removeWithASIWidget:(id<ASIWidget>)w {
+  bool remove = [super removeWithASIWidget:w];
   [((ADXViewPager *) nil_chk(viewPager_)) removeViewWithADView:(ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class])];
   ASViewPagerImpl_nativeRemoveViewWithASIWidget_(self, w);
   return remove;
 }
 
-- (jboolean)removeWithInt:(jint)index {
+- (bool)removeWithInt:(int32_t)index {
   id<ASIWidget> widget = [((id<JavaUtilList>) nil_chk(widgets_)) getWithInt:index];
-  jboolean remove = [super removeWithInt:index];
+  bool remove = [super removeWithInt:index];
   if (index + 1 <= [((ADXViewPager *) nil_chk(viewPager_)) getChildCount]) {
     [((ADXViewPager *) nil_chk(viewPager_)) removeViewAtWithInt:index];
     ASViewPagerImpl_nativeRemoveViewWithASIWidget_(self, widget);
@@ -503,7 +520,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (void)addWithASIWidget:(id<ASIWidget>)w
-                 withInt:(jint)index {
+                 withInt:(int32_t)index {
   if (index != -2) {
     ADView *view = (ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class]);
     ASViewPagerImpl_createLayoutParamsWithADView_(self, view);
@@ -665,7 +682,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   return uiView_;
 }
 
-- (jboolean)checkIosVersionWithNSString:(NSString *)v {
+- (bool)checkIosVersionWithNSString:(NSString *)v {
   return ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending);
 }
 
@@ -686,7 +703,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   [((ADXPagerAdapter *) nil_chk([((ADXViewPager *) nil_chk(viewPager_)) getAdapter])) notifyDataSetChanged];
 }
 
-- (void)addItemToParentWithInt:(jint)index
+- (void)addItemToParentWithInt:(int32_t)index
                   withNSString:(NSString *)id_
                withASLoopParam:(ASLoopParam *)childModel {
 }
@@ -707,46 +724,46 @@ J2OBJC_IGNORE_DESIGNATED_END
   ASViewPagerImpl_addOnKeyListener(self);
 }
 
-- (void)smoothScrollToWithInt:(jint)x
-                      withInt:(jint)y
-                      withInt:(jint)velocity {
+- (void)smoothScrollToWithInt:(int32_t)x
+                      withInt:(int32_t)y
+                      withInt:(int32_t)velocity {
   ASViewPagerImpl_smoothScrollToWithInt_withInt_withInt_(self, x, y, velocity);
 }
 
-- (void)scrollToWithInt:(jint)x
-                withInt:(jint)y {
+- (void)scrollToWithInt:(int32_t)x
+                withInt:(int32_t)y {
   ASViewPagerImpl_scrollToWithInt_withInt_(self, x, y);
 }
 
-- (jint)getScrollX {
+- (int32_t)getScrollX {
   return ASViewPagerImpl_getScrollX(self);
 }
 
-- (void)handlePanStartWithInt:(jint)eventX {
+- (void)handlePanStartWithInt:(int32_t)eventX {
   ASViewPagerImpl_handlePanStartWithInt_(self, eventX);
 }
 
-- (void)handlePanEndWithInt:(jint)eventX {
+- (void)handlePanEndWithInt:(int32_t)eventX {
   ASViewPagerImpl_handlePanEndWithInt_(self, eventX);
 }
 
-- (void)handlePanDragWithInt:(jint)eventX {
+- (void)handlePanDragWithInt:(int32_t)eventX {
   ASViewPagerImpl_handlePanDragWithInt_(self, eventX);
 }
 
-- (void)updateBoundsWithInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b {
+- (void)updateBoundsWithInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b {
   ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(self, l, t, r, b);
 }
 
-- (void)setCurrentItemWithInt:(jint)currentItem {
+- (void)setCurrentItemWithInt:(int32_t)currentItem {
   ASViewPagerImpl_setCurrentItemWithInt_(self, currentItem);
 }
 
-- (jint)getAdjustedRightWithInt:(jint)r
-                        withInt:(jint)l {
+- (int32_t)getAdjustedRightWithInt:(int32_t)r
+                           withInt:(int32_t)l {
   return ASViewPagerImpl_getAdjustedRightWithInt_withInt_(self, r, l);
 }
 
@@ -761,7 +778,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
 }
 
-- (void)setVisibleWithBoolean:(jboolean)b {
+- (void)setVisibleWithBoolean:(bool)b {
   [((ADView *) nil_chk(((ADView *) cast_chk([self asWidget], [ADView class])))) setVisibilityWithInt:b ? ADView_VISIBLE : ADView_GONE];
 }
 
@@ -773,17 +790,17 @@ J2OBJC_IGNORE_DESIGNATED_END
   return ASViewPagerImpl_createViewWithJavaUtilMap_(self, params);
 }
 
-- (jboolean)isRightPressedWithInt:(jint)keyCode {
+- (bool)isRightPressedWithInt:(int32_t)keyCode {
   return ASViewPagerImpl_isRightPressedWithInt_(self, keyCode);
 }
 
-- (jboolean)isLeftPressedWithInt:(jint)keyCode {
+- (bool)isLeftPressedWithInt:(int32_t)keyCode {
   return ASViewPagerImpl_isLeftPressedWithInt_(self, keyCode);
 }
 
-- (jint)getAbsXWithId:(id)eventWidget
-              withInt:(jint)x
-              withInt:(jint)y {
+- (int32_t)getAbsXWithId:(id)eventWidget
+                 withInt:(int32_t)x
+                 withInt:(int32_t)y {
   return ASViewPagerImpl_getAbsXWithId_withInt_withInt_(self, eventWidget, x, y);
 }
 
@@ -1011,8 +1028,8 @@ void ASViewPagerImpl_addOnKeyListener(ASViewPagerImpl *self) {
   [self setAttributeWithNSString:@"onKey" withId:new_ASViewPagerImpl_1_initWithASViewPagerImpl_(self) withBoolean:true];
 }
 
-void ASViewPagerImpl_smoothScrollToWithInt_withInt_withInt_(ASViewPagerImpl *self, jint x, jint y, jint velocity) {
-  jint currentX = ASViewImpl_getXWithId_([self asNativeWidget]);
+void ASViewPagerImpl_smoothScrollToWithInt_withInt_withInt_(ASViewPagerImpl *self, int32_t x, int32_t y, int32_t velocity) {
+  int32_t currentX = ASViewImpl_getXWithId_([self asNativeWidget]);
   if (-currentX == x) {
     return;
   }
@@ -1023,19 +1040,19 @@ void ASViewPagerImpl_smoothScrollToWithInt_withInt_withInt_(ASViewPagerImpl *sel
   ASViewImpl_translateWithAnimationWithId_withInt_withInt_withInt_withASViewImpl_AnimationCallBack_([self asNativeWidget], -x, ASViewImpl_getYWithId_([self asNativeWidget]), self->animationDurationInMs_, new_ASViewPagerImpl_$Lambda$2_initWithASViewPagerImpl_(self));
 }
 
-void ASViewPagerImpl_scrollToWithInt_withInt_(ASViewPagerImpl *self, jint x, jint y) {
+void ASViewPagerImpl_scrollToWithInt_withInt_(ASViewPagerImpl *self, int32_t x, int32_t y) {
   ASViewImpl_updateBoundsXWithId_withInt_([self asNativeWidget], -x);
 }
 
-jint ASViewPagerImpl_getScrollX(ASViewPagerImpl *self) {
+int32_t ASViewPagerImpl_getScrollX(ASViewPagerImpl *self) {
   if (self->currentX_ != -1) {
     return -self->currentX_;
   }
-  jint currentX = ASViewImpl_getXWithId_([self asNativeWidget]);
+  int32_t currentX = ASViewImpl_getXWithId_([self asNativeWidget]);
   return -currentX;
 }
 
-void ASViewPagerImpl_handlePanStartWithInt_(ASViewPagerImpl *self, jint eventX) {
+void ASViewPagerImpl_handlePanStartWithInt_(ASViewPagerImpl *self, int32_t eventX) {
   self->lastValue_ = eventX;
   self->startX_ = eventX;
   if (![((ADXViewPager *) nil_chk(self->viewPager_)) isEmpty]) {
@@ -1043,16 +1060,16 @@ void ASViewPagerImpl_handlePanStartWithInt_(ASViewPagerImpl *self, jint eventX) 
   }
 }
 
-void ASViewPagerImpl_handlePanEndWithInt_(ASViewPagerImpl *self, jint eventX) {
+void ASViewPagerImpl_handlePanEndWithInt_(ASViewPagerImpl *self, int32_t eventX) {
   self->startX_ = -1;
   if (![((ADXViewPager *) nil_chk(self->viewPager_)) isEmpty]) {
     [((ADXViewPager *) nil_chk(self->viewPager_)) endFakeDrag];
   }
 }
 
-void ASViewPagerImpl_handlePanDragWithInt_(ASViewPagerImpl *self, jint eventX) {
+void ASViewPagerImpl_handlePanDragWithInt_(ASViewPagerImpl *self, int32_t eventX) {
   if (self->startX_ != -1) {
-    jint delta = eventX - self->lastValue_;
+    int32_t delta = eventX - self->lastValue_;
     if (![((ADXViewPager *) nil_chk(self->viewPager_)) isEmpty]) {
       [((ADXViewPager *) nil_chk(self->viewPager_)) fakeDragByWithFloat:delta];
     }
@@ -1060,7 +1077,7 @@ void ASViewPagerImpl_handlePanDragWithInt_(ASViewPagerImpl *self, jint eventX) {
   }
 }
 
-void ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(ASViewPagerImpl *self, jint l, jint t, jint r, jint b) {
+void ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(ASViewPagerImpl *self, int32_t l, int32_t t, int32_t r, int32_t b) {
   if ([((ADXViewPager *) nil_chk(self->viewPager_)) getCurrentItem] != 0 && self->currentX_ == -1) {
     [((ADXViewPager *) nil_chk(self->viewPager_)) scrollToItemWithInt:[self->viewPager_ getCurrentItem] withBoolean:false withInt:0 withBoolean:false];
   }
@@ -1073,7 +1090,7 @@ void ASViewPagerImpl_updateBoundsWithInt_withInt_withInt_withInt_(ASViewPagerImp
   self->prevHeight_ = b - t;
 }
 
-void ASViewPagerImpl_setCurrentItemWithInt_(ASViewPagerImpl *self, jint currentItem) {
+void ASViewPagerImpl_setCurrentItemWithInt_(ASViewPagerImpl *self, int32_t currentItem) {
   if ([self isInitialised]) {
     [((ADXViewPager *) nil_chk(self->viewPager_)) setCurrentItemWithInt:currentItem];
   }
@@ -1083,7 +1100,7 @@ void ASViewPagerImpl_setCurrentItemWithInt_(ASViewPagerImpl *self, jint currentI
   }
 }
 
-jint ASViewPagerImpl_getAdjustedRightWithInt_withInt_(ASViewPagerImpl *self, jint r, jint l) {
+int32_t ASViewPagerImpl_getAdjustedRightWithInt_withInt_(ASViewPagerImpl *self, int32_t r, int32_t l) {
   return ([((id<JavaUtilList>) nil_chk(self->dataList_)) size] * (r - l)) + ([((ADXViewPager *) nil_chk(self->viewPager_)) getPageMargin] * 2 * [((ADXViewPager *) nil_chk(self->viewPager_)) getChildCount]);
 }
 
@@ -1103,19 +1120,21 @@ id ASViewPagerImpl_createViewWithJavaUtilMap_(ASViewPagerImpl *self, id<JavaUtil
   return uiView;
 }
 
-jboolean ASViewPagerImpl_isRightPressedWithInt_(ASViewPagerImpl *self, jint keyCode) {
+bool ASViewPagerImpl_isRightPressedWithInt_(ASViewPagerImpl *self, int32_t keyCode) {
   return false;
 }
 
-jboolean ASViewPagerImpl_isLeftPressedWithInt_(ASViewPagerImpl *self, jint keyCode) {
+bool ASViewPagerImpl_isLeftPressedWithInt_(ASViewPagerImpl *self, int32_t keyCode) {
   return false;
 }
 
-jint ASViewPagerImpl_getAbsXWithId_withInt_withInt_(ASViewPagerImpl *self, id eventWidget, jint x, jint y) {
+int32_t ASViewPagerImpl_getAbsXWithId_withInt_withInt_(ASViewPagerImpl *self, id eventWidget, int32_t x, int32_t y) {
   return [self->uiView_ convertRect:CGRectMake(x, y, ((UIView*)self->uiView_).frame.size.width, ((UIView*)self->uiView_).frame.size.height) toView:nil].origin.x;
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
+
+J2OBJC_NAME_MAPPING(ASViewPagerImpl, "com.ashera.viewpager", "AS")
 
 @implementation ASViewPagerImpl_ViewPagerExt
 
@@ -1123,19 +1142,19 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
   return this$0_;
 }
 
-- (void)setMaxWidthWithInt:(jint)width {
+- (void)setMaxWidthWithInt:(int32_t)width {
   mMaxWidth_ = width;
 }
 
-- (void)setMaxHeightWithInt:(jint)height {
+- (void)setMaxHeightWithInt:(int32_t)height {
   mMaxHeight_ = height;
 }
 
-- (jint)getMaxWidth {
+- (int32_t)getMaxWidth {
   return mMaxWidth_;
 }
 
-- (jint)getMaxHeight {
+- (int32_t)getMaxHeight {
   return mMaxHeight_;
 }
 
@@ -1144,8 +1163,8 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
   return self;
 }
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec {
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec {
   if (mMaxWidth_ > 0) {
     widthMeasureSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(mMaxWidth_, ADView_MeasureSpec_AT_MOST);
   }
@@ -1161,11 +1180,11 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
   }
 }
 
-- (void)onLayoutWithBoolean:(jboolean)changed
-                    withInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b {
+- (void)onLayoutWithBoolean:(bool)changed
+                    withInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b {
   [super onLayoutWithBoolean:changed withInt:l withInt:t withInt:r withInt:b];
   ASViewImpl_setDrawableBoundsWithASIWidget_withInt_withInt_withInt_withInt_(this$0_, l, t, r, b);
   if (![self isOverlay]) {
@@ -1195,8 +1214,8 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
           withNSObjectArray:(IOSObjectArray *)canvas {
 }
 
-- (void)updateMeasuredDimensionWithInt:(jint)width
-                               withInt:(jint)height {
+- (void)updateMeasuredDimensionWithInt:(int32_t)width
+                               withInt:(int32_t)height {
   [self setMeasuredDimensionWithInt:width withInt:height];
 }
 
@@ -1264,12 +1283,12 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
   displayFrame->bottom_ = displayFrame->top_ + [self getHeight];
 }
 
-- (void)offsetTopAndBottomWithInt:(jint)offset {
+- (void)offsetTopAndBottomWithInt:(int32_t)offset {
   [super offsetTopAndBottomWithInt:offset];
   ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_([this$0_ asNativeWidget], [self getLeft], [self getTop], [self getRight], [self getBottom]);
 }
 
-- (void)offsetLeftAndRightWithInt:(jint)offset {
+- (void)offsetLeftAndRightWithInt:(int32_t)offset {
   [super offsetLeftAndRightWithInt:offset];
   ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_([this$0_ asNativeWidget], [self getLeft], [self getTop], [self getRight], [self getBottom]);
 }
@@ -1299,23 +1318,23 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl)
   [this$0_ setAttributeWithNSString:name withId:value withBoolean:!([value isKindOfClass:[NSString class]])];
 }
 
-- (void)setVisibilityWithInt:(jint)visibility {
+- (void)setVisibilityWithInt:(int32_t)visibility {
   [super setVisibilityWithInt:visibility];
   ASViewImpl_nativeSetVisibilityWithId_withBoolean_([this$0_ asNativeWidget], visibility != ADView_VISIBLE);
 }
 
-- (void)smoothScrollToWithInt:(jint)x
-                      withInt:(jint)y
-                      withInt:(jint)velocity {
+- (void)smoothScrollToWithInt:(int32_t)x
+                      withInt:(int32_t)y
+                      withInt:(int32_t)velocity {
   ASViewPagerImpl_smoothScrollToWithInt_withInt_withInt_(this$0_, x, y, velocity);
 }
 
-- (jint)getScrollX {
+- (int32_t)getScrollX {
   return ASViewPagerImpl_getScrollX(this$0_);
 }
 
-- (void)scrollToWithInt:(jint)x
-                withInt:(jint)y {
+- (void)scrollToWithInt:(int32_t)x
+                withInt:(int32_t)y {
   ASViewPagerImpl_scrollToWithInt_withInt_(this$0_, x, y);
 }
 
@@ -1509,7 +1528,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerExt)
 }
 
 - (id)instantiateItemWithADViewGroup:(ADViewGroup *)collection
-                             withInt:(jint)position {
+                             withInt:(int32_t)position {
   ASLoopParam *model = [((id<JavaUtilList>) nil_chk(this$0_->dataList_)) getWithInt:position];
   id<ASIWidget> myWidget = [((id<ASIWidget>) nil_chk([this$0_ getListItem])) loadLazyWidgetsWithASHasWidgets:this$0_ withInt:-1 withNSString:@"" withASLoopParam:model];
   [this$0_ updateModelRecurseWithASIWidget:myWidget withASLoopParam:model];
@@ -1519,11 +1538,11 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerExt)
 }
 
 - (void)destroyItemWithADViewGroup:(ADViewGroup *)collection
-                           withInt:(jint)position
+                           withInt:(int32_t)position
                             withId:(id)view {
   for (id<ASIWidget> __strong w in nil_chk(this$0_->widgets_)) {
     ADView *myview = (ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class]);
-    if (myview == view) {
+    if (JreObjectEqualsEquals(myview, view)) {
       ASViewGroupImpl_nativeRemoveViewWithASIWidget_(w);
       break;
     }
@@ -1531,23 +1550,23 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerExt)
   [((ADXViewPager *) nil_chk(this$0_->viewPager_)) removeViewWithADView:(ADView *) cast_chk(view, [ADView class])];
 }
 
-- (jint)getCount {
+- (int32_t)getCount {
   return [((id<JavaUtilList>) nil_chk(this$0_->dataList_)) size];
 }
 
-- (jboolean)isViewFromObjectWithADView:(ADView *)view
-                                withId:(id)object {
-  return view == object;
+- (bool)isViewFromObjectWithADView:(ADView *)view
+                            withId:(id)object {
+  return JreObjectEqualsEquals(view, object);
 }
 
-- (id<JavaLangCharSequence>)getPageTitleWithInt:(jint)position {
+- (id<JavaLangCharSequence>)getPageTitleWithInt:(int32_t)position {
   if (this$0_->pageTitles_ != nil && position < [this$0_->pageTitles_ size]) {
     return [this$0_->pageTitles_ getWithInt:position];
   }
   return @"";
 }
 
-- (jfloat)getPageWidthWithInt:(jint)position {
+- (float)getPageWidthWithInt:(int32_t)position {
   return this$0_->pageWidth_;
 }
 
@@ -1604,9 +1623,9 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_CustomPagerAdapter)
   return self;
 }
 
-- (jboolean)onKeyWithADView:(ADView *)v
-                    withInt:(jint)keyCode
-             withADKeyEvent:(ADKeyEvent *)event {
+- (bool)onKeyWithADView:(ADView *)v
+                withInt:(int32_t)keyCode
+         withADKeyEvent:(ADKeyEvent *)event {
   if (ASViewPagerImpl_isLeftPressedWithInt_(this$0_, keyCode)) {
     [((ADXViewPager *) nil_chk(this$0_->viewPager_)) arrowScrollWithInt:ADView_FOCUS_LEFT];
   }
@@ -1631,7 +1650,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_CustomPagerAdapter)
     { "this$0_", "LASViewPagerImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
   };
   static const void *ptrTable[] = { "LASViewPagerImpl;", "onKey", "LADView;ILADKeyEvent;", "addOnKeyListener" };
-  static const J2ObjcClassInfo _ASViewPagerImpl_1 = { "", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x8010, 2, 1, 0, -1, 3, -1, -1 };
+  static const J2ObjcClassInfo _ASViewPagerImpl_1 = { "", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x8000, 2, 1, 0, -1, 3, -1, -1 };
   return &_ASViewPagerImpl_1;
 }
 
@@ -1659,25 +1678,25 @@ ASViewPagerImpl_1 *create_ASViewPagerImpl_1_initWithASViewPagerImpl_(ASViewPager
 
 - (void)handlePanStartWithASIWidget:(id<ASIWidget>)widget
                              withId:(id)eventWidget
-                            withInt:(jint)x
-                            withInt:(jint)y {
-  jint eventX = ASViewPagerImpl_getAbsXWithId_withInt_withInt_(this$0_, eventWidget, x, y);
+                            withInt:(int32_t)x
+                            withInt:(int32_t)y {
+  int32_t eventX = ASViewPagerImpl_getAbsXWithId_withInt_withInt_(this$0_, eventWidget, x, y);
   ASViewPagerImpl_handlePanStartWithInt_(this$0_, eventX);
 }
 
 - (void)handlePanDragWithASIWidget:(id<ASIWidget>)widget
                             withId:(id)eventWidget
-                           withInt:(jint)x
-                           withInt:(jint)y {
-  jint eventX = ASViewPagerImpl_getAbsXWithId_withInt_withInt_(this$0_, eventWidget, x, y);
+                           withInt:(int32_t)x
+                           withInt:(int32_t)y {
+  int32_t eventX = ASViewPagerImpl_getAbsXWithId_withInt_withInt_(this$0_, eventWidget, x, y);
   ASViewPagerImpl_handlePanDragWithInt_(this$0_, eventX);
 }
 
 - (void)handlePanEndWithASIWidget:(id<ASIWidget>)widget
                            withId:(id)eventWidget
-                          withInt:(jint)x
-                          withInt:(jint)y {
-  jint eventX = ASViewPagerImpl_getAbsXWithId_withInt_withInt_(this$0_, eventWidget, x, y);
+                          withInt:(int32_t)x
+                          withInt:(int32_t)y {
+  int32_t eventX = ASViewPagerImpl_getAbsXWithId_withInt_withInt_(this$0_, eventWidget, x, y);
   ASViewPagerImpl_handlePanEndWithInt_(this$0_, eventX);
 }
 
@@ -1770,8 +1789,8 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_ViewPagerPanListener)
   return imageView;
 }
 
-- (void)translateWithInt:(jint)arg0
-                 withInt:(jint)arg1 {
+- (void)translateWithInt:(int32_t)arg0
+                 withInt:(int32_t)arg1 {
   ADCanvas_translateWithInt_withInt_(self, arg0, arg1);
 }
 
@@ -1832,7 +1851,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerImpl_CanvasImpl)
                                withId:(id)value {
   {
     ADRect *rect;
-    jint alpha;
+    int32_t alpha;
     switch (JreIndexOfStr(name, (id[]){ @"bounds", @"alpha" }, 2)) {
       case 0:
       rect = (ADRect *) cast_chk(value, [ADRect class]);
@@ -1882,9 +1901,9 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
   return self;
 }
 
-- (void)onPageScrolledWithInt:(jint)position
-                    withFloat:(jfloat)positionOffset
-                      withInt:(jint)positionOffsetPixels {
+- (void)onPageScrolledWithInt:(int32_t)position
+                    withFloat:(float)positionOffset
+                      withInt:(int32_t)positionOffsetPixels {
   if (action_ == nil || [action_ isEqual:@"onPageScrolled"]) {
     [((id<ASIWidget>) nil_chk(w_)) syncModelFromUiToPojoWithNSString:@"onPageScrolled"];
     id<JavaUtilMap> obj = [self getOnPageScrolledEventObjWithInt:position withFloat:positionOffset withInt:positionOffsetPixels];
@@ -1906,7 +1925,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
     if ([((id<ASIWidget>) nil_chk(w_)) getModelUiToPojoEventIds] != nil) {
       ASViewImpl_refreshUiFromModelWithASIWidget_withId_withBoolean_(w_, [((id<ASIWidget>) nil_chk(w_)) getModelUiToPojoEventIds], true);
     }
-    if (strValue_ != nil && ![strValue_ java_isEmpty] && ![((NSString *) nil_chk([((NSString *) nil_chk(strValue_)) java_trim])) java_hasPrefix:@"+"]) {
+    if (strValue_ != nil && ![strValue_ isEmpty] && ![((NSString *) nil_chk([((NSString *) nil_chk(strValue_)) java_trim])) java_hasPrefix:@"+"]) {
       id<ASIActivity> activity = [((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getRootActivity];
       if (activity != nil) {
         [activity sendEventMessageWithJavaUtilMap:obj];
@@ -1916,9 +1935,9 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
   return;
 }
 
-- (id<JavaUtilMap>)getOnPageScrolledEventObjWithInt:(jint)position
-                                          withFloat:(jfloat)positionOffset
-                                            withInt:(jint)positionOffsetPixels {
+- (id<JavaUtilMap>)getOnPageScrolledEventObjWithInt:(int32_t)position
+                                          withFloat:(float)positionOffset
+                                            withInt:(int32_t)positionOffsetPixels {
   id<JavaUtilMap> obj = ASPluginInvoker_getJSONCompatMap();
   (void) [((id<JavaUtilMap>) nil_chk(obj)) putWithId:@"action" withId:@"action"];
   (void) [obj putWithId:@"eventType" withId:@"pagescrolled"];
@@ -1937,7 +1956,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
   return obj;
 }
 
-- (void)onPageSelectedWithInt:(jint)position {
+- (void)onPageSelectedWithInt:(int32_t)position {
   if (action_ == nil || [action_ isEqual:@"onPageSelected"]) {
     [((id<ASIWidget>) nil_chk(w_)) syncModelFromUiToPojoWithNSString:@"onPageSelected"];
     id<JavaUtilMap> obj = [self getOnPageSelectedEventObjWithInt:position];
@@ -1959,7 +1978,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
     if ([((id<ASIWidget>) nil_chk(w_)) getModelUiToPojoEventIds] != nil) {
       ASViewImpl_refreshUiFromModelWithASIWidget_withId_withBoolean_(w_, [((id<ASIWidget>) nil_chk(w_)) getModelUiToPojoEventIds], true);
     }
-    if (strValue_ != nil && ![strValue_ java_isEmpty] && ![((NSString *) nil_chk([((NSString *) nil_chk(strValue_)) java_trim])) java_hasPrefix:@"+"]) {
+    if (strValue_ != nil && ![strValue_ isEmpty] && ![((NSString *) nil_chk([((NSString *) nil_chk(strValue_)) java_trim])) java_hasPrefix:@"+"]) {
       id<ASIActivity> activity = [((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getRootActivity];
       if (activity != nil) {
         [activity sendEventMessageWithJavaUtilMap:obj];
@@ -1969,7 +1988,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
   return;
 }
 
-- (id<JavaUtilMap>)getOnPageSelectedEventObjWithInt:(jint)position {
+- (id<JavaUtilMap>)getOnPageSelectedEventObjWithInt:(int32_t)position {
   id<JavaUtilMap> obj = ASPluginInvoker_getJSONCompatMap();
   (void) [((id<JavaUtilMap>) nil_chk(obj)) putWithId:@"action" withId:@"action"];
   (void) [obj putWithId:@"eventType" withId:@"pageselected"];
@@ -1986,7 +2005,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
   return obj;
 }
 
-- (void)onPageScrollStateChangedWithInt:(jint)state {
+- (void)onPageScrollStateChangedWithInt:(int32_t)state {
   if (action_ == nil || [action_ isEqual:@"onPageScrollStateChanged"]) {
     [((id<ASIWidget>) nil_chk(w_)) syncModelFromUiToPojoWithNSString:@"onPageScrollStateChanged"];
     id<JavaUtilMap> obj = [self getOnPageScrollStateChangedEventObjWithInt:state];
@@ -2008,7 +2027,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
     if ([((id<ASIWidget>) nil_chk(w_)) getModelUiToPojoEventIds] != nil) {
       ASViewImpl_refreshUiFromModelWithASIWidget_withId_withBoolean_(w_, [((id<ASIWidget>) nil_chk(w_)) getModelUiToPojoEventIds], true);
     }
-    if (strValue_ != nil && ![strValue_ java_isEmpty] && ![((NSString *) nil_chk([((NSString *) nil_chk(strValue_)) java_trim])) java_hasPrefix:@"+"]) {
+    if (strValue_ != nil && ![strValue_ isEmpty] && ![((NSString *) nil_chk([((NSString *) nil_chk(strValue_)) java_trim])) java_hasPrefix:@"+"]) {
       id<ASIActivity> activity = [((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getRootActivity];
       if (activity != nil) {
         [activity sendEventMessageWithJavaUtilMap:obj];
@@ -2018,7 +2037,7 @@ ASViewPagerImpl_CanvasImpl_$Lambda$1 *create_ASViewPagerImpl_CanvasImpl_$Lambda$
   return;
 }
 
-- (id<JavaUtilMap>)getOnPageScrollStateChangedEventObjWithInt:(jint)state {
+- (id<JavaUtilMap>)getOnPageScrollStateChangedEventObjWithInt:(int32_t)state {
   id<JavaUtilMap> obj = ASPluginInvoker_getJSONCompatMap();
   (void) [((id<JavaUtilMap>) nil_chk(obj)) putWithId:@"action" withId:@"action"];
   (void) [obj putWithId:@"eventType" withId:@"pagescrollstatechanged"];
@@ -2127,9 +2146,9 @@ ASViewPagerImpl_$Lambda$1 *create_ASViewPagerImpl_$Lambda$1_initWithASIWidget_(i
 
 @implementation ASViewPagerImpl_$Lambda$2
 
-- (void)animatingWithInt:(jint)tX
-                 withInt:(jint)tY {
-  jint mycurrentX = ASViewImpl_getXWithId_([this$0_ asNativeWidget]);
+- (void)animatingWithInt:(int32_t)tX
+                 withInt:(int32_t)tY {
+  int32_t mycurrentX = ASViewImpl_getXWithId_([this$0_ asNativeWidget]);
   [((ADXViewPager *) nil_chk(this$0_->viewPager_)) pageScrolledWithInt:-mycurrentX];
   ASViewImpl_updateBoundsXWithId_withInt_([this$0_ asNativeWidget], mycurrentX);
 }
@@ -2160,16 +2179,16 @@ ASViewPagerImpl_$Lambda$2 *create_ASViewPagerImpl_$Lambda$2_initWithASViewPagerI
 
 @end
 
-void ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl_$Lambda$3 *self, ASViewPagerImpl *outer$, jint capture$0) {
+void ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl_$Lambda$3 *self, ASViewPagerImpl *outer$, int32_t capture$0) {
   self->this$0_ = outer$;
   self->val$currentItem_ = capture$0;
   NSObject_init(self);
 }
 
-ASViewPagerImpl_$Lambda$3 *new_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl *outer$, jint capture$0) {
+ASViewPagerImpl_$Lambda$3 *new_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl *outer$, int32_t capture$0) {
   J2OBJC_NEW_IMPL(ASViewPagerImpl_$Lambda$3, initWithASViewPagerImpl_withInt_, outer$, capture$0)
 }
 
-ASViewPagerImpl_$Lambda$3 *create_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl *outer$, jint capture$0) {
+ASViewPagerImpl_$Lambda$3 *create_ASViewPagerImpl_$Lambda$3_initWithASViewPagerImpl_withInt_(ASViewPagerImpl *outer$, int32_t capture$0) {
   J2OBJC_CREATE_IMPL(ASViewPagerImpl_$Lambda$3, initWithASViewPagerImpl_withInt_, outer$, capture$0)
 }

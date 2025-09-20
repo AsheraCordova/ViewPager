@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSViewPagerPlugin\src\main\java\com\ashera\viewpager\ViewPagerImpl.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_ViewPagerImpl")
@@ -23,6 +24,9 @@
 @class ASLoopParam;
 @class ASWidgetAttribute;
 @class IOSClass;
+@class JavaLangBoolean;
+@class JavaLangInteger;
+@class NSString;
 @protocol ASIFragment;
 @protocol ASILifeCycleDecorator;
 @protocol ASIWidget;
@@ -41,13 +45,13 @@
                     withNSString:(NSString *)localname;
 
 - (void)addWithASIWidget:(id<ASIWidget>)w
-                 withInt:(jint)index;
+                 withInt:(int32_t)index;
 
 - (id)asNativeWidget;
 
 - (id)asWidget;
 
-- (jboolean)checkIosVersionWithNSString:(NSString *)v;
+- (bool)checkIosVersionWithNSString:(NSString *)v;
 
 - (void)createWithASIFragment:(id<ASIFragment>)fragment
               withJavaUtilMap:(id<JavaUtilMap>)params;
@@ -68,9 +72,9 @@
 
 - (id<ASIWidget>)newInstance OBJC_METHOD_FAMILY_NONE;
 
-- (jboolean)removeWithInt:(jint)index;
+- (bool)removeWithInt:(int32_t)index;
 
-- (jboolean)removeWithASIWidget:(id<ASIWidget>)w;
+- (bool)removeWithASIWidget:(id<ASIWidget>)w;
 
 - (void)requestLayout;
 
@@ -86,11 +90,11 @@
 
 - (void)setIdWithNSString:(NSString *)id_;
 
-- (void)setVisibleWithBoolean:(jboolean)b;
+- (void)setVisibleWithBoolean:(bool)b;
 
 #pragma mark Protected
 
-- (void)addItemToParentWithInt:(jint)index
+- (void)addItemToParentWithInt:(int32_t)index
                   withNSString:(NSString *)id_
                withASLoopParam:(ASLoopParam *)childModel;
 
@@ -130,6 +134,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 
 @compatibility_alias ComAsheraViewpagerViewPagerImpl ASViewPagerImpl;
 
+
 #endif
 
 #if !defined (ASViewPagerImpl_ViewPagerExt_) && (INCLUDE_ALL_ViewPagerImpl || defined(INCLUDE_ASViewPagerImpl_ViewPagerExt))
@@ -153,6 +158,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 @class ASWidgetAttribute;
 @class IOSIntArray;
 @class IOSObjectArray;
+@class JavaLangBoolean;
+@class JavaLangInteger;
+@class NSString;
 @protocol ASIWidget;
 @protocol JavaUtilList;
 
@@ -173,13 +181,13 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 
 - (void)getLocationOnScreenWithIntArray:(IOSIntArray *)appScreenLocation;
 
-- (jint)getMaxHeight;
+- (int32_t)getMaxHeight;
 
-- (jint)getMaxWidth;
+- (int32_t)getMaxWidth;
 
 - (id<JavaUtilList>)getMethods;
 
-- (jint)getScrollX;
+- (int32_t)getScrollX;
 
 - (id<ASIWidget>)getWidget;
 
@@ -191,12 +199,12 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 
 - (id<ASILifeCycleDecorator>)newInstanceWithASIWidget:(id<ASIWidget>)widget OBJC_METHOD_FAMILY_NONE;
 
-- (void)offsetLeftAndRightWithInt:(jint)offset;
+- (void)offsetLeftAndRightWithInt:(int32_t)offset;
 
-- (void)offsetTopAndBottomWithInt:(jint)offset;
+- (void)offsetTopAndBottomWithInt:(int32_t)offset;
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec;
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec;
 
 - (void)remeasure;
 
@@ -206,9 +214,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
                              withNSString:(NSString *)strValue
                                    withId:(id)objValue;
 
-- (void)setMaxHeightWithInt:(jint)height;
+- (void)setMaxHeightWithInt:(int32_t)height;
 
-- (void)setMaxWidthWithInt:(jint)width;
+- (void)setMaxWidthWithInt:(int32_t)width;
 
 - (void)setMyAttributeWithNSString:(NSString *)name
                             withId:(id)value;
@@ -223,7 +231,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 
 - (void)setState4WithId:(id)value;
 
-- (void)setVisibilityWithInt:(jint)visibility;
+- (void)setVisibilityWithInt:(int32_t)visibility;
 
 - (void)state0;
 
@@ -239,23 +247,23 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl)
 
 - (void)stateYes;
 
-- (void)updateMeasuredDimensionWithInt:(jint)width
-                               withInt:(jint)height;
+- (void)updateMeasuredDimensionWithInt:(int32_t)width
+                               withInt:(int32_t)height;
 
 #pragma mark Protected
 
-- (void)onLayoutWithBoolean:(jboolean)changed
-                    withInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b;
+- (void)onLayoutWithBoolean:(bool)changed
+                    withInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b;
 
-- (void)scrollToWithInt:(jint)x
-                withInt:(jint)y;
+- (void)scrollToWithInt:(int32_t)x
+                withInt:(int32_t)y;
 
-- (void)smoothScrollToWithInt:(jint)x
-                      withInt:(jint)y
-                      withInt:(jint)velocity;
+- (void)smoothScrollToWithInt:(int32_t)x
+                      withInt:(int32_t)y
+                      withInt:(int32_t)velocity;
 
 // Disallowed inherited constructors, do not use.
 
@@ -273,6 +281,7 @@ FOUNDATION_EXPORT ASViewPagerImpl_ViewPagerExt *create_ASViewPagerImpl_ViewPager
 
 J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_ViewPagerExt)
 
+
 #endif
 
 #if !defined (ASViewPagerImpl_CustomPagerAdapter_) && (INCLUDE_ALL_ViewPagerImpl || defined(INCLUDE_ASViewPagerImpl_CustomPagerAdapter))
@@ -285,6 +294,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_ViewPagerExt)
 @class ADView;
 @class ADViewGroup;
 @class ASViewPagerImpl;
+@class JavaLangBoolean;
+@class JavaLangFloat;
+@class JavaLangInteger;
 @protocol JavaLangCharSequence;
 
 @interface ASViewPagerImpl_CustomPagerAdapter : ADXPagerAdapter
@@ -294,20 +306,20 @@ J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_ViewPagerExt)
 - (instancetype)initWithASViewPagerImpl:(ASViewPagerImpl *)outer$;
 
 - (void)destroyItemWithADViewGroup:(ADViewGroup *)collection
-                           withInt:(jint)position
+                           withInt:(int32_t)position
                             withId:(id)view;
 
-- (jint)getCount;
+- (int32_t)getCount;
 
-- (id<JavaLangCharSequence>)getPageTitleWithInt:(jint)position;
+- (id<JavaLangCharSequence>)getPageTitleWithInt:(int32_t)position;
 
-- (jfloat)getPageWidthWithInt:(jint)position;
+- (float)getPageWidthWithInt:(int32_t)position;
 
 - (id)instantiateItemWithADViewGroup:(ADViewGroup *)collection
-                             withInt:(jint)position;
+                             withInt:(int32_t)position;
 
-- (jboolean)isViewFromObjectWithADView:(ADView *)view
-                                withId:(id)object;
+- (bool)isViewFromObjectWithADView:(ADView *)view
+                            withId:(id)object;
 
 // Disallowed inherited constructors, do not use.
 
@@ -324,6 +336,7 @@ FOUNDATION_EXPORT ASViewPagerImpl_CustomPagerAdapter *new_ASViewPagerImpl_Custom
 FOUNDATION_EXPORT ASViewPagerImpl_CustomPagerAdapter *create_ASViewPagerImpl_CustomPagerAdapter_initWithASViewPagerImpl_(ASViewPagerImpl *outer$);
 
 J2OBJC_TYPE_LITERAL_HEADER(ASViewPagerImpl_CustomPagerAdapter)
+
 
 #endif
 

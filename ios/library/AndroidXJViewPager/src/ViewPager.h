@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJViewPager\src\main\java\androidx\viewpager\widget\ViewPager.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_ViewPager")
@@ -25,6 +26,9 @@
 @class ADViewGroup_LayoutParams;
 @class ADXPagerAdapter;
 @class ADXViewPager_ItemInfo;
+@class JavaLangBoolean;
+@class JavaLangFloat;
+@class JavaLangInteger;
 @protocol ADCanvas;
 @protocol ADXViewPager_OnAdapterChangeListener;
 @protocol ADXViewPager_OnPageChangeListener;
@@ -33,7 +37,7 @@
 @interface ADXViewPager : ADViewGroup {
  @public
   ADXPagerAdapter *mAdapter_;
-  jint mCurItem_;
+  int32_t mCurItem_;
   id mVelocityTracker_;
 }
 
@@ -46,32 +50,32 @@
 - (void)addOnPageChangeListenerWithADXViewPager_OnPageChangeListener:(id<ADXViewPager_OnPageChangeListener>)listener;
 
 - (void)addViewWithADView:(ADView *)child
-                  withInt:(jint)index
+                  withInt:(int32_t)index
 withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params;
 
-- (jboolean)arrowScrollWithInt:(jint)direction;
+- (bool)arrowScrollWithInt:(int32_t)direction;
 
-- (jboolean)beginFakeDrag;
+- (bool)beginFakeDrag;
 
-- (jboolean)canScrollHorizontallyWithInt:(jint)direction;
+- (bool)canScrollHorizontallyWithInt:(int32_t)direction;
 
 - (void)endFakeDrag;
 
-- (void)fakeDragByWithFloat:(jfloat)xOffset;
+- (void)fakeDragByWithFloat:(float)xOffset;
 
 - (ADXPagerAdapter *)getAdapter;
 
-- (jint)getCurrentItem;
+- (int32_t)getCurrentItem;
 
-- (jint)getOffscreenPageLimit;
+- (int32_t)getOffscreenPageLimit;
 
-- (jint)getPageMargin;
+- (int32_t)getPageMargin;
 
-- (jboolean)isEmpty;
+- (bool)isEmpty;
 
-- (jboolean)isFakeDragging;
+- (bool)isFakeDragging;
 
-- (jboolean)pageScrolledWithInt:(jint)xpos;
+- (bool)pageScrolledWithInt:(int32_t)xpos;
 
 - (void)redrawWithADCanvas:(id<ADCanvas>)canvas;
 
@@ -79,42 +83,42 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params;
 
 - (void)removeOnPageChangeListenerWithADXViewPager_OnPageChangeListener:(id<ADXViewPager_OnPageChangeListener>)listener;
 
-- (void)scrollToItemWithInt:(jint)item
-                withBoolean:(jboolean)smoothScroll
-                    withInt:(jint)velocity
-                withBoolean:(jboolean)dispatchSelected;
+- (void)scrollToItemWithInt:(int32_t)item
+                withBoolean:(bool)smoothScroll
+                    withInt:(int32_t)velocity
+                withBoolean:(bool)dispatchSelected;
 
 - (void)setAdapterWithADXPagerAdapter:(ADXPagerAdapter *)adapter;
 
-- (void)setCurrentItemWithInt:(jint)item;
+- (void)setCurrentItemWithInt:(int32_t)item;
 
-- (void)setCurrentItemWithInt:(jint)item
-                  withBoolean:(jboolean)smoothScroll;
+- (void)setCurrentItemWithInt:(int32_t)item
+                  withBoolean:(bool)smoothScroll;
 
-- (void)setOffscreenPageLimitWithInt:(jint)limit;
+- (void)setOffscreenPageLimitWithInt:(int32_t)limit;
 
 - (void)setOnPageChangeListenerWithADXViewPager_OnPageChangeListener:(id<ADXViewPager_OnPageChangeListener>)listener;
 
-- (void)setPageMarginWithInt:(jint)marginPixels;
+- (void)setPageMarginWithInt:(int32_t)marginPixels;
 
 - (void)setPageMarginDrawableWithADDrawable:(ADDrawable *)d;
 
-- (void)setPageTransformerWithBoolean:(jboolean)reverseDrawingOrder
+- (void)setPageTransformerWithBoolean:(bool)reverseDrawingOrder
      withADXViewPager_PageTransformer:(id<ADXViewPager_PageTransformer>)transformer;
 
-- (void)setPageTransformerWithBoolean:(jboolean)reverseDrawingOrder
+- (void)setPageTransformerWithBoolean:(bool)reverseDrawingOrder
      withADXViewPager_PageTransformer:(id<ADXViewPager_PageTransformer>)transformer
-                              withInt:(jint)pageLayerType;
+                              withInt:(int32_t)pageLayerType;
 
 #pragma mark Protected
 
-- (jboolean)canScrollWithADView:(ADView *)v
-                    withBoolean:(jboolean)checkV
-                        withInt:(jint)dx
-                        withInt:(jint)x
-                        withInt:(jint)y;
+- (bool)canScrollWithADView:(ADView *)v
+                withBoolean:(bool)checkV
+                    withInt:(int32_t)dx
+                    withInt:(int32_t)x
+                    withInt:(int32_t)y;
 
-- (jboolean)checkLayoutParamsWithADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)p;
+- (bool)checkLayoutParamsWithADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)p;
 
 - (void)drawableStateChanged;
 
@@ -124,30 +128,30 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params;
 
 - (void)onDrawWithADCanvas:(id<ADCanvas>)canvas;
 
-- (void)onLayoutWithBoolean:(jboolean)changed
-                    withInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b;
+- (void)onLayoutWithBoolean:(bool)changed
+                    withInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b;
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec;
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec;
 
-- (void)onPageScrolledWithInt:(jint)position
-                    withFloat:(jfloat)offset
-                      withInt:(jint)offsetPixels;
+- (void)onPageScrolledWithInt:(int32_t)position
+                    withFloat:(float)offset
+                      withInt:(int32_t)offsetPixels;
 
-- (void)scrollToWithInt:(jint)x
-                withInt:(jint)y;
+- (void)scrollToWithInt:(int32_t)x
+                withInt:(int32_t)y;
 
-- (void)smoothScrollToWithInt:(jint)x
-                      withInt:(jint)y
-                      withInt:(jint)velocity;
+- (void)smoothScrollToWithInt:(int32_t)x
+                      withInt:(int32_t)y
+                      withInt:(int32_t)velocity;
 
 #pragma mark Package-Private
 
-- (ADXViewPager_ItemInfo *)addNewItemWithInt:(jint)position
-                                     withInt:(jint)index;
+- (ADXViewPager_ItemInfo *)addNewItemWithInt:(int32_t)position
+                                     withInt:(int32_t)index;
 
 - (void)dataSetChanged;
 
@@ -155,24 +159,24 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params;
 
 - (ADXViewPager_ItemInfo *)infoForChildWithADView:(ADView *)child;
 
-- (ADXViewPager_ItemInfo *)infoForPositionWithInt:(jint)position;
+- (ADXViewPager_ItemInfo *)infoForPositionWithInt:(int32_t)position;
 
-- (jboolean)pageLeft;
+- (bool)pageLeft;
 
-- (jboolean)pageRight;
+- (bool)pageRight;
 
 - (void)populate;
 
-- (void)populateWithInt:(jint)newCurrentItem;
+- (void)populateWithInt:(int32_t)newCurrentItem;
 
-- (void)setCurrentItemInternalWithInt:(jint)item
-                          withBoolean:(jboolean)smoothScroll
-                          withBoolean:(jboolean)always;
+- (void)setCurrentItemInternalWithInt:(int32_t)item
+                          withBoolean:(bool)smoothScroll
+                          withBoolean:(bool)always;
 
-- (void)setCurrentItemInternalWithInt:(jint)item
-                          withBoolean:(jboolean)smoothScroll
-                          withBoolean:(jboolean)always
-                              withInt:(jint)velocity;
+- (void)setCurrentItemInternalWithInt:(int32_t)item
+                          withBoolean:(bool)smoothScroll
+                          withBoolean:(bool)always
+                              withInt:(int32_t)velocity;
 
 - (id<ADXViewPager_OnPageChangeListener>)setInternalPageChangeListenerWithADXViewPager_OnPageChangeListener:(id<ADXViewPager_OnPageChangeListener>)listener;
 
@@ -183,17 +187,17 @@ J2OBJC_STATIC_INIT(ADXViewPager)
 J2OBJC_FIELD_SETTER(ADXViewPager, mAdapter_, ADXPagerAdapter *)
 J2OBJC_FIELD_SETTER(ADXViewPager, mVelocityTracker_, id)
 
-inline jint ADXViewPager_get_SCROLL_STATE_IDLE(void);
+inline int32_t ADXViewPager_get_SCROLL_STATE_IDLE(void);
 #define ADXViewPager_SCROLL_STATE_IDLE 0
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, SCROLL_STATE_IDLE, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, SCROLL_STATE_IDLE, int32_t)
 
-inline jint ADXViewPager_get_SCROLL_STATE_DRAGGING(void);
+inline int32_t ADXViewPager_get_SCROLL_STATE_DRAGGING(void);
 #define ADXViewPager_SCROLL_STATE_DRAGGING 1
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, SCROLL_STATE_DRAGGING, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, SCROLL_STATE_DRAGGING, int32_t)
 
-inline jint ADXViewPager_get_SCROLL_STATE_SETTLING(void);
+inline int32_t ADXViewPager_get_SCROLL_STATE_SETTLING(void);
 #define ADXViewPager_SCROLL_STATE_SETTLING 2
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, SCROLL_STATE_SETTLING, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, SCROLL_STATE_SETTLING, int32_t)
 
 FOUNDATION_EXPORT void ADXViewPager_init(ADXViewPager *self);
 
@@ -205,18 +209,23 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager)
 
 @compatibility_alias AndroidxViewpagerWidgetViewPager ADXViewPager;
 
+
 #endif
 
 #if !defined (ADXViewPager_ItemInfo_) && (INCLUDE_ALL_ViewPager || defined(INCLUDE_ADXViewPager_ItemInfo))
 #define ADXViewPager_ItemInfo_
 
+@class JavaLangBoolean;
+@class JavaLangFloat;
+@class JavaLangInteger;
+
 @interface ADXViewPager_ItemInfo : NSObject {
  @public
   id object_;
-  jint position_;
-  jboolean scrolling_;
-  jfloat widthFactor_;
-  jfloat offset_;
+  int32_t position_;
+  bool scrolling_;
+  float widthFactor_;
+  float offset_;
 }
 
 #pragma mark Package-Private
@@ -237,20 +246,24 @@ FOUNDATION_EXPORT ADXViewPager_ItemInfo *create_ADXViewPager_ItemInfo_init(void)
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_ItemInfo)
 
+
 #endif
 
 #if !defined (ADXViewPager_OnPageChangeListener_) && (INCLUDE_ALL_ViewPager || defined(INCLUDE_ADXViewPager_OnPageChangeListener))
 #define ADXViewPager_OnPageChangeListener_
 
+@class JavaLangFloat;
+@class JavaLangInteger;
+
 @protocol ADXViewPager_OnPageChangeListener < JavaObject >
 
-- (void)onPageScrolledWithInt:(jint)position
-                    withFloat:(jfloat)positionOffset
-                      withInt:(jint)positionOffsetPixels;
+- (void)onPageScrolledWithInt:(int32_t)position
+                    withFloat:(float)positionOffset
+                      withInt:(int32_t)positionOffsetPixels;
 
-- (void)onPageSelectedWithInt:(jint)position;
+- (void)onPageSelectedWithInt:(int32_t)position;
 
-- (void)onPageScrollStateChangedWithInt:(jint)state;
+- (void)onPageScrollStateChangedWithInt:(int32_t)state;
 
 @end
 
@@ -258,23 +271,26 @@ J2OBJC_EMPTY_STATIC_INIT(ADXViewPager_OnPageChangeListener)
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_OnPageChangeListener)
 
+
 #endif
 
 #if !defined (ADXViewPager_PageTransformer_) && (INCLUDE_ALL_ViewPager || defined(INCLUDE_ADXViewPager_PageTransformer))
 #define ADXViewPager_PageTransformer_
 
 @class ADView;
+@class JavaLangFloat;
 
 @protocol ADXViewPager_PageTransformer < JavaObject >
 
 - (void)transformPageWithADView:(ADView *)page
-                      withFloat:(jfloat)position;
+                      withFloat:(float)position;
 
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(ADXViewPager_PageTransformer)
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_PageTransformer)
+
 
 #endif
 
@@ -296,6 +312,7 @@ J2OBJC_EMPTY_STATIC_INIT(ADXViewPager_OnAdapterChangeListener)
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_OnAdapterChangeListener)
 
+
 #endif
 
 #if !defined (ADXViewPager_LayoutParams_) && (INCLUDE_ALL_ViewPager || defined(INCLUDE_ADXViewPager_LayoutParams))
@@ -305,14 +322,18 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_OnAdapterChangeListener)
 #define INCLUDE_ADViewGroup_LayoutParams 1
 #include "ViewGroup.h"
 
+@class JavaLangBoolean;
+@class JavaLangFloat;
+@class JavaLangInteger;
+
 @interface ADXViewPager_LayoutParams : ADViewGroup_LayoutParams {
  @public
-  jboolean isDecor_;
-  jint gravity_;
-  jfloat widthFactor_;
-  jboolean needsMeasure_;
-  jint position_;
-  jint childIndex_;
+  bool isDecor_;
+  int32_t gravity_;
+  float widthFactor_;
+  bool needsMeasure_;
+  int32_t position_;
+  int32_t childIndex_;
 }
 
 #pragma mark Public
@@ -323,8 +344,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_OnAdapterChangeListener)
 
 - (instancetype)initWithADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithInt:(jint)arg0
-                    withInt:(jint)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithInt:(int32_t)arg0
+                    withInt:(int32_t)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -338,6 +359,7 @@ FOUNDATION_EXPORT ADXViewPager_LayoutParams *create_ADXViewPager_LayoutParams_in
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_LayoutParams)
 
+
 #endif
 
 #if !defined (ADXViewPager_ViewPositionComparator_) && (INCLUDE_ALL_ViewPager || defined(INCLUDE_ADXViewPager_ViewPositionComparator))
@@ -348,6 +370,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_LayoutParams)
 #include "java/util/Comparator.h"
 
 @class ADView;
+@class JavaLangInteger;
 @protocol JavaUtilFunctionFunction;
 @protocol JavaUtilFunctionToDoubleFunction;
 @protocol JavaUtilFunctionToIntFunction;
@@ -357,8 +380,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_LayoutParams)
 
 #pragma mark Public
 
-- (jint)compareWithId:(ADView *)lhs
-               withId:(ADView *)rhs;
+- (int32_t)compareWithId:(ADView *)lhs
+                  withId:(ADView *)rhs;
 
 #pragma mark Package-Private
 
@@ -376,6 +399,7 @@ FOUNDATION_EXPORT ADXViewPager_ViewPositionComparator *create_ADXViewPager_ViewP
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_ViewPositionComparator)
 
+
 #endif
 
 #if !defined (ADXViewPager_IDecorView_) && (INCLUDE_ALL_ViewPager || defined(INCLUDE_ADXViewPager_IDecorView))
@@ -388,6 +412,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_ViewPositionComparator)
 J2OBJC_EMPTY_STATIC_INIT(ADXViewPager_IDecorView)
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_IDecorView)
+
 
 #endif
 

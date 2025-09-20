@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJViewPager\src\main\java\androidx\viewpager\widget\ViewPager.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "Canvas.h"
 #include "DataSetObserver.h"
 #include "Drawable.h"
@@ -19,6 +24,7 @@
 #include "ViewGroup.h"
 #include "ViewPager.h"
 #include "ViewParent.h"
+#include "java/lang/Boolean.h"
 #include "java/lang/ClassLoader.h"
 #include "java/lang/Float.h"
 #include "java/lang/IllegalStateException.h"
@@ -34,116 +40,114 @@
 #include "java/util/function/ToIntFunction.h"
 #include "java/util/function/ToLongFunction.h"
 
+
 @class ADXViewPager_PagerObserver;
-@class JavaLangClassLoader;
-@class JavaUtilArrayList;
-@protocol JavaUtilComparator;
-@protocol JavaUtilFunctionFunction;
-@protocol JavaUtilFunctionToDoubleFunction;
-@protocol JavaUtilFunctionToIntFunction;
-@protocol JavaUtilFunctionToLongFunction;
-@protocol JavaUtilList;
+@class NSString;
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 #pragma clang diagnostic ignored "-Wprotocol"
 
 @interface ADXViewPager () {
  @public
-  jint mExpectedAdapterCount_;
+  int32_t mExpectedAdapterCount_;
   JavaUtilArrayList *mItems_;
   ADXViewPager_ItemInfo *mTempItem_;
   ADRect *mTempRect_;
-  jint mRestoredCurItem_;
+  int32_t mRestoredCurItem_;
   id<ADParcelable> mRestoredAdapterState_;
   JavaLangClassLoader *mRestoredClassLoader_;
-  jboolean mIsScrollStarted_;
+  bool mIsScrollStarted_;
   ADXViewPager_PagerObserver *mObserver_;
-  jint mPageMargin_;
+  int32_t mPageMargin_;
   ADDrawable *mMarginDrawable_;
-  jint mTopPageBounds_;
-  jint mBottomPageBounds_;
-  jfloat mFirstOffset_;
-  jfloat mLastOffset_;
-  jboolean mInLayout_;
-  jboolean mScrollingCacheEnabled_;
-  jboolean mPopulatePending_;
-  jint mOffscreenPageLimit_;
-  jboolean mIsBeingDragged_;
-  jboolean mIsUnableToDrag_;
-  jint mDefaultGutterSize_;
-  jint mGutterSize_;
-  jint mTouchSlop_ViewPager_;
-  jboolean mDragInGutterEnabled_;
-  jfloat mLastMotionX_;
-  jfloat mLastMotionY_;
-  jfloat mInitialMotionX_;
-  jfloat mInitialMotionY_;
-  jint mActivePointerId_;
-  jint mMinimumVelocity_;
-  jint mMaximumVelocity_;
-  jint mFlingDistance_;
-  jint mCloseEnough_;
-  jboolean mFakeDragging_;
-  jboolean mFirstLayout_;
-  jboolean mCalledSuper_;
-  jint mDecorChildCount_;
+  int32_t mTopPageBounds_;
+  int32_t mBottomPageBounds_;
+  float mFirstOffset_;
+  float mLastOffset_;
+  bool mInLayout_;
+  bool mScrollingCacheEnabled_;
+  bool mPopulatePending_;
+  int32_t mOffscreenPageLimit_;
+  bool mIsBeingDragged_;
+  bool mIsUnableToDrag_;
+  int32_t mDefaultGutterSize_;
+  int32_t mGutterSize_;
+  int32_t mTouchSlop_ViewPager_;
+  bool mDragInGutterEnabled_;
+  float mLastMotionX_;
+  float mLastMotionY_;
+  float mInitialMotionX_;
+  float mInitialMotionY_;
+  int32_t mActivePointerId_;
+  int32_t mMinimumVelocity_;
+  int32_t mMaximumVelocity_;
+  int32_t mFlingDistance_;
+  int32_t mCloseEnough_;
+  bool mFakeDragging_;
+  bool mFirstLayout_;
+  bool mCalledSuper_;
+  int32_t mDecorChildCount_;
   id<JavaUtilList> mOnPageChangeListeners_;
   id<ADXViewPager_OnPageChangeListener> mOnPageChangeListener_;
   id<ADXViewPager_OnPageChangeListener> mInternalPageChangeListener_;
   id<JavaUtilList> mAdapterChangeListeners_;
   id<ADXViewPager_PageTransformer> mPageTransformer_;
-  jint mPageTransformerLayerType_;
-  jint mDrawingOrder_;
+  int32_t mPageTransformerLayerType_;
+  int32_t mDrawingOrder_;
   JavaUtilArrayList *mDrawingOrderedChildren_;
-  jint mScrollState_;
+  int32_t mScrollState_;
 }
 
 - (void)removeNonDecorViews;
 
-- (jint)getClientWidth;
+- (int32_t)getClientWidth;
 
 - (void)sortChildDrawingOrder;
 
 - (void)calculatePageOffsetsWithADXViewPager_ItemInfo:(ADXViewPager_ItemInfo *)curItem
-                                              withInt:(jint)curIndex
+                                              withInt:(int32_t)curIndex
                             withADXViewPager_ItemInfo:(ADXViewPager_ItemInfo *)oldCurInfo;
 
-- (void)recomputeScrollPositionWithInt:(jint)width
-                               withInt:(jint)oldWidth
-                               withInt:(jint)margin
-                               withInt:(jint)oldMargin;
+- (void)recomputeScrollPositionWithInt:(int32_t)width
+                               withInt:(int32_t)oldWidth
+                               withInt:(int32_t)margin
+                               withInt:(int32_t)oldMargin;
 
-- (void)dispatchOnPageScrolledWithInt:(jint)position
-                            withFloat:(jfloat)offset
-                              withInt:(jint)offsetPixels;
+- (void)dispatchOnPageScrolledWithInt:(int32_t)position
+                            withFloat:(float)offset
+                              withInt:(int32_t)offsetPixels;
 
-- (void)dispatchOnPageSelectedWithInt:(jint)position;
+- (void)dispatchOnPageSelectedWithInt:(int32_t)position;
 
-- (jboolean)performDragWithFloat:(jfloat)x
-                       withFloat:(jfloat)y;
+- (bool)performDragWithFloat:(float)x
+                   withFloat:(float)y;
 
 - (ADXViewPager_ItemInfo *)infoForCurrentScrollPosition;
 
-- (jint)determineTargetPageWithInt:(jint)currentPage
-                         withFloat:(jfloat)pageOffset
-                           withInt:(jint)velocity
-                           withInt:(jint)deltaX;
+- (int32_t)determineTargetPageWithInt:(int32_t)currentPage
+                            withFloat:(float)pageOffset
+                              withInt:(int32_t)velocity
+                              withInt:(int32_t)deltaX;
 
 - (void)endDrag;
 
 - (ADRect *)getChildRectInPagerCoordinatesWithADRect:(ADRect *)outRect
                                           withADView:(ADView *)child;
 
-- (void)completeScrollWithBoolean:(jboolean)postEvents;
+- (void)completeScrollWithBoolean:(bool)postEvents;
 
-- (void)setScrollingCacheEnabledWithBoolean:(jboolean)b;
+- (void)setScrollingCacheEnabledWithBoolean:(bool)b;
 
-- (void)setChildrenDrawingOrderEnabledWithBoolean:(jboolean)hasTransformer;
+- (void)setChildrenDrawingOrderEnabledWithBoolean:(bool)hasTransformer;
 
-- (jfloat)releaseHorizontalGlowWithFloat:(jfloat)dX
-                               withFloat:(jfloat)y;
+- (float)releaseHorizontalGlowWithFloat:(float)dX
+                              withFloat:(float)y;
 
-- (jboolean)isDecorViewWithADView:(ADView *)child;
+- (bool)isDecorViewWithADView:(ADView *)child;
 
 @end
 
@@ -165,53 +169,53 @@ inline NSString *ADXViewPager_get_TAG(void);
 static NSString *ADXViewPager_TAG = @"ViewPager";
 J2OBJC_STATIC_FIELD_OBJ_FINAL(ADXViewPager, TAG, NSString *)
 
-inline jboolean ADXViewPager_get_DEBUG(void);
+inline bool ADXViewPager_get_DEBUG(void);
 #define ADXViewPager_DEBUG false
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DEBUG, jboolean)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DEBUG, bool)
 
-inline jint ADXViewPager_get_DEFAULT_OFFSCREEN_PAGES(void);
+inline int32_t ADXViewPager_get_DEFAULT_OFFSCREEN_PAGES(void);
 #define ADXViewPager_DEFAULT_OFFSCREEN_PAGES 1
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DEFAULT_OFFSCREEN_PAGES, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DEFAULT_OFFSCREEN_PAGES, int32_t)
 
-inline jint ADXViewPager_get_MAX_SETTLE_DURATION(void);
+inline int32_t ADXViewPager_get_MAX_SETTLE_DURATION(void);
 #define ADXViewPager_MAX_SETTLE_DURATION 600
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, MAX_SETTLE_DURATION, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, MAX_SETTLE_DURATION, int32_t)
 
-inline jint ADXViewPager_get_MIN_DISTANCE_FOR_FLING(void);
+inline int32_t ADXViewPager_get_MIN_DISTANCE_FOR_FLING(void);
 #define ADXViewPager_MIN_DISTANCE_FOR_FLING 25
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, MIN_DISTANCE_FOR_FLING, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, MIN_DISTANCE_FOR_FLING, int32_t)
 
-inline jint ADXViewPager_get_DEFAULT_GUTTER_SIZE(void);
+inline int32_t ADXViewPager_get_DEFAULT_GUTTER_SIZE(void);
 #define ADXViewPager_DEFAULT_GUTTER_SIZE 16
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DEFAULT_GUTTER_SIZE, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DEFAULT_GUTTER_SIZE, int32_t)
 
-inline jint ADXViewPager_get_MIN_FLING_VELOCITY(void);
+inline int32_t ADXViewPager_get_MIN_FLING_VELOCITY(void);
 #define ADXViewPager_MIN_FLING_VELOCITY 400
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, MIN_FLING_VELOCITY, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, MIN_FLING_VELOCITY, int32_t)
 
 inline id<JavaUtilComparator> ADXViewPager_get_COMPARATOR(void);
 static id<JavaUtilComparator> ADXViewPager_COMPARATOR;
 J2OBJC_STATIC_FIELD_OBJ_FINAL(ADXViewPager, COMPARATOR, id<JavaUtilComparator>)
 
-inline jint ADXViewPager_get_INVALID_POINTER(void);
+inline int32_t ADXViewPager_get_INVALID_POINTER(void);
 #define ADXViewPager_INVALID_POINTER -1
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, INVALID_POINTER, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, INVALID_POINTER, int32_t)
 
-inline jint ADXViewPager_get_CLOSE_ENOUGH(void);
+inline int32_t ADXViewPager_get_CLOSE_ENOUGH(void);
 #define ADXViewPager_CLOSE_ENOUGH 2
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, CLOSE_ENOUGH, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, CLOSE_ENOUGH, int32_t)
 
-inline jint ADXViewPager_get_DRAW_ORDER_DEFAULT(void);
+inline int32_t ADXViewPager_get_DRAW_ORDER_DEFAULT(void);
 #define ADXViewPager_DRAW_ORDER_DEFAULT 0
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DRAW_ORDER_DEFAULT, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DRAW_ORDER_DEFAULT, int32_t)
 
-inline jint ADXViewPager_get_DRAW_ORDER_FORWARD(void);
+inline int32_t ADXViewPager_get_DRAW_ORDER_FORWARD(void);
 #define ADXViewPager_DRAW_ORDER_FORWARD 1
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DRAW_ORDER_FORWARD, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DRAW_ORDER_FORWARD, int32_t)
 
-inline jint ADXViewPager_get_DRAW_ORDER_REVERSE(void);
+inline int32_t ADXViewPager_get_DRAW_ORDER_REVERSE(void);
 #define ADXViewPager_DRAW_ORDER_REVERSE 2
-J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DRAW_ORDER_REVERSE, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXViewPager, DRAW_ORDER_REVERSE, int32_t)
 
 inline ADXViewPager_ViewPositionComparator *ADXViewPager_get_sPositionComparator(void);
 static ADXViewPager_ViewPositionComparator *ADXViewPager_sPositionComparator;
@@ -219,44 +223,44 @@ J2OBJC_STATIC_FIELD_OBJ_FINAL(ADXViewPager, sPositionComparator, ADXViewPager_Vi
 
 __attribute__((unused)) static void ADXViewPager_removeNonDecorViews(ADXViewPager *self);
 
-__attribute__((unused)) static jint ADXViewPager_getClientWidth(ADXViewPager *self);
+__attribute__((unused)) static int32_t ADXViewPager_getClientWidth(ADXViewPager *self);
 
 __attribute__((unused)) static void ADXViewPager_sortChildDrawingOrder(ADXViewPager *self);
 
-__attribute__((unused)) static void ADXViewPager_calculatePageOffsetsWithADXViewPager_ItemInfo_withInt_withADXViewPager_ItemInfo_(ADXViewPager *self, ADXViewPager_ItemInfo *curItem, jint curIndex, ADXViewPager_ItemInfo *oldCurInfo);
+__attribute__((unused)) static void ADXViewPager_calculatePageOffsetsWithADXViewPager_ItemInfo_withInt_withADXViewPager_ItemInfo_(ADXViewPager *self, ADXViewPager_ItemInfo *curItem, int32_t curIndex, ADXViewPager_ItemInfo *oldCurInfo);
 
-__attribute__((unused)) static void ADXViewPager_recomputeScrollPositionWithInt_withInt_withInt_withInt_(ADXViewPager *self, jint width, jint oldWidth, jint margin, jint oldMargin);
+__attribute__((unused)) static void ADXViewPager_recomputeScrollPositionWithInt_withInt_withInt_withInt_(ADXViewPager *self, int32_t width, int32_t oldWidth, int32_t margin, int32_t oldMargin);
 
-__attribute__((unused)) static void ADXViewPager_dispatchOnPageScrolledWithInt_withFloat_withInt_(ADXViewPager *self, jint position, jfloat offset, jint offsetPixels);
+__attribute__((unused)) static void ADXViewPager_dispatchOnPageScrolledWithInt_withFloat_withInt_(ADXViewPager *self, int32_t position, float offset, int32_t offsetPixels);
 
-__attribute__((unused)) static void ADXViewPager_dispatchOnPageSelectedWithInt_(ADXViewPager *self, jint position);
+__attribute__((unused)) static void ADXViewPager_dispatchOnPageSelectedWithInt_(ADXViewPager *self, int32_t position);
 
-__attribute__((unused)) static jboolean ADXViewPager_performDragWithFloat_withFloat_(ADXViewPager *self, jfloat x, jfloat y);
+__attribute__((unused)) static bool ADXViewPager_performDragWithFloat_withFloat_(ADXViewPager *self, float x, float y);
 
 __attribute__((unused)) static ADXViewPager_ItemInfo *ADXViewPager_infoForCurrentScrollPosition(ADXViewPager *self);
 
-__attribute__((unused)) static jint ADXViewPager_determineTargetPageWithInt_withFloat_withInt_withInt_(ADXViewPager *self, jint currentPage, jfloat pageOffset, jint velocity, jint deltaX);
+__attribute__((unused)) static int32_t ADXViewPager_determineTargetPageWithInt_withFloat_withInt_withInt_(ADXViewPager *self, int32_t currentPage, float pageOffset, int32_t velocity, int32_t deltaX);
 
 __attribute__((unused)) static void ADXViewPager_endDrag(ADXViewPager *self);
 
 __attribute__((unused)) static ADRect *ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(ADXViewPager *self, ADRect *outRect, ADView *child);
 
-__attribute__((unused)) static void ADXViewPager_completeScrollWithBoolean_(ADXViewPager *self, jboolean postEvents);
+__attribute__((unused)) static void ADXViewPager_completeScrollWithBoolean_(ADXViewPager *self, bool postEvents);
 
-__attribute__((unused)) static void ADXViewPager_setScrollingCacheEnabledWithBoolean_(ADXViewPager *self, jboolean b);
+__attribute__((unused)) static void ADXViewPager_setScrollingCacheEnabledWithBoolean_(ADXViewPager *self, bool b);
 
-__attribute__((unused)) static void ADXViewPager_setChildrenDrawingOrderEnabledWithBoolean_(ADXViewPager *self, jboolean hasTransformer);
+__attribute__((unused)) static void ADXViewPager_setChildrenDrawingOrderEnabledWithBoolean_(ADXViewPager *self, bool hasTransformer);
 
-__attribute__((unused)) static jfloat ADXViewPager_releaseHorizontalGlowWithFloat_withFloat_(ADXViewPager *self, jfloat dX, jfloat y);
+__attribute__((unused)) static float ADXViewPager_releaseHorizontalGlowWithFloat_withFloat_(ADXViewPager *self, float dX, float y);
 
-__attribute__((unused)) static jboolean ADXViewPager_isDecorViewWithADView_(ADXViewPager *self, ADView *child);
+__attribute__((unused)) static bool ADXViewPager_isDecorViewWithADView_(ADXViewPager *self, ADView *child);
 
 @interface ADXViewPager_1 : NSObject < JavaUtilComparator >
 
 - (instancetype)init;
 
-- (jint)compareWithId:(ADXViewPager_ItemInfo *)lhs
-               withId:(ADXViewPager_ItemInfo *)rhs;
+- (int32_t)compareWithId:(ADXViewPager_ItemInfo *)lhs
+                  withId:(ADXViewPager_ItemInfo *)rhs;
 
 @end
 
@@ -267,6 +271,7 @@ __attribute__((unused)) static void ADXViewPager_1_init(ADXViewPager_1 *self);
 __attribute__((unused)) static ADXViewPager_1 *new_ADXViewPager_1_init(void) NS_RETURNS_RETAINED;
 
 __attribute__((unused)) static ADXViewPager_1 *create_ADXViewPager_1_init(void);
+
 
 @interface ADXViewPager_OnPageChangeListener : NSObject
 
@@ -303,6 +308,7 @@ __attribute__((unused)) static ADXViewPager_PagerObserver *create_ADXViewPager_P
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXViewPager_PagerObserver)
 
+
 @interface ADXViewPager_IDecorView : NSObject
 
 @end
@@ -322,7 +328,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   if (mAdapter_ != nil) {
     [mAdapter_ setViewPagerObserverWithADDataSetObserver:nil];
     [((ADXPagerAdapter *) nil_chk(mAdapter_)) startUpdateWithADViewGroup:self];
-    for (jint i = 0; i < [((JavaUtilArrayList *) nil_chk(mItems_)) size]; i++) {
+    for (int32_t i = 0; i < [((JavaUtilArrayList *) nil_chk(mItems_)) size]; i++) {
       ADXViewPager_ItemInfo *ii = [mItems_ getWithInt:i];
       [((ADXPagerAdapter *) nil_chk(mAdapter_)) destroyItemWithADViewGroup:self withInt:((ADXViewPager_ItemInfo *) nil_chk(ii))->position_ withId:ii->object_];
     }
@@ -341,7 +347,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     }
     [((ADXPagerAdapter *) nil_chk(mAdapter_)) setViewPagerObserverWithADDataSetObserver:mObserver_];
     mPopulatePending_ = false;
-    jboolean wasFirstLayout = mFirstLayout_;
+    bool wasFirstLayout = mFirstLayout_;
     mFirstLayout_ = true;
     mExpectedAdapterCount_ = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getCount];
     if (mRestoredCurItem_ >= 0) {
@@ -359,7 +365,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     }
   }
   if (mAdapterChangeListeners_ != nil && ![mAdapterChangeListeners_ isEmpty]) {
-    for (jint i = 0, count = [mAdapterChangeListeners_ size]; i < count; i++) {
+    for (int32_t i = 0, count = [mAdapterChangeListeners_ size]; i < count; i++) {
       [((id<ADXViewPager_OnAdapterChangeListener>) nil_chk([((id<JavaUtilList>) nil_chk(mAdapterChangeListeners_)) getWithInt:i])) onAdapterChangedWithADXViewPager:self withADXPagerAdapter:oldAdapter withADXPagerAdapter:adapter];
     }
   }
@@ -386,35 +392,35 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
 }
 
-- (jint)getClientWidth {
+- (int32_t)getClientWidth {
   return ADXViewPager_getClientWidth(self);
 }
 
-- (void)setCurrentItemWithInt:(jint)item {
+- (void)setCurrentItemWithInt:(int32_t)item {
   mPopulatePending_ = false;
   [self setCurrentItemInternalWithInt:item withBoolean:!mFirstLayout_ withBoolean:false];
 }
 
-- (void)setCurrentItemWithInt:(jint)item
-                  withBoolean:(jboolean)smoothScroll {
+- (void)setCurrentItemWithInt:(int32_t)item
+                  withBoolean:(bool)smoothScroll {
   mPopulatePending_ = false;
   [self setCurrentItemInternalWithInt:item withBoolean:smoothScroll withBoolean:false];
 }
 
-- (jint)getCurrentItem {
+- (int32_t)getCurrentItem {
   return mCurItem_;
 }
 
-- (void)setCurrentItemInternalWithInt:(jint)item
-                          withBoolean:(jboolean)smoothScroll
-                          withBoolean:(jboolean)always {
+- (void)setCurrentItemInternalWithInt:(int32_t)item
+                          withBoolean:(bool)smoothScroll
+                          withBoolean:(bool)always {
   [self setCurrentItemInternalWithInt:item withBoolean:smoothScroll withBoolean:always withInt:0];
 }
 
-- (void)setCurrentItemInternalWithInt:(jint)item
-                          withBoolean:(jboolean)smoothScroll
-                          withBoolean:(jboolean)always
-                              withInt:(jint)velocity {
+- (void)setCurrentItemInternalWithInt:(int32_t)item
+                          withBoolean:(bool)smoothScroll
+                          withBoolean:(bool)always
+                              withInt:(int32_t)velocity {
   if (mAdapter_ == nil || [mAdapter_ getCount] <= 0) {
     ADXViewPager_setScrollingCacheEnabledWithBoolean_(self, false);
     return;
@@ -429,13 +435,13 @@ J2OBJC_IGNORE_DESIGNATED_END
   else if (item >= [((ADXPagerAdapter *) nil_chk(mAdapter_)) getCount]) {
     item = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getCount] - 1;
   }
-  jint pageLimit = mOffscreenPageLimit_;
+  int32_t pageLimit = mOffscreenPageLimit_;
   if (item > (mCurItem_ + pageLimit) || item < (mCurItem_ - pageLimit)) {
-    for (jint i = 0; i < [((JavaUtilArrayList *) nil_chk(mItems_)) size]; i++) {
+    for (int32_t i = 0; i < [((JavaUtilArrayList *) nil_chk(mItems_)) size]; i++) {
       ((ADXViewPager_ItemInfo *) nil_chk([mItems_ getWithInt:i]))->scrolling_ = true;
     }
   }
-  jboolean dispatchSelected = mCurItem_ != item;
+  bool dispatchSelected = mCurItem_ != item;
   if (mFirstLayout_) {
     mCurItem_ = item;
     if (dispatchSelected) {
@@ -449,14 +455,14 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
 }
 
-- (void)scrollToItemWithInt:(jint)item
-                withBoolean:(jboolean)smoothScroll
-                    withInt:(jint)velocity
-                withBoolean:(jboolean)dispatchSelected {
+- (void)scrollToItemWithInt:(int32_t)item
+                withBoolean:(bool)smoothScroll
+                    withInt:(int32_t)velocity
+                withBoolean:(bool)dispatchSelected {
   ADXViewPager_ItemInfo *curInfo = [self infoForPositionWithInt:item];
-  jint destX = 0;
+  int32_t destX = 0;
   if (curInfo != nil) {
-    jint width = ADXViewPager_getClientWidth(self);
+    int32_t width = ADXViewPager_getClientWidth(self);
     destX = JreFpToInt((width * JavaLangMath_maxWithFloat_withFloat_(mFirstOffset_, JavaLangMath_minWithFloat_withFloat_(curInfo->offset_, mLastOffset_))));
   }
   if (smoothScroll) {
@@ -492,16 +498,16 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
 }
 
-- (void)setPageTransformerWithBoolean:(jboolean)reverseDrawingOrder
+- (void)setPageTransformerWithBoolean:(bool)reverseDrawingOrder
      withADXViewPager_PageTransformer:(id<ADXViewPager_PageTransformer>)transformer {
   [self setPageTransformerWithBoolean:reverseDrawingOrder withADXViewPager_PageTransformer:transformer withInt:ADView_LAYER_TYPE_HARDWARE];
 }
 
-- (void)setPageTransformerWithBoolean:(jboolean)reverseDrawingOrder
+- (void)setPageTransformerWithBoolean:(bool)reverseDrawingOrder
      withADXViewPager_PageTransformer:(id<ADXViewPager_PageTransformer>)transformer
-                              withInt:(jint)pageLayerType {
-  jboolean hasTransformer = transformer != nil;
-  jboolean needsPopulate = hasTransformer != (mPageTransformer_ != nil);
+                              withInt:(int32_t)pageLayerType {
+  bool hasTransformer = transformer != nil;
+  bool needsPopulate = hasTransformer != (mPageTransformer_ != nil);
   JreStrongAssign(&mPageTransformer_, transformer);
   ADXViewPager_setChildrenDrawingOrderEnabledWithBoolean_(self, hasTransformer);
   if (hasTransformer) {
@@ -520,11 +526,11 @@ J2OBJC_IGNORE_DESIGNATED_END
   return oldListener;
 }
 
-- (jint)getOffscreenPageLimit {
+- (int32_t)getOffscreenPageLimit {
   return mOffscreenPageLimit_;
 }
 
-- (void)setOffscreenPageLimitWithInt:(jint)limit {
+- (void)setOffscreenPageLimitWithInt:(int32_t)limit {
   if (limit < ADXViewPager_DEFAULT_OFFSCREEN_PAGES) {
     ADLog_wWithNSString_withNSString_(ADXViewPager_TAG, JreStrcat("$I$I", @"Requested offscreen page limit ", limit, @" too small; defaulting to ", ADXViewPager_DEFAULT_OFFSCREEN_PAGES));
     limit = ADXViewPager_DEFAULT_OFFSCREEN_PAGES;
@@ -535,15 +541,15 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
 }
 
-- (void)setPageMarginWithInt:(jint)marginPixels {
-  jint oldMargin = mPageMargin_;
+- (void)setPageMarginWithInt:(int32_t)marginPixels {
+  int32_t oldMargin = mPageMargin_;
   mPageMargin_ = marginPixels;
-  jint width = [self getWidth];
+  int32_t width = [self getWidth];
   ADXViewPager_recomputeScrollPositionWithInt_withInt_withInt_withInt_(self, width, width, marginPixels, oldMargin);
   [self requestLayout];
 }
 
-- (jint)getPageMargin {
+- (int32_t)getPageMargin {
   return mPageMargin_;
 }
 
@@ -562,8 +568,8 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
 }
 
-- (ADXViewPager_ItemInfo *)addNewItemWithInt:(jint)position
-                                     withInt:(jint)index {
+- (ADXViewPager_ItemInfo *)addNewItemWithInt:(int32_t)position
+                                     withInt:(int32_t)index {
   ADXViewPager_ItemInfo *ii = create_ADXViewPager_ItemInfo_init();
   ii->position_ = position;
   JreStrongAssign(&ii->object_, [((ADXPagerAdapter *) nil_chk(mAdapter_)) instantiateItemWithADViewGroup:self withInt:position]);
@@ -578,14 +584,14 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (void)dataSetChanged {
-  jint adapterCount = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getCount];
+  int32_t adapterCount = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getCount];
   mExpectedAdapterCount_ = adapterCount;
-  jboolean needPopulate = [((JavaUtilArrayList *) nil_chk(mItems_)) size] < mOffscreenPageLimit_ * 2 + 1 && [mItems_ size] < adapterCount;
-  jint newCurrItem = mCurItem_;
-  jboolean isUpdating = false;
-  for (jint i = 0; i < [mItems_ size]; i++) {
+  bool needPopulate = [((JavaUtilArrayList *) nil_chk(mItems_)) size] < mOffscreenPageLimit_ * 2 + 1 && [mItems_ size] < adapterCount;
+  int32_t newCurrItem = mCurItem_;
+  bool isUpdating = false;
+  for (int32_t i = 0; i < [mItems_ size]; i++) {
     ADXViewPager_ItemInfo *ii = [mItems_ getWithInt:i];
-    jint newPos = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getItemPositionWithId:((ADXViewPager_ItemInfo *) nil_chk(ii))->object_];
+    int32_t newPos = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getItemPositionWithId:((ADXViewPager_ItemInfo *) nil_chk(ii))->object_];
     if (newPos == ADXPagerAdapter_POSITION_UNCHANGED) {
       continue;
     }
@@ -617,8 +623,8 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
   JavaUtilCollections_sortWithJavaUtilList_withJavaUtilComparator_(mItems_, ADXViewPager_COMPARATOR);
   if (needPopulate) {
-    jint childCount = [self getChildCount];
-    for (jint i = 0; i < childCount; i++) {
+    int32_t childCount = [self getChildCount];
+    for (int32_t i = 0; i < childCount; i++) {
       ADView *child = [self getChildAtWithInt:i];
       ADXViewPager_LayoutParams *lp = (ADXViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(child)) getLayoutParams], [ADXViewPager_LayoutParams class]);
       if (!((ADXViewPager_LayoutParams *) nil_chk(lp))->isDecor_) {
@@ -634,7 +640,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   [self populateWithInt:mCurItem_];
 }
 
-- (void)populateWithInt:(jint)newCurrentItem {
+- (void)populateWithInt:(int32_t)newCurrentItem {
   ADXViewPager_ItemInfo *oldCurInfo = nil;
   if (mCurItem_ != newCurrentItem) {
     oldCurInfo = [self infoForPositionWithInt:mCurItem_];
@@ -649,10 +655,10 @@ J2OBJC_IGNORE_DESIGNATED_END
     return;
   }
   [mAdapter_ startUpdateWithADViewGroup:self];
-  jint pageLimit = mOffscreenPageLimit_;
-  jint startPos = JavaLangMath_maxWithInt_withInt_(0, mCurItem_ - pageLimit);
-  jint N = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getCount];
-  jint endPos = JavaLangMath_minWithInt_withInt_(N - 1, mCurItem_ + pageLimit);
+  int32_t pageLimit = mOffscreenPageLimit_;
+  int32_t startPos = JavaLangMath_maxWithInt_withInt_(0, mCurItem_ - pageLimit);
+  int32_t N = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getCount];
+  int32_t endPos = JavaLangMath_minWithInt_withInt_(N - 1, mCurItem_ + pageLimit);
   if (N != mExpectedAdapterCount_) {
     NSString *resName;
     @try {
@@ -663,7 +669,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     }
     @throw create_JavaLangIllegalStateException_initWithNSString_(JreStrcat("$I$I$$$@$@", @"The application's PagerAdapter changed the adapter's contents without calling PagerAdapter#notifyDataSetChanged! Expected adapter item count: ", mExpectedAdapterCount_, @", found: ", N, @" Pager id: ", resName, @" Pager class: ", [self java_getClass], @" Problematic adapter: ", [((ADXPagerAdapter *) nil_chk(mAdapter_)) java_getClass]));
   }
-  jint curIndex = -1;
+  int32_t curIndex = -1;
   ADXViewPager_ItemInfo *curItem = nil;
   for (curIndex = 0; curIndex < [((JavaUtilArrayList *) nil_chk(mItems_)) size]; curIndex++) {
     ADXViewPager_ItemInfo *ii = [mItems_ getWithInt:curIndex];
@@ -676,12 +682,12 @@ J2OBJC_IGNORE_DESIGNATED_END
     curItem = [self addNewItemWithInt:mCurItem_ withInt:curIndex];
   }
   if (curItem != nil) {
-    jfloat extraWidthLeft = 0.f;
-    jint itemIndex = curIndex - 1;
+    float extraWidthLeft = 0.f;
+    int32_t itemIndex = curIndex - 1;
     ADXViewPager_ItemInfo *ii = itemIndex >= 0 ? [mItems_ getWithInt:itemIndex] : nil;
-    jint clientWidth = ADXViewPager_getClientWidth(self);
-    jfloat leftWidthNeeded = clientWidth <= 0 ? 0 : 2.f - curItem->widthFactor_ + (jfloat) [self getPaddingLeft] / (jfloat) clientWidth;
-    for (jint pos = mCurItem_ - 1; pos >= 0; pos--) {
+    int32_t clientWidth = ADXViewPager_getClientWidth(self);
+    float leftWidthNeeded = clientWidth <= 0 ? 0 : 2.f - curItem->widthFactor_ + (float) [self getPaddingLeft] / (float) clientWidth;
+    for (int32_t pos = mCurItem_ - 1; pos >= 0; pos--) {
       if (extraWidthLeft >= leftWidthNeeded && pos < startPos) {
         if (ii == nil) {
           break;
@@ -706,12 +712,12 @@ J2OBJC_IGNORE_DESIGNATED_END
         ii = itemIndex >= 0 ? [mItems_ getWithInt:itemIndex] : nil;
       }
     }
-    jfloat extraWidthRight = curItem->widthFactor_;
+    float extraWidthRight = curItem->widthFactor_;
     itemIndex = curIndex + 1;
     if (extraWidthRight < 2.f) {
       ii = itemIndex < [mItems_ size] ? [mItems_ getWithInt:itemIndex] : nil;
-      jfloat rightWidthNeeded = clientWidth <= 0 ? 0 : (jfloat) [self getPaddingRight] / (jfloat) clientWidth + 2.f;
-      for (jint pos = mCurItem_ + 1; pos < N; pos++) {
+      float rightWidthNeeded = clientWidth <= 0 ? 0 : (float) [self getPaddingRight] / (float) clientWidth + 2.f;
+      for (int32_t pos = mCurItem_ + 1; pos < N; pos++) {
         if (extraWidthRight >= rightWidthNeeded && pos > endPos) {
           if (ii == nil) {
             break;
@@ -739,8 +745,8 @@ J2OBJC_IGNORE_DESIGNATED_END
     [((ADXPagerAdapter *) nil_chk(mAdapter_)) setPrimaryItemWithADViewGroup:self withInt:mCurItem_ withId:curItem->object_];
   }
   [((ADXPagerAdapter *) nil_chk(mAdapter_)) finishUpdateWithADViewGroup:self];
-  jint childCount = [self getChildCount];
-  for (jint i = 0; i < childCount; i++) {
+  int32_t childCount = [self getChildCount];
+  for (int32_t i = 0; i < childCount; i++) {
     ADView *child = [self getChildAtWithInt:i];
     ADXViewPager_LayoutParams *lp = (ADXViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(child)) getLayoutParams], [ADXViewPager_LayoutParams class]);
     ((ADXViewPager_LayoutParams *) nil_chk(lp))->childIndex_ = i;
@@ -757,7 +763,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     ADView *currentFocused = JreRetainedLocalValue([self findFocus]);
     ADXViewPager_ItemInfo *ii = currentFocused != nil ? [self infoForAnyChildWithADView:currentFocused] : nil;
     if (ii == nil || ii->position_ != mCurItem_) {
-      for (jint i = 0; i < [self getChildCount]; i++) {
+      for (int32_t i = 0; i < [self getChildCount]; i++) {
         ADView *child = JreRetainedLocalValue([self getChildAtWithInt:i]);
         ii = [self infoForChildWithADView:child];
         if (ii != nil && ii->position_ == mCurItem_) {
@@ -775,13 +781,13 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (void)calculatePageOffsetsWithADXViewPager_ItemInfo:(ADXViewPager_ItemInfo *)curItem
-                                              withInt:(jint)curIndex
+                                              withInt:(int32_t)curIndex
                             withADXViewPager_ItemInfo:(ADXViewPager_ItemInfo *)oldCurInfo {
   ADXViewPager_calculatePageOffsetsWithADXViewPager_ItemInfo_withInt_withADXViewPager_ItemInfo_(self, curItem, curIndex, oldCurInfo);
 }
 
 - (void)addViewWithADView:(ADView *)child
-                  withInt:(jint)index
+                  withInt:(int32_t)index
 withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   if (![self checkLayoutParamsWithADViewGroup_LayoutParams:params]) {
     params = [self generateLayoutParamsWithADViewGroup_LayoutParams:params];
@@ -801,7 +807,7 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
 }
 
 - (ADXViewPager_ItemInfo *)infoForChildWithADView:(ADView *)child {
-  for (jint i = 0; i < [((JavaUtilArrayList *) nil_chk(mItems_)) size]; i++) {
+  for (int32_t i = 0; i < [((JavaUtilArrayList *) nil_chk(mItems_)) size]; i++) {
     ADXViewPager_ItemInfo *ii = JreRetainedLocalValue([mItems_ getWithInt:i]);
     if ([((ADXPagerAdapter *) nil_chk(mAdapter_)) isViewFromObjectWithADView:child withId:((ADXViewPager_ItemInfo *) nil_chk(ii))->object_]) {
       return ii;
@@ -812,7 +818,7 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
 
 - (ADXViewPager_ItemInfo *)infoForAnyChildWithADView:(ADView *)child {
   id<ADViewParent> parent;
-  while ((parent = [((ADView *) nil_chk(child)) getParent]) != self) {
+  while (!JreObjectEqualsEquals((parent = [((ADView *) nil_chk(child)) getParent]), self)) {
     if (!([parent isKindOfClass:[ADView class]])) {
       return nil;
     }
@@ -821,8 +827,8 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   return [self infoForChildWithADView:child];
 }
 
-- (ADXViewPager_ItemInfo *)infoForPositionWithInt:(jint)position {
-  for (jint i = 0; i < [((JavaUtilArrayList *) nil_chk(mItems_)) size]; i++) {
+- (ADXViewPager_ItemInfo *)infoForPositionWithInt:(int32_t)position {
+  for (int32_t i = 0; i < [((JavaUtilArrayList *) nil_chk(mItems_)) size]; i++) {
     ADXViewPager_ItemInfo *ii = JreRetainedLocalValue([mItems_ getWithInt:i]);
     if (((ADXViewPager_ItemInfo *) nil_chk(ii))->position_ == position) {
       return ii;
@@ -831,34 +837,34 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   return nil;
 }
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec {
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec {
   [self setMeasuredDimensionWithInt:ADView_getDefaultSizeWithInt_withInt_(0, widthMeasureSpec) withInt:ADView_getDefaultSizeWithInt_withInt_(0, heightMeasureSpec)];
-  jint measuredWidth = [self getMeasuredWidth];
-  jint maxGutterSize = JreIntDiv(measuredWidth, 10);
+  int32_t measuredWidth = [self getMeasuredWidth];
+  int32_t maxGutterSize = JreIntDiv(measuredWidth, 10);
   mGutterSize_ = JavaLangMath_minWithInt_withInt_(maxGutterSize, mDefaultGutterSize_);
-  jint childWidthSize = measuredWidth - [self getPaddingLeft] - [self getPaddingRight];
-  jint childHeightSize = [self getMeasuredHeight] - [self getPaddingTop] - [self getPaddingBottom];
-  jint size = [self getChildCount];
-  for (jint i = 0; i < size; ++i) {
+  int32_t childWidthSize = measuredWidth - [self getPaddingLeft] - [self getPaddingRight];
+  int32_t childHeightSize = [self getMeasuredHeight] - [self getPaddingTop] - [self getPaddingBottom];
+  int32_t size = [self getChildCount];
+  for (int32_t i = 0; i < size; ++i) {
     ADView *child = [self getChildAtWithInt:i];
     if ([((ADView *) nil_chk(child)) getVisibility] != ADView_GONE) {
       ADXViewPager_LayoutParams *lp = (ADXViewPager_LayoutParams *) cast_chk([child getLayoutParams], [ADXViewPager_LayoutParams class]);
       if (lp != nil && lp->isDecor_) {
-        jint hgrav = lp->gravity_ & ADGravity_HORIZONTAL_GRAVITY_MASK;
-        jint vgrav = lp->gravity_ & ADGravity_VERTICAL_GRAVITY_MASK;
-        jint widthMode = ADView_MeasureSpec_AT_MOST;
-        jint heightMode = ADView_MeasureSpec_AT_MOST;
-        jboolean consumeVertical = vgrav == ADGravity_TOP || vgrav == ADGravity_BOTTOM;
-        jboolean consumeHorizontal = hgrav == ADGravity_LEFT || hgrav == ADGravity_RIGHT;
+        int32_t hgrav = lp->gravity_ & ADGravity_HORIZONTAL_GRAVITY_MASK;
+        int32_t vgrav = lp->gravity_ & ADGravity_VERTICAL_GRAVITY_MASK;
+        int32_t widthMode = ADView_MeasureSpec_AT_MOST;
+        int32_t heightMode = ADView_MeasureSpec_AT_MOST;
+        bool consumeVertical = vgrav == ADGravity_TOP || vgrav == ADGravity_BOTTOM;
+        bool consumeHorizontal = hgrav == ADGravity_LEFT || hgrav == ADGravity_RIGHT;
         if (consumeVertical) {
           widthMode = ADView_MeasureSpec_EXACTLY;
         }
         else if (consumeHorizontal) {
           heightMode = ADView_MeasureSpec_EXACTLY;
         }
-        jint widthSize = childWidthSize;
-        jint heightSize = childHeightSize;
+        int32_t widthSize = childWidthSize;
+        int32_t heightSize = childHeightSize;
         if (lp->width_ != ADViewGroup_LayoutParams_WRAP_CONTENT) {
           widthMode = ADView_MeasureSpec_EXACTLY;
           if (lp->width_ != ADViewGroup_LayoutParams_MATCH_PARENT) {
@@ -871,8 +877,8 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
             heightSize = lp->height_;
           }
         }
-        jint widthSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(widthSize, widthMode);
-        jint heightSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(heightSize, heightMode);
+        int32_t widthSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(widthSize, widthMode);
+        int32_t heightSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(heightSize, heightMode);
         [child measureWithInt:widthSpec withInt:heightSpec];
         if (consumeVertical) {
           childHeightSize -= [child getMeasuredHeight];
@@ -883,54 +889,54 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
       }
     }
   }
-  jint childWidthMeasureSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(childWidthSize, ADView_MeasureSpec_EXACTLY);
-  jint childHeightMeasureSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(childHeightSize, ADView_MeasureSpec_EXACTLY);
+  int32_t childWidthMeasureSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(childWidthSize, ADView_MeasureSpec_EXACTLY);
+  int32_t childHeightMeasureSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(childHeightSize, ADView_MeasureSpec_EXACTLY);
   mInLayout_ = true;
   [self populate];
   mInLayout_ = false;
   size = [self getChildCount];
-  for (jint i = 0; i < size; ++i) {
+  for (int32_t i = 0; i < size; ++i) {
     ADView *child = [self getChildAtWithInt:i];
     if ([((ADView *) nil_chk(child)) getVisibility] != ADView_GONE) {
       ADXViewPager_LayoutParams *lp = (ADXViewPager_LayoutParams *) cast_chk([child getLayoutParams], [ADXViewPager_LayoutParams class]);
       if (lp == nil || !lp->isDecor_) {
-        jint widthSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(JreFpToInt((childWidthSize * ((ADXViewPager_LayoutParams *) nil_chk(lp))->widthFactor_)), ADView_MeasureSpec_EXACTLY);
+        int32_t widthSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(JreFpToInt((childWidthSize * ((ADXViewPager_LayoutParams *) nil_chk(lp))->widthFactor_)), ADView_MeasureSpec_EXACTLY);
         [child measureWithInt:widthSpec withInt:childHeightMeasureSpec];
       }
     }
   }
 }
 
-- (void)recomputeScrollPositionWithInt:(jint)width
-                               withInt:(jint)oldWidth
-                               withInt:(jint)margin
-                               withInt:(jint)oldMargin {
+- (void)recomputeScrollPositionWithInt:(int32_t)width
+                               withInt:(int32_t)oldWidth
+                               withInt:(int32_t)margin
+                               withInt:(int32_t)oldMargin {
   ADXViewPager_recomputeScrollPositionWithInt_withInt_withInt_withInt_(self, width, oldWidth, margin, oldMargin);
 }
 
-- (void)onLayoutWithBoolean:(jboolean)changed
-                    withInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b {
-  jint count = [self getChildCount];
-  jint width = r - l;
-  jint height = b - t;
-  jint paddingLeft = [self getPaddingLeft];
-  jint paddingTop = [self getPaddingTop];
-  jint paddingRight = [self getPaddingRight];
-  jint paddingBottom = [self getPaddingBottom];
-  jint scrollX = [self getScrollX];
-  jint decorCount = 0;
-  for (jint i = 0; i < count; i++) {
+- (void)onLayoutWithBoolean:(bool)changed
+                    withInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b {
+  int32_t count = [self getChildCount];
+  int32_t width = r - l;
+  int32_t height = b - t;
+  int32_t paddingLeft = [self getPaddingLeft];
+  int32_t paddingTop = [self getPaddingTop];
+  int32_t paddingRight = [self getPaddingRight];
+  int32_t paddingBottom = [self getPaddingBottom];
+  int32_t scrollX = [self getScrollX];
+  int32_t decorCount = 0;
+  for (int32_t i = 0; i < count; i++) {
     ADView *child = [self getChildAtWithInt:i];
     if ([((ADView *) nil_chk(child)) getVisibility] != ADView_GONE) {
       ADXViewPager_LayoutParams *lp = (ADXViewPager_LayoutParams *) cast_chk([child getLayoutParams], [ADXViewPager_LayoutParams class]);
-      jint childLeft = 0;
-      jint childTop = 0;
+      int32_t childLeft = 0;
+      int32_t childTop = 0;
       if (((ADXViewPager_LayoutParams *) nil_chk(lp))->isDecor_) {
-        jint hgrav = lp->gravity_ & ADGravity_HORIZONTAL_GRAVITY_MASK;
-        jint vgrav = lp->gravity_ & ADGravity_VERTICAL_GRAVITY_MASK;
+        int32_t hgrav = lp->gravity_ & ADGravity_HORIZONTAL_GRAVITY_MASK;
+        int32_t vgrav = lp->gravity_ & ADGravity_VERTICAL_GRAVITY_MASK;
         switch (hgrav) {
           default:
           childLeft = paddingLeft;
@@ -969,20 +975,20 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
       }
     }
   }
-  jint childWidth = width - paddingLeft - paddingRight;
-  for (jint i = 0; i < count; i++) {
+  int32_t childWidth = width - paddingLeft - paddingRight;
+  for (int32_t i = 0; i < count; i++) {
     ADView *child = [self getChildAtWithInt:i];
     if ([((ADView *) nil_chk(child)) getVisibility] != ADView_GONE) {
       ADXViewPager_LayoutParams *lp = (ADXViewPager_LayoutParams *) cast_chk([child getLayoutParams], [ADXViewPager_LayoutParams class]);
       ADXViewPager_ItemInfo *ii;
       if (!((ADXViewPager_LayoutParams *) nil_chk(lp))->isDecor_ && (ii = [self infoForChildWithADView:child]) != nil) {
-        jint loff = JreFpToInt((childWidth * ((ADXViewPager_ItemInfo *) nil_chk(ii))->offset_));
-        jint childLeft = paddingLeft + loff;
-        jint childTop = paddingTop;
+        int32_t loff = JreFpToInt((childWidth * ((ADXViewPager_ItemInfo *) nil_chk(ii))->offset_));
+        int32_t childLeft = paddingLeft + loff;
+        int32_t childTop = paddingTop;
         if (lp->needsMeasure_) {
           lp->needsMeasure_ = false;
-          jint widthSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(JreFpToInt((childWidth * lp->widthFactor_)), ADView_MeasureSpec_EXACTLY);
-          jint heightSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_((jint) (height - paddingTop - paddingBottom), ADView_MeasureSpec_EXACTLY);
+          int32_t widthSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(JreFpToInt((childWidth * lp->widthFactor_)), ADView_MeasureSpec_EXACTLY);
+          int32_t heightSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_((int32_t) (height - paddingTop - paddingBottom), ADView_MeasureSpec_EXACTLY);
           [child measureWithInt:widthSpec withInt:heightSpec];
         }
         [child layoutWithInt:childLeft withInt:childTop withInt:childLeft + [child getMeasuredWidth] withInt:childTop + [child getMeasuredHeight]];
@@ -998,7 +1004,7 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   mFirstLayout_ = false;
 }
 
-- (jboolean)pageScrolledWithInt:(jint)xpos {
+- (bool)pageScrolledWithInt:(int32_t)xpos {
   if ([((JavaUtilArrayList *) nil_chk(mItems_)) size] == 0) {
     if (mFirstLayout_) {
       return false;
@@ -1011,12 +1017,12 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
     return false;
   }
   ADXViewPager_ItemInfo *ii = ADXViewPager_infoForCurrentScrollPosition(self);
-  jint width = ADXViewPager_getClientWidth(self);
-  jint widthWithMargin = width + mPageMargin_;
-  jfloat marginOffset = (jfloat) mPageMargin_ / width;
-  jint currentPage = ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_;
-  jfloat pageOffset = (((jfloat) xpos / width) - ii->offset_) / (ii->widthFactor_ + marginOffset);
-  jint offsetPixels = JreFpToInt((pageOffset * widthWithMargin));
+  int32_t width = ADXViewPager_getClientWidth(self);
+  int32_t widthWithMargin = width + mPageMargin_;
+  float marginOffset = (float) mPageMargin_ / width;
+  int32_t currentPage = ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_;
+  float pageOffset = (((float) xpos / width) - ii->offset_) / (ii->widthFactor_ + marginOffset);
+  int32_t offsetPixels = JreFpToInt((pageOffset * widthWithMargin));
   mCalledSuper_ = false;
   [self onPageScrolledWithInt:currentPage withFloat:pageOffset withInt:offsetPixels];
   if (!mCalledSuper_) {
@@ -1025,21 +1031,21 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   return true;
 }
 
-- (void)onPageScrolledWithInt:(jint)position
-                    withFloat:(jfloat)offset
-                      withInt:(jint)offsetPixels {
+- (void)onPageScrolledWithInt:(int32_t)position
+                    withFloat:(float)offset
+                      withInt:(int32_t)offsetPixels {
   if (mDecorChildCount_ > 0) {
-    jint scrollX = [self getScrollX];
-    jint paddingLeft = [self getPaddingLeft];
-    jint paddingRight = [self getPaddingRight];
-    jint width = [self getWidth];
-    jint childCount = [self getChildCount];
-    for (jint i = 0; i < childCount; i++) {
+    int32_t scrollX = [self getScrollX];
+    int32_t paddingLeft = [self getPaddingLeft];
+    int32_t paddingRight = [self getPaddingRight];
+    int32_t width = [self getWidth];
+    int32_t childCount = [self getChildCount];
+    for (int32_t i = 0; i < childCount; i++) {
       ADView *child = [self getChildAtWithInt:i];
       ADXViewPager_LayoutParams *lp = (ADXViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(child)) getLayoutParams], [ADXViewPager_LayoutParams class]);
       if (!((ADXViewPager_LayoutParams *) nil_chk(lp))->isDecor_) continue;
-      jint hgrav = lp->gravity_ & ADGravity_HORIZONTAL_GRAVITY_MASK;
-      jint childLeft = 0;
+      int32_t hgrav = lp->gravity_ & ADGravity_HORIZONTAL_GRAVITY_MASK;
+      int32_t childLeft = 0;
       switch (hgrav) {
         default:
         childLeft = paddingLeft;
@@ -1057,7 +1063,7 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
         break;
       }
       childLeft += scrollX;
-      jint childOffset = childLeft - [child getLeft];
+      int32_t childOffset = childLeft - [child getLeft];
       if (childOffset != 0) {
         [child offsetLeftAndRightWithInt:childOffset];
       }
@@ -1065,31 +1071,31 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   }
   ADXViewPager_dispatchOnPageScrolledWithInt_withFloat_withInt_(self, position, offset, offsetPixels);
   if (mPageTransformer_ != nil) {
-    jint scrollX = [self getScrollX];
-    jint childCount = [self getChildCount];
-    for (jint i = 0; i < childCount; i++) {
+    int32_t scrollX = [self getScrollX];
+    int32_t childCount = [self getChildCount];
+    for (int32_t i = 0; i < childCount; i++) {
       ADView *child = [self getChildAtWithInt:i];
       ADXViewPager_LayoutParams *lp = (ADXViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(child)) getLayoutParams], [ADXViewPager_LayoutParams class]);
       if (((ADXViewPager_LayoutParams *) nil_chk(lp))->isDecor_) continue;
-      jfloat transformPos = (jfloat) ([child getLeft] - scrollX) / ADXViewPager_getClientWidth(self);
+      float transformPos = (float) ([child getLeft] - scrollX) / ADXViewPager_getClientWidth(self);
       [((id<ADXViewPager_PageTransformer>) nil_chk(mPageTransformer_)) transformPageWithADView:child withFloat:transformPos];
     }
   }
   mCalledSuper_ = true;
 }
 
-- (void)dispatchOnPageScrolledWithInt:(jint)position
-                            withFloat:(jfloat)offset
-                              withInt:(jint)offsetPixels {
+- (void)dispatchOnPageScrolledWithInt:(int32_t)position
+                            withFloat:(float)offset
+                              withInt:(int32_t)offsetPixels {
   ADXViewPager_dispatchOnPageScrolledWithInt_withFloat_withInt_(self, position, offset, offsetPixels);
 }
 
-- (void)dispatchOnPageSelectedWithInt:(jint)position {
+- (void)dispatchOnPageSelectedWithInt:(int32_t)position {
   ADXViewPager_dispatchOnPageSelectedWithInt_(self, position);
 }
 
-- (jboolean)performDragWithFloat:(jfloat)x
-                       withFloat:(jfloat)y {
+- (bool)performDragWithFloat:(float)x
+                   withFloat:(float)y {
   return ADXViewPager_performDragWithFloat_withFloat_(self, x, y);
 }
 
@@ -1097,36 +1103,36 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   return ADXViewPager_infoForCurrentScrollPosition(self);
 }
 
-- (jint)determineTargetPageWithInt:(jint)currentPage
-                         withFloat:(jfloat)pageOffset
-                           withInt:(jint)velocity
-                           withInt:(jint)deltaX {
+- (int32_t)determineTargetPageWithInt:(int32_t)currentPage
+                            withFloat:(float)pageOffset
+                              withInt:(int32_t)velocity
+                              withInt:(int32_t)deltaX {
   return ADXViewPager_determineTargetPageWithInt_withFloat_withInt_withInt_(self, currentPage, pageOffset, velocity, deltaX);
 }
 
 - (void)onDrawWithADCanvas:(id<ADCanvas>)canvas {
   [super onDrawWithADCanvas:canvas];
   if (mPageMargin_ > 0 && mMarginDrawable_ != nil && [((JavaUtilArrayList *) nil_chk(mItems_)) size] > 0 && mAdapter_ != nil) {
-    jint scrollX = [self getScrollX];
-    jint width = [self getWidth];
-    jfloat marginOffset = (jfloat) mPageMargin_ / width;
-    jint itemIndex = 0;
+    int32_t scrollX = [self getScrollX];
+    int32_t width = [self getWidth];
+    float marginOffset = (float) mPageMargin_ / width;
+    int32_t itemIndex = 0;
     ADXViewPager_ItemInfo *ii = JreRetainedLocalValue([((JavaUtilArrayList *) nil_chk(mItems_)) getWithInt:0]);
-    jfloat offset = ((ADXViewPager_ItemInfo *) nil_chk(ii))->offset_;
-    jint itemCount = [mItems_ size];
-    jint firstPos = ii->position_;
-    jint lastPos = ((ADXViewPager_ItemInfo *) nil_chk([mItems_ getWithInt:itemCount - 1]))->position_;
-    for (jint pos = firstPos; pos < lastPos; pos++) {
+    float offset = ((ADXViewPager_ItemInfo *) nil_chk(ii))->offset_;
+    int32_t itemCount = [mItems_ size];
+    int32_t firstPos = ii->position_;
+    int32_t lastPos = ((ADXViewPager_ItemInfo *) nil_chk([mItems_ getWithInt:itemCount - 1]))->position_;
+    for (int32_t pos = firstPos; pos < lastPos; pos++) {
       while (pos > ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_ && itemIndex < itemCount) {
         ii = [mItems_ getWithInt:++itemIndex];
       }
-      jfloat drawAt;
+      float drawAt;
       if (pos == ii->position_) {
         drawAt = (ii->offset_ + ii->widthFactor_) * width;
         offset = ii->offset_ + ii->widthFactor_ + marginOffset;
       }
       else {
-        jfloat widthFactor = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getPageWidthWithInt:pos];
+        float widthFactor = [((ADXPagerAdapter *) nil_chk(mAdapter_)) getPageWidthWithInt:pos];
         drawAt = (offset + widthFactor) * width;
         JrePlusAssignFloatF(&offset, widthFactor + marginOffset);
       }
@@ -1141,7 +1147,7 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   }
 }
 
-- (jboolean)beginFakeDrag {
+- (bool)beginFakeDrag {
   if (mIsBeingDragged_) {
     return false;
   }
@@ -1159,21 +1165,21 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
     @throw create_JavaLangIllegalStateException_initWithNSString_(@"No fake drag in progress. Call beginFakeDrag first.");
   }
   if (mAdapter_ != nil) {
-    jint initialVelocity = 0;
-    jint width = ADXViewPager_getClientWidth(self);
-    jint scrollX = [self getScrollX];
+    int32_t initialVelocity = 0;
+    int32_t width = ADXViewPager_getClientWidth(self);
+    int32_t scrollX = [self getScrollX];
     ADXViewPager_ItemInfo *ii = ADXViewPager_infoForCurrentScrollPosition(self);
-    jint currentPage = ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_;
-    jfloat pageOffset = (((jfloat) scrollX / width) - ii->offset_) / ii->widthFactor_;
-    jint totalDelta = JreFpToInt((mLastMotionX_ - mInitialMotionX_));
-    jint nextPage = ADXViewPager_determineTargetPageWithInt_withFloat_withInt_withInt_(self, currentPage, pageOffset, initialVelocity, totalDelta);
+    int32_t currentPage = ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_;
+    float pageOffset = (((float) scrollX / width) - ii->offset_) / ii->widthFactor_;
+    int32_t totalDelta = JreFpToInt((mLastMotionX_ - mInitialMotionX_));
+    int32_t nextPage = ADXViewPager_determineTargetPageWithInt_withFloat_withInt_withInt_(self, currentPage, pageOffset, initialVelocity, totalDelta);
     [self setCurrentItemInternalWithInt:nextPage withBoolean:true withBoolean:true withInt:initialVelocity];
   }
   ADXViewPager_endDrag(self);
   mFakeDragging_ = false;
 }
 
-- (void)fakeDragByWithFloat:(jfloat)xOffset {
+- (void)fakeDragByWithFloat:(float)xOffset {
   if (!mFakeDragging_) {
     @throw create_JavaLangIllegalStateException_initWithNSString_(@"No fake drag in progress. Call beginFakeDrag first.");
   }
@@ -1181,11 +1187,11 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
     return;
   }
   JrePlusAssignFloatF(&mLastMotionX_, xOffset);
-  jfloat oldScrollX = [self getScrollX];
-  jfloat scrollX = oldScrollX - xOffset;
-  jint width = ADXViewPager_getClientWidth(self);
-  jfloat leftBound = width * mFirstOffset_;
-  jfloat rightBound = width * mLastOffset_;
+  float oldScrollX = [self getScrollX];
+  float scrollX = oldScrollX - xOffset;
+  int32_t width = ADXViewPager_getClientWidth(self);
+  float leftBound = width * mFirstOffset_;
+  float rightBound = width * mLastOffset_;
   ADXViewPager_ItemInfo *firstItem = [((JavaUtilArrayList *) nil_chk(mItems_)) getWithInt:0];
   ADXViewPager_ItemInfo *lastItem = [mItems_ getWithInt:[mItems_ size] - 1];
   if (((ADXViewPager_ItemInfo *) nil_chk(firstItem))->position_ != 0) {
@@ -1205,7 +1211,7 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   [self pageScrolledWithInt:JreFpToInt(scrollX)];
 }
 
-- (jboolean)isFakeDragging {
+- (bool)isFakeDragging {
   return mFakeDragging_;
 }
 
@@ -1213,12 +1219,12 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   ADXViewPager_endDrag(self);
 }
 
-- (jboolean)canScrollHorizontallyWithInt:(jint)direction {
+- (bool)canScrollHorizontallyWithInt:(int32_t)direction {
   if (mAdapter_ == nil) {
     return false;
   }
-  jint width = ADXViewPager_getClientWidth(self);
-  jint scrollX = [self getScrollX];
+  int32_t width = ADXViewPager_getClientWidth(self);
+  int32_t scrollX = [self getScrollX];
   if (direction < 0) {
     return (scrollX > JreFpToInt((width * mFirstOffset_)));
   }
@@ -1230,17 +1236,17 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   }
 }
 
-- (jboolean)canScrollWithADView:(ADView *)v
-                    withBoolean:(jboolean)checkV
-                        withInt:(jint)dx
-                        withInt:(jint)x
-                        withInt:(jint)y {
+- (bool)canScrollWithADView:(ADView *)v
+                withBoolean:(bool)checkV
+                    withInt:(int32_t)dx
+                    withInt:(int32_t)x
+                    withInt:(int32_t)y {
   if ([v isKindOfClass:[ADViewGroup class]]) {
     ADViewGroup *group = (ADViewGroup *) v;
-    jint scrollX = [((ADView *) nil_chk(v)) getScrollX];
-    jint scrollY = [v getScrollY];
-    jint count = [((ADViewGroup *) nil_chk(group)) getChildCount];
-    for (jint i = count - 1; i >= 0; i--) {
+    int32_t scrollX = [((ADView *) nil_chk(v)) getScrollX];
+    int32_t scrollY = [v getScrollY];
+    int32_t count = [((ADViewGroup *) nil_chk(group)) getChildCount];
+    for (int32_t i = count - 1; i >= 0; i--) {
       ADView *child = [group getChildAtWithInt:i];
       if (x + scrollX >= [((ADView *) nil_chk(child)) getLeft] && x + scrollX < [child getRight] && y + scrollY >= [child getTop] && y + scrollY < [child getBottom] && [self canScrollWithADView:child withBoolean:true withInt:dx withInt:x + scrollX - [child getLeft] withInt:y + scrollY - [child getTop]]) {
         return true;
@@ -1250,15 +1256,15 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   return checkV && [((ADView *) nil_chk(v)) canScrollHorizontallyWithInt:-dx];
 }
 
-- (jboolean)arrowScrollWithInt:(jint)direction {
+- (bool)arrowScrollWithInt:(int32_t)direction {
   ADView *currentFocused = JreRetainedLocalValue([self findFocus]);
-  if (currentFocused == self) {
+  if (JreObjectEqualsEquals(currentFocused, self)) {
     currentFocused = nil;
   }
   else if (currentFocused != nil) {
-    jboolean isChild = false;
+    bool isChild = false;
     for (id<ADViewParent> parent = JreRetainedLocalValue([currentFocused getParent]); [parent isKindOfClass:[ADViewGroup class]]; parent = [((id<ADViewParent>) nil_chk(parent)) getParent]) {
-      if (parent == self) {
+      if (JreObjectEqualsEquals(parent, self)) {
         isChild = true;
         break;
       }
@@ -1273,12 +1279,12 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
       currentFocused = nil;
     }
   }
-  jboolean handled = false;
+  bool handled = false;
   ADView *nextFocused = nil;
-  if (nextFocused != nil && nextFocused != currentFocused) {
+  if (nextFocused != nil && !JreObjectEqualsEquals(nextFocused, currentFocused)) {
     if (direction == ADView_FOCUS_LEFT) {
-      jint nextLeft = ((ADRect *) nil_chk(ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(self, mTempRect_, nextFocused)))->left_;
-      jint currLeft = ((ADRect *) nil_chk(ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(self, mTempRect_, currentFocused)))->left_;
+      int32_t nextLeft = ((ADRect *) nil_chk(ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(self, mTempRect_, nextFocused)))->left_;
+      int32_t currLeft = ((ADRect *) nil_chk(ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(self, mTempRect_, currentFocused)))->left_;
       if (currentFocused != nil && nextLeft >= currLeft) {
         handled = [self pageLeft];
       }
@@ -1287,8 +1293,8 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
       }
     }
     else if (direction == ADView_FOCUS_RIGHT) {
-      jint nextLeft = ((ADRect *) nil_chk(ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(self, mTempRect_, nextFocused)))->left_;
-      jint currLeft = ((ADRect *) nil_chk(ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(self, mTempRect_, currentFocused)))->left_;
+      int32_t nextLeft = ((ADRect *) nil_chk(ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(self, mTempRect_, nextFocused)))->left_;
+      int32_t currLeft = ((ADRect *) nil_chk(ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(self, mTempRect_, currentFocused)))->left_;
       if (currentFocused != nil && nextLeft <= currLeft) {
         handled = [self pageRight];
       }
@@ -1313,7 +1319,7 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   return ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(self, outRect, child);
 }
 
-- (jboolean)pageLeft {
+- (bool)pageLeft {
   if (mCurItem_ > 0) {
     [self setCurrentItemWithInt:mCurItem_ - 1 withBoolean:true];
     return true;
@@ -1321,7 +1327,7 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   return false;
 }
 
-- (jboolean)pageRight {
+- (bool)pageRight {
   if (mAdapter_ != nil && mCurItem_ < ([mAdapter_ getCount] - 1)) {
     [self setCurrentItemWithInt:mCurItem_ + 1 withBoolean:true];
     return true;
@@ -1337,37 +1343,37 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   return [self generateDefaultLayoutParams];
 }
 
-- (jboolean)checkLayoutParamsWithADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)p {
+- (bool)checkLayoutParamsWithADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)p {
   return [p isKindOfClass:[ADXViewPager_LayoutParams class]] && [super checkLayoutParamsWithADViewGroup_LayoutParams:p];
 }
 
-- (void)completeScrollWithBoolean:(jboolean)postEvents {
+- (void)completeScrollWithBoolean:(bool)postEvents {
   ADXViewPager_completeScrollWithBoolean_(self, postEvents);
 }
 
-- (void)smoothScrollToWithInt:(jint)x
-                      withInt:(jint)y
-                      withInt:(jint)velocity {
+- (void)smoothScrollToWithInt:(int32_t)x
+                      withInt:(int32_t)y
+                      withInt:(int32_t)velocity {
 }
 
-- (void)scrollToWithInt:(jint)x
-                withInt:(jint)y {
+- (void)scrollToWithInt:(int32_t)x
+                withInt:(int32_t)y {
 }
 
-- (void)setScrollingCacheEnabledWithBoolean:(jboolean)b {
+- (void)setScrollingCacheEnabledWithBoolean:(bool)b {
   ADXViewPager_setScrollingCacheEnabledWithBoolean_(self, b);
 }
 
-- (void)setChildrenDrawingOrderEnabledWithBoolean:(jboolean)hasTransformer {
+- (void)setChildrenDrawingOrderEnabledWithBoolean:(bool)hasTransformer {
   ADXViewPager_setChildrenDrawingOrderEnabledWithBoolean_(self, hasTransformer);
 }
 
-- (jfloat)releaseHorizontalGlowWithFloat:(jfloat)dX
-                               withFloat:(jfloat)y {
+- (float)releaseHorizontalGlowWithFloat:(float)dX
+                              withFloat:(float)y {
   return ADXViewPager_releaseHorizontalGlowWithFloat_withFloat_(self, dX, y);
 }
 
-- (jboolean)isDecorViewWithADView:(ADView *)child {
+- (bool)isDecorViewWithADView:(ADView *)child {
   return ADXViewPager_isDecorViewWithADView_(self, child);
 }
 
@@ -1375,7 +1381,7 @@ withADViewGroup_LayoutParams:(ADViewGroup_LayoutParams *)params {
   [self onDrawWithADCanvas:canvas];
 }
 
-- (jboolean)isEmpty {
+- (bool)isEmpty {
   return [((JavaUtilArrayList *) nil_chk(mItems_)) isEmpty];
 }
 
@@ -1653,7 +1659,7 @@ ADXViewPager *create_ADXViewPager_init() {
 }
 
 void ADXViewPager_removeNonDecorViews(ADXViewPager *self) {
-  for (jint i = 0; i < [self getChildCount]; i++) {
+  for (int32_t i = 0; i < [self getChildCount]; i++) {
     ADView *child = [self getChildAtWithInt:i];
     ADXViewPager_LayoutParams *lp = (ADXViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(child)) getLayoutParams], [ADXViewPager_LayoutParams class]);
     if (!((ADXViewPager_LayoutParams *) nil_chk(lp))->isDecor_) {
@@ -1663,7 +1669,7 @@ void ADXViewPager_removeNonDecorViews(ADXViewPager *self) {
   }
 }
 
-jint ADXViewPager_getClientWidth(ADXViewPager *self) {
+int32_t ADXViewPager_getClientWidth(ADXViewPager *self) {
   return [self getMeasuredWidth] - [self getPaddingLeft] - [self getPaddingRight];
 }
 
@@ -1675,8 +1681,8 @@ void ADXViewPager_sortChildDrawingOrder(ADXViewPager *self) {
     else {
       [self->mDrawingOrderedChildren_ clear];
     }
-    jint childCount = [self getChildCount];
-    for (jint i = 0; i < childCount; i++) {
+    int32_t childCount = [self getChildCount];
+    for (int32_t i = 0; i < childCount; i++) {
       ADView *child = [self getChildAtWithInt:i];
       [((JavaUtilArrayList *) nil_chk(self->mDrawingOrderedChildren_)) addWithId:child];
     }
@@ -1684,17 +1690,17 @@ void ADXViewPager_sortChildDrawingOrder(ADXViewPager *self) {
   }
 }
 
-void ADXViewPager_calculatePageOffsetsWithADXViewPager_ItemInfo_withInt_withADXViewPager_ItemInfo_(ADXViewPager *self, ADXViewPager_ItemInfo *curItem, jint curIndex, ADXViewPager_ItemInfo *oldCurInfo) {
-  jint N = [((ADXPagerAdapter *) nil_chk(self->mAdapter_)) getCount];
-  jint width = ADXViewPager_getClientWidth(self);
-  jfloat marginOffset = width > 0 ? (jfloat) self->mPageMargin_ / width : 0;
+void ADXViewPager_calculatePageOffsetsWithADXViewPager_ItemInfo_withInt_withADXViewPager_ItemInfo_(ADXViewPager *self, ADXViewPager_ItemInfo *curItem, int32_t curIndex, ADXViewPager_ItemInfo *oldCurInfo) {
+  int32_t N = [((ADXPagerAdapter *) nil_chk(self->mAdapter_)) getCount];
+  int32_t width = ADXViewPager_getClientWidth(self);
+  float marginOffset = width > 0 ? (float) self->mPageMargin_ / width : 0;
   if (oldCurInfo != nil) {
-    jint oldCurPosition = oldCurInfo->position_;
+    int32_t oldCurPosition = oldCurInfo->position_;
     if (oldCurPosition < ((ADXViewPager_ItemInfo *) nil_chk(curItem))->position_) {
-      jint itemIndex = 0;
+      int32_t itemIndex = 0;
       ADXViewPager_ItemInfo *ii = nil;
-      jfloat offset = oldCurInfo->offset_ + oldCurInfo->widthFactor_ + marginOffset;
-      for (jint pos = oldCurPosition + 1; pos <= curItem->position_ && itemIndex < [((JavaUtilArrayList *) nil_chk(self->mItems_)) size]; pos++) {
+      float offset = oldCurInfo->offset_ + oldCurInfo->widthFactor_ + marginOffset;
+      for (int32_t pos = oldCurPosition + 1; pos <= curItem->position_ && itemIndex < [((JavaUtilArrayList *) nil_chk(self->mItems_)) size]; pos++) {
         ii = [((JavaUtilArrayList *) nil_chk(self->mItems_)) getWithInt:itemIndex];
         while (pos > ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_ && itemIndex < [self->mItems_ size] - 1) {
           itemIndex++;
@@ -1709,10 +1715,10 @@ void ADXViewPager_calculatePageOffsetsWithADXViewPager_ItemInfo_withInt_withADXV
       }
     }
     else if (oldCurPosition > curItem->position_) {
-      jint itemIndex = [((JavaUtilArrayList *) nil_chk(self->mItems_)) size] - 1;
+      int32_t itemIndex = [((JavaUtilArrayList *) nil_chk(self->mItems_)) size] - 1;
       ADXViewPager_ItemInfo *ii = nil;
-      jfloat offset = oldCurInfo->offset_;
-      for (jint pos = oldCurPosition - 1; pos >= curItem->position_ && itemIndex >= 0; pos--) {
+      float offset = oldCurInfo->offset_;
+      for (int32_t pos = oldCurPosition - 1; pos >= curItem->position_ && itemIndex >= 0; pos--) {
         ii = [self->mItems_ getWithInt:itemIndex];
         while (pos < ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_ && itemIndex > 0) {
           itemIndex--;
@@ -1727,12 +1733,12 @@ void ADXViewPager_calculatePageOffsetsWithADXViewPager_ItemInfo_withInt_withADXV
       }
     }
   }
-  jint itemCount = [((JavaUtilArrayList *) nil_chk(self->mItems_)) size];
-  jfloat offset = ((ADXViewPager_ItemInfo *) nil_chk(curItem))->offset_;
-  jint pos = curItem->position_ - 1;
+  int32_t itemCount = [((JavaUtilArrayList *) nil_chk(self->mItems_)) size];
+  float offset = ((ADXViewPager_ItemInfo *) nil_chk(curItem))->offset_;
+  int32_t pos = curItem->position_ - 1;
   self->mFirstOffset_ = curItem->position_ == 0 ? curItem->offset_ : -JavaLangFloat_MAX_VALUE;
   self->mLastOffset_ = curItem->position_ == N - 1 ? curItem->offset_ + curItem->widthFactor_ - 1 : JavaLangFloat_MAX_VALUE;
-  for (jint i = curIndex - 1; i >= 0; i--, pos--) {
+  for (int32_t i = curIndex - 1; i >= 0; i--, pos--) {
     ADXViewPager_ItemInfo *ii = [self->mItems_ getWithInt:i];
     while (pos > ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_) {
       JreMinusAssignFloatF(&offset, [((ADXPagerAdapter *) nil_chk(self->mAdapter_)) getPageWidthWithInt:pos--] + marginOffset);
@@ -1743,7 +1749,7 @@ void ADXViewPager_calculatePageOffsetsWithADXViewPager_ItemInfo_withInt_withADXV
   }
   offset = curItem->offset_ + curItem->widthFactor_ + marginOffset;
   pos = curItem->position_ + 1;
-  for (jint i = curIndex + 1; i < itemCount; i++, pos++) {
+  for (int32_t i = curIndex + 1; i < itemCount; i++, pos++) {
     ADXViewPager_ItemInfo *ii = [self->mItems_ getWithInt:i];
     while (pos < ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_) {
       JrePlusAssignFloatF(&offset, [((ADXPagerAdapter *) nil_chk(self->mAdapter_)) getPageWidthWithInt:pos++] + marginOffset);
@@ -1756,21 +1762,21 @@ void ADXViewPager_calculatePageOffsetsWithADXViewPager_ItemInfo_withInt_withADXV
   }
 }
 
-void ADXViewPager_recomputeScrollPositionWithInt_withInt_withInt_withInt_(ADXViewPager *self, jint width, jint oldWidth, jint margin, jint oldMargin) {
+void ADXViewPager_recomputeScrollPositionWithInt_withInt_withInt_withInt_(ADXViewPager *self, int32_t width, int32_t oldWidth, int32_t margin, int32_t oldMargin) {
   if (oldWidth > 0 && ![((JavaUtilArrayList *) nil_chk(self->mItems_)) isEmpty]) {
     {
-      jint widthWithMargin = width - [self getPaddingLeft] - [self getPaddingRight] + margin;
-      jint oldWidthWithMargin = oldWidth - [self getPaddingLeft] - [self getPaddingRight] + oldMargin;
-      jint xpos = [self getScrollX];
-      jfloat pageOffset = (jfloat) xpos / oldWidthWithMargin;
-      jint newOffsetPixels = JreFpToInt((pageOffset * widthWithMargin));
+      int32_t widthWithMargin = width - [self getPaddingLeft] - [self getPaddingRight] + margin;
+      int32_t oldWidthWithMargin = oldWidth - [self getPaddingLeft] - [self getPaddingRight] + oldMargin;
+      int32_t xpos = [self getScrollX];
+      float pageOffset = (float) xpos / oldWidthWithMargin;
+      int32_t newOffsetPixels = JreFpToInt((pageOffset * widthWithMargin));
       [self scrollToWithInt:newOffsetPixels withInt:[self getScrollY]];
     }
   }
   else {
     ADXViewPager_ItemInfo *ii = [self infoForPositionWithInt:self->mCurItem_];
-    jfloat scrollOffset = ii != nil ? JavaLangMath_minWithFloat_withFloat_(ii->offset_, self->mLastOffset_) : 0;
-    jint scrollPos = JreFpToInt((scrollOffset * (width - [self getPaddingLeft] - [self getPaddingRight])));
+    float scrollOffset = ii != nil ? JavaLangMath_minWithFloat_withFloat_(ii->offset_, self->mLastOffset_) : 0;
+    int32_t scrollPos = JreFpToInt((scrollOffset * (width - [self getPaddingLeft] - [self getPaddingRight])));
     if (scrollPos != [self getScrollX]) {
       ADXViewPager_completeScrollWithBoolean_(self, false);
       [self scrollToWithInt:scrollPos withInt:[self getScrollY]];
@@ -1778,12 +1784,12 @@ void ADXViewPager_recomputeScrollPositionWithInt_withInt_withInt_withInt_(ADXVie
   }
 }
 
-void ADXViewPager_dispatchOnPageScrolledWithInt_withFloat_withInt_(ADXViewPager *self, jint position, jfloat offset, jint offsetPixels) {
+void ADXViewPager_dispatchOnPageScrolledWithInt_withFloat_withInt_(ADXViewPager *self, int32_t position, float offset, int32_t offsetPixels) {
   if (self->mOnPageChangeListener_ != nil) {
     [self->mOnPageChangeListener_ onPageScrolledWithInt:position withFloat:offset withInt:offsetPixels];
   }
   if (self->mOnPageChangeListeners_ != nil) {
-    for (jint i = 0, z = [self->mOnPageChangeListeners_ size]; i < z; i++) {
+    for (int32_t i = 0, z = [self->mOnPageChangeListeners_ size]; i < z; i++) {
       id<ADXViewPager_OnPageChangeListener> listener = JreRetainedLocalValue([((id<JavaUtilList>) nil_chk(self->mOnPageChangeListeners_)) getWithInt:i]);
       if (listener != nil) {
         [listener onPageScrolledWithInt:position withFloat:offset withInt:offsetPixels];
@@ -1795,12 +1801,12 @@ void ADXViewPager_dispatchOnPageScrolledWithInt_withFloat_withInt_(ADXViewPager 
   }
 }
 
-void ADXViewPager_dispatchOnPageSelectedWithInt_(ADXViewPager *self, jint position) {
+void ADXViewPager_dispatchOnPageSelectedWithInt_(ADXViewPager *self, int32_t position) {
   if (self->mOnPageChangeListener_ != nil) {
     [self->mOnPageChangeListener_ onPageSelectedWithInt:position];
   }
   if (self->mOnPageChangeListeners_ != nil) {
-    for (jint i = 0, z = [self->mOnPageChangeListeners_ size]; i < z; i++) {
+    for (int32_t i = 0, z = [self->mOnPageChangeListeners_ size]; i < z; i++) {
       id<ADXViewPager_OnPageChangeListener> listener = JreRetainedLocalValue([((id<JavaUtilList>) nil_chk(self->mOnPageChangeListeners_)) getWithInt:i]);
       if (listener != nil) {
         [listener onPageSelectedWithInt:position];
@@ -1812,25 +1818,25 @@ void ADXViewPager_dispatchOnPageSelectedWithInt_(ADXViewPager *self, jint positi
   }
 }
 
-jboolean ADXViewPager_performDragWithFloat_withFloat_(ADXViewPager *self, jfloat x, jfloat y) {
-  jboolean needsInvalidate = false;
-  jfloat dX = self->mLastMotionX_ - x;
+bool ADXViewPager_performDragWithFloat_withFloat_(ADXViewPager *self, float x, float y) {
+  bool needsInvalidate = false;
+  float dX = self->mLastMotionX_ - x;
   self->mLastMotionX_ = x;
-  jfloat releaseConsumed = ADXViewPager_releaseHorizontalGlowWithFloat_withFloat_(self, dX, y);
-  jfloat deltaX = dX - releaseConsumed;
+  float releaseConsumed = ADXViewPager_releaseHorizontalGlowWithFloat_withFloat_(self, dX, y);
+  float deltaX = dX - releaseConsumed;
   if (releaseConsumed != 0) {
     needsInvalidate = true;
   }
   if (JavaLangMath_absWithFloat_(deltaX) < 0.0001f) {
     return needsInvalidate;
   }
-  jfloat oldScrollX = [self getScrollX];
-  jfloat scrollX = oldScrollX + deltaX;
-  jint width = ADXViewPager_getClientWidth(self);
-  jfloat leftBound = width * self->mFirstOffset_;
-  jfloat rightBound = width * self->mLastOffset_;
-  jboolean leftAbsolute = true;
-  jboolean rightAbsolute = true;
+  float oldScrollX = [self getScrollX];
+  float scrollX = oldScrollX + deltaX;
+  int32_t width = ADXViewPager_getClientWidth(self);
+  float leftBound = width * self->mFirstOffset_;
+  float rightBound = width * self->mLastOffset_;
+  bool leftAbsolute = true;
+  bool rightAbsolute = true;
   ADXViewPager_ItemInfo *firstItem = [((JavaUtilArrayList *) nil_chk(self->mItems_)) getWithInt:0];
   ADXViewPager_ItemInfo *lastItem = [self->mItems_ getWithInt:[self->mItems_ size] - 1];
   if (((ADXViewPager_ItemInfo *) nil_chk(firstItem))->position_ != 0) {
@@ -1843,14 +1849,14 @@ jboolean ADXViewPager_performDragWithFloat_withFloat_(ADXViewPager *self, jfloat
   }
   if (scrollX < leftBound) {
     if (leftAbsolute) {
-      jfloat over = leftBound - scrollX;
+      float over = leftBound - scrollX;
       needsInvalidate = true;
     }
     scrollX = leftBound;
   }
   else if (scrollX > rightBound) {
     if (rightAbsolute) {
-      jfloat over = scrollX - rightBound;
+      float over = scrollX - rightBound;
       needsInvalidate = true;
     }
     scrollX = rightBound;
@@ -1862,17 +1868,17 @@ jboolean ADXViewPager_performDragWithFloat_withFloat_(ADXViewPager *self, jfloat
 }
 
 ADXViewPager_ItemInfo *ADXViewPager_infoForCurrentScrollPosition(ADXViewPager *self) {
-  jint width = ADXViewPager_getClientWidth(self);
-  jfloat scrollOffset = width > 0 ? (jfloat) [self getScrollX] / width : 0;
-  jfloat marginOffset = width > 0 ? (jfloat) self->mPageMargin_ / width : 0;
-  jint lastPos = -1;
-  jfloat lastOffset = 0.f;
-  jfloat lastWidth = 0.f;
-  jboolean first = true;
+  int32_t width = ADXViewPager_getClientWidth(self);
+  float scrollOffset = width > 0 ? (float) [self getScrollX] / width : 0;
+  float marginOffset = width > 0 ? (float) self->mPageMargin_ / width : 0;
+  int32_t lastPos = -1;
+  float lastOffset = 0.f;
+  float lastWidth = 0.f;
+  bool first = true;
   ADXViewPager_ItemInfo *lastItem = nil;
-  for (jint i = 0; i < [((JavaUtilArrayList *) nil_chk(self->mItems_)) size]; i++) {
+  for (int32_t i = 0; i < [((JavaUtilArrayList *) nil_chk(self->mItems_)) size]; i++) {
     ADXViewPager_ItemInfo *ii = JreRetainedLocalValue([self->mItems_ getWithInt:i]);
-    jfloat offset;
+    float offset;
     if (!first && ((ADXViewPager_ItemInfo *) nil_chk(ii))->position_ != lastPos + 1) {
       ii = self->mTempItem_;
       ((ADXViewPager_ItemInfo *) nil_chk(ii))->offset_ = lastOffset + lastWidth + marginOffset;
@@ -1881,8 +1887,8 @@ ADXViewPager_ItemInfo *ADXViewPager_infoForCurrentScrollPosition(ADXViewPager *s
       i--;
     }
     offset = ((ADXViewPager_ItemInfo *) nil_chk(ii))->offset_;
-    jfloat leftBound = offset;
-    jfloat rightBound = offset + ii->widthFactor_ + marginOffset;
+    float leftBound = offset;
+    float rightBound = offset + ii->widthFactor_ + marginOffset;
     if (first || scrollOffset >= leftBound) {
       if (scrollOffset < rightBound || i == [self->mItems_ size] - 1) {
         return ii;
@@ -1900,13 +1906,13 @@ ADXViewPager_ItemInfo *ADXViewPager_infoForCurrentScrollPosition(ADXViewPager *s
   return lastItem;
 }
 
-jint ADXViewPager_determineTargetPageWithInt_withFloat_withInt_withInt_(ADXViewPager *self, jint currentPage, jfloat pageOffset, jint velocity, jint deltaX) {
-  jint targetPage;
+int32_t ADXViewPager_determineTargetPageWithInt_withFloat_withInt_withInt_(ADXViewPager *self, int32_t currentPage, float pageOffset, int32_t velocity, int32_t deltaX) {
+  int32_t targetPage;
   if (JavaLangMath_absWithInt_(deltaX) > self->mFlingDistance_ && JavaLangMath_absWithInt_(velocity) > self->mMinimumVelocity_) {
     targetPage = velocity > 0 ? currentPage : currentPage + 1;
   }
   else {
-    jfloat truncator = currentPage >= self->mCurItem_ ? 0.4f : 0.6f;
+    float truncator = currentPage >= self->mCurItem_ ? 0.4f : 0.6f;
     targetPage = currentPage + JreFpToInt((pageOffset + truncator));
   }
   if ([((JavaUtilArrayList *) nil_chk(self->mItems_)) size] > 0) {
@@ -1938,7 +1944,7 @@ ADRect *ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(ADXVie
   outRect->top_ = [child getTop];
   outRect->bottom_ = [child getBottom];
   id<ADViewParent> parent = JreRetainedLocalValue([child getParent]);
-  while ([parent isKindOfClass:[ADViewGroup class]] && parent != self) {
+  while ([parent isKindOfClass:[ADViewGroup class]] && !JreObjectEqualsEquals(parent, self)) {
     ADViewGroup *group = (ADViewGroup *) cast_chk(parent, [ADViewGroup class]);
     outRect->left_ += [((ADViewGroup *) nil_chk(group)) getLeft];
     outRect->right_ += [group getRight];
@@ -1949,24 +1955,26 @@ ADRect *ADXViewPager_getChildRectInPagerCoordinatesWithADRect_withADView_(ADXVie
   return outRect;
 }
 
-void ADXViewPager_completeScrollWithBoolean_(ADXViewPager *self, jboolean postEvents) {
+void ADXViewPager_completeScrollWithBoolean_(ADXViewPager *self, bool postEvents) {
 }
 
-void ADXViewPager_setScrollingCacheEnabledWithBoolean_(ADXViewPager *self, jboolean b) {
+void ADXViewPager_setScrollingCacheEnabledWithBoolean_(ADXViewPager *self, bool b) {
 }
 
-void ADXViewPager_setChildrenDrawingOrderEnabledWithBoolean_(ADXViewPager *self, jboolean hasTransformer) {
+void ADXViewPager_setChildrenDrawingOrderEnabledWithBoolean_(ADXViewPager *self, bool hasTransformer) {
 }
 
-jfloat ADXViewPager_releaseHorizontalGlowWithFloat_withFloat_(ADXViewPager *self, jfloat dX, jfloat y) {
+float ADXViewPager_releaseHorizontalGlowWithFloat_withFloat_(ADXViewPager *self, float dX, float y) {
   return 0;
 }
 
-jboolean ADXViewPager_isDecorViewWithADView_(ADXViewPager *self, ADView *child) {
+bool ADXViewPager_isDecorViewWithADView_(ADXViewPager *self, ADView *child) {
   return [ADXViewPager_IDecorView_class_() isInstance:child];
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXViewPager)
+
+J2OBJC_NAME_MAPPING(ADXViewPager, "androidx.viewpager.widget", "ADX")
 
 @implementation ADXViewPager_ItemInfo
 
@@ -2028,8 +2036,8 @@ J2OBJC_IGNORE_DESIGNATED_BEGIN
 }
 J2OBJC_IGNORE_DESIGNATED_END
 
-- (jint)compareWithId:(ADXViewPager_ItemInfo *)lhs
-               withId:(ADXViewPager_ItemInfo *)rhs {
+- (int32_t)compareWithId:(ADXViewPager_ItemInfo *)lhs
+                  withId:(ADXViewPager_ItemInfo *)rhs {
   return ((ADXViewPager_ItemInfo *) nil_chk(lhs))->position_ - ((ADXViewPager_ItemInfo *) nil_chk(rhs))->position_;
 }
 
@@ -2074,7 +2082,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[1].selector = @selector(compareWithId:withId:);
   #pragma clang diagnostic pop
   static const void *ptrTable[] = { "compare", "LADXViewPager_ItemInfo;LADXViewPager_ItemInfo;", "LADXViewPager;", "Ljava/lang/Object;Ljava/util/Comparator<Landroidx/viewpager/widget/ViewPager$ItemInfo;>;" };
-  static const J2ObjcClassInfo _ADXViewPager_1 = { "", "androidx.viewpager.widget", ptrTable, methods, NULL, 7, 0x8018, 2, 0, 2, -1, -1, 3, -1 };
+  static const J2ObjcClassInfo _ADXViewPager_1 = { "", "androidx.viewpager.widget", ptrTable, methods, NULL, 7, 0x8000, 2, 0, 2, -1, -1, 3, -1 };
   return &_ADXViewPager_1;
 }
 
@@ -2271,8 +2279,8 @@ J2OBJC_IGNORE_DESIGNATED_BEGIN
 }
 J2OBJC_IGNORE_DESIGNATED_END
 
-- (jint)compareWithId:(ADView *)lhs
-               withId:(ADView *)rhs {
+- (int32_t)compareWithId:(ADView *)lhs
+                  withId:(ADView *)rhs {
   ADXViewPager_LayoutParams *llp = (ADXViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(lhs)) getLayoutParams], [ADXViewPager_LayoutParams class]);
   ADXViewPager_LayoutParams *rlp = (ADXViewPager_LayoutParams *) cast_chk([((ADView *) nil_chk(rhs)) getLayoutParams], [ADXViewPager_LayoutParams class]);
   if (((ADXViewPager_LayoutParams *) nil_chk(llp))->isDecor_ != ((ADXViewPager_LayoutParams *) nil_chk(rlp))->isDecor_) {

@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJViewPager\src\main\java\androidx\viewpager\widget\PagerTitleStrip.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_PagerTitleStrip")
@@ -27,6 +28,9 @@
 @class ADTextView;
 @class ADXPagerAdapter;
 @class ADXViewPager;
+@class JavaLangBoolean;
+@class JavaLangFloat;
+@class JavaLangInteger;
 @protocol ASHasWidgets;
 
 @interface ADXPagerTitleStrip : ADViewGroup < ADXViewPager_IDecorView > {
@@ -35,15 +39,15 @@
   ADTextView *mPrevText_;
   ADTextView *mCurrText_;
   ADTextView *mNextText_;
-  jfloat mLastKnownPositionOffset_;
-  jint mTextColor_;
+  float mLastKnownPositionOffset_;
+  int32_t mTextColor_;
 }
 
 #pragma mark Public
 
 - (instancetype)initWithASHasWidgets:(id<ASHasWidgets>)widget;
 
-- (jint)getTextSpacing;
+- (int32_t)getTextSpacing;
 
 - (void)init__WithASHasWidgets:(id<ASHasWidgets>)widget OBJC_METHOD_FAMILY_NONE;
 
@@ -53,43 +57,43 @@
 
 - (void)requestLayout;
 
-- (void)setGravityWithInt:(jint)gravity;
+- (void)setGravityWithInt:(int32_t)gravity;
 
-- (void)setNonPrimaryAlphaWithFloat:(jfloat)alpha;
+- (void)setNonPrimaryAlphaWithFloat:(float)alpha;
 
 - (void)setTextAppearanceWithId:(id)objValue;
 
 - (void)setTextColorWithId:(id)objValue;
 
-- (void)setTextSizeWithInt:(jint)unit
-                 withFloat:(jfloat)size;
+- (void)setTextSizeWithInt:(int32_t)unit
+                 withFloat:(float)size;
 
-- (void)setTextSpacingWithInt:(jint)spacingPixels;
+- (void)setTextSpacingWithInt:(int32_t)spacingPixels;
 
 #pragma mark Protected
 
-- (void)onLayoutWithBoolean:(jboolean)changed
-                    withInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b;
+- (void)onLayoutWithBoolean:(bool)changed
+                    withInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b;
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec;
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec;
 
 #pragma mark Package-Private
 
-- (jint)getMinHeight;
+- (int32_t)getMinHeight;
 
 - (void)updateAdapterWithADXPagerAdapter:(ADXPagerAdapter *)oldAdapter
                      withADXPagerAdapter:(ADXPagerAdapter *)newAdapter;
 
-- (void)updateTextWithInt:(jint)currentItem
+- (void)updateTextWithInt:(int32_t)currentItem
       withADXPagerAdapter:(ADXPagerAdapter *)adapter;
 
-- (void)updateTextPositionsWithInt:(jint)position
-                         withFloat:(jfloat)positionOffset
-                       withBoolean:(jboolean)force;
+- (void)updateTextPositionsWithInt:(int32_t)position
+                         withFloat:(float)positionOffset
+                       withBoolean:(bool)force;
 
 // Disallowed inherited constructors, do not use.
 
@@ -113,6 +117,7 @@ FOUNDATION_EXPORT ADXPagerTitleStrip *create_ADXPagerTitleStrip_initWithASHasWid
 J2OBJC_TYPE_LITERAL_HEADER(ADXPagerTitleStrip)
 
 @compatibility_alias AndroidxViewpagerWidgetPagerTitleStrip ADXPagerTitleStrip;
+
 
 #endif
 

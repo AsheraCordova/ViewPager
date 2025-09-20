@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJViewPager\src\main\java\androidx\viewpager\widget\PagerTabStrip.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_PagerTabStrip")
@@ -20,6 +21,9 @@
 #define INCLUDE_ADXPagerTitleStrip 1
 #include "PagerTitleStrip.h"
 
+@class JavaLangBoolean;
+@class JavaLangFloat;
+@class JavaLangInteger;
 @protocol ASHasWidgets;
 
 @interface ADXPagerTabStrip : ADXPagerTitleStrip
@@ -30,24 +34,24 @@
 
 - (void)init__WithASHasWidgets:(id<ASHasWidgets>)widget OBJC_METHOD_FAMILY_NONE;
 
-- (void)setDrawFullUnderlineWithBoolean:(jboolean)drawFull;
+- (void)setDrawFullUnderlineWithBoolean:(bool)drawFull;
 
-- (void)setPaddingWithInt:(jint)left
-                  withInt:(jint)top
-                  withInt:(jint)right
-                  withInt:(jint)bottom;
+- (void)setPaddingWithInt:(int32_t)left
+                  withInt:(int32_t)top
+                  withInt:(int32_t)right
+                  withInt:(int32_t)bottom;
 
 - (void)setTabIndicatorColorWithId:(id)objValue;
 
-- (void)setTextSpacingWithInt:(jint)spacingPixels;
+- (void)setTextSpacingWithInt:(int32_t)spacingPixels;
 
 #pragma mark Package-Private
 
-- (jint)getMinHeight;
+- (int32_t)getMinHeight;
 
-- (void)updateTextPositionsWithInt:(jint)position
-                         withFloat:(jfloat)positionOffset
-                       withBoolean:(jboolean)force;
+- (void)updateTextPositionsWithInt:(int32_t)position
+                         withFloat:(float)positionOffset
+                       withBoolean:(bool)force;
 
 @end
 
@@ -62,6 +66,7 @@ FOUNDATION_EXPORT ADXPagerTabStrip *create_ADXPagerTabStrip_initWithASHasWidgets
 J2OBJC_TYPE_LITERAL_HEADER(ADXPagerTabStrip)
 
 @compatibility_alias AndroidxViewpagerWidgetPagerTabStrip ADXPagerTabStrip;
+
 
 #endif
 

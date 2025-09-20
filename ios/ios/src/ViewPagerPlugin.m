@@ -3,12 +3,23 @@
 //  source: D:\Java\git\core-ios-widgets\IOSViewPagerPlugin\src\main\java\com\ashera\viewpager\ViewPagerPlugin.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "J2ObjC_source.h"
 #include "PagerTabStripImpl.h"
 #include "PagerTitleStripImpl.h"
 #include "ViewPagerImpl.h"
 #include "ViewPagerPlugin.h"
 #include "WidgetFactory.h"
+
+
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 @implementation ASViewPagerPlugin
@@ -61,3 +72,5 @@ void ASViewPagerPlugin_initPlugin() {
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASViewPagerPlugin)
+
+J2OBJC_NAME_MAPPING(ASViewPagerPlugin, "com.ashera.viewpager", "AS")

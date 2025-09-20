@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJViewPager\src\main\java\androidx\viewpager\widget\PagerAdapter.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "DataSetObservable.h"
 #include "DataSetObserver.h"
 #include "J2ObjC_source.h"
@@ -10,9 +15,18 @@
 #include "Parcelable.h"
 #include "View.h"
 #include "ViewGroup.h"
+#include "java/lang/Boolean.h"
 #include "java/lang/CharSequence.h"
 #include "java/lang/ClassLoader.h"
+#include "java/lang/Float.h"
+#include "java/lang/Integer.h"
 #include "java/lang/UnsupportedOperationException.h"
+
+
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 @interface ADXPagerAdapter () {
@@ -35,7 +49,7 @@ J2OBJC_IGNORE_DESIGNATED_BEGIN
 }
 J2OBJC_IGNORE_DESIGNATED_END
 
-- (jint)getCount {
+- (int32_t)getCount {
   // can't call an abstract method
   [self doesNotRecognizeSelector:_cmd];
   return 0;
@@ -46,18 +60,18 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (id)instantiateItemWithADViewGroup:(ADViewGroup *)container
-                             withInt:(jint)position {
+                             withInt:(int32_t)position {
   return [self instantiateItemWithADView:container withInt:position];
 }
 
 - (void)destroyItemWithADViewGroup:(ADViewGroup *)container
-                           withInt:(jint)position
+                           withInt:(int32_t)position
                             withId:(id)object {
   [self destroyItemWithADView:container withInt:position withId:object];
 }
 
 - (void)setPrimaryItemWithADViewGroup:(ADViewGroup *)container
-                              withInt:(jint)position
+                              withInt:(int32_t)position
                                withId:(id)object {
   [self setPrimaryItemWithADView:container withInt:position withId:object];
 }
@@ -70,26 +84,26 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (id)instantiateItemWithADView:(ADView *)container
-                        withInt:(jint)position {
+                        withInt:(int32_t)position {
   @throw create_JavaLangUnsupportedOperationException_initWithNSString_(@"Required method instantiateItem was not overridden");
 }
 
 - (void)destroyItemWithADView:(ADView *)container
-                      withInt:(jint)position
+                      withInt:(int32_t)position
                        withId:(id)object {
   @throw create_JavaLangUnsupportedOperationException_initWithNSString_(@"Required method destroyItem was not overridden");
 }
 
 - (void)setPrimaryItemWithADView:(ADView *)container
-                         withInt:(jint)position
+                         withInt:(int32_t)position
                           withId:(id)object {
 }
 
 - (void)finishUpdateWithADView:(ADView *)container {
 }
 
-- (jboolean)isViewFromObjectWithADView:(ADView *)view
-                                withId:(id)object {
+- (bool)isViewFromObjectWithADView:(ADView *)view
+                            withId:(id)object {
   // can't call an abstract method
   [self doesNotRecognizeSelector:_cmd];
   return 0;
@@ -103,7 +117,7 @@ J2OBJC_IGNORE_DESIGNATED_END
              withJavaLangClassLoader:(JavaLangClassLoader *)loader {
 }
 
-- (jint)getItemPositionWithId:(id)object {
+- (int32_t)getItemPositionWithId:(id)object {
   return ADXPagerAdapter_POSITION_UNCHANGED;
 }
 
@@ -130,11 +144,11 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
 }
 
-- (id<JavaLangCharSequence>)getPageTitleWithInt:(jint)position {
+- (id<JavaLangCharSequence>)getPageTitleWithInt:(int32_t)position {
   return nil;
 }
 
-- (jfloat)getPageWidthWithInt:(jint)position {
+- (float)getPageWidthWithInt:(int32_t)position {
   return 1.f;
 }
 
@@ -214,3 +228,5 @@ void ADXPagerAdapter_init(ADXPagerAdapter *self) {
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXPagerAdapter)
+
+J2OBJC_NAME_MAPPING(ADXPagerAdapter, "androidx.viewpager.widget", "ADX")

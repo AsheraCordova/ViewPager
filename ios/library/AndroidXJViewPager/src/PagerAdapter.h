@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJViewPager\src\main\java\androidx\viewpager\widget\PagerAdapter.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_PagerAdapter")
@@ -25,7 +26,10 @@
 @class ADDataSetObserver;
 @class ADView;
 @class ADViewGroup;
+@class JavaLangBoolean;
 @class JavaLangClassLoader;
+@class JavaLangFloat;
+@class JavaLangInteger;
 @protocol ADParcelable;
 @protocol JavaLangCharSequence;
 
@@ -97,7 +101,7 @@
  <code>instantiateItem(View, int)</code> .
  */
 - (void)destroyItemWithADView:(ADView *)container
-                      withInt:(jint)position
+                      withInt:(int32_t)position
                        withId:(id)object;
 
 /*!
@@ -110,7 +114,7 @@
  <code>instantiateItem(View, int)</code> .
  */
 - (void)destroyItemWithADViewGroup:(ADViewGroup *)container
-                           withInt:(jint)position
+                           withInt:(int32_t)position
                             withId:(id)object;
 
 /*!
@@ -132,7 +136,7 @@
 /*!
  @brief Return the number of views available.
  */
-- (jint)getCount;
+- (int32_t)getCount;
 
 /*!
  @brief Called when the host view is attempting to determine if an item's position
@@ -147,7 +151,7 @@
           <code>POSITION_UNCHANGED</code> if the object's position has not changed,
           or <code>POSITION_NONE</code> if the item is no longer present.
  */
-- (jint)getItemPositionWithId:(id)object;
+- (int32_t)getItemPositionWithId:(id)object;
 
 /*!
  @brief This method may be called by the ViewPager to obtain a title string
@@ -158,7 +162,7 @@
  @param position The position of the title requested
  @return A title for the requested page
  */
-- (id<JavaLangCharSequence>)getPageTitleWithInt:(jint)position;
+- (id<JavaLangCharSequence>)getPageTitleWithInt:(int32_t)position;
 
 /*!
  @brief Returns the proportional width of a given page as a percentage of the
@@ -166,7 +170,7 @@
  @param position The position of the page requested
  @return Proportional width for the given page position
  */
-- (jfloat)getPageWidthWithInt:(jint)position;
+- (float)getPageWidthWithInt:(int32_t)position;
 
 /*!
  @brief Create the page for the given position.The adapter is responsible
@@ -179,7 +183,7 @@
   need to be a View, but can be some other container of the page.
  */
 - (id)instantiateItemWithADView:(ADView *)container
-                        withInt:(jint)position;
+                        withInt:(int32_t)position;
 
 /*!
  @brief Create the page for the given position.The adapter is responsible
@@ -192,7 +196,7 @@
   need to be a View, but can be some other container of the page.
  */
 - (id)instantiateItemWithADViewGroup:(ADViewGroup *)container
-                             withInt:(jint)position;
+                             withInt:(int32_t)position;
 
 /*!
  @brief Determines whether a page View is associated with a specific key object
@@ -202,8 +206,8 @@
  @param object Object to check for association with  <code> view </code>
  @return true if <code>view</code> is associated with the key object <code>object</code>
  */
-- (jboolean)isViewFromObjectWithADView:(ADView *)view
-                                withId:(id)object;
+- (bool)isViewFromObjectWithADView:(ADView *)view
+                            withId:(id)object;
 
 /*!
  @brief This method should be called by the application if the data backing this adapter has changed
@@ -242,7 +246,7 @@
  <code>instantiateItem(View, int)</code> .
  */
 - (void)setPrimaryItemWithADView:(ADView *)container
-                         withInt:(jint)position
+                         withInt:(int32_t)position
                           withId:(id)object;
 
 /*!
@@ -255,7 +259,7 @@
  <code>instantiateItem(View, int)</code> .
  */
 - (void)setPrimaryItemWithADViewGroup:(ADViewGroup *)container
-                              withInt:(jint)position
+                              withInt:(int32_t)position
                                withId:(id)object;
 
 /*!
@@ -284,19 +288,20 @@
 
 J2OBJC_EMPTY_STATIC_INIT(ADXPagerAdapter)
 
-inline jint ADXPagerAdapter_get_POSITION_UNCHANGED(void);
+inline int32_t ADXPagerAdapter_get_POSITION_UNCHANGED(void);
 #define ADXPagerAdapter_POSITION_UNCHANGED -1
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerAdapter, POSITION_UNCHANGED, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerAdapter, POSITION_UNCHANGED, int32_t)
 
-inline jint ADXPagerAdapter_get_POSITION_NONE(void);
+inline int32_t ADXPagerAdapter_get_POSITION_NONE(void);
 #define ADXPagerAdapter_POSITION_NONE -2
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerAdapter, POSITION_NONE, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerAdapter, POSITION_NONE, int32_t)
 
 FOUNDATION_EXPORT void ADXPagerAdapter_init(ADXPagerAdapter *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXPagerAdapter)
 
 @compatibility_alias AndroidxViewpagerWidgetPagerAdapter ADXPagerAdapter;
+
 
 #endif
 

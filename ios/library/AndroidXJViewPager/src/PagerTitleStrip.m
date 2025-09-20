@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJViewPager\src\main\java\androidx\viewpager\widget\PagerTitleStrip.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "ConverterFactory.h"
 #include "DataSetObserver.h"
 #include "Drawable.h"
@@ -20,6 +25,7 @@
 #include "ViewPager.h"
 #include "ViewParent.h"
 #include "WidgetFactory.h"
+#include "java/lang/Boolean.h"
 #include "java/lang/CharSequence.h"
 #include "java/lang/Float.h"
 #include "java/lang/IllegalStateException.h"
@@ -27,20 +33,24 @@
 #include "java/lang/Math.h"
 #include "java/lang/ref/WeakReference.h"
 
+
 @class ADXPagerTitleStrip_PageListener;
-@class JavaLangRefWeakReference;
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 @interface ADXPagerTitleStrip () {
  @public
-  jint mLastKnownCurrentPage_;
-  jint mScaledTextSpacing_;
-  jint mGravity_;
-  jboolean mUpdatingText_;
-  jboolean mUpdatingPositions_;
+  int32_t mLastKnownCurrentPage_;
+  int32_t mScaledTextSpacing_;
+  int32_t mGravity_;
+  bool mUpdatingText_;
+  bool mUpdatingPositions_;
   ADXPagerTitleStrip_PageListener *mPageListener_;
   JavaLangRefWeakReference *mWatchingAdapter_;
-  jint mNonPrimaryAlpha_;
+  int32_t mNonPrimaryAlpha_;
 }
 
 @end
@@ -48,29 +58,29 @@
 J2OBJC_FIELD_SETTER(ADXPagerTitleStrip, mPageListener_, ADXPagerTitleStrip_PageListener *)
 J2OBJC_FIELD_SETTER(ADXPagerTitleStrip, mWatchingAdapter_, JavaLangRefWeakReference *)
 
-inline jfloat ADXPagerTitleStrip_get_SIDE_ALPHA(void);
+inline float ADXPagerTitleStrip_get_SIDE_ALPHA(void);
 #define ADXPagerTitleStrip_SIDE_ALPHA 0.6f
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTitleStrip, SIDE_ALPHA, jfloat)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTitleStrip, SIDE_ALPHA, float)
 
-inline jint ADXPagerTitleStrip_get_TEXT_SPACING(void);
+inline int32_t ADXPagerTitleStrip_get_TEXT_SPACING(void);
 #define ADXPagerTitleStrip_TEXT_SPACING 16
-J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTitleStrip, TEXT_SPACING, jint)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXPagerTitleStrip, TEXT_SPACING, int32_t)
 
 @interface ADXPagerTitleStrip_PageListener : ADDataSetObserver < ADXViewPager_OnPageChangeListener, ADXViewPager_OnAdapterChangeListener > {
  @public
   ADXPagerTitleStrip *this$0_;
-  jint mScrollState_;
+  int32_t mScrollState_;
 }
 
 - (instancetype)initWithADXPagerTitleStrip:(ADXPagerTitleStrip *)outer$;
 
-- (void)onPageScrolledWithInt:(jint)position
-                    withFloat:(jfloat)positionOffset
-                      withInt:(jint)positionOffsetPixels;
+- (void)onPageScrolledWithInt:(int32_t)position
+                    withFloat:(float)positionOffset
+                      withInt:(int32_t)positionOffsetPixels;
 
-- (void)onPageSelectedWithInt:(jint)position;
+- (void)onPageSelectedWithInt:(int32_t)position;
 
-- (void)onPageScrollStateChangedWithInt:(jint)state;
+- (void)onPageScrollStateChangedWithInt:(int32_t)state;
 
 - (void)onAdapterChangedWithADXViewPager:(ADXViewPager *)viewPager
                      withADXPagerAdapter:(ADXPagerAdapter *)oldAdapter
@@ -90,25 +100,26 @@ __attribute__((unused)) static ADXPagerTitleStrip_PageListener *create_ADXPagerT
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXPagerTitleStrip_PageListener)
 
+
 @implementation ADXPagerTitleStrip
 
-- (void)setTextSpacingWithInt:(jint)spacingPixels {
+- (void)setTextSpacingWithInt:(int32_t)spacingPixels {
   mScaledTextSpacing_ = spacingPixels;
   [self requestLayout];
 }
 
-- (jint)getTextSpacing {
+- (int32_t)getTextSpacing {
   return mScaledTextSpacing_;
 }
 
-- (void)setTextSizeWithInt:(jint)unit
-                 withFloat:(jfloat)size {
+- (void)setTextSizeWithInt:(int32_t)unit
+                 withFloat:(float)size {
   [((ADTextView *) nil_chk(mPrevText_)) setMyAttributeWithNSString:@"textSize" withId:JavaLangFloat_valueOfWithFloat_(size)];
   [((ADTextView *) nil_chk(mCurrText_)) setMyAttributeWithNSString:@"textSize" withId:JavaLangFloat_valueOfWithFloat_(size)];
   [((ADTextView *) nil_chk(mNextText_)) setMyAttributeWithNSString:@"textSize" withId:JavaLangFloat_valueOfWithFloat_(size)];
 }
 
-- (void)setGravityWithInt:(jint)gravity {
+- (void)setGravityWithInt:(int32_t)gravity {
   mGravity_ = gravity;
   [self requestLayout];
 }
@@ -137,9 +148,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXPagerTitleStrip_PageListener)
   }
 }
 
-- (void)updateTextWithInt:(jint)currentItem
+- (void)updateTextWithInt:(int32_t)currentItem
       withADXPagerAdapter:(ADXPagerAdapter *)adapter {
-  jint itemCount = adapter != nil ? [adapter getCount] : 0;
+  int32_t itemCount = adapter != nil ? [adapter getCount] : 0;
   mUpdatingText_ = true;
   NSString *text = @"";
   if (currentItem >= 1 && adapter != nil) {
@@ -152,12 +163,12 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXPagerTitleStrip_PageListener)
     text = (NSString *) cast_chk([adapter getPageTitleWithInt:currentItem + 1], [NSString class]);
   }
   [((ADTextView *) nil_chk(mNextText_)) setTextWithNSString:text];
-  jint width = [self getWidth] - [self getPaddingLeft] - [self getPaddingRight];
-  jint maxWidth = JavaLangMath_maxWithInt_withInt_(0, JreFpToInt((width * 0.8f)));
-  jint childWidthSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(maxWidth, ADView_MeasureSpec_AT_MOST);
-  jint childHeight = [self getHeight] - [self getPaddingTop] - [self getPaddingBottom];
-  jint maxHeight = JavaLangMath_maxWithInt_withInt_(0, childHeight);
-  jint childHeightSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(maxHeight, ADView_MeasureSpec_AT_MOST);
+  int32_t width = [self getWidth] - [self getPaddingLeft] - [self getPaddingRight];
+  int32_t maxWidth = JavaLangMath_maxWithInt_withInt_(0, JreFpToInt((width * 0.8f)));
+  int32_t childWidthSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(maxWidth, ADView_MeasureSpec_AT_MOST);
+  int32_t childHeight = [self getHeight] - [self getPaddingTop] - [self getPaddingBottom];
+  int32_t maxHeight = JavaLangMath_maxWithInt_withInt_(0, childHeight);
+  int32_t childHeightSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(maxHeight, ADView_MeasureSpec_AT_MOST);
   [((ADTextView *) nil_chk(mPrevText_)) measureWithInt:childWidthSpec withInt:childHeightSpec];
   [((ADTextView *) nil_chk(mCurrText_)) measureWithInt:childWidthSpec withInt:childHeightSpec];
   [((ADTextView *) nil_chk(mNextText_)) measureWithInt:childWidthSpec withInt:childHeightSpec];
@@ -192,9 +203,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXPagerTitleStrip_PageListener)
   }
 }
 
-- (void)updateTextPositionsWithInt:(jint)position
-                         withFloat:(jfloat)positionOffset
-                       withBoolean:(jboolean)force {
+- (void)updateTextPositionsWithInt:(int32_t)position
+                         withFloat:(float)positionOffset
+                       withBoolean:(bool)force {
   if (position != mLastKnownCurrentPage_) {
     [self updateTextWithInt:position withADXPagerAdapter:[((ADXViewPager *) nil_chk(mPager_)) getAdapter]];
   }
@@ -202,45 +213,45 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXPagerTitleStrip_PageListener)
     return;
   }
   mUpdatingPositions_ = true;
-  jint prevWidth = [((ADTextView *) nil_chk(mPrevText_)) getMeasuredWidth];
-  jint currWidth = [((ADTextView *) nil_chk(mCurrText_)) getMeasuredWidth];
-  jint nextWidth = [((ADTextView *) nil_chk(mNextText_)) getMeasuredWidth];
-  jint halfCurrWidth = JreIntDiv(currWidth, 2);
-  jint stripWidth = [self getWidth];
-  jint stripHeight = [self getHeight];
-  jint paddingLeft = [self getPaddingLeft];
-  jint paddingRight = [self getPaddingRight];
-  jint paddingTop = [self getPaddingTop];
-  jint paddingBottom = [self getPaddingBottom];
-  jint textPaddedLeft = paddingLeft + halfCurrWidth;
-  jint textPaddedRight = paddingRight + halfCurrWidth;
-  jint contentWidth = stripWidth - textPaddedLeft - textPaddedRight;
-  jfloat currOffset = positionOffset + 0.5f;
+  int32_t prevWidth = [((ADTextView *) nil_chk(mPrevText_)) getMeasuredWidth];
+  int32_t currWidth = [((ADTextView *) nil_chk(mCurrText_)) getMeasuredWidth];
+  int32_t nextWidth = [((ADTextView *) nil_chk(mNextText_)) getMeasuredWidth];
+  int32_t halfCurrWidth = JreIntDiv(currWidth, 2);
+  int32_t stripWidth = [self getWidth];
+  int32_t stripHeight = [self getHeight];
+  int32_t paddingLeft = [self getPaddingLeft];
+  int32_t paddingRight = [self getPaddingRight];
+  int32_t paddingTop = [self getPaddingTop];
+  int32_t paddingBottom = [self getPaddingBottom];
+  int32_t textPaddedLeft = paddingLeft + halfCurrWidth;
+  int32_t textPaddedRight = paddingRight + halfCurrWidth;
+  int32_t contentWidth = stripWidth - textPaddedLeft - textPaddedRight;
+  float currOffset = positionOffset + 0.5f;
   if (currOffset > 1.f) {
     JreMinusAssignFloatF(&currOffset, 1.f);
   }
-  jint currCenter = stripWidth - textPaddedRight - JreFpToInt((contentWidth * currOffset));
-  jint currLeft = currCenter - JreIntDiv(currWidth, 2);
-  jint currRight = currLeft + currWidth;
-  jint prevBaseline = [((ADTextView *) nil_chk(mPrevText_)) getBaseline];
-  jint currBaseline = [((ADTextView *) nil_chk(mCurrText_)) getBaseline];
-  jint nextBaseline = [((ADTextView *) nil_chk(mNextText_)) getBaseline];
-  jint maxBaseline = JavaLangMath_maxWithInt_withInt_(JavaLangMath_maxWithInt_withInt_(prevBaseline, currBaseline), nextBaseline);
-  jint prevTopOffset = maxBaseline - prevBaseline;
-  jint currTopOffset = maxBaseline - currBaseline;
-  jint nextTopOffset = maxBaseline - nextBaseline;
-  jint alignedPrevHeight = prevTopOffset + [((ADTextView *) nil_chk(mPrevText_)) getMeasuredHeight];
-  jint alignedCurrHeight = currTopOffset + [((ADTextView *) nil_chk(mCurrText_)) getMeasuredHeight];
-  jint alignedNextHeight = nextTopOffset + [((ADTextView *) nil_chk(mNextText_)) getMeasuredHeight];
-  jint maxTextHeight = JavaLangMath_maxWithInt_withInt_(JavaLangMath_maxWithInt_withInt_(alignedPrevHeight, alignedCurrHeight), alignedNextHeight);
-  jint vgrav = mGravity_ & ADGravity_VERTICAL_GRAVITY_MASK;
-  jint prevTop;
-  jint currTop;
-  jint nextTop;
+  int32_t currCenter = stripWidth - textPaddedRight - JreFpToInt((contentWidth * currOffset));
+  int32_t currLeft = currCenter - JreIntDiv(currWidth, 2);
+  int32_t currRight = currLeft + currWidth;
+  int32_t prevBaseline = [((ADTextView *) nil_chk(mPrevText_)) getBaseline];
+  int32_t currBaseline = [((ADTextView *) nil_chk(mCurrText_)) getBaseline];
+  int32_t nextBaseline = [((ADTextView *) nil_chk(mNextText_)) getBaseline];
+  int32_t maxBaseline = JavaLangMath_maxWithInt_withInt_(JavaLangMath_maxWithInt_withInt_(prevBaseline, currBaseline), nextBaseline);
+  int32_t prevTopOffset = maxBaseline - prevBaseline;
+  int32_t currTopOffset = maxBaseline - currBaseline;
+  int32_t nextTopOffset = maxBaseline - nextBaseline;
+  int32_t alignedPrevHeight = prevTopOffset + [((ADTextView *) nil_chk(mPrevText_)) getMeasuredHeight];
+  int32_t alignedCurrHeight = currTopOffset + [((ADTextView *) nil_chk(mCurrText_)) getMeasuredHeight];
+  int32_t alignedNextHeight = nextTopOffset + [((ADTextView *) nil_chk(mNextText_)) getMeasuredHeight];
+  int32_t maxTextHeight = JavaLangMath_maxWithInt_withInt_(JavaLangMath_maxWithInt_withInt_(alignedPrevHeight, alignedCurrHeight), alignedNextHeight);
+  int32_t vgrav = mGravity_ & ADGravity_VERTICAL_GRAVITY_MASK;
+  int32_t prevTop;
+  int32_t currTop;
+  int32_t nextTop;
   {
-    jint paddedHeight;
-    jint centeredTop;
-    jint bottomGravTop;
+    int32_t paddedHeight;
+    int32_t centeredTop;
+    int32_t bottomGravTop;
     switch (vgrav) {
       default:
       case ADGravity_TOP:
@@ -264,56 +275,56 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXPagerTitleStrip_PageListener)
     }
   }
   [((ADTextView *) nil_chk(mCurrText_)) layoutWithInt:currLeft withInt:currTop withInt:currRight withInt:currTop + [mCurrText_ getMeasuredHeight]];
-  jint prevLeft = JavaLangMath_minWithInt_withInt_(paddingLeft, currLeft - mScaledTextSpacing_ - prevWidth);
+  int32_t prevLeft = JavaLangMath_minWithInt_withInt_(paddingLeft, currLeft - mScaledTextSpacing_ - prevWidth);
   [((ADTextView *) nil_chk(mPrevText_)) layoutWithInt:prevLeft withInt:prevTop withInt:prevLeft + prevWidth withInt:prevTop + [mPrevText_ getMeasuredHeight]];
-  jint nextLeft = JavaLangMath_maxWithInt_withInt_(stripWidth - paddingRight - nextWidth, currRight + mScaledTextSpacing_);
+  int32_t nextLeft = JavaLangMath_maxWithInt_withInt_(stripWidth - paddingRight - nextWidth, currRight + mScaledTextSpacing_);
   [((ADTextView *) nil_chk(mNextText_)) layoutWithInt:nextLeft withInt:nextTop withInt:nextLeft + nextWidth withInt:nextTop + [mNextText_ getMeasuredHeight]];
   mLastKnownPositionOffset_ = positionOffset;
   mUpdatingPositions_ = false;
 }
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec {
-  jint widthMode = ADView_MeasureSpec_getModeWithInt_(widthMeasureSpec);
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec {
+  int32_t widthMode = ADView_MeasureSpec_getModeWithInt_(widthMeasureSpec);
   if (widthMode != ADView_MeasureSpec_EXACTLY) {
     @throw create_JavaLangIllegalStateException_initWithNSString_(@"Must measure with an exact width");
   }
-  jint heightPadding = [self getPaddingTop] + [self getPaddingBottom];
-  jint childHeightSpec = ADViewGroup_getChildMeasureSpecWithInt_withInt_withInt_(heightMeasureSpec, heightPadding, ADViewGroup_LayoutParams_WRAP_CONTENT);
-  jint widthSize = ADView_MeasureSpec_getSizeWithInt_(widthMeasureSpec);
-  jint widthPadding = JreFpToInt((widthSize * 0.2f));
-  jint childWidthSpec = ADViewGroup_getChildMeasureSpecWithInt_withInt_withInt_(widthMeasureSpec, widthPadding, ADViewGroup_LayoutParams_WRAP_CONTENT);
+  int32_t heightPadding = [self getPaddingTop] + [self getPaddingBottom];
+  int32_t childHeightSpec = ADViewGroup_getChildMeasureSpecWithInt_withInt_withInt_(heightMeasureSpec, heightPadding, ADViewGroup_LayoutParams_WRAP_CONTENT);
+  int32_t widthSize = ADView_MeasureSpec_getSizeWithInt_(widthMeasureSpec);
+  int32_t widthPadding = JreFpToInt((widthSize * 0.2f));
+  int32_t childWidthSpec = ADViewGroup_getChildMeasureSpecWithInt_withInt_withInt_(widthMeasureSpec, widthPadding, ADViewGroup_LayoutParams_WRAP_CONTENT);
   [((ADTextView *) nil_chk(mPrevText_)) measureWithInt:childWidthSpec withInt:childHeightSpec];
   [((ADTextView *) nil_chk(mCurrText_)) measureWithInt:childWidthSpec withInt:childHeightSpec];
   [((ADTextView *) nil_chk(mNextText_)) measureWithInt:childWidthSpec withInt:childHeightSpec];
-  jint height;
-  jint heightMode = ADView_MeasureSpec_getModeWithInt_(heightMeasureSpec);
+  int32_t height;
+  int32_t heightMode = ADView_MeasureSpec_getModeWithInt_(heightMeasureSpec);
   if (heightMode == ADView_MeasureSpec_EXACTLY) {
     height = ADView_MeasureSpec_getSizeWithInt_(heightMeasureSpec);
   }
   else {
-    jint textHeight = [((ADTextView *) nil_chk(mCurrText_)) getMeasuredHeight];
-    jint minHeight = [self getMinHeight];
+    int32_t textHeight = [((ADTextView *) nil_chk(mCurrText_)) getMeasuredHeight];
+    int32_t minHeight = [self getMinHeight];
     height = JavaLangMath_maxWithInt_withInt_(minHeight, textHeight + heightPadding);
   }
-  jint childState = [((ADTextView *) nil_chk(mCurrText_)) getMeasuredState];
-  jint measuredHeight = ADView_resolveSizeAndStateWithInt_withInt_withInt_(height, heightMeasureSpec, JreLShift32(childState, ADView_MEASURED_HEIGHT_STATE_SHIFT));
+  int32_t childState = [((ADTextView *) nil_chk(mCurrText_)) getMeasuredState];
+  int32_t measuredHeight = ADView_resolveSizeAndStateWithInt_withInt_withInt_(height, heightMeasureSpec, JreLShift32(childState, ADView_MEASURED_HEIGHT_STATE_SHIFT));
   [self setMeasuredDimensionWithInt:widthSize withInt:measuredHeight];
 }
 
-- (void)onLayoutWithBoolean:(jboolean)changed
-                    withInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b {
+- (void)onLayoutWithBoolean:(bool)changed
+                    withInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b {
   if (mPager_ != nil) {
-    jfloat offset = mLastKnownPositionOffset_ >= 0 ? mLastKnownPositionOffset_ : 0;
+    float offset = mLastKnownPositionOffset_ >= 0 ? mLastKnownPositionOffset_ : 0;
     [self updateTextPositionsWithInt:mLastKnownCurrentPage_ withFloat:offset withBoolean:true];
   }
 }
 
-- (jint)getMinHeight {
-  jint minHeight = 0;
+- (int32_t)getMinHeight {
+  int32_t minHeight = 0;
   ADDrawable *bg = [self getBackground];
   if (bg != nil) {
     minHeight = [bg getIntrinsicHeight];
@@ -340,7 +351,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ADXPagerTitleStrip_PageListener)
   [((ADTextView *) nil_chk(mPrevText_)) setMyAttributeWithNSString:@"textColor" withId:objValue];
 }
 
-- (void)setNonPrimaryAlphaWithFloat:(jfloat)alpha {
+- (void)setNonPrimaryAlphaWithFloat:(float)alpha {
   [((ADTextView *) nil_chk(mNextText_)) setMyAttributeWithNSString:@"alpha" withId:JavaLangFloat_valueOfWithFloat_(alpha)];
   [((ADTextView *) nil_chk(mPrevText_)) setMyAttributeWithNSString:@"alpha" withId:JavaLangFloat_valueOfWithFloat_(alpha)];
 }
@@ -448,6 +459,8 @@ ADXPagerTitleStrip *create_ADXPagerTitleStrip_initWithASHasWidgets_(id<ASHasWidg
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXPagerTitleStrip)
 
+J2OBJC_NAME_MAPPING(ADXPagerTitleStrip, "androidx.viewpager.widget", "ADX")
+
 @implementation ADXPagerTitleStrip_PageListener
 
 - (instancetype)initWithADXPagerTitleStrip:(ADXPagerTitleStrip *)outer$ {
@@ -455,24 +468,24 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXPagerTitleStrip)
   return self;
 }
 
-- (void)onPageScrolledWithInt:(jint)position
-                    withFloat:(jfloat)positionOffset
-                      withInt:(jint)positionOffsetPixels {
+- (void)onPageScrolledWithInt:(int32_t)position
+                    withFloat:(float)positionOffset
+                      withInt:(int32_t)positionOffsetPixels {
   if (positionOffset > 0.5f) {
     position++;
   }
   [this$0_ updateTextPositionsWithInt:position withFloat:positionOffset withBoolean:false];
 }
 
-- (void)onPageSelectedWithInt:(jint)position {
+- (void)onPageSelectedWithInt:(int32_t)position {
   if (mScrollState_ == ADXViewPager_SCROLL_STATE_IDLE) {
     [this$0_ updateTextWithInt:[((ADXViewPager *) nil_chk(this$0_->mPager_)) getCurrentItem] withADXPagerAdapter:[((ADXViewPager *) nil_chk(this$0_->mPager_)) getAdapter]];
-    jfloat offset = this$0_->mLastKnownPositionOffset_ >= 0 ? this$0_->mLastKnownPositionOffset_ : 0;
+    float offset = this$0_->mLastKnownPositionOffset_ >= 0 ? this$0_->mLastKnownPositionOffset_ : 0;
     [this$0_ updateTextPositionsWithInt:[((ADXViewPager *) nil_chk(this$0_->mPager_)) getCurrentItem] withFloat:offset withBoolean:true];
   }
 }
 
-- (void)onPageScrollStateChangedWithInt:(jint)state {
+- (void)onPageScrollStateChangedWithInt:(int32_t)state {
   mScrollState_ = state;
 }
 
@@ -484,7 +497,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXPagerTitleStrip)
 
 - (void)onChanged {
   [this$0_ updateTextWithInt:[((ADXViewPager *) nil_chk(this$0_->mPager_)) getCurrentItem] withADXPagerAdapter:[((ADXViewPager *) nil_chk(this$0_->mPager_)) getAdapter]];
-  jfloat offset = this$0_->mLastKnownPositionOffset_ >= 0 ? this$0_->mLastKnownPositionOffset_ : 0;
+  float offset = this$0_->mLastKnownPositionOffset_ >= 0 ? this$0_->mLastKnownPositionOffset_ : 0;
   [this$0_ updateTextPositionsWithInt:[((ADXViewPager *) nil_chk(this$0_->mPager_)) getCurrentItem] withFloat:offset withBoolean:true];
 }
 
