@@ -35,7 +35,7 @@
   </platform>
   <platform name="ios">
     <config-file target="config.xml" parent="/widget">
-      <feature name="com.ashera.viewpager.ios">
+      <feature name="CordovaViewPagerPlugin">
         	<param name="ios-package" value="CordovaViewPagerPlugin" />
          	<param name="onload" value="true" />
       </feature>
