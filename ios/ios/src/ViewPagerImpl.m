@@ -248,17 +248,23 @@ __attribute__((unused)) static ASViewPagerImpl_1 *create_ASViewPagerImpl_1_initW
 - (void)handlePanStartWithASIWidget:(id<ASIWidget>)widget
                              withId:(id)eventWidget
                             withInt:(int32_t)x
-                            withInt:(int32_t)y;
+                            withInt:(int32_t)y
+                            withInt:(int32_t)rawX
+                            withInt:(int32_t)rawY;
 
 - (void)handlePanDragWithASIWidget:(id<ASIWidget>)widget
                             withId:(id)eventWidget
                            withInt:(int32_t)x
-                           withInt:(int32_t)y;
+                           withInt:(int32_t)y
+                           withInt:(int32_t)rawX
+                           withInt:(int32_t)rawY;
 
 - (void)handlePanEndWithASIWidget:(id<ASIWidget>)widget
                            withId:(id)eventWidget
                           withInt:(int32_t)x
-                          withInt:(int32_t)y;
+                          withInt:(int32_t)y
+                          withInt:(int32_t)rawX
+                          withInt:(int32_t)rawY;
 
 @end
 
@@ -1679,7 +1685,9 @@ ASViewPagerImpl_1 *create_ASViewPagerImpl_1_initWithASViewPagerImpl_(ASViewPager
 - (void)handlePanStartWithASIWidget:(id<ASIWidget>)widget
                              withId:(id)eventWidget
                             withInt:(int32_t)x
-                            withInt:(int32_t)y {
+                            withInt:(int32_t)y
+                            withInt:(int32_t)rawX
+                            withInt:(int32_t)rawY {
   int32_t eventX = ASViewPagerImpl_getAbsXWithId_withInt_withInt_(this$0_, eventWidget, x, y);
   ASViewPagerImpl_handlePanStartWithInt_(this$0_, eventX);
 }
@@ -1687,7 +1695,9 @@ ASViewPagerImpl_1 *create_ASViewPagerImpl_1_initWithASViewPagerImpl_(ASViewPager
 - (void)handlePanDragWithASIWidget:(id<ASIWidget>)widget
                             withId:(id)eventWidget
                            withInt:(int32_t)x
-                           withInt:(int32_t)y {
+                           withInt:(int32_t)y
+                           withInt:(int32_t)rawX
+                           withInt:(int32_t)rawY {
   int32_t eventX = ASViewPagerImpl_getAbsXWithId_withInt_withInt_(this$0_, eventWidget, x, y);
   ASViewPagerImpl_handlePanDragWithInt_(this$0_, eventX);
 }
@@ -1695,7 +1705,9 @@ ASViewPagerImpl_1 *create_ASViewPagerImpl_1_initWithASViewPagerImpl_(ASViewPager
 - (void)handlePanEndWithASIWidget:(id<ASIWidget>)widget
                            withId:(id)eventWidget
                           withInt:(int32_t)x
-                          withInt:(int32_t)y {
+                          withInt:(int32_t)y
+                          withInt:(int32_t)rawX
+                          withInt:(int32_t)rawY {
   int32_t eventX = ASViewPagerImpl_getAbsXWithId_withInt_withInt_(this$0_, eventWidget, x, y);
   ASViewPagerImpl_handlePanEndWithInt_(this$0_, eventX);
 }
@@ -1711,14 +1723,14 @@ ASViewPagerImpl_1 *create_ASViewPagerImpl_1_initWithASViewPagerImpl_(ASViewPager
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
   #pragma clang diagnostic ignored "-Wundeclared-selector"
   methods[0].selector = @selector(initWithASViewPagerImpl:);
-  methods[1].selector = @selector(handlePanStartWithASIWidget:withId:withInt:withInt:);
-  methods[2].selector = @selector(handlePanDragWithASIWidget:withId:withInt:withInt:);
-  methods[3].selector = @selector(handlePanEndWithASIWidget:withId:withInt:withInt:);
+  methods[1].selector = @selector(handlePanStartWithASIWidget:withId:withInt:withInt:withInt:withInt:);
+  methods[2].selector = @selector(handlePanDragWithASIWidget:withId:withInt:withInt:withInt:withInt:);
+  methods[3].selector = @selector(handlePanEndWithASIWidget:withId:withInt:withInt:withInt:withInt:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "this$0_", "LASViewPagerImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "LASViewPagerImpl;", "handlePanStart", "LASIWidget;LNSObject;II", "handlePanDrag", "handlePanEnd" };
+  static const void *ptrTable[] = { "LASViewPagerImpl;", "handlePanStart", "LASIWidget;LNSObject;IIII", "handlePanDrag", "handlePanEnd" };
   static const J2ObjcClassInfo _ASViewPagerImpl_ViewPagerPanListener = { "ViewPagerPanListener", "com.ashera.viewpager", ptrTable, methods, fields, 7, 0x2, 4, 1, 0, -1, -1, -1, -1 };
   return &_ASViewPagerImpl_ViewPagerPanListener;
 }

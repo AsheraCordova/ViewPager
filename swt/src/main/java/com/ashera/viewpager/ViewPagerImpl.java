@@ -1126,20 +1126,20 @@ public java.util.Map<String, Object> getOnPageScrollStateChangedEventObj(int sta
 		}
 	
 		@Override
-		public void handlePanStart(IWidget widget, Object eventWidget, int x, int y) {
+		public void handlePanStart(IWidget widget, Object eventWidget, int x, int y, int rawX, int rawY) {
 			int eventX = getAbsX(eventWidget, x, y);
 			ViewPagerImpl.this.handlePanStart(eventX);
 		}
 
 		@Override
-		public void handlePanDrag(IWidget widget, Object eventWidget, int x, int y) {
+		public void handlePanDrag(IWidget widget, Object eventWidget, int x, int y, int rawX, int rawY) {
 			int eventX = getAbsX(eventWidget, x, y);
 			ViewPagerImpl.this.handlePanDrag(eventX);
 			
 		}
 
 		@Override
-		public void handlePanEnd(IWidget widget, Object eventWidget, int x, int y) {
+		public void handlePanEnd(IWidget widget, Object eventWidget, int x, int y, int rawX, int rawY) {
 			int eventX = getAbsX(eventWidget, x, y);
 			ViewPagerImpl.this.handlePanEnd(eventX);
 		}
